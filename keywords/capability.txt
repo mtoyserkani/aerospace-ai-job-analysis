@@ -1,0 +1,57 @@
+# AI Capability Keywords
+# What companies are actually hiring for — the build signal.
+# These appear in the hundreds across the dataset.
+
+# Core AI/ML
+machine learning
+artificial intelligence
+deep learning
+neural network
+large language model
+llm
+generative ai
+foundation model
+computer vision
+natural language processing
+nlp
+
+# Autonomous systems
+autonomous systems
+autonomous flight
+autonomous vehicle
+autonomous aircraft
+autonomous operation
+detect and avoid
+daa
+path planning
+motion planning
+mission planning
+
+# Data infrastructure
+data engineer
+data pipeline
+data platform
+data quality
+dataset
+training data
+data annotation
+data labeling
+synthetic data
+sensor fusion
+telemetry
+
+# AI operations
+mlops
+ci/cd
+model deployment
+model serving
+ai infrastructure
+feature engineering
+experiment tracking
+
+# Specific roles
+data scientist
+ml engineer
+autonomy engineer
+perception engineer
+robotics engineer

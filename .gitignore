@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Playwright
+playwright-report/
+
+# Analysis outputs (generate locally, don't commit)
+results/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive
+.env
+*.key

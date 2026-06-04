@@ -1,0 +1,49 @@
+# Certification-Adjacent Keywords
+# Traditional aerospace certification vocabulary.
+# These appear frequently but are NOT AI governance signals.
+# Use false_positive_detector.py to categorize hits correctly.
+#
+# The gap between this list and the governance.txt list is the story:
+# traditional cert apparatus is intact and growing, but it was built
+# for deterministic software and hasn't been connected to AI systems.
+
+# Standards (traditional, not AI-specific)
+do-178c
+do-254
+arp4754a
+arp4761
+mil-hdbk-516c
+mil-std-882e
+as9100
+iso 9001
+
+# Regulatory bodies
+faa
+easa
+caac
+transport canada
+uk caa
+emar
+
+# Traditional certification roles
+designated engineering representative
+der
+doa
+type certificate
+supplemental type certificate
+stc
+airworthiness directive
+airworthiness certification
+continued airworthiness
+
+# Traditional V&V (deterministic software)
+verification and validation
+software verification
+hardware verification
+test and evaluation
+developmental testing
+operational testing
+dt&e
+ot&e
+systems integration
+acceptance testing

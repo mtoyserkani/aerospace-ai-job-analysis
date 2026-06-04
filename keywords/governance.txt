@@ -1,0 +1,65 @@
+# AI Governance Keywords
+# One keyword or phrase per line. Lines starting with # are comments.
+# These are the terms you'd expect to see if a company was hiring
+# to own AI certification — and they don't appear.
+#
+# Methodology note: run analysis/false_positive_detector.py before
+# drawing conclusions. "Certification" in aerospace almost always means
+# A&P mechanic licenses or security clearances, not AI certification.
+
+# Regulatory standards
+arp6983
+easa ai roadmap
+faa ai safety
+do-178c ai
+sotif
+odd definition
+operational design domain
+learning assurance
+dal-ai
+design assurance level ai
+
+# AI governance vocabulary
+ai governance
+ai certification
+ai compliance
+ai assurance
+responsible ai
+ai ethics
+ai safety
+trustworthy ai
+ai accountability
+ai transparency
+algorithmic accountability
+
+# AI V&V vocabulary
+ai verification
+ai validation
+ai v&v
+ml validation
+model validation
+model monitoring
+model governance
+model risk
+ai testing
+ai audit
+
+# Technical certification signals
+explainability
+interpretability
+uncertainty quantification
+out-of-distribution
+ood detection
+distributional shift
+bias assessment
+fairness assessment
+training data governance
+data lineage
+
+# Roles
+ai compliance officer
+ai certification engineer
+ai safety engineer
+responsible ai lead
+ml governance
+ai product compliance
