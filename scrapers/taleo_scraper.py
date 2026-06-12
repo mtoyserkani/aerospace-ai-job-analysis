@@ -227,13 +227,24 @@ async def scrape_company(config: dict, limiter: RateLimiter) -> list[Job]:
     print(f"  [{tenant}] Total intercepted: {len(all_raw)} jobs")
 
     # Build Job objects
+    # Taleo returns data in column array: [title, location_json, date]
+    import json as _json2
     for raw in all_raw:
         job_id   = str(raw.get("jobId", raw.get("requisitionId", raw.get("id", ""))))
-        title    = (raw.get("jobTitle", raw.get("title", "")) or "").strip()
-        city     = raw.get("city", "") or ""
-        state    = raw.get("state", "") or ""
-        location = ", ".join(p for p in [city, state] if p).strip(", ")
-        date_posted = _parse_date(raw)
+        columns  = raw.get("column", [])
+        title    = (columns[0] if columns else raw.get("jobTitle", raw.get("title", "")) or "").strip()
+        loc_raw  = columns[1] if len(columns) > 1 else ""
+        try:
+            locs = _json2.loads(loc_raw) if loc_raw and loc_raw.startswith("[") else [loc_raw]
+            location = locs[0].replace("US-", "").replace("-", ", ") if locs else ""
+        except Exception:
+            location = str(loc_raw)
+        date_str = columns[2] if len(columns) > 2 else ""
+        try:
+            from datetime import datetime as _dt2
+            date_posted = _dt2.strptime(date_str.strip(), "%m/%d/%Y").strftime("%Y-%m-%d")
+        except Exception:
+            date_posted = _parse_date(raw)
         desc     = _clean(raw.get("jobDescription", raw.get("description", "")) or "")
         apply_url = _build_apply_url(tenant, config["section"], job_id)
 
@@ -263,7 +274,7 @@ async def scrape_company(config: dict, limiter: RateLimiter) -> list[Job]:
 # Runner
 # ---------------------------------------------------------------------------
 
-async def main(company_keys: list, output: Path) -> None:
+async def main(company_keys: list, output_dir: Path) -> None:
     limiter  = RateLimiter(calls_per_minute=25)
     all_jobs = []
 
@@ -294,7 +305,7 @@ async def main(company_keys: list, output: Path) -> None:
         output_path = output_dir / f"taleo_{key}.csv"
         save_jobs(company_jobs, output_path)
         total += len(company_jobs)
-    print(f"\nTotal: {len(all_jobs)} jobs → {output}")
+    print(f"\nTotal: {total} jobs")
 
 
 if __name__ == "__main__":
