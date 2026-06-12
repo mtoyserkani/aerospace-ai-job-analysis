@@ -1,7 +1,7 @@
 company_name,tier,ats_platform,scraper,output_file,scraper_status,notes
 The Boeing Company,Prime,TalentBrew,talentbrew_scraper.py,boeing_jobs.csv,active,1791 jobs captured. Also on Workday (1217 jobs with descriptions in workday_jobs_enriched.csv).
 Lockheed Martin,Prime,Brassring,brassring_scraper.py,brassring_enriched.csv,active,6610 jobs with descriptions enriched overnight.
-Northrop Grumman,Prime,Eightfold,eightfold_scraper.py,,active,2893 jobs confirmed 2026-06-12. Uses /search?domain=ngc.com API. eightfold_scraper.py updated with correct endpoint.
+Northrop Grumman,Prime,Eightfold,eightfold_scraper.py,,parked,/search API redirects to corporate SAML/ADFS SSO (ngc-fin.amer.myngc.com). Requires Northrop login. HTML scraping via Playwright is the only path forward.
 RTX,Prime,Phenom,phenom_scraper.py,,parked,careers.rtx.com. API blocked from automated access.
 General Dynamics,Prime,iCIMS,icims_scraper.py,gd_jobs.csv,active,239 jobs (GD OTS division only). Full GD catalog split across multiple iCIMS instances.
 L3Harris,Prime,TalentBrew,talentbrew_scraper.py,l3harris_enriched.csv,active,1673 jobs with descriptions enriched.
