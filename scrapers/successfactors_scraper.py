@@ -25,7 +25,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from base import (
-    Job, RateLimiter, infer_seniority, infer_remote, save_jobs,
+    Job, RateLimiter, infer_seniority, infer_remote, save_jobs, sample_check,
     extract_salary, extract_citizenship, extract_clearance, extract_relocation,
 )
 
@@ -292,13 +292,28 @@ async def main(company_keys: list, output: Path) -> None:
         print(f"  Done: {len(jobs)} jobs")
         all_jobs.extend(jobs)
 
-    save_jobs(all_jobs, output)
+    # Save per company - iterate jobs by company
+    from collections import defaultdict
+    jobs_by_company = defaultdict(list)
+    for job in all_jobs:
+        jobs_by_company[job.company].append(job)
+    total = 0
+    for company_jobs in jobs_by_company.values():
+        if not company_jobs:
+            continue
+        if not sample_check(company_jobs[:20], company_jobs[0].company, "successfactors"):
+            continue
+        key = company_jobs[0].company.lower().replace(" ", "_").replace("(", "").replace(")", "")
+        output_path = output_dir / f"successfactors_{key}.csv"
+        save_jobs(company_jobs, output_path)
+        total += len(company_jobs)
     print(f"\nTotal: {len(all_jobs)} jobs → {output}")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scrape SAP SuccessFactors ATS")
     parser.add_argument("--companies", nargs="*", default=list(COMPANIES.keys()))
-    parser.add_argument("--output",    type=Path, default=Path("data/sf_jobs.csv"))
+    parser.add_argument("--output-dir", type=Path, default=Path("data"),
+                        help="Directory for output files (one CSV per company)")
     args = parser.parse_args()
-    asyncio.run(main(args.companies, args.output))
+    asyncio.run(main(args.companies, args.output_dir))

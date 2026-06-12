@@ -43,7 +43,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from base import (
-    Job, RateLimiter, infer_seniority, infer_remote, save_jobs,
+    Job, RateLimiter, infer_seniority, infer_remote, save_jobs, sample_check,
     extract_salary, extract_citizenship, extract_clearance, extract_relocation,
 )
 
@@ -52,60 +52,27 @@ from base import (
 # ---------------------------------------------------------------------------
 
 COMPANIES = {
-    "northrop": {
-        "name":             "Northrop Grumman",
-        "base_url":         "https://ngccareers.northropgrumman.com",
-        "api_path":         "/api/apply/v2/jobs",
-        "detail_api_path":  "/api/apply/v2/jobs/{job_id}",
-        "description_mode": "api_top_level",
-        "known_issue":      None,
-    },
     "ge": {
         "name":             "GE Aerospace",
         "base_url":         "https://careers.geaerospace.com",
         "api_path":         "/api/apply/v2/jobs",
         "detail_api_path":  "/api/apply/v2/jobs/{job_id}",
         "description_mode": "api_detail",
-        "known_issue":      None,
+        "known_issue":      "Phenom widget-based API. Tenant not identified via direct API calls. Blocked 2026-06-12.",
+        "status":           "parked",
     },
     "rtx": {
-        "name":             "RTX / Collins Aerospace / Pratt & Whitney",
+        "name":             "RTX",
         "base_url":         "https://careers.rtx.com",
         "api_path":         "/api/apply/v2/jobs",
         "detail_api_path":  "/api/apply/v2/jobs/{job_id}",
-        "description_mode": "api_top_level",
-        "known_issue":      None,
-        "note":             "Single Phenom instance covers RTX, Collins Aerospace, and Pratt & Whitney.",
-    },
-    # "haeco": REMOVED — HAECO Americas acquired by AAR Corp November 2025.
-    # No longer an independent company. Roles now appear under AAR Corp (aarcorp.taleo.net).
-    "lufthansa": {
-        "name":             "Lufthansa Technik Americas",
-        "base_url":         "https://careers.lufthansa-technik.com",
-        "api_path":         "/api/apply/v2/jobs",
-        "detail_api_path":  "/api/apply/v2/jobs/{job_id}",
-        "description_mode": "api_top_level",
-        "known_issue":      None,
-    },
-    "aircanada": {
-        "name":             "Air Canada Technical Services",
-        "base_url":         "https://careers.aircanada.com",
-        "api_path":         "/api/apply/v2/jobs",
-        "detail_api_path":  "/api/apply/v2/jobs/{job_id}",
-        "description_mode": "api_top_level",
-        "known_issue":      None,
-        "note":             "Full Air Canada catalog — filter Technical Services roles in analysis.",
-    },
-    "pemco": {
-        "name":             "Pemco Aviation Group",
-        "base_url":         "https://careers.atsginc.com",
-        "api_path":         "/api/apply/v2/jobs",
-        "detail_api_path":  "/api/apply/v2/jobs/{job_id}",
-        "description_mode": "api_top_level",
-        "known_issue":      None,
-        "note":             "Pemco uses the ATSG careers portal.",
+        "description_mode": "api_detail",
+        "known_issue":      "Cloudflare Bot Management blocks all automated access.",
+        "status":           "parked",
     },
 }
+# NOTE: Northrop Grumman moved from Phenom to Eightfold AI (jobs.northropgrumman.com).
+# Use eightfold_scraper.py for Northrop.
 
 # ---------------------------------------------------------------------------
 # Phenom API headers
@@ -544,7 +511,21 @@ async def main(company_keys: list[str], output: Path, skip_descriptions: bool) -
         jobs = await scrape_company(config, limiter, skip_descriptions)
         all_jobs.extend(jobs)
 
-    save_jobs(all_jobs, output)
+    # Save per company
+    from collections import defaultdict
+    jobs_by_company = defaultdict(list)
+    for job in all_jobs:
+        jobs_by_company[job.company].append(job)
+    total = 0
+    for company_jobs in jobs_by_company.values():
+        if not company_jobs:
+            continue
+        if not sample_check(company_jobs[:20], company_jobs[0].company, "phenom"):
+            continue
+        key = company_jobs[0].company.lower().replace(" ", "_").replace("(", "").replace(")", "")
+        output_path = output_dir / f"phenom_{key}.csv"
+        save_jobs(company_jobs, output_path)
+        total += len(company_jobs)
     print(f"\nTotal: {len(all_jobs)} jobs from {len(company_keys)} companies → {output}")
 
 
@@ -552,7 +533,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scrape Phenom People ATS job boards")
     parser.add_argument("--companies",          nargs="*", default=list(COMPANIES.keys()),
                         help=f"Companies to scrape. Options: {', '.join(COMPANIES)}")
-    parser.add_argument("--output",             type=Path, default=Path("data/phenom_jobs.csv"))
+    parser.add_argument("--output-dir", type=Path, default=Path("data"),
+                        help="Directory for output files (one CSV per company)")
     parser.add_argument("--skip-descriptions",  action="store_true",
                         help="Skip description fetch (fast list-only mode)")
     args = parser.parse_args()

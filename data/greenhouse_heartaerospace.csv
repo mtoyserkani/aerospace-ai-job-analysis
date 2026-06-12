@@ -1,0 +1,960 @@
+company,title,job_id,location,country,salary,remote,seniority,us_citizenship_required,security_clearance,relocation_assistance,source_platform,date_posted,scraped_at,apply_url,description_text
+Heart Aerospace,Battery Mechanical Design Engineer,4031454009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-04-28,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4031454009,"<div class=""title"">
+<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p>Heart Aerospace is seeking a highly motivated and experienced Battery Design Engineer to join our growing and dynamic team. In this role, you will be a key contributor to the design, development, testing, and optimization of advanced battery systems specifically designed for the demanding requirements of electric aerospace applications. You will leverage your deep understanding of design methodologies and approaches to drive innovation and ensure the highest levels of performance, safety and reliability. You will translate system-level requirements into robust, certifiable mechanical designs, playing a critical role in electrifying the future of flight.&nbsp;</p>
+<p><strong>Key responsibilities include but are not limited to:</strong></p>
+<ul>
+<li data-renderer-start-pos=""16726"">Lead the mechanical design, and development of various battery mechanical systems, including battery cells, module design, module housings, high voltage distribution and full pack assemblies using advanced CAD tools (e.g. NX).</li>
+<li data-renderer-start-pos=""16956"">Develop innovative and weight-optimized structural solutions to meet aircraft-level vibration, shock, and crash safety requirements.</li>
+<li data-renderer-start-pos=""17092"">Create and manage detailed engineering drawings and specifications, applying a high standard of Geometric Dimensioning and Tolerancing (GD&amp;T).</li>
+<li data-renderer-start-pos=""17238"">Generate high quality DFMEA’s and DVP&amp;R’s</li>
+<li data-renderer-start-pos=""17283"">Define and execute comprehensive validation and verification test plans (mechanical, environmental, and abuse testing) to qualify designs for aerospace applications.</li>
+<li data-renderer-start-pos=""17452"">Collaborate cross-functionally with Electrical, Thermal, and System Integration teams to ensure seamless integration of the battery system into the aircraft structure.</li>
+<li data-renderer-start-pos=""17623"">Ensure all designs meet relevant aerospace safety and certification standards (e.g., FAA, EASA, DO-160, DO-311, etc.).</li>
+<li data-renderer-start-pos=""17745"">Support the transition of designs from prototype to high-volume manufacturing, focusing on Design for Manufacturing (DFM) and Design for Assembly (DFA).</li>
+<li data-renderer-start-pos=""17901"">Drive program schedule, timelines. Ensure releases are on time to meet vehicle program milestones.</li>
+<li data-renderer-start-pos=""18005"">Mentor junior engineers and serve as a technical resource within the mechanical engineering team.</li>
+</ul>
+<p data-renderer-start-pos=""18513""><strong data-renderer-mark=""true"">Skills &amp; Requirements:</strong></p>
+<p data-renderer-start-pos=""18513""><strong data-renderer-mark=""true"">You'll Bring These Qualifications for Battery Mechanical Design Engineer:</strong></p>
+<ul>
+<li data-renderer-start-pos=""18513"">Minimum of 2+ years of experience in mechanical engineering design, with a significant focus on high-voltage battery systems (cell, module, or pack level).</li>
+<li data-renderer-start-pos=""18513"">Bachelor's degree in Mechanical Engineering, Aerospace Engineering, or a closely related technical field</li>
+<li data-renderer-start-pos=""18778"">Proficiency in a mechanical CAD tool (e.g., Siemens NX, CATIA).</li>
+<li data-renderer-start-pos=""18845"">Proficiency with FEA software and hand calculations in structural and thermal analysis using industry-standard FEA/CFD software (e.g., ANSYS, Abaqus, Star-CCM+).</li>
+<li data-renderer-start-pos=""19010"">Deep understanding of structural mechanics, fatigue analysis, and thermal management principles as applied to electrochemical systems.</li>
+<li data-renderer-start-pos=""19148"">Excellent written and verbal communication skills, including the ability to present complex technical information clearly.</li>
+<li data-renderer-start-pos=""19274"">Strong problem-solving skills and the ability to perform root cause analysis.</li>
+<li data-renderer-start-pos=""19355"">Ability to work independently and collaboratively in a fast-paced, dynamic environment.</li>
+</ul>
+<p data-renderer-start-pos=""20651""><strong data-renderer-mark=""true"">These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li data-renderer-start-pos=""20698"">Prior experience designing components for certified aerospace or high-reliability automotive/EV applications.</li>
+<li data-renderer-start-pos=""20811"">Familiarity with aerospace certification processes and design standards (e.g., DO-160, DO-311A, MIL-STD, UN 38.3, IEC standards).</li>
+<li data-renderer-start-pos=""20811"">Master's or Ph.D. degree in Mechanical Engineering or a specialization relevant to energy storage.</li>
+<li data-renderer-start-pos=""20944"">Hands-on experience with design for sealing and ingress protection (IP ratings).</li>
+<li data-renderer-start-pos=""21028"">Experience with BMS enclosure and interconnect design.</li>
+<li data-renderer-start-pos=""21086"">Knowledge of manufacturing processes unique to battery pack construction (e.g., laser welding, potting, sealing).</li>
+</ul>
+</div>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$113,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
+Heart Aerospace,Battery Test & Validation Engineer (High Voltage Packs & Modules),4013408009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013408009,"<div class=""title"">
+<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p>Heart Aerospace is seeking a highly motivated and experienced Battery Test &amp; Validation Engineer to join our growing and dynamic team. In this role, you will be a key contributor to the development, testing, and optimization of advanced battery cells specifically designed for the demanding requirements of electric aerospace applications. You will leverage your deep understanding of Test &amp; Validation methodologies and approach to drive innovation and ensure the highest levels of performance, safety and reliability.</p>
+<p data-renderer-start-pos=""9201""><strong data-renderer-mark=""true"">Key responsibilities include but are not limited to:</strong></p>
+<ul>
+<li data-renderer-start-pos=""9257"">Lead the development and execution of comprehensive test plans and procedures for battery modules and high voltage battery packs designed for aerospace applications.</li>
+<li data-renderer-start-pos=""9427"">Collaborate closely with the design team to define DFMEA, test requirements and ensure testability of new battery technologies and designs. Support the development of battery system qualification and certification plans.</li>
+<li data-renderer-start-pos=""9652"">Create and maintain system and sub-system Design Verification Plans and Reports (DVP&amp;R). Draft and release test plans. Host Test Readiness Reviews.</li>
+<li data-renderer-start-pos=""9807"">Execute hands on testing for performance, life cycle, environmental, safety, mechanical (shock and vibe), thermal, electrical and homologation testing.</li>
+<li data-renderer-start-pos=""9963"">Design, build and integrate test fixtures, data acquisition systems, and control software to conduct accurate and repeatable testing.</li>
+<li data-renderer-start-pos=""10100"">Analyze test data, generate detailed reports, and present findings to cross-functional teams and leadership.</li>
+<li data-renderer-start-pos=""10212"">Identify failure modes, perform root cause analysis to enhance battery system performance and reliability.</li>
+<li data-renderer-start-pos=""10322"">Manage external testing labs and vendors as needed.</li>
+</ul>
+<p data-renderer-start-pos=""10380""><strong data-renderer-mark=""true"">You'll Bring These Qualifications for Senior Battery Test &amp; Validation Engineer:</strong></p>
+<ul>
+<li data-renderer-start-pos=""10464"">5+ years of experience in battery testing and validation in high-reliability industries.</li>
+<li data-renderer-start-pos=""10556"">Understanding of battery electrochemistry, performance characteristics, and safety requirements for lithium-ion batteries.</li>
+<li data-renderer-start-pos=""10683"">Direct hands on experience in high voltage battery system testing and validation for lithium-ion batteries.</li>
+<li data-renderer-start-pos=""10796"">Experience running battery testing equipment (e.g., cyclers, environmental chambers, safety test equipment) and data acquisition systems.</li>
+<li data-renderer-start-pos=""10939"">Proficiency in data acquisition and analysis tools (e.g., LabVIEW, MATLAB).</li>
+<li data-renderer-start-pos=""11019"">Strong problem-solving skills and the ability to perform root cause analysis.</li>
+<li data-renderer-start-pos=""11101"">Familiarity with high-voltage systems and safety protocols.</li>
+</ul>
+<p data-renderer-start-pos=""11167""><strong data-renderer-mark=""true"">You'll Bring These Qualifications for Staff Battery Test &amp; Validation Engineer:</strong></p>
+<ul>
+<li data-renderer-start-pos=""11250"">8+ years of experience in battery testing and validation, preferably within the aerospace, automotive, or other high-reliability industries.</li>
+<li data-renderer-start-pos=""11394"">Deep understanding of battery electrochemistry, performance characteristics, failure mechanisms, and safety requirements for lithium-ion batteries.</li>
+<li data-renderer-start-pos=""11546"">Direct hands on experience in high voltage battery system testing and validation for lithium-ion batteries.</li>
+<li data-renderer-start-pos=""11659"">Experience running battery testing equipment (e.g., cyclers, environmental chambers, safety test equipment) and data acquisition systems.</li>
+<li data-renderer-start-pos=""11802"">Proficiency in data acquisition and analysis tools (e.g., LabVIEW, MATLAB).</li>
+<li data-renderer-start-pos=""11882"">Strong problem-solving skills and the ability to perform root cause analysis.</li>
+<li data-renderer-start-pos=""11964"">Highly efficiency with high-voltage systems and safety protocols.</li>
+</ul>
+<p data-renderer-start-pos=""12036""><strong data-renderer-mark=""true"">These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li data-renderer-start-pos=""12083"">Familiarity with aerospace industry standards, regulatory requirements, qualification and certification processes.</li>
+<li data-renderer-start-pos=""12201"">Experience with battery modeling and simulation.</li>
+<li data-renderer-start-pos=""12254"">Knowledge of battery management systems (BMS) and control algorithms.</li>
+</ul>
+<p><strong>Education</strong></p>
+<ul>
+<li>M.S. or Ph.D. in Chemical Engineering, Materials Science, Electrochemistry, or a related field.</li>
+</ul>
+</div>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$140,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
+Heart Aerospace,Business Development Lead,4238003009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-05-01,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4238003009,"<div class=""pay-range"">
+<p>At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric airplane capable of carrying 30 passengers, boasting an electric zero-emission range of 125 mi and a hybrid range of 500 mi. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p>As we scale our aircraft program, we are also building a component business around core aircraft systems we develop in-house, including flight control actuation and energy systems. These products reflect the same philosophy as our aircraft: software-defined, and designed for performance, reliability, and cost.</p>
+<p><strong><u>Your mission</u></strong><u>:</u></p>
+<p>We are seeking a Business Development Lead - Actuation to build and lead the commercialization of Heart’s flight control actuator technology. This role spans market definition, go-to-market strategy, and direct customer engagement, turning a high-performance internal system into a standalone product line serving aerospace and adjacent markets.</p>
+<p>You will define where we play, how we win, and then go execute, working directly with OEMs, startups, and industrial partners to land early programs and scale into a meaningful revenue stream. This is a high-impact, zero-to-one role suited for someone who can move fluidly between technical, commercial, and strategic work.</p>
+<p><strong><u>Key responsibilities include but are not limited to:</u></strong><u>&nbsp;</u></p>
+<ul>
+<li><span data-contrast=""auto"">Define and&nbsp;validate&nbsp;the market for Heart’s actuation products: sizing TAM, segmenting customers (AAM, defense, UAV, agile incumbents), and&nbsp;identifying&nbsp;priority entry points</span><span data-ccp-props=""{}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Develop and execute go-to-market&nbsp;strategy, including pricing, value proposition, channel strategy, and launch roadmap</span><span data-ccp-props=""{}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Lead customer development and business development efforts: originating, structuring, and closing early customer programs (NRE and production)</span><span data-ccp-props=""{}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Represent Heart externally at trade shows, industry events, and customer engagements, serving as the commercial face of the actuation business</span><span data-ccp-props=""{}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Translate engineering performance into customer-ready narratives, proposals, and technical-commercial materials</span><span data-ccp-props=""{}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Work cross-functionally with engineering, program management, and leadership to align product development with market demand</span><span data-ccp-props=""{}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Build and manage a pipeline of opportunities, including forecasting, deal tracking, and partnership development</span><span data-ccp-props=""{}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Identify&nbsp;opportunities to expand from&nbsp;component&nbsp;sales into higher-value systems and integrated solutions</span><span data-ccp-props=""{}"">&nbsp;</span></li>
+</ul>
+<p><strong>Skills &amp; Requirements:</strong></p>
+<p><strong><u>You'll Bring These Qualifications for the Business Development Lead position:</u></strong></p>
+<ul>
+<li><span data-olk-copy-source=""MessageBody"">5+ years of experience in business development, product strategy, or technical sales within aerospace, defense, or advanced manufacturing</span></li>
+<li class=""x_MsoNormal""><span data-olk-copy-source=""MessageBody"">Bachelor’s degree in engineering, business, or a related field (or equivalent experience).</span></li>
+<li>Experience selling or supporting complex hardware systems into OEMs, Tier 1 suppliers, or government customers</li>
+<li>Strong technical fluency, with the ability to engage credibly with engineering teams and customers on system-level topics</li>
+<li>Demonstrated ability to build new markets or product lines from early-stage concepts through initial revenue</li>
+<li>Excellent communication and relationship-building skills across technical and executive stakeholders</li>
+<li>Willingness to travel for customer meetings, trade shows, and industry engagement</li>
+</ul>
+<p><strong><u>These Qualifications Would Be Nice to Have:</u></strong></p>
+<ul type=""disc"">
+<li class=""x_MsoNormal""><span data-olk-copy-source=""MessageBody"">Experience with actuation systems, flight controls, or adjacent aerospace subsystems</span></li>
+<li class=""x_MsoNormal"">Familiarity with certification environments (Part 23/25, DO-178, DO-254, DO-160)</li>
+<li class=""x_MsoNormal"">Background in early-stage or high-growth companies, particularly in AAM or electrified aviation</li>
+<li class=""x_MsoNormal"">Experience structuring NRE agreements, long-cycle hardware deals, or strategic partnerships</li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$170,000<span class=""divider"">—</span>$220,000 USD</strong></div>
+</div>
+<p>&nbsp;</p>"
+Heart Aerospace,Buyer II,4211913009,"Los Angeles, CA",United States of America,"$75,000 - $95,000",hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-04-09,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4211913009,"<div class=""pay-range"">
+<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.&nbsp;</p>
+<p><strong><u>Your mission</u></strong><u>:</u></p>
+<p>Heart’s Production and Integration team is seeking a Buyer to support the procurement of electrical, mechanical, fasteners, and commercial off-the-shelf (COTS) components. This role is responsible for sourcing, negotiating, and purchasing parts while ensuring quality, cost-effectiveness, and on-time delivery to support aircraft manufacturing operations.</p>
+<p>The ideal candidate will collaborate cross-functionally with engineering, production, quality, and suppliers to maintain a reliable and efficient supply chain within a highly regulated aerospace environment. As a key member of the Operations team, this is a high-impact, high-visibility role suited for someone who thrives in fast-paced, early-stage environments and is motivated to help drive innovation in the aerospace industry.</p>
+<p><strong><u>Key responsibilities include but are not limited to:</u></strong><u>&nbsp;</u></p>
+<ul>
+<li>Source and procure electrical, mechanical, fasteners, and COTS components to support production and engineering requirements.</li>
+<li>Issue purchase orders and manage the full order lifecycle from placement through delivery.</li>
+<li>Evaluate supplier quotes and negotiate pricing, lead times, and commercial terms.</li>
+<li>Establish and onboard vendors in accounts payable systems; develop and maintain an approved vendor list; support supplier audits and site visits.</li>
+<li>Monitor supplier performance to ensure on-time delivery, quality compliance, and cost targets are met.</li>
+<li>Collaborate cross-functionally with engineering, operations, and quality to ensure parts meet specifications and regulatory requirements.</li>
+<li>Maintain accurate procurement and supplier data within ERP/MRP systems.</li>
+<li>Identify, evaluate, and qualify new suppliers to support business needs and scalability.</li>
+<li>Resolve supply chain issues including shortages, delays, and quality concerns.</li>
+<li>Drive cost reduction initiatives and support continuous improvement efforts.</li>
+<li>Ensure compliance with internal policies, industry standards, and aerospace regulations.</li>
+<li>This position&nbsp;operates&nbsp;in a professional office environment with&nbsp;regular interaction with manufacturing and engineering teams. Occasional supplier visits may be&nbsp;required.</li>
+</ul>
+<p><strong>Skills &amp; Requirements:</strong></p>
+<p><strong><u>You'll&nbsp;Bring These Qualifications for the Buyer position:</u></strong></p>
+<ul>
+<li>2+ years of purchasing or supply chain experience, preferably in a manufacturing or aerospace environment.&nbsp;</li>
+<li>Familiarity with technical components (electrical, mechanical, fasteners, COTS).</li>
+<li>Experience with ERP/MRP systems.</li>
+<li>Strong negotiation, communication, and organizational skills.</li>
+<li>Attention to detail and accuracy.</li>
+<li>Problem-solving and decision-making skills.</li>
+<li>Ability to manage multiple priorities in a fast-paced environment.</li>
+<li>Strong supplier relationship management.</li>
+<li>Cost&nbsp;awareness(budget)&nbsp;and&nbsp;analytical thinking.</li>
+</ul>
+<p><strong><u>These Qualifications Would Be Nice to Have:</u></strong></p>
+<ul>
+<li>Bachelors Degree</li>
+<li>Ability to read and interpret engineering drawings and specifications.</li>
+<li>Knowledge of aerospace standards and regulations (e.g., AS9100)</li>
+</ul>
+<p><strong><u>Additional Requirements:</u></strong></p>
+<ul>
+<li>Specific vision abilities required by this job include close vision, distance vision, peripheral vision, depth perception, and the ability to focus.&nbsp;&nbsp;&nbsp;</li>
+<li>Regularly required to sit and stand for potentially long periods.</li>
+<li>Must be able to lift at least minimum 30-50 lbs.</li>
+<li>Occasional exposure to dust, fumes and moderate levels of noise.&nbsp;</li>
+</ul>
+<p><strong><u>Base Pay Range:</u></strong></p>
+<p><strong>$75,000 - $95,000 USD.</strong></p>
+</div>
+<p>&nbsp;</p>"
+Heart Aerospace,Electrical Engineer,4030265009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4030265009,"<p>At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric airplane capable of carrying 30 passengers, boasting an electric zero-emission range of 200 km and an extended hybrid range of 800 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p>As we transition from prototype to production, we are expanding our in-house electronics capability to deliver flight-worthy actuators, controls, and monitoring systems that match the ambition of our aircraft.</p>
+<p><strong>Your mission</strong></p>
+<p><span data-contrast=""auto"">We are seeking a Electrical Engineer who excels in owning the full printed-circuit-board assembly (PCBA) lifecycle—from concept and schematic capture through layout, verification, and manufacturing release. In this role, you will design multiple boards in parallel, coordinate build schedules, and work closely with software and mechanical teams to deliver tightly integrated subsystems for flight-critical applications.&nbsp;</span></p>
+<p><strong>Key responsibilities include but are not limited to:</strong></p>
+<ul>
+<li>Architect &amp; design PCBAs for high-reliability, mixed-signal, and power-conversion applications (up to 900 V DC and high-speed digital buses).</li>
+<li>Own schematic capture, component selection, and constraint-driven layout using Altium Designer (or similar), while enforcing design rules for signal integrity, thermal management, and manufacturability.</li>
+<li>Perform design reviews, simulations, and worst-case circuit analyses (SI/PI, DFMEA, thermal, EMC) to meet DO-160, DO-254, and RTCA environmental standards.</li>
+<li>Lead bring-up and validation testing, authoring test plans and writing Python/Rust/C test scripts in collaboration with software engineers.</li>
+<li>Collaborate daily with mechanical engineers to optimize board outlines &amp; connectors.</li>
+<li>Drive continuous improvement in Heart’s electronics development workflow—automating checks, tightening version control, and mentoring junior engineers.</li>
+</ul>
+<p><strong>You'll Bring These Qualifications:</strong></p>
+<ul>
+<li>3+ years of professional experience in PCBA design and NPI for safety-critical or aerospace products.</li>
+<li>Proven ownership of at least one product from concept to volume production</li>
+<li>Proficiency in ECAD tools (Altium or equivalent)</li>
+<li>Expertise in high-speed communication (Ethernet), power electronics (up to kW-level), and embedded-system interfaces (CAN, ARINC-429, Ethernet, SPI/I²C).</li>
+<li>Hands-on experience with lab instrumentation (oscilloscopes, VNAs, thermal chambers) and debugging of EMI/EMC issues.</li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li>Experience certifying electronics for Part 23/25 aircraft or eVTOL platforms.</li>
+<li>Working knowledge of design assurance processes (DO-160, DO-254, IPC-2221/2222, IPC-7351).</li>
+<li>Knowledge of motor-drive control or battery-management circuitry.</li>
+</ul>
+<p><strong>Education</strong></p>
+<ul>
+<li>Bachelor’s or master's in electrical engineering (or equivalent).</li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$113,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
+Heart Aerospace,Electric Motor Design Engineer,4013301009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013301009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p>We are seeking a highly motivated Electric Motor Design Engineer to join our Propulsion team. You will lead the design and development of the HV electric motors for our aircraft’s hybrid propulsion. You will interface across mechanical, thermal, power electronics, airframe, and battery teams to deliver a fully integrated and certifiable hybrid Electric Propulsion Unit (EPU).</p>
+<p><strong>Key responsibilities include but are not limited to:</strong></p>
+<ul>
+<li>Design, develop, commission, and certificate innovative cutting-edge electric motors for hybrid propulsion system.</li>
+<li>Lead and execute system-level tests, such as motor and propeller test stands.</li>
+<li>Collaborate with suppliers to ensure delivery of integrated, and certifiable subsystems.</li>
+<li>Perform avionics-optimized electric motor topology trade studies.</li>
+<li>Create 2D/3D CAD models of electric motors in drawing tools (e.g., Siemens NX).</li>
+</ul>
+<p><strong>You'll Bring These Qualifications:</strong></p>
+<ul>
+<li>2+ years of professional experience designing high voltage, high power electric motors.</li>
+<li>In depth understanding of permanent magnet motor design, principles, modeling, and analysis techniques.</li>
+<li>Proficiency with JMAG, Ansys Maxwell, RMxpert, or MotorCAD.</li>
+<li>Design and optimize electromagnetic active parts for manufacturing and certification.</li>
+<li>Hands-on experience with integration of propulsion and/or powertrain test stands, including instrumentation, controls, and mechanical assembly.</li>
+<li>Strong understanding of electric motors manufacturing processes such as stator winding, lamination stacking, and stator varnishing.</li>
+<li>Strong knowledge of motor manufacturing, heat treatment, statics, dynamics and mechanics of materials.</li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li>Understanding of certification requirements (EASA CS-23/25 or FAA FAR Part 23/25).</li>
+<li>Knowledge of aerospace airworthiness standards, e.g. DO-254, and DO-160.</li>
+<li>Develop and maintain design failure mode and effects analysis (DFMEA).</li>
+</ul>
+<p><strong>Education:</strong></p>
+<ul>
+<li>Master’s or PhD degree in Mechanical, or Electrical Engineering or related fields.</li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$216,000 USD</strong></div>
+<p>&nbsp;</p>"
+Heart Aerospace,"Executive Operations Partner, Office of the CEO (OCEO)",4228123009,"Torrance, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-05-08,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4228123009,"<p><strong>Executive Operations Partner, Office of the CEO (OCEO)</strong></p>
+<p class=""p1"">At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric commercial aircraft<br>capable of carrying 30 passengers, boasting an all-electric, zero-emission range of 125 mi and a<br>hybrid-electric range of 500 mi. Heart is targeting type certification of the ES-30 by the end of the<br>decade.</p>
+<p class=""p1"">Heart’s Executive Leadership Team (ELT) is focused on delivering the company’s next critical phase:<br>achieving first flight of our X1 full-scale demonstrator aircraft, advancing the X2 prototype program,<br>progressing strategic planning and fundraising efforts, and preparing the company for<br>industrialization and production. This is a period of high intensity, rapid decision-making, and strident<br>execution requiring tight coordination across engineering, operations, commercial, and corporate<br>functions.</p>
+<p class=""p1""><strong>Your Mission:</strong></p>
+<p class=""p1"">Heart Aerospace is seeking an Executive Operations Partner to support Heart’s Executive<br>Leadership Team, with primary focus on supporting the Founder &amp; CEO. This role sits at the center<br>of the company’s operating rhythm, helping ensure senior leaders are spending their time on the<br>highest-value priorities and that the day-to-day mechanics around strategic decision-making,<br>meetings, travel, external engagement, and follow-through run with precision.</p>
+<p class=""p1"">The Executive Operations Manager will own core executive operations across scheduling, travel,<br>inbox and headquarters management support, while helping maintain order, responsiveness, and<br>momentum during a dynamic period of company growth. This is a high-trust, high-visibility role suited<br>for someone who thrives in fast-moving environments, exercises strong judgment, and brings a<br>service mindset, discretion, and operational excellence to supporting senior leadership. The role<br>requires flexibility and a high degree of responsiveness, including outside of normal business hours,<br>as the needs of the Executive Leadership Team evolve.</p>
+<p class=""p1"">This role may suit both an experienced executive operations professional and a high-potential<br>early-career operator looking to build deep exposure to how a hard tech company is run at the<br>leadership level.</p>
+<p class=""p1""><strong>Key responsibilities include but are not limited to:</strong></p>
+<p class=""p1""><span style=""text-decoration: underline;""><strong><span class=""TextRun Underlined MacChromeBold SCXW260424144 BCX0"" lang=""EN-US"" data-contrast=""auto""><span class=""NormalTextRun SCXW260424144 BCX0"">Executive Admin &amp;&nbsp;</span><span class=""NormalTextRun SCXW260424144 BCX0"">Correspondence</span><span class=""NormalTextRun SCXW260424144 BCX0"">:</span></span><span class=""EOP Selected SCXW260424144 BCX0"" data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:240,&quot;335559739&quot;:240}"">&nbsp;</span></strong></span></p>
+<ul>
+<li><span data-contrast=""auto"">Lead executive scheduling for&nbsp;</span><span data-contrast=""auto"">members of the Executive Leadership Team</span><span data-contrast=""auto"">, driving prioritization, sequencing, conflict resolution, and focus time protection so leadership time stays aligned to company priorities</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Serve as a point of coordination for last-minute changes and shifting priorities, helping the&nbsp;</span><span data-contrast=""auto"">Executive Team&nbsp;res</span><span data-contrast=""none"">pond quickly and smoothly</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Manage&nbsp;Executive Leadership Teams’&nbsp;inbox, including triage, drafting responses, and flagging items requiring direct attention</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Support executive correspondence across key external functions, including investor relations, media relations, public affairs, and Corporate Affairs&nbsp;activities</span><span data-contrast=""auto"">&nbsp;including&nbsp;maintaining&nbsp;CRM hygiene and tracking next steps</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Track</span><span data-contrast=""auto"">&nbsp;meeting&nbsp;</span><span data-contrast=""none"">action items and follow-ups to ensure continuity and execution across meetings and commitments</span><span data-contrast=""none"">&nbsp;</span><span data-contrast=""auto"">&nbsp;</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Identify&nbsp;gaps and improve systems, tools, and processes to increase efficiency and clarity</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Collaborate with Executive Operations partners across the company and support team events, offsites, and company-wide activities as needed</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Support expense management, including receipt tracking, reconciliation, and&nbsp;timely&nbsp;submission</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+</ul>
+<p><span style=""text-decoration: underline;""><strong><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}""><span class=""TextRun Underlined MacChromeBold SCXW142840116 BCX0"" lang=""EN-US"" data-contrast=""none""><span class=""NormalTextRun SCXW142840116 BCX0"">Travel &amp; planning:</span></span><span class=""EOP Selected SCXW142840116 BCX0"" data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:240,&quot;335559739&quot;:240}"">&nbsp;</span></span></strong></span></p>
+<ul>
+<li><span data-contrast=""none"">Support executive</span><span data-contrast=""none"">&nbsp;</span><span data-contrast=""none"">travel and planning, ensuring domestic and international travel is tightly coordinated, and executed to a high standard</span><span data-contrast=""none"">.&nbsp;</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Prepare agendas, briefing materials, and background notes for meetings, travel, and external engagements</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+</ul>
+<p><span style=""text-decoration: underline;""><strong><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}""><span class=""TextRun Underlined MacChromeBold SCXW135265971 BCX0"" lang=""EN-US"" data-contrast=""none""><span class=""NormalTextRun SCXW135265971 BCX0"">Headquarters Management &amp; Visits:</span></span><span class=""EOP Selected SCXW135265971 BCX0"" data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:240,&quot;335559739&quot;:240}"">&nbsp;</span></span></strong></span></p>
+<ul>
+<li><span data-contrast=""none"">Support the Office Manager with&nbsp;</span><span data-contrast=""none"">headquarters&nbsp;logistics, helping manage executive movements and the day-to-day details that keep the office running smoothly. I</span><span data-contrast=""none"">ncluding overseeing meeting room scheduling,&nbsp;coordinating&nbsp;catering, supplies, printed materials, and other on-site needs for executive meetings and leadership activity.</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:240,&quot;335559739&quot;:240}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Ensure a polished, high-quality, and well-run experience for visitors engaging with Heart leadership, from arrival through departure</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:240,&quot;335559739&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><span style=""text-decoration: underline;""><strong><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:240,&quot;335559739&quot;:240}""><span class=""TextRun Underlined MacChromeBold SCXW102429130 BCX0"" lang=""EN-US"" data-contrast=""none""><span class=""NormalTextRun SCXW102429130 BCX0"">Special Projects &amp; Initiatives:</span></span><span class=""EOP Selected SCXW102429130 BCX0"" data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:240,&quot;335559739&quot;:240}"">&nbsp;</span></span></strong></span></p>
+<ul>
+<li><span data-contrast=""none"">Support headquarters evolution and facilities improvements, including layout, functionality, and day-to-day usability of the space</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Contribute to the look and feel of the executive and headquarters environment, including decor, materials, and overall presentation of the company to internal and external stakeholders</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Assist&nbsp;in building and refining internal processes, templates, and materials that support executive operations and company-wide coordination</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+</ul>
+<p class=""p1""><strong>You’ll Bring These Qualifications for the Executive Operations Manager position:</strong></p>
+<ul>
+<li><span data-contrast=""none"">5+ years of experience supporting founders, senior executives, or principals in a technology startup or other high-demand environment</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Experience owning complex executive scheduling, including prioritization, sequencing, and conflict resolution across multiple stakeholders</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Experience planning and executing complex domestic and international travel with frequent changes and tight timelines</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Strong written and verbal communication skills, including drafting professional correspondence on behalf of executives</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Experience with&nbsp;ha</span><span data-contrast=""none"">ndling sensitive information and high-stakes interactions</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""none"">Experience supporting external engagement workflows, including investor, media, or stakeholder coordination (CRM familiarity a plus)</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li><span data-contrast=""auto"">High level&nbsp;of responsiveness, reliability, and professionalism in a fast-paced, always-on environment</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Strong operational instincts, with the ability to&nbsp;anticipate&nbsp;needs, close gaps, and keep work-streams moving</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Comfortable coordinating across senior internal stakeholders and high-profile external contacts</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Interest in using generative AI tools to improve workflow efficiency (e.g., summarization, drafting, research, and materials development)</span><span data-ccp-props=""{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:0,&quot;335559739&quot;:0}"">&nbsp;</span></li>
+</ul>
+<p class=""p1""><strong>Additional Requirements:</strong></p>
+<ul>
+<li class=""p1"">Ability to maintain a high level of responsiveness outside standard business hours as needed</li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$98,000<span class=""divider"">—</span>$120,000 USD</strong></div>"
+Heart Aerospace,Flight Systems Engineer,4007362009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4007362009,"<p data-rx-type=""text"" data-rx-first-level=""true"">At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric airplane capable of carrying 30 passengers, boasting an electric zero-emission range of 200 km and an extended hybrid range of 800 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p data-rx-type=""text"" data-rx-first-level=""true""><strong>Your mission</strong></p>
+<p data-rx-type=""text"" data-rx-first-level=""true"">We are seeking a highly motivated Flight Systems Engineer to join our Mechanisms team. You will play a crucial role in the system-level design, bring up, debugging, and certification of distributed systems across the ES-30 aircraft. You'll collaborate with cross-functional teams to design and certify the first commercial electric-hybrid aircraft.</p>
+<p data-rx-type=""text"" data-rx-first-level=""true""><strong>Key responsibilities include but are not limited to:</strong></p>
+<ul data-rx-type=""list"" data-rx-focusable=""true"" data-rx-first-level=""true"">
+<li data-rx-type=""listitem"">Lead the design of essential systems by collaborating cross-functionally with flight science, software, electrical, mechanical, and safety engineers.</li>
+<li data-rx-type=""listitem"">Lead in-vehicle debugging, troubleshooting, and root cause analysis of system-level issues, across electrical, mechanical and software systems. Work across multiple teams to find and efficient solution.</li>
+<li data-rx-type=""listitem"">Support bring-up and maintenance of prototype aircraft, integration test benches, Hardware-in-the-Loop environments, and virtual simulation platforms.</li>
+<li data-rx-type=""listitem"">Create and execute system-level integration plans for a complete system or subsystem.</li>
+<li data-rx-type=""listitem"">Contribute to the software verification and validation strategy in accordance with DO-178C objectives.</li>
+</ul>
+<p data-rx-type=""text"" data-rx-first-level=""true""><strong>You'll Bring These Qualifications:</strong></p>
+<ul data-rx-type=""list"" data-rx-focusable=""true"" data-rx-first-level=""true"">
+<li data-rx-type=""listitem"">2+ years of experience in system integration, ideally in the aerospace or automotive domain.</li>
+<li data-rx-type=""listitem"">Strong understanding of real-time operating systems (RTOS), communication protocols (Ethernet, CAN, LIN, …), and system-level integration practices.</li>
+<li data-rx-type=""listitem"">Proficiency in Rust, C/C++, or Python for automation and testing.</li>
+<li data-rx-type=""listitem"">Experience with version control systems (e.g., Git), CI/CD pipelines, and integration frameworks.</li>
+<li data-rx-type=""listitem"">Excellent problem-solving skills and the ability to work in a fast-paced, collaborative environment.</li>
+</ul>
+<p data-rx-type=""text"" data-rx-first-level=""true""><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul data-rx-type=""list"" data-rx-focusable=""true"" data-rx-first-level=""true"">
+<li data-rx-type=""listitem"">Experience with DO-178C, DO-254, DO-160G, DO-331, or other safety-critical standards.</li>
+<li data-rx-type=""listitem"">Passion for aircraft and electrification of the aviation industry</li>
+</ul>
+<p data-rx-type=""text"" data-rx-first-level=""true""><strong>Education</strong></p>
+<ul data-rx-type=""list"" data-rx-focusable=""true"" data-rx-first-level=""true"">
+<li data-rx-type=""listitem"">Bachelor's or master's degree in electrical engineering, Mechanical Engineering, Computer Science, Aerospace Engineering, or related field.</li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$118,000<span class=""divider"">—</span>$238,000 USD</strong></div>"
+Heart Aerospace,Integration Engineer,4034474009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4034474009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p><span data-contrast=""auto"">We are looking for a highly motivated, hands-on Integration Engineer to lead the mechanical and electrical integration of critical subsystems across our hybrid-electric aircraft platform. You will be responsible for bridging design, manufacturing, final assembly, and testing to ensure that complex systems come together seamlessly from prototype through rate production.</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<p><span data-contrast=""auto"">This is a cross-disciplinary role at the heart of aircraft development, where attention to detail, fast-paced execution, and strong problem-solving instincts are key. You’ll work side-by-side with design engineers, manufacturing, and technicians on the production floor to turn ambitious designs into high-performance, certifiable products.</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<p><strong><span data-contrast=""none"">Key responsibilities include but are not limited to:</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span><strong><span data-contrast=""none"">System Integration &amp; Assembly</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""44"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Own the integration of propulsion, battery, avionics, and structural systems into the aircraft platform</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""44"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">Define and document build sequences, mechanical interfaces, fastener strategies, cable routing, and fluid line installations</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""44"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Support and optimize aircraft-level assembly processes, from first article to full-rate production</span></li>
+</ul>
+<p><strong><span data-contrast=""none"">Design Collaboration &amp; DFM</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""43"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Provide real-time design-for-assembly feedback to design engineering teams</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""43"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">Influence interface definitions, mounting strategies, and accessibility for maintainability</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""43"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Drive resolution of interface issues between subsystems during development and build</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><strong><span data-contrast=""none"">Build Floor &amp; Hands-On Support</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""42"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Act as the technical liaison on the build floor to troubleshoot integration issues and lead root cause investigations</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""42"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">Support technicians during assembly with guidance, documentation, and process improvements</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""42"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Ensure that integration work meets engineering intent, quality standards, and certification requirements</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><strong><span data-contrast=""none"">Process Development &amp; Continuous Improvement</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""41"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Create and maintain detailed work instructions, assembly drawings, and configuration documentation</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""41"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">Work with manufacturing and engineering teams to improve efficiency, reduce errors, and streamline assembly processes</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""41"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Support integration testing and data collection during system bring-up and aircraft checkout</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}""><span class=""TextRun SCXW81589214 BCX0"" lang=""EN-US"" data-contrast=""none""><span class=""NormalTextRun SCXW81589214 BCX0"">Your place of work will </span><span class=""NormalTextRun ContextualSpellingAndGrammarErrorV2Themed SCXW81589214 BCX0"">be at</span><span class=""NormalTextRun SCXW81589214 BCX0""> our office </span><span class=""NormalTextRun SCXW81589214 BCX0"">located</span><span class=""NormalTextRun SCXW81589214 BCX0""> in </span><span class=""NormalTextRun SCXW81589214 BCX0"">Torrance</span><span class=""NormalTextRun SCXW81589214 BCX0"">, CA. Some domestic travel may be </span><span class=""NormalTextRun SCXW81589214 BCX0"">required</span></span></span></p>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span><strong><span data-contrast=""none"">Skills &amp; Requirements</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""45"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Bachelor’s degree in Mechanical, Aerospace, or Systems Engineering (or equivalent experience)</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""45"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">2+ years of experience in aerospace, automotive, or advanced manufacturing environments</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""45"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Strong understanding of mechanical systems, fasteners, electrical connectors, harnessing, and fluid systems</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""45"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""4"" data-aria-level=""1""><span data-contrast=""none"">Proficiency in CAD (e.g., NX, CATIA, or SolidWorks) and interpreting engineering drawings with GD&amp;T</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span><strong><span data-contrast=""none"">These Qualifications Would Be Nice To Have</span></strong></p>
+<ul>
+<li><span data-contrast=""auto"">Experience in aircraft or vehicle final assembly, particularly with electrical and fluid system integration</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Exposure to configuration control, hardware traceability, and change management</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Demonstrated ability to work cross-functionally in high-speed development programs</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li><span data-contrast=""auto"">Experience with electric propulsion, high-voltage systems, or thermal integration</span></li>
+<li><span data-contrast=""auto""><span class=""TextRun SCXW186246346 BCX0"" lang=""EN-US"" data-contrast=""none""><span class=""NormalTextRun SCXW186246346 BCX0"">Comfortable working hands-on with tools and hardware in a production environment</span></span><span class=""EOP SCXW186246346 BCX0"" data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></span></li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$176,000 USD</strong></div>
+<p>&nbsp;</p>"
+Heart Aerospace,Manufacturing Engineer,4034433009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4034433009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p><span data-contrast=""auto"">We are seeking a hands-on, driven Manufacturing Engineer to lead key builds for the ES-30 hybrid-electric aircraft. As we continue to expand our vertical integration, this role offers a unique opportunity to take full ownership of manufacturing process development, from design to achieving production rate.</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<p><span data-contrast=""auto"">You will play a critical role in Heart’s success, working closely with technicians, design engineers, and supply chain partners to bring complex components and assemblies from prototype to scalable production. This is a highly collaborative, fast-paced role at the core of our mission to revolutionize regional air travel.</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<p><strong><span data-contrast=""none"">Key responsibilities include but are not limited to:</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span><strong><span data-contrast=""none"">Process Development &amp; Optimization</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""34"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Design and implement scalable manufacturing processes for aircraft structures, propulsion systems, avionics, batteries, and other critical subsystems (multiple roles are open across teams)&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""34"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">Develop and optimize workflows to improve build efficiency, quality, and repeatability</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""34"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Proactively identify and resolve production bottlenecks using root cause analysis and continuous improvement techniques</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span><strong><span data-contrast=""none"">Tooling &amp; Equipment</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""35"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Design and specify custom tooling, fixtures, and solutions to support precision assembly and fabrication</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""35"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">Collaborate with external vendors and internal teams to source or fabricate required equipment</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""35"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Support automation initiatives and ergonomic improvements across the manufacturing floor</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span><strong><span data-contrast=""none"">Prototyping &amp; Production Builds</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""38"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Lead the execution of prototype builds and transition processes into low- and high-rate production</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""38"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">Work closely with technicians on first article builds, ensuring safe, efficient, and repeatable methods</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""38"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Implement in-line quality checks and provide real-time troubleshooting during assembly</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span><strong><span data-contrast=""none"">Cross-Functional Collaboration</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""37"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Partner with Design Engineering to drive DFM/DFA (Design for Manufacturability/Assembly) feedback</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""37"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">Develop and execute sourcing strategies by assessing supplier capabilities, and managing outsourcing timelines and budgets to ensure program alignment</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""37"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Ensure quality is built into the product by defining clear inspection criteria and implementing fast, cost-effective corrective actions</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span><strong><span data-contrast=""none"">Documentation &amp; Standards</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""36"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Create and maintain detailed work instructions, process documentation, and standard operating procedures (SOPs)</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""36"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">Contribute to the development of manufacturing standards and best practices as the company scales</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""36"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Ensure compliance with safety, regulatory, and quality requirements</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span><strong><span data-contrast=""none"">Skills &amp; Requirements</span></strong><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""39"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""none"">Bachelor’s degree in Mechanical, Aerospace, Manufacturing, or Industrial Engineering (or equivalent experience)</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""39"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""none"">3+ years of experience in a fast-paced manufacturing or production environment (internship or co-op experience counts)</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""39"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""3"" data-aria-level=""1""><span data-contrast=""none"">Proficiency in CAD (e.g., CATIA, NX, SolidWorks)&nbsp;</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""39"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""4"" data-aria-level=""1""><span data-contrast=""none"">Strong understanding of materials, GD&amp;T, machining, welding, composites, and/or assembly techniques</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""39"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""5"" data-aria-level=""1""><span data-contrast=""none"">Experience working with cross-functional teams in design, quality, and production</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""39"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""6"" data-aria-level=""1""><span data-contrast=""none"">Bias toward action, attention to detail, and a passion for hands-on problem-solving</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<p><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span><strong><span data-contrast=""none"">These Qualifications Would Be Nice To Have</span></strong></p>
+<ul>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""40"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""1"" data-aria-level=""1""><span data-contrast=""auto"">Experience in aerospace, automotive, eVTOL, or electric propulsion manufacturing</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+<li data-leveltext="""" data-font=""Symbol"" data-listid=""40"" data-list-defn-props=""{&quot;335552541&quot;:1,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}"" data-aria-posinset=""2"" data-aria-level=""1""><span data-contrast=""auto"">Exposure to high-voltage systems, thermal management, or battery integration</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$176,000 USD</strong></div>
+<p>&nbsp;</p>"
+Heart Aerospace,"Mechanical Design, Structures & Airframe – Engineer II/Senior",4234167009,"Los Angeles, CA",United States of America,"$124,000 - $155,000; $140,000 - $176,000",hybrid,Senior,unknown,unknown,unknown,greenhouse,2026-04-28,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4234167009,"<p>At&nbsp;Heart Aerospace, we’re shaping the future of sustainable aviation with the ES-30, a regional hybrid-electric aircraft designed to carry 30 passengers with a 200 km all-electric, zero-emission range and an extended 400 km hybrid range. Heart is targeting type certification by the end of the decade.</p>
+<p><strong>Your Mission</strong></p>
+<p>As a Mechanical Design Engineer, Structures &amp; Airframe, you will design, analyze, and develop aircraft structural components. You will collaborate cross functionally to the design of the fuselage, wing, and empennage, working with both composite and metallic materials, while gaining hands-on exposure to certified aerospace hardware development in a fast-paced, collaborative environment.</p>
+<p>This is an exciting opportunity for a mechanical or aerospace engineer to contribute to the design and development of next-generation aircraft structures while building strong engineering fundamentals and growing into increased technical responsibility over time.</p>
+<p><strong>Key Responsibilities include but are not limited to:</strong></p>
+<ul>
+<li>This role is a Responsible Engineer (RE) who focuses on the design and development of aircraft structural components.</li>
+<li>Create and release 3D CAD models, 2D drawings, and documentation using NX/Teamcenter or equivalent tools.</li>
+<li>Optimize structural performance for cost and mass.</li>
+<li>Perform structural analyses, hand calculations, and FEA activities with mentorship.</li>
+<li>Define structural requirements, specifications, and test plans.</li>
+<li>Own structural testing activities, data review, and documentation.</li>
+<li>Collaborate with manufacturing, quality, and test teams to resolve design and build issues.</li>
+<li>Participate in design reviews, continuous improvement and best practices.</li>
+<li>Learn and apply aerospace standards, GD&amp;T, and manufacturing fundamentals.</li>
+</ul>
+<p><strong>(This position can be hired as a Mechanical Design Engineer II or Senior Mechanical Design Engineer)&nbsp;</strong></p>
+<p><strong><strong data-renderer-mark=""true"">Skills &amp; Requirements:</strong></strong></p>
+<p><strong>You'll Bring These Qualifications for Mechanical Design Engineer II, Structures &amp; Airframe:</strong></p>
+<ul>
+<li>2+ years of professional experience in structural design, aerospace engineering, or a related field.</li>
+<li>Experience with CAD tools such as Siemens NX, CATIA, Creo, or SolidWorks</li>
+<li>Understanding of engineering fundamentals, structural mechanics, and first principles</li>
+<li>Exposure to composite and/or metallic structures through coursework, projects, or early industry experience</li>
+<li>Familiarity with GD&amp;T and basic manufacturing concepts</li>
+<li>Strong written and verbal communication skills in English</li>
+<li>Ability to work collaboratively in a team environment and take technical direction</li>
+<li>Passion for aircraft design and interest in sustainable aviation</li>
+</ul>
+<p><strong>You'll Bring These Qualifications for a Senior Mechanical Design Engineer, Structures &amp; Airframe:</strong></p>
+<ul>
+<li>5+ years experience in composite structural design</li>
+<li>Experience with CAD tools such as Siemens NX, CATIA, Creo, or SolidWorks</li>
+<li>Understanding of engineering fundamentals, structural mechanics, and first principles</li>
+<li>Familiarity with GD&amp;T and basic manufacturing concepts</li>
+<li>Strong written and verbal communication skills in English</li>
+<li>Ability to work collaboratively in a team environment and take technical direction</li>
+<li>Passion for aircraft design and interest in sustainable aviation</li>
+</ul>
+<p><strong>Education:</strong></p>
+<ul>
+<li>Bachelor’s degree in <strong>Aerospace Engineering, Mechanical Engineering</strong>, or a related field.</li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li>Worked in a startup environment.</li>
+<li>Hands-on exposure to composite or aluminum part fabrication.</li>
+<li>Familiarity with NX, CATIA, or other advanced CAD platforms.</li>
+<li>Academic or early exposure to FAA/EASA certification concepts.</li>
+<li>Introductory experience with FEA tools and structural analysis methods.</li>
+<li>Experience leading or working with structural testing, instrumentation, or data analysis.</li>
+<li>Master’s degree (or progress toward one) in Aerospace or Mechanical Engineering.</li>
+</ul>
+<p><strong>Base Pay Range:</strong></p>
+<ul>
+<li style=""font-weight: bold;""><strong>Mechanical Design Engineer II - $124,000 - $155,000.</strong></li>
+<li style=""font-weight: bold;""><strong>Senior Mechanical Design Engineer - $140,000 - $176,000.</strong></li>
+</ul>"
+Heart Aerospace,Open Application,4013769009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2025-10-15,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013769009,"<p>We are building a team at our Headquarters here in Los Angeles and are looking for passionate individuals to join our team!</p>
+<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.&nbsp;</p>
+<p>If you are interested in joining our dynamic team in Los Angeles but don't see a current job opening that fits your profile, we encourage you to submit an Open Application. Share with us why you’re interested in being part of our team and how you can contribute to our mission of making electric air travel a reality.</p>
+<p>Stay connected with us by following our career site and LinkedIn for updates on future opportunities at Heart Aerospace. We review applications on a rolling basis and will contact you when opportunities that match your profile arise, although we may not follow up on your Open Application immediately.</p>
+<p>We look forward to hearing from you and exploring how you can help shape the future of aviation with us!</p>
+<div class=""pay-range"">
+<p>Specific skills and requirements vary between different job openings, but we are always looking for talented individuals to join the the following teams.&nbsp;</p>
+<ul>
+<li><span data-contrast=""none"">Flight Sciences</span>&nbsp;</li>
+<li><span data-contrast=""none"">Structures</span>&nbsp;</li>
+<li><span data-contrast=""none"">Propulsion</span>&nbsp;</li>
+<li><span data-contrast=""none"">Battery</span>&nbsp;</li>
+<li><span data-contrast=""none"">Operations</span>&nbsp;</li>
+<li><span data-contrast=""none"">Systems Integration</span>&nbsp;</li>
+<li><span data-contrast=""none"">Flight Software</span>&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+</div>"
+Heart Aerospace,Power Electronics Engineer,4013303009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-01-26,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013303009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p>We are seeking a highly motivated Power Electronics Engineer to join our Propulsion team. You will lead the design and integration of the hybrid propulsion, including but not limited to the inverters, motors, HV cables, with batteries, and in parallel with Turbomachinery. You will interface across mechanical, thermal, electrical, and flight control systems to deliver a fully integrated and certifiable hybrid Electric Propulsion Unit (EPU).</p>
+<p><strong>Key responsibilities include but are not limited to:</strong></p>
+<ul>
+<li>This role is a Responsible Engineer (RE) who focuses on the integration of power electronics and high voltage electrical systems into our hybrid aircraft.</li>
+<li>Full ownership over design, fabrication, commissioning, and certification of the hybrid propulsion system.</li>
+<li>Lead and execute system-level tests, such as motor and propeller test stands.</li>
+<li>Collaborate with suppliers to ensure delivery of integrated, certifiable subsystems.</li>
+<li>Model the electrical and power electronics systems in to our high fidelity Digital Twin for optimization of our hybrid mission profile.</li>
+<li>Perform topology selection trade studies.</li>
+</ul>
+<p><strong>You'll Bring These Qualifications:</strong></p>
+<ul>
+<li>2+ years of professional experience working with power electronics components.</li>
+<li>Strong experience in high voltage power electronics design (+800V) including AC/DC inverters, and DC/DC converters.</li>
+<li>Strong understanding of HV filter design, grounding analysis, coordination of protective devices.</li>
+<li>Hands-on experience with integration of propulsion and/or powertrain test stands, including instrumentation, controls, and mechanical assembly.</li>
+<li>Extensive experience with Altium/cadence/similar), circuit analysis (spice), gate driver design, and lab work (common tools like oscilloscopes, network analyzers)</li>
+<li>Experience with C/C++, Python, Matlab/Simulink, or PLECS.</li>
+<li>Strong knowledge of Avionics communication, ARINC, CAN, and Ethernet.</li>
+<li>Strong understanding of Microcontrollers, Multicore processors, Firmware Development, and digital power conversion.</li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li>Understanding of certification requirements (EASA CS-23/25 or FAA FAR Part 23/25).</li>
+<li>Knowledge of hardware design and airworthiness DO-178C, DO-254, DO-160.</li>
+<li>Demonstrated leadership qualities through cross-functional teamwork on challenging problems.</li>
+<li>Working knowledge of EMI/EMC, underlying physics and specifications, along with best practices for design, and strategies.</li>
+<li>Hands on experience with Matlab/Simulink Auto Code Generation.</li>
+</ul>
+<p><strong>Education</strong></p>
+<ul>
+<li>Master’s or PhD degree in Electrical Engineering with focus on Power Electronics, or Power Systems.</li>
+</ul>
+<div class=""title""><strong>Base Pay Range:</strong></div>
+<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
+Heart Aerospace,Production Supervisor,4013344009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2025-10-15,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013344009,"<div class=""title"">
+<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission </strong></p>
+<p>As an innovative aerospace company entering production, we are seeking a highly motivated, hands-on Production Supervisor to lead and shape the foundation of our manufacturing operations. You’ll be the first in this critical role, with the opportunity to influence everything from layout design to process systems, ensuring a world-class operation from day one.</p>
+<p>As a Production Supervisor, you will lead the planning, setup, and daily execution of aircraft production. This is a unique opportunity to build a manufacturing floor and team from scratch. You will work closely with engineering, supply chain, and leadership to ensure the factory is optimized for efficiency, quality, and scalability.</p>
+<p>This is a high-impact, high-visibility role ideal for someone who thrives in early-stage environments and is excited by the challenges of revolutionizing the aerospace industry.</p>
+<p><strong>Key responsibilities include but are not limited to: </strong></p>
+<p><strong>Factory Setup &amp; Planning </strong></p>
+<ul>
+<li>Lead the design and layout of the new production floor, including work cells, flow, and equipment placement.</li>
+<li>Evaluate, recommend, and coordinate procurement of production machinery and tooling.</li>
+<li>Develop and implement tool control systems, safety protocols, and standard operating procedures.</li>
+<li>Participate in the selection and setup of an MRP/ERP system, with a focus on production tracking, inventory control, and quality integration.</li>
+</ul>
+<p><strong>Team Leadership </strong></p>
+<ul>
+<li>Hire, train, and supervise a team of skilled technicians and operators.</li>
+<li>Establish a high-performance culture of accountability, continuous improvement, and safety.</li>
+<li>Provide hands-on guidance and mentorship on technical and procedural matters.</li>
+<li>Proactively develop training programs to address team and company needs.</li>
+</ul>
+<p><strong>Production Management </strong></p>
+<ul>
+<li>Manage day-to-day production activities, ensuring schedule adherence, quality standards, and efficiency targets are met.</li>
+<li>Collaborate with engineering on manufacturability feedback and process optimization.</li>
+<li>Develop and monitor KPIs and drive root cause analysis for production issues.</li>
+<li>Implement best practices and streamlined processes to ensure products are completed safely, with the highest quality, and delivered on time.</li>
+</ul>
+<p><strong>You'll Bring These Qualifications:</strong></p>
+<ul>
+<li>3+ years of experience in a production or manufacturing leadership role, ideally in aerospace or high-precision industries.</li>
+<li>Proven experience setting up or scaling a manufacturing facility.</li>
+<li>Strong understanding of lean manufacturing, tool control systems, and production flow optimization.</li>
+<li>Familiarity with MRP/ERP systems; experience with system implementation is a strong plus.</li>
+<li>Excellent leadership, communication, and organizational skills.</li>
+<li>Ability to thrive in a fast-paced, ambiguous startup environment.</li>
+<li>Hands-on, no-task-too-small mindset.</li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li>Experience in aircraft or aerospace manufacturing.</li>
+<li>Familiarity with composites, precision machining, or complex assembly lines.</li>
+<li>CAD literacy (for layout planning and production aids).</li>
+<li>OSHA or safety training certifications.</li>
+</ul>
+<p>Your place of work will be at our office located in El Segundo, CA. Some domestic travel may be required.</p>
+</div>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$105,000<span class=""divider"">—</span>$155,000 USD</strong></div>"
+Heart Aerospace,Propulsion Test Engineer,4013335009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013335009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your Mission</strong></p>
+<p>We are seeking a Propulsion Engineer to join our Dynamic Propulsion team in Torrance, CA. You will lead the testing, validation and certification of the aircraft’s hybrid-electric powertrain system. You will also interface across mechanical, thermal, propulsion, actuation, avionics, and battery teams to develop, execute, and analyze integrated system-level tests of the Electric Propulsion Unit (EPU) and its subsystems.</p>
+<p><strong>Key responsibilities include but are not limited to:</strong></p>
+<ul>
+<li>Lead and execute system-level powertrain testing, including electric motor, inverter, gearbox, disconnect systems, and propeller subsystems.</li>
+<li>Design and commission hybrid-electric propulsion test stands, HIL, and Digital Twin, including instrumentation, safety systems, control systems, and data acquisition.</li>
+<li>Plan, execute, and document test campaigns to verify performance, safety, and certification compliance.</li>
+<li>Collaborate with cross-functional teams to develop test procedures and test plans for integrated propulsion systems.</li>
+<li>Coordinate with suppliers and external labs to support component and system-level testing.</li>
+<li>Analyze test data, prepare reports, and provide feedback to design teams for iterative development.</li>
+<li>Support environmental, endurance, fault-injection, and compliance testing for certification readiness.</li>
+</ul>
+<p><strong>You'll Bring These Qualifications:</strong></p>
+<ul>
+<li>2+ years of professional experience in powertrain, propulsion, or test engineering, with electric or ideally hybrid-electric systems.</li>
+<li>Hands-on experience designing and operating powertrain or propulsion test stands with complex instrumentation and control.</li>
+<li>Deep understanding of electric powertrains including motors, inverters, batteries, and thermal management systems.</li>
+<li>Proficiency with data acquisition systems (e.g., dSPACE, NI, Dewesoft) and instrumentation (current/voltage sensors, thermocouples, strain gauges).</li>
+<li>Experience developing automated test procedures and control scripts (e.g., Python, LabVIEW, or similar).</li>
+<li>Strong analytical skills in interpreting test data and diagnosing system performance and failure modes.</li>
+<li>Understanding of high voltage safety standards and procedures for testing environments.</li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li>Familiarity with aerospace certification requirements (EASA CS-23/25 or FAA FAR Part 23/25).</li>
+<li>Experience with DO-160 or MIL-STD environmental test standards.</li>
+<li>Experience with root cause analysis and tools such as DFMEA and fault tree analysis.</li>
+<li>Background in hybrid propulsion systems or aerospace propulsion integration.</li>
+</ul>
+<p><strong>Education:</strong></p>
+<ul>
+<li>Bachelor’s or Master’s degree in Mechanical, Electrical, Aerospace Engineering, or related fields.</li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$216,000 USD</strong></div>
+<p>&nbsp;</p>"
+Heart Aerospace,Propulsion Transmission Engineer,4007164009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4007164009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p>As a Propulsion Engineer focused on Transmission, you will be essential in designing, developing, and integrating the mechanical power transmission system within our hybrid-electric propulsion framework. Transmission system includes but is not limited to shaft, drive shafts, couplings, gearbox, and disconnect systems. You will collaborate closely with teams from various disciplines, including electric propulsion, turbomachinery, software, and structural engineering, to create robust, lightweight, and high-efficiency transmission solutions. This role demands a high level of technical expertise in mechanical design and a strong understanding of propulsion systems.</p>
+<p><strong>Key responsibilities include but are not limited to:</strong></p>
+<ul>
+<li>This role is a Responsible Engineer (RE) who focuses on the integration of hybrid transmission systems into our hybrid aircraft.</li>
+<li>Design and develop gearbox and mechanical power transmission systems for electric and hybrid-electric propulsion.</li>
+<li>Perform sizing, strength, thermal, and NVH (noise, vibration, harshness) analyses of transmission components.</li>
+<li>Nonlinear static and Dynamic analysis of structures and rotor systems.</li>
+<li>Work closely with suppliers and manufacturing partners to guide component development, material selection, and manufacturing processes.</li>
+<li>Define requirements, specifications, and interface documents for transmission subsystems.</li>
+<li>Lead and support testing and validation efforts including test rig development, instrumentation, and data analysis.</li>
+<li>Collaborate with propulsion integration teams to ensure seamless integration into the aircraft.</li>
+<li>Support certification and compliance activities in alignment with aviation regulatory bodies (e.g., EASA, FAA).</li>
+</ul>
+<p><strong>You'll Bring These Qualifications:</strong></p>
+<ul>
+<li>3+ years of experience in mechanical transmission design, preferably in aerospace or automotive sectors.</li>
+<li>Aircraft or rotorcraft rotor dynamics and external loads analysis.</li>
+<li>Hands-on experience in testing and validation of rotating machinery.</li>
+<li>Proficiency in CAD tools (e.g., CATIA, Siemens NX) and CAE tools FEA, Python, Ansys for structural analysis and Github.</li>
+<li>Experience with gear design, bearings, lubrication systems, and housing structures</li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li>Understanding of certification requirements (EASA CS-23/25 or FAA FAR Part 23/25).</li>
+<li>Knowledge of aerospace airworthiness standards, e.g. DO-254, and DO-160.</li>
+<li>Experience with electric or hybrid propulsion systems.</li>
+</ul>
+<p><strong>Education</strong></p>
+<ul>
+<li>Master’s or PhD degree in in Aerospace Engineering, Mechanical Engineering, or a relevant discipline.</li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$155,000 USD</strong></div>"
+Heart Aerospace,Prototype Workshop Technician,4013390009,"Los Angeles, CA",United States of America,$30/HR; $45/HR,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013390009,"<div class=""title"">
+<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p>We are looking for a Prototype Workshop Technician to join our growing team. This is a hands-on role that combines mechanical and electrical assembly, prototype fabrication, and workshop development. You will support the build and integration of test rigs, sub-systems, and full-scale prototypes as we develop our electric aircraft. You’ll also play a critical role in setting up and maintaining our prototyping workshop, ensuring it is safe, functional, and efficient.</p>
+<p><strong>Key responsibilities include but are not limited to:</strong></p>
+<p><strong>Prototype Assembly &amp; Fabrication:</strong></p>
+<ul>
+<li>Support the assembly of mechanical and electrical components for prototypes and test rigs.</li>
+<li>Assist with wiring, soldering, crimping, and integration of electrical systems and harnesses.</li>
+<li>Perform basic machining, 3D printing, and fabrication tasks (e.g., cutting, drilling, and fastening).</li>
+<li>Collaborate with engineers to build, test, and iterate on functional prototypes.</li>
+</ul>
+<p><strong>Workshop Development &amp; Support:</strong></p>
+<ul>
+<li>Help set up workshop infrastructure, including tools, benches, safety systems, and inventory.</li>
+<li>Maintain an organized and well-equipped workshop environment.</li>
+<li>Manage tool calibration, equipment maintenance, and consumable supplies.</li>
+</ul>
+<p><strong>Team Collaboration:</strong></p>
+<ul>
+<li>Work closely with multidisciplinary engineering teams.</li>
+<li>Provide feedback on design for manufacturability and assembly (DFMA).</li>
+</ul>
+<p data-rx-type=""text"" data-rx-first-level=""true""><strong>You'll Bring These Qualifications:</strong></p>
+<ul data-rx-type=""list"" data-rx-focusable=""true"" data-rx-first-level=""true"">
+<li data-rx-type=""listitem"">Technical diploma or equivalent experience in mechanical, electrical, or mechatronic systems.</li>
+<li data-rx-type=""listitem"">3+ years of proven hands-on experience in prototype assembly (mechanical and electrical).</li>
+<li data-rx-type=""listitem"">Comfortable with hand tools, power tools, and workshop equipment.</li>
+<li data-rx-type=""listitem"">Ability to read and interpret mechanical drawings and electrical schematics.</li>
+<li data-rx-type=""listitem"">Good communication and teamwork skills.</li>
+</ul>
+<p data-rx-type=""text"" data-rx-first-level=""true""><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul data-rx-type=""list"" data-rx-focusable=""true"" data-rx-first-level=""true"">
+<li class="""" data-rx-type=""listitem"">Experience in an R&amp;D, aerospace, automotive, or startup environment.</li>
+<li data-rx-type=""listitem"">Experience with CAD tools and/or fabrication techniques (e.g., CNC, welding, additive manufacturing).</li>
+<li data-rx-type=""listitem"">Familiarity with test instrumentation, DAQ systems, or low-voltage electronics.</li>
+</ul>
+</div>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$30/HR<span class=""divider"">—</span>$45/HR USD</strong></div>"
+Heart Aerospace,"Senior/Staff Mechanical Design Engineer, Flight Mechanisms",4164073009,"Los Angeles, CA",United States of America,,hybrid,Principal,unknown,unknown,unknown,greenhouse,2026-06-08,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4164073009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p><span data-contrast=""auto"">As part of the Flight Mechanisms team, you will be responsible for design, development, validation, and eventually certification of components including primary and secondary flight control actuators, propulsion and landing gear components, and environmental control (ECS) components. You will work with electrical, software, and mechanical engineers across teams to build and fly complex systems.</span></p>
+<p><strong>Key responsibilities include but are not limited </strong></p>
+<ul>
+<li>The opportunity to exercise full ownership over the design, fabrication and test of novel flight components.</li>
+<li>You will lead the design of crucial subcomponents including gears, bearings, seals.</li>
+<li>Design, build and test components to environmental qualification standards such as DO-160G, MIL-STD-810, or similar.</li>
+<li>Work will a cross-functional team developing electronic and software control systems.</li>
+</ul>
+<p><strong>(This position can be hired as a Senior Mechanical Design Engineer or Staff Mechanical Design Engineer )</strong></p>
+<p><strong data-renderer-mark=""true"">Skills &amp; Requirements:</strong><br><strong data-renderer-mark=""true"">You'll Bring These Qualifications for Senior Mechanical Design Engineer, Mechanisms</strong></p>
+<ul>
+<li><span data-contrast=""auto"">5+ years experience using CAD software in a professional environment (e.g., NX, CATIA, SolidWorks or similar).</span></li>
+<li>Strong mechanical engineering fundamentals, including design (CAD), analysis (FEA/hand calcs), and fabrication (machine shop)</li>
+<li><span data-contrast=""auto"">Experience with pneumatic, hydraulic, and/or electromechanical (motorized) systems.</span></li>
+<li>Passion for aircraft and electrification of the aviation industry.</li>
+</ul>
+<p><strong data-renderer-mark=""true"">You'll Bring These Qualifications for Staff Mechanical Design Engineer, Mechanisms</strong></p>
+<ul>
+<li><span data-contrast=""auto"">8+ years experience using CAD software in a professional environment (e.g., NX, CATIA, SolidWorks or similar).</span></li>
+<li>Strong mechanical engineering fundamentals, including design (CAD), analysis (FEA/hand calcs), and fabrication (machine shop)</li>
+<li><span data-contrast=""auto"">Experience with pneumatic, hydraulic, and/or electromechanical (motorized) systems.</span></li>
+<li>Passion for aircraft and electrification of the aviation industry.</li>
+</ul>
+<p data-rx-type=""text"" data-rx-first-level=""true""><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul data-rx-type=""list"" data-rx-focusable=""true"" data-rx-first-level=""true"">
+<li data-rx-type=""listitem"">Thorough familiarity with aerospace design and regulatory standards (e.g., FAA, EASA) such as DO-160G, MIL-STD-810, or similar.</li>
+<li data-rx-type=""listitem"">Demonstrated experience with hand-calculation methods for preliminary and verification analysis of complex mechanical systems.</li>
+<li data-rx-type=""listitem"">Strong understanding of mechanical manufacturing fundamentals, including advanced GD&amp;T concepts and application for mechanisms.</li>
+<li data-rx-type=""listitem"">Proven capability to take designs from concept through to analysis and production, working independently and collaboratively with cross-functional teams.</li>
+</ul>
+<p data-rx-type=""text"" data-rx-first-level=""true""><strong>Education</strong></p>
+<ul data-rx-type=""list"" data-rx-focusable=""true"" data-rx-first-level=""true"">
+<li data-rx-type=""listitem"">Bachelor's in mechanical engineering, computer science, electrical engineering, or similar engineering discipline.</li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$140,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
+Heart Aerospace,"Senior/Staff Software Engineer, Flight Software",4137072009,"Los Angeles, CA",United States of America,"$155,000 —$193,000; $190,000 —$238,000",hybrid,Principal,unknown,unknown,unknown,greenhouse,2026-03-13,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4137072009,"<p>Los Angeles, CA</p>
+<p><strong>Role Overview:</strong></p>
+<p>At Heart Aerospace we are developing the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p data-renderer-start-pos=""4630"" data-local-id=""7252f87ae9a5"">As a Senior/Staff Software Engineer on the Flight Software Team, you are responsible for all aspects the development of the software on the aircraft. You will interface with other engineers to develop and understand requirements, architect and writing high quality code, build tests and test infrastructure, documentation, and provide support through the software lifecycle. You will report to the Manager of Flight Software and collaborate with other engineers as part of a multi-functional team.</p>
+<p data-renderer-start-pos=""5129"" data-local-id=""185fa8c03c1b"">Every engineer on the team is responsible for laying the technological foundation for the aircraft software and supporting systems, including but not limited to implementing aircraft control functions on embedded systems, developing aircraft models and simulation tools, implementing critical fault tolerance mechanisms, and building hardware and software test systems.</p>
+<p data-renderer-start-pos=""5500"" data-local-id=""ef489624b5c0""><strong data-renderer-mark=""true""><strong>Key Responsibilities include but are not limited to:</strong></strong></p>
+<ul class=""ak-ul"" data-local-id=""7231a9cea40f"" data-indent-level=""1"">
+<li>
+<p data-renderer-start-pos=""5520"" data-local-id=""f0c3038474c4"">Create highly reliable embedded software that control critical systems on Heart’s aircraft.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""5615"" data-local-id=""4a21fcf9cf5f"">Work with interdisciplinary teams to scope, design and build next generation hybrid electric aircraft capabilities, including engine controllers, battery management systems, flight control actuators, flight control systems and aircraft data networks.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""5869"" data-local-id=""27964197b539"">Develop tools that allow for test execution across multiple environments, ranging from high fidelity simulated software environments, to full scale test stands.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""6033"" data-local-id=""1076c0a28858"">Invent new systems that enable more frequent and reliable software deployment, test execution, and data analysis as part of a continuous integration and release system.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""6205"" data-local-id=""1f3ff84a6175"">Mentor junior engineers and set best practices for the team.</p>
+</li>
+</ul>
+<p><strong>You'll Bring These Qualifications as a Senior Software Engineer:</strong></p>
+<ul class=""ak-ul"" data-local-id=""336effb4-2f90-4720-8ca3-f0bf01df8e86"" data-indent-level=""1"">
+<li>
+<p data-renderer-start-pos=""6300"" data-local-id=""3493e3882371"">Bachelor's or above in computer science, electrical engineering, or similar engineering discipline.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""6403"" data-local-id=""9e27170fcd2c"">5+ years professional experience writing safety-critical code for vehicles, or similar applications.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""6507"" data-local-id=""3ebfb55ced42"">Excellent verbal and written communication skills in English.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""6572"" data-local-id=""1368a2e4d017"">Passion for aircraft and Heart’s mission.</p>
+</li>
+</ul>
+<p><strong>You'll Bring These Qualifications as a Staff Software Engineer:&nbsp;</strong></p>
+<ul class=""ak-ul"" data-local-id=""336effb4-2f90-4720-8ca3-f0bf01df8e86"" data-indent-level=""1"">
+<li>
+<p data-renderer-start-pos=""6403"" data-local-id=""9e27170fcd2c"">8+ years professional experience writing safety-critical code for vehicles, or similar applications.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""6507"" data-local-id=""3ebfb55ced42"">Excellent verbal and written communication skills in English.</p>
+</li>
+</ul>
+<p data-renderer-start-pos=""6617"" data-local-id=""a8b42668cb24""><strong data-renderer-mark=""true"">The ideal candidate would have:</strong></p>
+<ul class=""ak-ul"" data-local-id=""a92b1bd5-2a53-4d31-a7f1-71e1cb3f64ac"" data-indent-level=""1"">
+<li>
+<p data-renderer-start-pos=""6651"" data-local-id=""da4612cd9007"">Significant experience writing software in Rust, Python, C, C++, or a similar systems language.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""6750"" data-local-id=""334ec5f15724"">Experience writing code for execution in an embedded environment (microcontrollers, bare metal, RTOS, embedded OS).</p>
+</li>
+<li>
+<p data-renderer-start-pos=""6869"" data-local-id=""7ec479718787"">Experience modeling cyber-physical systems (6 DoF Simulators, Monte Carlos, Battery Pack Models).</p>
+</li>
+<li>
+<p data-renderer-start-pos=""6971"" data-local-id=""7f7854e6d15a"">Strong systems design fundamentals. Experience architecting software systems (and contributing requirements to hardware design) for vehicle systems. Experience with various approaches to fault tolerance and fault mitigation.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""7199"" data-local-id=""7de0b57ae0bb"">Significant experience with software and hardware test development. Experience with unit tests, CI/CD, integration testing, data collection and management, report generation, fuzzing and other advanced automated test methods.</p>
+</li>
+<li>
+<p data-renderer-start-pos=""7428"" data-local-id=""ce9c7b593847"">Experience developing software under a functional safety compliant process (for example, compliant to IEC 61508, ISO 26262, DO-178C, or similar). Strong understanding of functional safety and how to apply it to software development.</p>
+</li>
+</ul>
+<p><strong>Base Pay Range:</strong></p>
+<ul>
+<li>Senior Software Engineer: $155,000 —$193,000 USD.</li>
+<li>Staff Software Engineer: $190,000 —$238,000 USD.</li>
+</ul>"
+Heart Aerospace,"Software Engineer I/II, Flight Software",4013531009,"Los Angeles, CA",United States of America,"$119,000—$149,000; $137,000—$171,000",hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-03-04,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013531009,"<p>Los Angeles, CA</p>
+<p>At Heart Aerospace we are developing the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p>As an early – mid level Software Engineer on the Flight Software Team, you are responsible for all aspects the development of the software on the aircraft. You will interface with other engineers to develop and understand requirements, architect and writing high quality code, build tests and test infrastructure, documentation, and provide support through the software lifecycle. Part of your responsibility will be to lay the technological foundation for the aircraft software and supporting systems, including but not limited to implementing aircraft control functions on embedded systems, developing aircraft models and simulation tools, implementing critical fault tolerance mechanisms, and building hardware and software test systems. You will report to the Manager of Flight Software and collaborate with other engineers as part of a multi-functional team.</p>
+<p><strong>Key Responsibilities include but are not limited to:</strong></p>
+<ul>
+<li>Design, develop, test, and maintain embedded software for safety-critical vehicle and industrial systems.</li>
+<li>Write reliable, maintainable code for embedded environments including microcontrollers, bare-metal systems, RTOS, and embedded operating systems.</li>
+<li>Collaborate cross-functionally with systems, hardware, flight sciences, and quality teams.</li>
+<li>Contribute to verification and validation activities including unit testing, integration testing, and system-level testing.</li>
+<li>Support simulation, modeling, and test activities.</li>
+<li>Document designs, requirements, and test results clearly and effectively.</li>
+</ul>
+<p><strong>You'll Bring These Qualifications as a Software Engineer I:</strong></p>
+<ul>
+<li>0–2 years of professional experience (internships, co-ops, academic project work) in structural design, aerospace engineering, or a related field.</li>
+<li>Writing production-quality code in systems languages such as Rust, C, C++, or Python.</li>
+<li>Develop embedded software under close mentorship and guidance.</li>
+<li>Learn safety-critical development processes and certification standards.</li>
+<li>Implement embedded software features with moderate guidance.</li>
+<li>Contribute to fault tolerance, fault mitigation strategies, unit tests, CI/CD pipelines, integration testing, well-defined features, test development, and documentation.</li>
+<li>Participate in system modeling and simulation efforts.</li>
+<li>Strong verbal and written communication skills in English.</li>
+</ul>
+<p><strong>You'll Bring These Qualifications as a Software Engineer II:</strong></p>
+<ul>
+<li>2+ years of professional industry experience.</li>
+<li>Writing production-quality code in systems languages such as Rust, C, C++, or Python.</li>
+<li>Own medium-complexity features and subsystems end-to-end.</li>
+<li>Apply strong systems design fundamentals to embedded software architecture.</li>
+<li>Contribute to fault tolerance, fault mitigation strategies, unit tests, CI/CD pipelines, integration testing, well-defined features, test development, and documentation.</li>
+<li>Actively participate in design reviews and cross-discipline technical discussions.</li>
+<li>Establish well-defined features, test development, and documentation.</li>
+<li>Strong verbal and written communication skills in English.</li>
+</ul>
+<p><strong>Education:</strong></p>
+<ul>
+<li>Obtaining and/or obtained a minimum Bachelor’s degree in Aerospace Engineering, Computer Science, Electrical Engineering<strong>,</strong> or a related engineering discipline</li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li>Passion for aircraft, vehicles, and the company mission.</li>
+<li>Experience with embedded execution environments (microcontrollers, bare metal, RTOS, embedded OS).</li>
+<li>Experience modeling cyber-physical systems (e.g., 6-DoF simulators, Monte Carlo simulations, battery pack models).</li>
+<li>Experience with software and hardware test development: Unit tests, CI/CD pipelines, integration testing, automated testing, fuzzing, data collection, and report generation.</li>
+<li>Support development under functional safety–compliant processes (e.g., DO-178C, ISO 26262, IEC 61508).</li>
+</ul>
+<p><strong>Base Pay Range:</strong></p>
+<ul>
+<li>Software Engineer I: $119,000—$149,000 USD.</li>
+<li>Software Engineer II: $137,000—$171,000 USD.</li>
+</ul>"
+Heart Aerospace,Structures Analyst – Engineer I/Engineer II,4008982009,"Los Angeles, CA",United States of America,"$108,000 - $135,000; $124,000 - $155,000",hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4008982009,"<p><strong>About Heart Aerospace</strong></p>
+<p>At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric aircraft designed to decarbonize and democratize aviation. The ES-30 seats 30 passengers, with a zero-emission electric range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification by the end of the decade.</p>
+<p><strong>Your Mission</strong></p>
+<p>As a <strong>Structures Analyst</strong>, you will support the analysis and development of aircraft structural components for a next-generation hybrid-electric airplane. Working closely with senior and staff engineers, you will contribute to structural analyses of composite and metallic airframe components, assist with design trade studies, and grow your technical skills in a fast-paced aerospace environment.</p>
+<p>This role is ideal for early-career engineers looking to deepen their experience in structural analysis, finite element modeling, and aircraft design.</p>
+<p>We are looking to hire a <strong>Structure Analyst I</strong> and<strong> Structure Analyst II </strong>for the<strong> </strong>Structures<strong> </strong>team.</p>
+<p><strong>Key responsibilities include but are not limited to:</strong></p>
+<ul>
+<li>Perform structural analysis using classical methods and Finite Element Analysis (FEA) tools under guidance from senior engineers (e.g., Nastran, Patran, Abaqus, ANSYS).</li>
+<li>Built and modifies FEA models for static, dynamic, and fatigue analyses.</li>
+<li>Analyze and interpret simulation results, helping to document findings and recommendations.</li>
+<li>Collaborate with design engineers to support structural sizing, weight optimization, and design iterations.</li>
+<li>Perform basic hand calculations to support preliminary designs and validate analysis results.</li>
+<li>Drive structural testing activities, including test setup assistance, data review, and correlation with analysis.</li>
+<li>Manage structural issues by investigating root-cause analysis efforts.</li>
+<li>Document analysis work clearly and maintain organized records of models, assumptions, and results.</li>
+</ul>
+<p><strong>You'll Bring These Qualifications for a Structures Analyst I:</strong></p>
+<ul>
+<li>0–2 years of professional experience, internships, or co-ops in structural analysis, aerospace engineering, or a related field.</li>
+<li>Exposure to composite and/or metallic structures (academic or professional).</li>
+<li>Familiarity with FEA tools (e.g., Nastran, Patran, Abaqus, ANSYS) through coursework, internships, or early career experience.</li>
+<li>Foundational understanding of structural mechanics, materials, and aerospace structures.</li>
+<li>Strong analytical, problem-solving, and organizational skills.</li>
+<li>Ability to communicate technical information clearly in written and verbal English.</li>
+<li>Enthusiasm for aircraft development and alignment with Heart’s mission.</li>
+<li>Willingness to learn, take feedback, and work in a fast-paced, collaborative environment.</li>
+</ul>
+<p><strong>You'll Bring These Qualifications for a Structures Analyst II:</strong></p>
+<ul>
+<li>2–5 years of professional industry experience.</li>
+<li>Exposure to composite and/or metallic structures.</li>
+<li>Familiarity with FEA tools (e.g., Nastran, Patran, Abaqus, ANSYS) through coursework, internships, or early career experience.</li>
+<li>Foundational understanding of structural mechanics, materials, and aerospace structures.</li>
+<li>Strong analytical, problem-solving, and organizational skills.</li>
+<li>Ability to communicate technical information clearly in written and verbal English.</li>
+<li>Enthusiasm for aircraft development and alignment with Heart’s mission.</li>
+<li>Willingness to learn, take feedback, and work in a fast-paced, collaborative environment.</li>
+</ul>
+<p><strong>Education:</strong></p>
+<ul>
+<li>Bachelor’s Degree in Aerospace Engineering, Mechanical Engineering, or a related field.</li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li>Worked in a startup environment.</li>
+<li>Exposure to composite materials and manufacturing methods.</li>
+<li>Experience with CAD tools (e.g., CATIA, SolidWorks, NX).</li>
+<li>Familiarity with aerospace certification concepts (FAA, EASA) through coursework.</li>
+<li>Introductory experience with Python or scripting for analysis automation.</li>
+<li>Master’s degree (or progress toward one) in Aerospace or Mechanical Engineering.</li>
+</ul>
+<p><strong>Base Pay Range:</strong></p>
+<ul>
+<li style=""font-weight: bold;""><strong>Structures Analyst I - $108,000 - $135,000.</strong></li>
+<li style=""font-weight: bold;""><strong>Structures Analyst II - $124,000 - $155,000.</strong></li>
+</ul>"
+Heart Aerospace,Turbomachinery Engineer,4008983009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4008983009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 800 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p><strong>Your mission</strong></p>
+<p>We are seeking a highly motivated Turbomachinery Engineer to join our Propulsion team. You will lead the design and integration of the turbomachinery components, including the fuel system and pitch control system. You will interface across mechanical, thermal, electrical, and control systems to deliver a fully integrated and certifiable propulsion unit.</p>
+<p><strong>Key responsibilities include but are not limited to:</strong></p>
+<ul>
+<li>This role is a Responsible Engineer (RE) focuses on the integration of turbomachinery into our hybrid aircraft.</li>
+<li>Full ownership over design, fabrication, and certification of the hybrid powertrain.</li>
+<li>Lead the design of turbomachinery, including combustion systems, fluid analysis, exhaust, high-speed rotating machinery, and similar.</li>
+<li>Lead and execute system-level tests, such as engine and propeller test stands.</li>
+<li>Collaborate with suppliers to ensure delivery of integrated, certifiable subsystems.</li>
+<li>Model the gas turbine in to our high fidelity digital twin for optimization of our hybrid mission profile.</li>
+</ul>
+<p data-renderer-start-pos=""1562""><strong data-renderer-mark=""true"">Skills &amp; Requirements</strong></p>
+<p data-renderer-start-pos=""1585""><strong data-renderer-mark=""true"">You'll Bring These Qualifications:</strong></p>
+<ul>
+<li>2+ years of professional experience working with propulsion components such as gas turbines, thermal management systems, propellers, and ancillary systems.</li>
+<li>Hands-on experience with propulsion or powertrain test stands, including instrumentation, controls, and mechanical assembly.</li>
+<li>Experience with CAD (e.g., Siemens NX), Python, system integration, and PLM tools.</li>
+<li>Proficient with static and dynamic structural analysis through simulations on either of Ansys, Nastran, or Abaqus.</li>
+</ul>
+<p><strong>These Qualifications Would Be Nice to Have:</strong></p>
+<ul>
+<li>Understanding of certification requirements (EASA CS-23/25 or FAA FAR Part 23/25).</li>
+<li>Knowledge of drivetrain dynamics, rotor balancing, or propeller aerodynamics.</li>
+<li>Demonstrated leadership qualities through cross-functional teamwork on challenging problems.</li>
+</ul>
+<p><strong>Education</strong>:</p>
+<ul>
+<li>Bachelor’s or Master’s degree in Mechanical, Aerospace, or Mechatronics Engineering (or similar).</li>
+</ul>
+<div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
+<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$216,000 USD</strong></div>"

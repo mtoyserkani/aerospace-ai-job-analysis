@@ -189,9 +189,10 @@ async def scrape_company(slug, config, limiter):  # config passed through for se
     return jobs
 
 
-async def main(company_keys, output):
+async def main(company_keys, output_dir):
     limiter = RateLimiter(calls_per_minute=10)
-    all_jobs = []
+    total = 0
+
     for key in company_keys:
         config = COMPANIES.get(key)
         if not config:
@@ -200,9 +201,20 @@ async def main(company_keys, output):
         print(f"\nScraping {config['name']}... (browser will open — do not interact)")
         jobs = await scrape_company(key, config, limiter)
         print(f"  Total: {len(jobs)} jobs")
-        all_jobs.extend(jobs)
-    save_jobs(all_jobs, output)
-    print(f"\nDone: {len(all_jobs)} jobs → {output}")
+
+        if not jobs:
+            print(f"  No jobs found — skipping")
+            continue
+
+        if not sample_check(jobs[:20], config["name"], "icims"):
+            print(f"  Skipping save due to sample check failure.")
+            continue
+
+        output_path = output_dir / f"icims_{key}.csv"
+        save_jobs(jobs, output_path)
+        total += len(jobs)
+
+    print(f"\nDone: {total} total jobs")
 
 
 if __name__ == "__main__":

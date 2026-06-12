@@ -1,7 +1,7 @@
 company_name,tier,ats_platform,scraper,output_file,scraper_status,notes
 The Boeing Company,Prime,TalentBrew,talentbrew_scraper.py,boeing_jobs.csv,active,1791 jobs captured. Also on Workday (1217 jobs with descriptions in workday_jobs_enriched.csv).
 Lockheed Martin,Prime,Brassring,brassring_scraper.py,brassring_enriched.csv,active,6610 jobs with descriptions enriched overnight.
-Northrop Grumman,Prime,Eightfold,eightfold_scraper.py,,parked,Moved from Phenom to Eightfold AI (jobs.northropgrumman.com). API returns 403. Needs Playwright fix.
+Northrop Grumman,Prime,Eightfold,eightfold_scraper.py,,active,2893 jobs confirmed 2026-06-12. Uses /search?domain=ngc.com API. eightfold_scraper.py updated with correct endpoint.
 RTX,Prime,Phenom,phenom_scraper.py,,parked,careers.rtx.com. API blocked from automated access.
 General Dynamics,Prime,iCIMS,icims_scraper.py,gd_jobs.csv,active,239 jobs (GD OTS division only). Full GD catalog split across multiple iCIMS instances.
 L3Harris,Prime,TalentBrew,talentbrew_scraper.py,l3harris_enriched.csv,active,1673 jobs with descriptions enriched.
@@ -13,7 +13,7 @@ Bell (Textron),Prime,Taleo,taleo_scraper.py,bell_jobs.csv,active,52 jobs.
 Sikorsky (Lockheed),Tier1,Brassring,brassring_scraper.py,brassring_enriched.csv,active,Included in Lockheed Brassring output.
 Collins Aerospace (RTX),Tier1,Phenom,phenom_scraper.py,,parked,Shares RTX Phenom instance. API blocked.
 Pratt & Whitney (RTX),Tier1,Phenom,phenom_scraper.py,,parked,Shares RTX Phenom instance. API blocked.
-GE Aerospace,Tier1,Phenom,phenom_scraper.py,,parked,careers.geaerospace.com. API blocked from automated access.
+GE Aerospace,Tier1,Phenom,phenom_scraper.py,,parked,Phenom widget-based API. Tenant not identified via direct calls. Investigated 2026-06-12 — requires reverse-engineering minified widget JS.
 Parker Hannifin,Tier1,TTC Portals,,,parked,Uses parkercareers.ttcportals.com — not Workday. No scraper built.
 Moog Inc,Tier1,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,414 jobs in Workday enriched output.
 Spirit AeroSystems,Tier1,iCIMS,icims_scraper.py,,parked,Pagination broken — only 20 jobs captured. careers-spiritaero.icims.com.

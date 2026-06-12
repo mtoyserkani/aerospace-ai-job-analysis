@@ -35,7 +35,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from base import (
-    Job, RateLimiter, infer_seniority, infer_remote, save_jobs,
+    Job, RateLimiter, infer_seniority, infer_remote, save_jobs, sample_check,
     extract_salary, extract_citizenship, extract_clearance, extract_relocation,
 )
 
@@ -309,7 +309,21 @@ async def scrape(output: Path, config: dict = None) -> None:
 
         await browser.close()
 
-    save_jobs(all_jobs, output)
+    # Save per company - iterate jobs by company
+    from collections import defaultdict
+    jobs_by_company = defaultdict(list)
+    for job in all_jobs:
+        jobs_by_company[job.company].append(job)
+    total = 0
+    for company_jobs in jobs_by_company.values():
+        if not company_jobs:
+            continue
+        if not sample_check(company_jobs[:20], company_jobs[0].company, "talentbrew"):
+            continue
+        key = company_jobs[0].company.lower().replace(" ", "_").replace("(", "").replace(")", "")
+        output_path = output_dir / f"talentbrew_{key}.csv"
+        save_jobs(company_jobs, output_path)
+        total += len(company_jobs)
     print(f"\nL3Harris: {len(all_jobs)} jobs saved → {output}")
 
 
@@ -321,7 +335,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scrape TalentBrew ATS companies")
     parser.add_argument("--companies", nargs="*", default=list(COMPANIES.keys()),
                         help=f"Companies to scrape. Options: {', '.join(COMPANIES.keys())}")
-    parser.add_argument("--output", type=Path, default=Path("data/talentbrew_jobs.csv"))
+    parser.add_argument("--output-dir", type=Path, default=Path("data"),
+                        help="Directory for output files (one CSV per company)")
     args = parser.parse_args()
 
     # Run the selected company config
