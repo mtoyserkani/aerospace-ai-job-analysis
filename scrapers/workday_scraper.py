@@ -1,98 +1,131 @@
 """
 workday_scraper.py — Scrapes companies using the Workday ATS.
 
-Workday is JavaScript-heavy with no public API. Requires Playwright.
-Some Workday instances are behind Cloudflare Bot Management — those
-companies are documented below with their block status.
+Architecture:
+  1. List phase — CXS API (httpx POST, fast, no browser needed)
+     POST https://{tenant}.{wd}.myworkdayjobs.com/wday/cxs/{tenant}/{instance}/jobs
+  2. Enrichment phase — Playwright (headless=False required, Workday blocks headless)
+     Description selector: [data-automation-id='jobPostingDescription'] (confirmed 2026-06-12)
+     Apply URL format: https://{tenant}.{wd}.myworkdayjobs.com/en-US/{instance}/job/...
 
-Install: pip install playwright && playwright install chromium
-
-Companies in this dataset using Workday:
-  - Sierra Nevada Corporation  → sncorp.wd5.myworkdayjobs.com
-  - The Boeing Company         → boeing.wd1.myworkdayjobs.com  [partial — see note]
-  - Booz Allen Hamilton        → bah.wd1.myworkdayjobs.com
-  - Vantor Services Inc.       → careers.vantor.com
-  - Wisk Aero LLC              → wisk.wd5.myworkdayjobs.com
-
-NOTE ON BOEING: Boeing's Workday instance returns partial results via
-Playwright. Their tenant appears to have enhanced bot detection. The
-48 Boeing jobs in this dataset were captured before throttling kicked in
-and are NOT representative of Boeing's actual hiring volume (~170K employees).
-Do not cite Boeing data from this dataset for quantitative claims.
-
-NOTE ON RTX / RAYTHEON: Consistently blocked by Cloudflare. Not included.
-NOTE ON LEIDOS: Consistently blocked by Cloudflare. Not included.
-
-Workday URL pattern: https://{tenant}.myworkdayjobs.com/{instance}/jobs
-Workday API pattern: https://{tenant}.myworkdayjobs.com/wday/cxs/{tenant}/{instance}/jobs
+Each company saves to its own file: data/workday_{company_key}.csv
+Sample check runs after first 20 jobs — aborts if titles/URLs are broken.
 
 Usage:
-    pip install playwright httpx && playwright install chromium
-    python workday_scraper.py --output data/workday_jobs.csv
-    python workday_scraper.py --companies sncorp wisk
+    python3 scrapers/workday_scraper.py                        # all companies
+    python3 scrapers/workday_scraper.py --companies boeing     # one company
+    python3 scrapers/workday_scraper.py --skip-enrichment      # list only, no descriptions
 """
 
 import argparse
 import asyncio
-import json
 import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from base import Job, RateLimiter, infer_seniority, infer_remote, save_jobs, Job
+from base import (
+    Job, RateLimiter, FIELDNAMES,
+    infer_seniority, infer_remote, save_jobs, sample_check,
+    extract_salary, extract_citizenship, extract_clearance,
+    extract_relocation, _infer_country,
+)
 
 # ---------------------------------------------------------------------------
 # Company registry
 # ---------------------------------------------------------------------------
 
 COMPANIES = {
-    "sncorp": {
-        "name":     "Sierra Nevada Corporation",
-        "tenant":   "sncorp",
-        "instance": "EXTERNAL_CAREERS",
-        "blocked":  False,
-    },
     "boeing": {
         "name":     "The Boeing Company",
         "tenant":   "boeing",
+        "wd":       "wd1",
         "instance": "EXTERNAL_CAREERS",
-        "blocked":  False,
-        "note":     "Partial results only — see module docstring",
+        "note":     "May throttle after many requests. 502s trigger 30s retry.",
+    },
+    "sncorp": {
+        "name":     "Sierra Nevada Corporation",
+        "tenant":   "snc",
+        "wd":       "wd1",
+        "instance": "SNC_External_Career_Site",
     },
     "bah": {
         "name":     "Booz Allen Hamilton",
         "tenant":   "bah",
-        "instance": "External_Career_Site",
-        "blocked":  False,
+        "wd":       "wd1",
+        "instance": "BAH_Jobs",
     },
     "wisk": {
         "name":     "Wisk Aero LLC",
         "tenant":   "wisk",
-        "instance": "External",
-        "blocked":  False,
+        "wd":       "wd108",
+        "instance": "Wisk_Careers",
     },
-    "rtx": {
-        "name":     "RTX / Raytheon",
-        "tenant":   "rtx",
-        "instance": "RTX_Careers",
-        "blocked":  True,
-        "note":     "Cloudflare Bot Management blocks Playwright. Manual scrape or enterprise solution required.",
+    "airbus": {
+        "name":     "Airbus",
+        "tenant":   "ag",
+        "wd":       "wd3",
+        "instance": "Airbus",
+    },
+    "cae": {
+        "name":     "CAE",
+        "tenant":   "cae",
+        "wd":       "wd3",
+        "instance": "career",
+    },
+    "woodward": {
+        "name":     "Woodward",
+        "tenant":   "woodward",
+        "wd":       "wd5",
+        "instance": "woodward",
+    },
+    "crane": {
+        "name":     "Crane",
+        "tenant":   "cranecompany",
+        "wd":       "wd5",
+        "instance": "Careers",
+    },
+    "curtisswright": {
+        "name":     "Curtiss-Wright",
+        "tenant":   "curtisswright",
+        "wd":       "wd1",
+        "instance": "CW_External_Career_Site",
+    },
+    "moog": {
+        "name":     "Moog Inc",
+        "tenant":   "moog",
+        "wd":       "wd5",
+        "instance": "MOOG_External_Career_Site",
+    },
+    "blueorigin": {
+        "name":     "Blue Origin",
+        "tenant":   "blueorigin",
+        "wd":       "wd5",
+        "instance": "BlueOrigin",
+    },
+    "delta": {
+        "name":     "Delta TechOps",
+        "tenant":   "delta",
+        "wd":       "wd5",
+        "instance": "DeltaJobSearch",
+        "note":     "Full Delta catalog — filter TechOps roles in analysis.",
     },
     "leidos": {
         "name":     "Leidos",
         "tenant":   "leidos",
+        "wd":       "wd5",
         "instance": "External",
-        "blocked":  True,
-        "note":     "Cloudflare blocks all automated access.",
+    },
+    "vantor": {
+        "name":     "Vantor",
+        "tenant":   "maxar",
+        "wd":       "wd1",
+        "instance": "Vantor",
+        "note":     "Formerly Maxar Intelligence. Rebranded 2025.",
     },
 }
 
-# ---------------------------------------------------------------------------
-# Workday CXS API (internal REST endpoint, available on most tenants)
-# ---------------------------------------------------------------------------
-
-CXS_URL = "https://{tenant}.myworkdayjobs.com/wday/cxs/{tenant}/{instance}/jobs"
+CXS_URL = "https://{tenant}.{wd}.myworkdayjobs.com/wday/cxs/{tenant}/{instance}/jobs"
 
 HEADERS = {
     "Accept":       "application/json",
@@ -100,19 +133,49 @@ HEADERS = {
     "User-Agent":   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
 }
 
-PAYLOAD = {
-    "appliedFacets": {},
-    "limit": 20,
-    "offset": 0,
-    "searchText": "",
-}
+PAYLOAD = {"appliedFacets": {}, "limit": 20, "offset": 0, "searchText": ""}
 
 
-async def scrape_via_api(config: dict, limiter: RateLimiter) -> list[Job]:
-    """
-    Try the Workday CXS API first. This works on most Workday tenants
-    and is far faster than Playwright. Falls back to Playwright if needed.
-    """
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+def _parse_date(raw: dict) -> str:
+    for key in ["postedOn", "startDate", "closingDate"]:
+        val = raw.get(key, "")
+        if val:
+            m = re.search(r"(\d{4}-\d{2}-\d{2})", str(val))
+            if m:
+                return m.group(1)
+    return "N/A"
+
+
+def _extract_job_id(raw: dict, tenant: str) -> str:
+    bullet = raw.get("bulletFields", [])
+    if bullet and bullet[0]:
+        return str(bullet[0])
+    ext_path = raw.get("externalPath", "")
+    if ext_path:
+        parts = ext_path.rstrip("/").split("/")
+        if parts:
+            return parts[-1]
+    return Job.stable_id(ext_path or tenant)
+
+
+def _build_apply_url(raw: dict, tenant: str, wd: str, instance: str) -> str:
+    ext_path = raw.get("externalPath", "")
+    if not ext_path:
+        return ""
+    if ext_path.startswith("/job/"):
+        return f"https://{tenant}.{wd}.myworkdayjobs.com/en-US/{instance}{ext_path}"
+    return f"https://{tenant}.{wd}.myworkdayjobs.com{ext_path}"
+
+
+# ---------------------------------------------------------------------------
+# List phase — CXS API
+# ---------------------------------------------------------------------------
+
+async def scrape_via_api(config: dict, limiter: RateLimiter) -> list[dict]:
     try:
         import httpx
     except ImportError:
@@ -121,10 +184,10 @@ async def scrape_via_api(config: dict, limiter: RateLimiter) -> list[Job]:
 
     tenant   = config["tenant"]
     instance = config["instance"]
+    wd       = config.get("wd", "wd5")
     company  = config["name"]
-    url      = CXS_URL.format(tenant=tenant, instance=instance)
-
-    jobs     = []
+    url      = CXS_URL.format(tenant=tenant, wd=wd, instance=instance)
+    raw_jobs = []
     offset   = 0
     total    = None
 
@@ -132,146 +195,224 @@ async def scrape_via_api(config: dict, limiter: RateLimiter) -> list[Job]:
         while True:
             await limiter.wait()
             payload = {**PAYLOAD, "offset": offset}
-
             try:
                 resp = await client.post(url, json=payload, timeout=30)
                 resp.raise_for_status()
             except Exception as e:
                 print(f"  [{tenant}] API error at offset {offset}: {e}")
-                break
+                if "502" in str(e) or "503" in str(e):
+                    print(f"  [{tenant}] Waiting 30s and retrying...")
+                    await asyncio.sleep(30)
+                    try:
+                        resp = await client.post(url, json=payload, timeout=30)
+                        resp.raise_for_status()
+                    except Exception as e2:
+                        print(f"  [{tenant}] Retry failed: {e2} — stopping")
+                        break
+                else:
+                    break
 
-            data       = resp.json()
-            total      = total or data.get("total", 0)
-            page_jobs  = data.get("jobPostings", [])
+            data      = resp.json()
+            total     = total if total is not None else data.get("total", 0)
+            page_jobs = data.get("jobPostings", [])
 
             if not page_jobs:
                 break
 
-            for raw in page_jobs:
-                job_id    = raw.get("bulletFields", [None])[0] or Job.stable_id(raw.get("externalPath", ""))
-                title     = raw.get("title", "").strip()
-                ext_path  = raw.get("externalPath", "")
-                apply_url = f"https://{tenant}.myworkdayjobs.com{ext_path}" if ext_path else ""
-                location  = raw.get("locationsText", "")
-                posted    = raw.get("postedOn", "")
-
-                jobs.append(Job(
-                    job_id          = str(job_id),
-                    title           = title,
-                    company         = company,
-                    location        = location,
-                    country         = _infer_country(location),
-                    remote          = infer_remote(location),
-                    apply_url       = apply_url,
-                    description_text= "",   # CXS API doesn't return descriptions; use Playwright for full text
-                    seniority       = infer_seniority(title),
-                    salary          = "",
-                    source_platform = "workday",
-                ))
-
+            raw_jobs.extend(page_jobs)
             offset += len(page_jobs)
-            print(f"  [{tenant}] {offset}/{total} jobs fetched...")
+            print(f"  [{tenant}] {offset}/{total} jobs listed...")
+
             if offset >= total:
                 break
+
+    return raw_jobs
+
+
+# ---------------------------------------------------------------------------
+# Build jobs without descriptions (skip-enrichment mode)
+# ---------------------------------------------------------------------------
+
+def _build_jobs_no_desc(raw_jobs: list[dict], config: dict) -> list[Job]:
+    tenant   = config["tenant"]
+    instance = config.get("instance", "External")
+    wd       = config.get("wd", "wd5")
+    company  = config["name"]
+    jobs     = []
+
+    for raw in raw_jobs:
+        job_id    = _extract_job_id(raw, tenant)
+        title     = raw.get("title", "").strip()
+        location  = raw.get("locationsText", "")
+        apply_url = _build_apply_url(raw, tenant, wd, instance)
+
+        jobs.append(Job(
+            company                = company,
+            title                  = title,
+            job_id                 = job_id,
+            location               = location,
+            country                = _infer_country(location),
+            salary                 = "",
+            remote                 = infer_remote(location),
+            seniority              = infer_seniority(title),
+            us_citizenship_required= "unknown",
+            security_clearance     = "unknown",
+            relocation_assistance  = "unknown",
+            source_platform        = "workday",
+            date_posted            = _parse_date(raw),
+            apply_url              = apply_url,
+            description_text       = "",
+        ))
 
     return jobs
 
 
-async def enrich_descriptions(jobs: list[Job], limiter: RateLimiter) -> list[Job]:
-    """
-    Fetch full job description text for each job using Playwright.
-    The CXS API returns listings without description text. This step
-    is slow (~3-5 seconds/job) but produces complete records.
+# ---------------------------------------------------------------------------
+# Enrichment phase — Playwright (headless=False required)
+# ---------------------------------------------------------------------------
 
-    For large scrapes: run overnight, or sample 20% for analysis.
+async def enrich_with_descriptions(
+    raw_jobs: list[dict],
+    config: dict,
+    limiter: RateLimiter,
+) -> list[Job]:
+    """
+    Visit each job's detail page to extract description.
+    headless=False required — Workday blocks headless browsers.
+    Confirmed selector: [data-automation-id='jobPostingDescription'] (2026-06-12)
     """
     try:
         from playwright.async_api import async_playwright
     except ImportError:
-        print("  Playwright not installed. Descriptions will be empty.")
-        print("  Install: pip install playwright && playwright install chromium")
-        return jobs
+        print("  Playwright not available — building jobs without descriptions")
+        return _build_jobs_no_desc(raw_jobs, config)
 
-    enriched = []
+    tenant   = config["tenant"]
+    instance = config.get("instance", "External")
+    wd       = config.get("wd", "wd5")
+    company  = config["name"]
+    jobs     = []
+
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        page    = await browser.new_page()
+        browser = await p.chromium.launch(headless=False)
+        context = await browser.new_context(
+            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        )
+        page = await context.new_page()
 
-        for i, job in enumerate(jobs):
-            if not job.apply_url:
-                enriched.append(job)
-                continue
+        for i, raw in enumerate(raw_jobs):
+            job_id    = _extract_job_id(raw, tenant)
+            title     = raw.get("title", "").strip()
+            location  = raw.get("locationsText", "")
+            apply_url = _build_apply_url(raw, tenant, wd, instance)
+            date_posted = _parse_date(raw)
+            desc = ""
 
-            await limiter.wait()
-            try:
-                await page.goto(job.apply_url, wait_until="networkidle", timeout=30000)
-                # Workday job description lives in the main content section
-                desc_el = await page.query_selector(
-                    "[data-automation-id='jobPostingDescription'],"
-                    "[class*='jobDescription'],"
-                    "section[aria-label*='Description']"
-                )
-                desc = (await desc_el.inner_text()) if desc_el else ""
-                job.description_text = re.sub(r"\s{2,}", " ", desc).strip()
-            except Exception as e:
-                print(f"  [{job.company}] Failed to load description for '{job.title}': {e}")
+            if apply_url:
+                await limiter.wait()
+                try:
+                    await page.goto(apply_url, wait_until="domcontentloaded", timeout=30000)
+                    await page.wait_for_timeout(2000)
+                    desc_el = await page.query_selector("[data-automation-id='jobPostingDescription']")
+                    if desc_el:
+                        raw_desc = await desc_el.inner_text()
+                        desc = re.sub(r"\s{2,}", " ", raw_desc).strip()
+                except Exception:
+                    pass
 
-            enriched.append(job)
-            if (i + 1) % 10 == 0:
-                print(f"  Enriched {i+1}/{len(jobs)}...")
+            if (i + 1) % 20 == 0:
+                pct = int(100 * (i + 1) / len(raw_jobs))
+                has_desc = sum(1 for j in jobs if j.description_text)
+                print(f"  [{tenant}] {i+1}/{len(raw_jobs)} ({pct}%) — {has_desc} descriptions so far")
+
+            jobs.append(Job(
+                company                = company,
+                title                  = title,
+                job_id                 = job_id,
+                location               = location,
+                country                = _infer_country(location),
+                salary                 = extract_salary(desc),
+                remote                 = infer_remote(location, desc),
+                seniority              = infer_seniority(title),
+                us_citizenship_required= extract_citizenship(desc),
+                security_clearance     = extract_clearance(desc),
+                relocation_assistance  = extract_relocation(desc),
+                source_platform        = "workday",
+                date_posted            = date_posted,
+                apply_url              = apply_url,
+                description_text       = desc,
+            ))
 
         await browser.close()
 
-    return enriched
-
-
-def _infer_country(location: str) -> str:
-    loc = location.lower()
-    if any(k in loc for k in ["canada", " bc", " ab", "ontario", "toronto"]):
-        return "CA"
-    if any(k in loc for k in ["uk", "london", "england"]):
-        return "GB"
-    return "US"
+    return jobs
 
 
 # ---------------------------------------------------------------------------
 # Runner
 # ---------------------------------------------------------------------------
 
-async def main(company_keys: list[str], output: Path, skip_enrichment: bool) -> None:
-    limiter  = RateLimiter(calls_per_minute=20)  # Conservative for Workday
-    all_jobs = []
+async def scrape_company(
+    key: str,
+    config: dict,
+    output_dir: Path,
+    skip_enrichment: bool,
+    list_limiter: RateLimiter,
+    detail_limiter: RateLimiter,
+) -> int:
+    company = config["name"]
+    wd      = config.get("wd", "wd5")
+    print(f"\nScraping {company} ({config['tenant']}.{wd}/{config['instance']})...")
+    if config.get("note"):
+        print(f"  Note: {config['note']}")
+
+    raw_jobs = await scrape_via_api(config, list_limiter)
+    print(f"  Listed: {len(raw_jobs)} jobs")
+
+    if not raw_jobs:
+        print(f"  No jobs found — skipping")
+        return 0
+
+    if skip_enrichment:
+        jobs = _build_jobs_no_desc(raw_jobs, config)
+    else:
+        print(f"  Enriching with descriptions (browser will open)...")
+        jobs = await enrich_with_descriptions(raw_jobs, config, detail_limiter)
+
+    # Sample check after building jobs
+    if not sample_check(jobs[:20], company, "workday"):
+        print(f"  Skipping save due to sample check failure.")
+        return 0
+
+    output_path = output_dir / f"workday_{key}.csv"
+    save_jobs(jobs, output_path)
+    print(f"  Done: {len(jobs)} jobs → {output_path}")
+    return len(jobs)
+
+
+async def main(company_keys: list[str], output_dir: Path, skip_enrichment: bool) -> None:
+    list_limiter   = RateLimiter(calls_per_minute=25)
+    detail_limiter = RateLimiter(calls_per_minute=15)
+    total = 0
 
     for key in company_keys:
         config = COMPANIES.get(key)
         if not config:
-            print(f"Unknown company key: {key}. Available: {', '.join(COMPANIES)}")
+            print(f"Unknown company: {key}. Available: {', '.join(COMPANIES)}")
             continue
-        if config.get("blocked"):
-            print(f"\nSkipping {config['name']} — {config.get('note', 'blocked')}")
-            continue
+        count = await scrape_company(key, config, output_dir, skip_enrichment, list_limiter, detail_limiter)
+        total += count
 
-        print(f"\nScraping {config['name']}...")
-        jobs = await scrape_via_api(config, limiter)
-        print(f"  Found {len(jobs)} listings via API")
-
-        if not skip_enrichment and jobs:
-            print(f"  Fetching full descriptions via Playwright...")
-            jobs = await enrich_descriptions(jobs, limiter)
-
-        all_jobs.extend(jobs)
-
-    save_jobs(all_jobs, output)
-    print(f"\nTotal: {len(all_jobs)} jobs from {len(company_keys)} companies")
+    print(f"\nTotal: {total} jobs across {len(company_keys)} companies")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scrape Workday ATS job boards")
-    active = [k for k, v in COMPANIES.items() if not v.get("blocked")]
-    parser.add_argument("--companies", nargs="*", default=active,
-                        help=f"Company keys. Available (unblocked): {', '.join(active)}")
-    parser.add_argument("--output", type=Path, default=Path("data/workday_jobs.csv"))
+    parser.add_argument("--companies", nargs="*", default=list(COMPANIES.keys()),
+                        help=f"Companies to scrape. Options: {', '.join(COMPANIES.keys())}")
+    parser.add_argument("--output-dir",      type=Path, default=Path("data"),
+                        help="Directory for output files (one CSV per company)")
     parser.add_argument("--skip-enrichment", action="store_true",
-                        help="Skip Playwright description fetch (fast, but descriptions will be empty)")
+                        help="Skip description fetches — fast list-only mode")
     args = parser.parse_args()
-    asyncio.run(main(args.companies, args.output, args.skip_enrichment))
+    asyncio.run(main(args.companies, args.output_dir, args.skip_enrichment))

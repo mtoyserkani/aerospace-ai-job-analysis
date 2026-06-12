@@ -18,20 +18,25 @@ Usage:
 import argparse
 import asyncio
 import re
+from typing import Union
 import sys
 from pathlib import Path
 
 import httpx
 
 sys.path.insert(0, str(Path(__file__).parent))
-from base import Job, RateLimiter, infer_seniority, infer_remote, save_jobs
+from base import (
+    Job, RateLimiter, infer_seniority, infer_remote, save_jobs,
+    extract_salary, extract_citizenship, extract_clearance, extract_relocation,
+)
 
 # ---------------------------------------------------------------------------
 # Company registry
 # ---------------------------------------------------------------------------
 
 COMPANIES = {
-    "hermeus": "Hermeus",
+    "hermeus":  "Hermeus",
+    "elroyair": "Elroy Air",  # slug confirmed 2026-06-06 via dom_inspector
 }
 
 API_URL = "https://api.lever.co/v0/postings/{slug}?mode=json&limit=250"
@@ -64,7 +69,11 @@ async def scrape_company(
     for raw in raw_jobs:
         job_id    = raw.get("id", "")
         title     = raw.get("text", "").strip()
+        # hostedUrl = job description page, applyUrl = application form
+        # Use hostedUrl for apply_url so candidates land on the description first
+        # Strip trailing /apply if present to get clean description URL
         apply_url = raw.get("hostedUrl", raw.get("applyUrl", ""))
+        apply_url = apply_url.rstrip("/apply").rstrip("/") if apply_url.endswith("/apply") else apply_url
 
         # Location
         categories = raw.get("categories", {})
@@ -79,23 +88,27 @@ async def scrape_company(
         salary = _extract_salary(raw.get("text", ""), desc)
 
         jobs.append(Job(
-            job_id          = job_id,
-            title           = title,
-            company         = company_name,
-            location        = location,
-            country         = country,
-            remote          = infer_remote(location, desc),
-            apply_url       = apply_url,
-            description_text= desc,
-            seniority       = infer_seniority(title),
-            salary          = salary,
-            source_platform = "lever",
+            company                = company_name,
+            title                  = title,
+            job_id                 = job_id,
+            location               = location,
+            country                = country,
+            salary                 = extract_salary(desc) or salary,
+            remote                 = infer_remote(location, desc),
+            seniority              = infer_seniority(title),
+            us_citizenship_required= extract_citizenship(desc),
+            security_clearance     = extract_clearance(desc),
+            relocation_assistance  = extract_relocation(desc),
+            source_platform        = "lever",
+            date_posted            = "N/A",
+            apply_url              = apply_url,
+            description_text       = desc,
         ))
 
     return jobs
 
 
-def _extract_description(raw: str | dict | list) -> str:
+def _extract_description(raw: Union[str, dict, list]) -> str:
     """Lever description can be HTML string, dict, or list of blocks."""
     if isinstance(raw, str):
         return _strip_html(raw)
@@ -121,7 +134,7 @@ def _strip_html(html: str) -> str:
 
 def _extract_salary(title: str, description: str) -> str:
     # Look for salary range patterns like $120,000 - $160,000 or $120K-$160K
-    pattern = r"\$[\d,]+(?:K|k)?\s*(?:–|-|to)\s*\$[\d,]+(?:K|k)?"
+    pattern = r"\$[\d,]+(?:Union[K, k])?\s*(?:–|-|to)\s*\$[\d,]+(?:Union[K, k])?"
     match = re.search(pattern, description)
     return match.group(0) if match else ""
 

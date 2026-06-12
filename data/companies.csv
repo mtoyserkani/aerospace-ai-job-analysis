@@ -1,92 +1,72 @@
-company_name,parent_company,ats_platform,jobs_in_dataset,scraper_status,notes
-Northrop Grumman,,phenom,2501,active,
-GE Aerospace,,phenom,715,active,Possible undercount — DOM selector issue in phenom_scraper. Run dom_inspector.py.
-Relativity Space,,greenhouse,290,active,
-Rocket Lab,,greenhouse,280,active,
-Planet Labs,,greenhouse,85,active,
-Hermeus,,lever,50,active,
-SpaceX,,greenhouse,50,active,
-Standard Aero,,oracle,50,active,
-Sierra Nevada Corporation,,workday,48,active,
-631 Booz Allen Hamilton_United States,Booz Allen Hamilton,workday,40,active,
-The Boeing Company,Boeing,workday,40,active,Undersampled — scraper throttled. Do not use for quantitative claims.
-Vantor Services Inc.,Vantor,workday,27,active,
-Wisk Aero LLC,,workday,23,active,
-Moog Military Aircraft LLC,,workday,20,active,
-Moog Inc,,workday,17,active,
-"01 & 04 Woodward, Inc.",,workday,16,active,
-L3Harris,,talentbrew,15,active,
-52 CAE USA Inc,CAE,workday,14,active,
-202 ELDEC Aerospace Corp.,,workday,10,active,
-10 CAE Canada Inc,CAE,workday,9,active,
-2164 Airbus Defence and Space SAU,Airbus,workday,9,active,
-"340 Crane Electronics, Inc.",,workday,9,active,
-211 Hydro-Aire Aerospace Corp.,,workday,8,active,
-"DY4 Curtiss-Wright DS, Inc.",Curtiss-Wright,workday,8,active,
-EMD Curtiss Wright Electro Mechanical,Curtiss-Wright,workday,8,active,
-"160 Reuter-Stokes, LLC",,workday,6,active,
-Moog Controls Ltd.,,workday,6,active,
-1466 Airbus Helicopters SAS,Airbus,workday,5,active,
-45 Woodward Poland Sp.zo.o,,workday,5,active,
-53 CAE Simuflite Inc,CAE,workday,5,active,
-D4S DY-4 Systems Inc.,,workday,5,active,
-Vantor Holdings Inc.,Vantor,workday,5,active,
-"1568 Airbus Americas, Inc.",Airbus,workday,4,active,
-63 Woodward Control Solutions Pte. Ltd.,,workday,4,active,
-"Boeing Distribution, Inc.",Boeing,workday,4,active,
-Vantor Inc.,,workday,4,active,
-1264 AIRBUS DS SLC SAS,,workday,3,active,
-"16 MPC Products Corporation (Woodward MPC, Inc.)",,workday,3,active,
-2626 Airbus Canada Limited Partnership,,workday,3,active,
-2780 Avions de Transport Regional (ATR) GIE,,workday,3,active,
-31 Woodward L'Orange GmbH,,workday,3,active,
-3507 Airbus Operations SAS,,workday,3,active,
-Boeing Aerospace Operations,Boeing,workday,3,active,
-FCC Curtiss Wright Flow Control Corp,,workday,3,active,
-1360 Airbus Atlantique Canada Inc.,,workday,2,active,
-2916 Airbus Operations SL,,workday,2,active,
-3510 AIRBUS SAS,,workday,2,active,
-621 Druck Limited,,workday,2,active,
-791 Crane Nuclear PFT Corp,,workday,2,active,
-80 Woodward Bulgaria EOOD,,workday,2,active,
-86 CAE GmbH,,workday,2,active,
-99 CAE Servicios Globales Instruc,,workday,2,active,
-Archer Veterinary Clinic,,greenhouse,2,active,
-ESG EST Group Inc,,workday,2,active,
-FCS Curtiss Wright Flow Control Service LLC,,workday,2,active,
-MIC Metal Improvement Co LLC,,workday,2,active,
-Millennium Space Systems,,workday,2,active,
-Moog Wolverhampton Limited,,workday,2,active,
-NCS Curtiss-Wright Wimborne Limited,,workday,2,active,
-Vantor Asia Pacific Pte Ltd,,workday,2,active,
-Vantor Sweden AB,,workday,2,active,
-WIC Weed Instrument Co Inc,,workday,2,active,
-08 CAE Parc Aviation,,workday,1,active,
-102 CAE Bangkok,,workday,1,active,
-"11 & A1 Woodward HRT, Inc.",,workday,1,active,
-125 SimCom International Inc,,workday,1,active,
-"1457 Airbus Helicopters España, SA",,workday,1,active,
-183 Panametrics LLC,,workday,1,active,
-37 CAE Training & Services UK Ltd,,workday,1,active,
-"4231 Airbus Helicopters, Inc.",,workday,1,active,
-47 Woodward Aken GmbH,,workday,1,active,
-5325 Airbus Portugal SA,,workday,1,active,
-5405 Airbus Operations GmbH,,workday,1,active,
-710 Crane Ltd.,,workday,1,active,
-72 CAE Australia,,workday,1,active,
-741 Crane Pumps & Systems PFT Corp.,,workday,1,active,
-80 Chile CAE Aviation Training  LT,,workday,1,active,
-901 901 D LLC,,workday,1,active,
-ACL Acra Control Limited,,workday,1,active,
-ARN Arens Controls Company LLC,,workday,1,active,
-Boeing India Private Limited,Boeing,workday,1,active,
-EXL Exlar Corporation,,workday,1,active,
-Focal Technologies Corporation,,workday,1,active,
-Moog Controls Corp.,,workday,1,active,
-Moog India Technology Center Pvt. Ltd.,,workday,1,active,
-Moog MDG SRL,,workday,1,active,
-WIL Williams Controls Industries Inc,,workday,1,active,
-"WSC WSC, Inc",,workday,1,active,
-ZEVEX Inc.,,workday,1,active,
-RTX / Raytheon,,workday,0,blocked_cloudflare,Cloudflare Bot Management blocks all automated access.
-Leidos,,workday,0,blocked_cloudflare,Cloudflare Bot Management blocks all automated access.
+company_name,tier,ats_platform,scraper,output_file,scraper_status,notes
+The Boeing Company,Prime,TalentBrew,talentbrew_scraper.py,boeing_jobs.csv,active,1791 jobs captured. Also on Workday (1217 jobs with descriptions in workday_jobs_enriched.csv).
+Lockheed Martin,Prime,Brassring,brassring_scraper.py,brassring_enriched.csv,active,6610 jobs with descriptions enriched overnight.
+Northrop Grumman,Prime,Eightfold,eightfold_scraper.py,,parked,Moved from Phenom to Eightfold AI (jobs.northropgrumman.com). API returns 403. Needs Playwright fix.
+RTX,Prime,Phenom,phenom_scraper.py,,parked,careers.rtx.com. API blocked from automated access.
+General Dynamics,Prime,iCIMS,icims_scraper.py,gd_jobs.csv,active,239 jobs (GD OTS division only). Full GD catalog split across multiple iCIMS instances.
+L3Harris,Prime,TalentBrew,talentbrew_scraper.py,l3harris_enriched.csv,active,1673 jobs with descriptions enriched.
+Textron,Prime,Taleo,taleo_scraper.py,textron_jobs.csv,active,420 jobs.
+Airbus,Prime,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,~2000 jobs in enriched Workday output.
+Bombardier,Prime,SuccessFactors,successfactors_scraper.py,bombardier_jobs.csv,active,764 jobs.
+CAE,Prime,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,Included in Workday enriched output.
+Bell (Textron),Prime,Taleo,taleo_scraper.py,bell_jobs.csv,active,52 jobs.
+Sikorsky (Lockheed),Tier1,Brassring,brassring_scraper.py,brassring_enriched.csv,active,Included in Lockheed Brassring output.
+Collins Aerospace (RTX),Tier1,Phenom,phenom_scraper.py,,parked,Shares RTX Phenom instance. API blocked.
+Pratt & Whitney (RTX),Tier1,Phenom,phenom_scraper.py,,parked,Shares RTX Phenom instance. API blocked.
+GE Aerospace,Tier1,Phenom,phenom_scraper.py,,parked,careers.geaerospace.com. API blocked from automated access.
+Parker Hannifin,Tier1,TTC Portals,,,parked,Uses parkercareers.ttcportals.com — not Workday. No scraper built.
+Moog Inc,Tier1,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,414 jobs in Workday enriched output.
+Spirit AeroSystems,Tier1,iCIMS,icims_scraper.py,,parked,Pagination broken — only 20 jobs captured. careers-spiritaero.icims.com.
+Triumph Group,Tier1,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd1. Needs dom_inspector.
+Curtiss-Wright,Tier1,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,~286 jobs in Workday enriched output.
+Woodward,Tier1,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,~194 jobs in Workday enriched output.
+Mercury Systems,Tier1,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,60 jobs.
+Astronics Corporation,Tier1,iCIMS,icims_scraper.py,,parked,careers-astronics.icims.com shows iCIMS promo page. Domain may be wrong.
+Crane Aerospace,Tier1,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,~287 jobs in Workday enriched output.
+Safran (North America),Tier1,SuccessFactors,successfactors_scraper.py,,parked,French-language instance. Needs custom selector work.
+Leonardo DRS,Tier1,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd1. Needs dom_inspector.
+Elbit Systems of America,Tier1,iCIMS,icims_scraper.py,,parked,careers-elbitsystemsofamerica.icims.com shows iCIMS promo page.
+AAR Corp,MRO,Taleo,taleo_scraper.py,aar_jobs.csv,active,173 jobs.
+StandardAero,MRO,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd5. Needs dom_inspector.
+Duncan Aviation,MRO,WorkGr8,,,parked,Niche proprietary ATS. Not worth custom scraper.
+West Star Aviation,MRO,WorkGr8,,,parked,Niche proprietary ATS. Not worth custom scraper.
+HAECO Americas,MRO,Phenom,,,parked,Acquired by AAR Corp November 2025. Roles now under AAR Corp.
+Pemco Aviation Group,MRO,Phenom,phenom_scraper.py,,parked,careers.atsginc.com. API blocked.
+Lufthansa Technik Americas,MRO,Phenom,phenom_scraper.py,,parked,careers.lufthansa-technik.com. DNS not resolving.
+Delta TechOps,MRO,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,Full Delta catalog in Workday enriched output. Filter TechOps roles in analysis.
+American Airlines Tech Ops,MRO,Custom Taleo,,,parked,jobs.aa.com — client-side rendering. No interceptable API.
+Air Canada Technical Services,MRO,Phenom,phenom_scraper.py,,parked,careers.aircanada.com. API blocked.
+Chromalloy,MRO,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd1. Needs dom_inspector.
+Leidos,Defense,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,~2000 jobs in Workday enriched output.
+Booz Allen Hamilton,Defense,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,1850 jobs in Workday enriched output.
+SAIC,Defense,Jobvite,,,parked,Jobvite ATS. No scraper built. Lower AI signal.
+Peraton,Defense,iCIMS,icims_scraper.py,peraton_jobs.csv,active,1686 jobs.
+Sierra Nevada Corporation,Defense,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,269 jobs in Workday enriched output.
+Kratos Defense,Defense,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd5. Needs dom_inspector.
+Vectrus Technologies,Defense,,,, parked,Merged into Amentum 2022. No independent careers page.
+Jacobs Engineering,Defense,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd5. Needs dom_inspector.
+SpaceX,Space,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,1736 jobs.
+Blue Origin,Space,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,1021 jobs in Workday enriched output.
+Rocket Lab,Space,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,314 jobs.
+Vantor (Maxar),Space,Workday,workday_scraper.py,workday_fixes_enriched.csv,active,114 jobs enriched.
+Planet Labs,Space,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,72 jobs.
+Joby Aviation,NewEntrant,iCIMS,icims_scraper.py,joby_jobs.csv,active,245 jobs.
+Archer Aviation,NewEntrant,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,170 jobs.
+Wisk Aero,NewEntrant,Workday,workday_scraper.py,workday_fixes_enriched.csv,active,23 jobs enriched.
+Beta Technologies,NewEntrant,Greenhouse,,,parked,Private Greenhouse board. API locked. Playwright blocked on beta.team.
+Boom Supersonic,NewEntrant,Greenhouse,,,parked,Private Greenhouse board. API locked.
+Reliable Robotics,NewEntrant,Unknown,,,parked,Unknown ATS. Under 50 employees. Negligible job volume.
+Elroy Air,NewEntrant,Lever,lever_scraper.py,lever_jobs.csv,active,Included in Lever output.
+Zipline,NewEntrant,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,220 jobs.
+Electra.aero,NewEntrant,Unknown,,,parked,Unknown ATS. Under 50 employees. Negligible job volume.
+Heart Aerospace,NewEntrant,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,23 jobs.
+Relativity Space,NewEntrant,Greenhouse,greenhouse_scraper.py,,parked,Greenhouse slug returned 404 as of 2026-06-07. May have moved ATS.
+Hermeus,NewEntrant,Lever,lever_scraper.py,lever_jobs.csv,active,114 jobs.
+De Havilland Canada,Prime,WordPress,,,parked,WordPress landing page with no ATS API. Custom scraper too fragile.
+Wing Aviation,NewEntrant,Greenhouse,greenhouse_scraper.py,wing_jobs.csv,active,25 jobs. Confirmed 2026-06-12.
+Honeywell Aerospace,Tier1,Custom,,,parked,Active headless browser detection and blocking. All scrape attempts failed.
+Overair,NewEntrant,,,, parked,Filed for bankruptcy 2023. Company defunct.
+Kaman Aerospace,Tier1,ADP,,,parked,ADP ATS. Niche platform. Low AI signal.
+HEICO Corporation,Tier1,ADP,,,parked,ADP ATS. Niche platform. Low AI signal.
+TransDigm Group,Tier1,,,, parked,Holding company. 50+ subsidiaries post independently.
+Ducommun,Tier1,iCIMS,,,parked,careers-ducommun.icims.com shows iCIMS promo page. Domain may be wrong. Only 7 open jobs.

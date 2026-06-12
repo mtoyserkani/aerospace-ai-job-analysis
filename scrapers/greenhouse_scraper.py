@@ -9,13 +9,14 @@ Companies in this dataset using Greenhouse:
   - Rocket Lab         → boards.greenhouse.io/rocketlab
   - Planet Labs        → boards.greenhouse.io/planetlabs
   - SpaceX             → boards.greenhouse.io/spacex
+  - Archer Aviation    → boards.greenhouse.io/archer56  ✅ confirmed 2026-06-06 via dom_inspector
 
 API reference: https://developers.greenhouse.io/job-board.html
 Rate limit: ~60 req/min before throttling. We use 30 to be safe.
 
 Usage:
-    python greenhouse_scraper.py --output data/greenhouse_jobs.csv
-    python greenhouse_scraper.py --companies relativityspace rocketlab
+    python3 greenhouse_scraper.py --output data/greenhouse_jobs.csv
+    python3 greenhouse_scraper.py --companies archer56 --output data/archer_jobs.csv
 """
 
 import argparse
@@ -28,7 +29,11 @@ from pathlib import Path
 import httpx
 
 sys.path.insert(0, str(Path(__file__).parent))
-from base import Job, RateLimiter, infer_seniority, infer_remote, save_jobs
+from base import (
+    Job, RateLimiter, infer_seniority, infer_remote, save_jobs, sample_check,
+    extract_salary, extract_citizenship, extract_clearance, extract_relocation,
+    _infer_country,
+)
 
 # ---------------------------------------------------------------------------
 # Company registry
@@ -39,6 +44,11 @@ COMPANIES = {
     "rocketlab":       "Rocket Lab",
     "planetlabs":      "Planet Labs",
     "spacex":          "SpaceX",
+    "archer56":        "Archer Aviation",   # confirmed 2026-06-06 via dom_inspector
+    "flyzipline":      "Zipline",           # confirmed 2026-06-06
+    "mercury":         "Mercury Systems",   # confirmed 2026-06-06
+    "heartaerospace":  "Heart Aerospace",   # confirmed 2026-06-06
+    "wing":            "Wing Aviation",     # confirmed 2026-06-12; 25 jobs
 }
 
 BASE_URL = "https://boards-api.greenhouse.io/v1/boards/{slug}/jobs"
@@ -94,7 +104,7 @@ async def scrape_company(
         print(f"  [{slug}] Request error: {e} — skipping")
         return []
 
-    data = resp.json()
+    data     = resp.json()
     raw_jobs = data.get("jobs", [])
     print(f"  [{slug}] Found {len(raw_jobs)} jobs")
 
@@ -111,57 +121,64 @@ async def scrape_company(
 
         # Description — Greenhouse returns HTML in content.body
         content   = raw.get("content", "") or ""
-        metadata  = raw.get("metadata", []) or []
         desc      = strip_html(content)
 
-        # Salary from metadata
-        salary    = _extract_salary(metadata)
+        # Date posted — Greenhouse returns updated_at ISO string
+        date_posted = _parse_date(raw.get("updated_at", ""))
+
+        # Extracted fields
+        salary     = extract_salary(desc)
+        citizenship = extract_citizenship(desc)
+        clearance  = extract_clearance(desc)
+        relocation = extract_relocation(desc)
 
         jobs.append(Job(
-            job_id          = job_id,
-            title           = title,
-            company         = company_name,
-            location        = location,
-            country         = country,
-            remote          = infer_remote(location, desc),
-            apply_url       = apply_url,
-            description_text= desc,
-            seniority       = infer_seniority(title),
-            salary          = salary,
-            source_platform = "greenhouse",
+            company                = company_name,
+            title                  = title,
+            job_id                 = job_id,
+            location               = location,
+            country                = country,
+            salary                 = salary,
+            remote                 = infer_remote(location, desc),
+            seniority              = infer_seniority(title),
+            us_citizenship_required= citizenship,
+            security_clearance     = clearance,
+            relocation_assistance  = relocation,
+            source_platform        = "greenhouse",
+            date_posted            = date_posted,
+            apply_url              = apply_url,
+            description_text       = desc,
         ))
 
     return jobs
 
 
+def _parse_date(value: str) -> str:
+    """Extract YYYY-MM-DD from Greenhouse ISO timestamp. Returns 'N/A' if missing."""
+    if not value:
+        return "N/A"
+    match = re.search(r"(\d{4}-\d{2}-\d{2})", value)
+    return match.group(1) if match else "N/A"
+
+
 def _infer_country(location: str) -> str:
     loc = location.lower()
     if any(k in loc for k in ["uk", "united kingdom", "london", "england"]):
-        return "GB"
+        return "United Kingdom"
     if any(k in loc for k in ["canada", "ontario", "toronto", "vancouver", " bc", " ab"]):
-        return "CA"
+        return "Canada"
     if any(k in loc for k in ["germany", "münchen", "berlin", "hamburg"]):
-        return "DE"
-    return "US"  # Greenhouse companies here are US-HQ'd
-
-
-def _extract_salary(metadata: list) -> str:
-    for item in metadata:
-        name = (item.get("name") or "").lower()
-        if "salary" in name or "compensation" in name or "pay" in name:
-            val = item.get("value")
-            if val:
-                return str(val)
-    return ""
+        return "Germany"
+    return "United States of America"
 
 
 # ---------------------------------------------------------------------------
 # Runner
 # ---------------------------------------------------------------------------
 
-async def main(slugs: list[str], output: Path) -> None:
-    limiter = RateLimiter(calls_per_minute=30)
-    all_jobs: list[Job] = []
+async def main(slugs: list[str], output_dir: Path) -> None:
+    limiter  = RateLimiter(calls_per_minute=30)
+    total    = 0
 
     async with httpx.AsyncClient(
         headers={"User-Agent": "aerospace-job-research/1.0 (github.com/mtoyserkani/aerospace-ai-job-analysis)"},
@@ -171,10 +188,15 @@ async def main(slugs: list[str], output: Path) -> None:
             company_name = COMPANIES.get(slug, slug.title())
             print(f"\nScraping {company_name} ({slug})...")
             jobs = await scrape_company(slug, company_name, client, limiter)
-            all_jobs.extend(jobs)
+            if not jobs:
+                continue
+            if not sample_check(jobs[:20], company_name, "greenhouse"):
+                continue
+            output_path = output_dir / f"greenhouse_{slug}.csv"
+            save_jobs(jobs, output_path)
+            total += len(jobs)
 
-    save_jobs(all_jobs, output)
-    print(f"\nTotal: {len(all_jobs)} jobs from {len(slugs)} companies")
+    print(f"\nTotal: {total} jobs from {len(slugs)} companies")
 
 
 if __name__ == "__main__":
@@ -185,9 +207,8 @@ if __name__ == "__main__":
         help=f"Company slugs to scrape. Available: {', '.join(COMPANIES.keys())}",
     )
     parser.add_argument(
-        "--output", type=Path,
-        default=Path("data/greenhouse_jobs.csv"),
-        help="Output CSV path",
+        "--output-dir", type=Path, default=Path("data"),
+        help="Directory for output files (one CSV per company)",
     )
     args = parser.parse_args()
-    asyncio.run(main(args.companies, args.output))
+    asyncio.run(main(args.companies, args.output_dir))

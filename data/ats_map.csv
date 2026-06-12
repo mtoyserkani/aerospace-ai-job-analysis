@@ -1,0 +1,87 @@
+company,tier,website,careers_url,ats_platform,slug,status,notes,detected_at
+Boeing,Prime,boeing.com,https://jobs.boeing.com/,workday,wd1,ok,API intercepted: https://tbcdn.talentbrew.com/company/185/css/58479-GST.css,2026-06-06
+Lockheed Martin,Prime,lockheedmartin.com,https://www.lockheedmartin.com/en-us/careers/index.html,brassring,,ok,,2026-06-06
+Northrop Grumman,Prime,northropgrumman.com,https://www.northropgrumman.com/careers,unknown,,ok,,2026-06-06
+RTX,Prime,rtx.com,https://careers.rtx.com/global/en,workday,wd5,ok,API intercepted: https://cdn.phenompeople.com/CareerConnectResources/common/js/globalplatform/177,2026-06-06
+General Dynamics,Prime,gd.com,https://www.gd.com/careers,unknown,,ok,,2026-06-06
+L3Harris,Prime,l3harris.com,https://careers.l3harris.com/en?rid=5411,talentbrew,,ok,API intercepted: https://tbcdn.talentbrew.com/company/4832/css/61181-GST.css,2026-06-06
+Textron,Prime,textron.com,https://careers.textron.com/,taleo,,ok,,2026-06-06
+Airbus (North America),Prime,airbus.com,https://www.airbus.com/en/careers,workday,wd3,ok,,2026-06-06
+Bombardier,Prime,bombardier.com,https://jobs.bombardier.com/?locale=en_US,successfactors,,ok,API intercepted: https://rmkcdn.successfactors.com/bf145f74/7533c436-f9a4-4b88-a27a-3.css,2026-06-06
+CAE,Prime,cae.com,https://www.cae.com/careers,workday,wd3,ok,,2026-06-06
+Bell (Textron),Prime,bellflight.com,https://www.bellflight.com/company/careers,taleo,,ok,,2026-06-06
+Sikorsky (Lockheed),Tier 1,sikorsky.com,,unknown,,not_found,,2026-06-06
+Collins Aerospace (RTX),Tier 1,collinsaerospace.com,https://careers.rtx.com/global/en/collins-aerospace,workday,wd5,ok,API intercepted: https://cdn.phenompeople.com/CareerConnectResources/common/js/globalplatform/177,2026-06-06
+Pratt & Whitney (RTX),Tier 1,prattwhitney.com,https://careers.rtx.com/global/en/pratt-whitney,workday,wd5,ok,API intercepted: https://cdn.phenompeople.com/CareerConnectResources/common/js/globalplatform/177,2026-06-06
+GE Aerospace,Tier 1,geaerospace.com,https://www.geaerospace.com/company/careers,unknown,,ok,,2026-06-06
+Honeywell Aerospace,Tier 1,honeywell.com,,unknown,,not_found,,2026-06-06
+Parker Hannifin,Tier 1,parker.com,,unknown,,not_found,,2026-06-06
+TransDigm Group,Tier 1,transdigm.com,,unknown,,not_found,,2026-06-06
+Moog Inc,Tier 1,moog.com,https://www.moog.com/content/sites/global/en/careers/,workday,wd5,ok,,2026-06-06
+Spirit AeroSystems,Tier 1,spiritaero.com,https://careers.spiritaero.com/,icims,,ok,,2026-06-06
+Ducommun,Tier 1,ducommun.com,https://www.ducommun.com/careers/,unknown,,ok,,2026-06-06
+Triumph Group,Tier 1,triumphgroup.com,https://www.triumphgroup.com/careers,unknown,,ok,,2026-06-06
+Kaman Aerospace,Tier 1,kaman.com,https://kaman.com/contact/careers/,adp,,ok,,2026-06-06
+Curtiss-Wright,Tier 1,curtisswright.com,https://curtisswright.com/careers,workday,wd1,ok,,2026-06-06
+Woodward,Tier 1,woodward.com,https://www.woodward.com/careers/,workday,wd5,ok,,2026-06-06
+Mercury Systems,Tier 1,mercury.com,https://mercury.com/jobs,greenhouse,mercury,ok,,2026-06-06
+Astronics Corporation,Tier 1,astronics.com,https://www.astronics.com/careers,unknown,,ok,,2026-06-06
+Crane Aerospace,Tier 1,craneae.com,https://www.craneae.com/company/careers,workday,wd5,ok,,2026-06-06
+HEICO Corporation,Tier 1,heico.com,https://careers.heico.com/,adp,,ok,,2026-06-06
+Safran (North America),Tier 1,safran-group.com,https://careers.safran-group.com/accueil.aspx?LCID=1036,unknown,,ok,,2026-06-06
+Leonardo DRS,Tier 1,leonardodrs.com,https://www.leonardodrs.com/careers/,unknown,,ok,,2026-06-06
+Elbit Systems of America,Tier 1,elbitsystems-us.com,https://www.elbitamerica.com/careers,unknown,,ok,,2026-06-06
+AAR Corp,MRO,aarcorp.com,https://www.aarcorp.com/en/careers,taleo,,ok,,2026-06-06
+StandardAero,MRO,standardaero.com,,unknown,,not_found,,2026-06-06
+Duncan Aviation,MRO,duncanaviation.aero,https://duncanaviation.workgr8.com/,unknown,,ok,,2026-06-06
+West Star Aviation,MRO,weststaraviation.com,https://weststaraviation.workgr8.com/,unknown,,ok,,2026-06-06
+HAECO Americas,MRO,haeco.com,https://www.haeco.com/en/careers,unknown,,ok,,2026-06-06
+Pemco Aviation Group,MRO,pemcoair.com,https://careers.atsginc.com/us/en,phenom,,ok,API intercepted: https://cdn.phenompeople.com/CareerConnectResources/common/js/canvas/launchScrip,2026-06-06
+Nordam Group,MRO,nordam.com,https://www.nordam.com/careers/,unknown,,ok,,2026-06-06
+Lufthansa Technik Americas,MRO,lufthansa-technik.com,,unknown,,not_found,,2026-06-06
+Delta TechOps,MRO,delta.com,,unknown,,not_found,,2026-06-06
+American Airlines Tech Ops,MRO,aa.com,,unknown,,not_found,,2026-06-06
+Air Canada Technical Services,MRO,aircanada.com,https://careers.aircanada.com/ca/en,phenom,,ok,API intercepted: https://cdn.phenompeople.com/CareerConnectResources/common/js/canvas/launchScrip,2026-06-06
+Chromalloy,MRO,chromalloy.com,https://www.chromalloy.com/careers/,unknown,,ok,,2026-06-06
+Leidos,Defense,leidos.com,,unknown,,not_found,,2026-06-06
+Booz Allen Hamilton,Defense,boozallen.com,https://www.boozallen.com/careers.html,workday,wd1,ok,,2026-06-06
+SAIC,Defense,saic.com,https://jobs.saic.com/,jobvite,,ok,API intercepted: https://apply.app.jobvite.com/assets/app/apply.js,2026-06-06
+Peraton,Defense,peraton.com,https://www.careers.peraton.com/,icims,https://cdn13,ok,API intercepted: https://cdn13.icims.com/icims-translations/latest/locales/en-US/acs.json,2026-06-06
+Sierra Nevada Corporation,Defense,sncorp.com,https://www.sncorp.com/careers,workday,wd1,ok,,2026-06-06
+Kratos Defense,Defense,kratosdefense.com,https://www.kratosdefense.com/careers,unknown,,ok,,2026-06-06
+Vectrus Technologies,Defense,vectrus.com,,unknown,,not_found,,2026-06-06
+Jacobs Engineering,Defense,jacobs.com,https://careers.jacobs.com/,unknown,,ok,,2026-06-06
+SpaceX,Space,spacex.com,https://www.spacex.com/careers,unknown,,ok,,2026-06-06
+Blue Origin,Space,blueorigin.com,https://www.blueorigin.com/careers,unknown,,ok,,2026-06-06
+Rocket Lab,Space,rocketlabusa.com,https://rocketlabcorp.com/careers/,unknown,,ok,,2026-06-06
+Vantor (Maxar),Space,vantor.com,https://vantor.com/careers/,workday,wd1,ok,,2026-06-06
+Aerojet Rocketdyne (L3Harris),Space,aerojetrocketdyne.com,,unknown,,not_found,,2026-06-06
+Planet Labs,Space,planet.com,https://www.planet.com/company/careers/,unknown,,ok,,2026-06-06
+Joby Aviation,New Entrant,jobyaviation.com,https://www.jobyaviation.com/careers,icims,,ok,,2026-06-06
+Archer Aviation,New Entrant,archeraircraft.com,,unknown,,not_found,,2026-06-06
+Wisk Aero,New Entrant,wisk.aero,https://wisk.aero/careers,workday,wd108,ok,,2026-06-06
+Beta Technologies,New Entrant,beta.team,https://beta.team/careers,unknown,,ok,,2026-06-06
+Boom Supersonic,New Entrant,boomsupersonic.com,https://boomsupersonic.com/careers,unknown,,ok,,2026-06-06
+Reliable Robotics,New Entrant,reliable.ai,,unknown,,not_found,,2026-06-06
+Elroy Air,New Entrant,elroyair.com,https://elroyair.com/company/careers/,lever,elroyair,ok,,2026-06-06
+Zipline,New Entrant,flyzipline.com,https://www.zipline.com/careers,greenhouse,flyzipline,ok,API intercepted: https://boards-api.greenhouse.io/v1/boards/flyzipline/jobs?content=true,2026-06-06
+Electra.aero,New Entrant,electra.aero,https://electra.aero/careers,unknown,,ok,,2026-06-06
+Heart Aerospace,New Entrant,heartaerospace.com,,unknown,,not_found,,2026-06-06
+Relativity Space,New Entrant,relativityspace.com,https://www.relativityspace.com/careers,unknown,,ok,,2026-06-06
+Hermeus,New Entrant,hermeus.com,https://www.hermeus.com/careers,lever,hermeus,ok,,2026-06-06
+Overair,New Entrant,overair.com,,unknown,,not_found,,2026-06-06
+Sikorsky (Lockheed),Tier 1,sikorsky.com,,unknown,,not_found,,2026-06-12
+Honeywell Aerospace,Tier 1,honeywell.com,,unknown,,not_found,,2026-06-12
+Parker Hannifin,Tier 1,parker.com,,unknown,,not_found,,2026-06-12
+TransDigm Group,Tier 1,transdigm.com,,unknown,,not_found,,2026-06-12
+StandardAero,MRO,standardaero.com,,unknown,,not_found,,2026-06-12
+Lufthansa Technik Americas,MRO,lufthansa-technik.com,,unknown,,not_found,,2026-06-12
+Delta TechOps,MRO,delta.com,,unknown,,not_found,,2026-06-12
+American Airlines Tech Ops,MRO,aa.com,,unknown,,not_found,,2026-06-12
+Leidos,Defense,leidos.com,,unknown,,not_found,,2026-06-12
+Vectrus Technologies,Defense,vectrus.com,,unknown,,not_found,,2026-06-12
+Aerojet Rocketdyne (L3Harris),Space,aerojetrocketdyne.com,,unknown,,not_found,,2026-06-12
+Archer Aviation,New Entrant,archeraircraft.com,,unknown,,not_found,,2026-06-12
+Reliable Robotics,New Entrant,reliable.ai,,unknown,,not_found,,2026-06-12
+Heart Aerospace,New Entrant,heartaerospace.com,https://www.heartaerospace.com/careers,greenhouse,heartaerospace,ok,,2026-06-12
+Overair,New Entrant,overair.com,,unknown,,not_found,,2026-06-12
