@@ -196,7 +196,7 @@ def _parse_date(raw: dict) -> str:
 # Main Playwright scraper
 # ---------------------------------------------------------------------------
 
-async def scrape(output: Path, config: dict = None) -> None:
+async def scrape(output_dir: Path, config: dict = None) -> None:
     try:
         from playwright.async_api import async_playwright
     except ImportError:
@@ -350,4 +350,4 @@ if __name__ == "__main__":
         # Default to l3harris for backward compat
         config = COMPANIES.get("l3harris")
 
-    asyncio.run(scrape(args.output, config=config))
+    asyncio.run(scrape(args.output_dir, config=config))

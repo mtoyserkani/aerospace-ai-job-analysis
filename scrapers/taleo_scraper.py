@@ -109,7 +109,7 @@ def _build_apply_url(tenant: str, section: str, job_id) -> str:
 # Scraper
 # ---------------------------------------------------------------------------
 
-async def scrape_company(config: dict, limiter: RateLimiter) -> list[Job]:
+async def scrape_company(config: dict, limiter: RateLimiter, test: bool = False) -> list[Job]:
     """
     Taleo scraper using network interception.
     
@@ -224,6 +224,9 @@ async def scrape_company(config: dict, limiter: RateLimiter) -> list[Job]:
 
         await browser.close()
 
+    if test:
+        all_raw = all_raw[:20]
+        print(f"  [{tenant}] TEST MODE: limiting to {len(all_raw)} jobs")
     print(f"  [{tenant}] Total intercepted: {len(all_raw)} jobs")
 
     # Build Job objects
@@ -274,7 +277,7 @@ async def scrape_company(config: dict, limiter: RateLimiter) -> list[Job]:
 # Runner
 # ---------------------------------------------------------------------------
 
-async def main(company_keys: list, output: Path) -> None:
+async def main(company_keys: list, output_dir: Path, test: bool = False) -> None:
     limiter  = RateLimiter(calls_per_minute=25)
     all_jobs = []
 
@@ -313,5 +316,7 @@ if __name__ == "__main__":
     parser.add_argument("--companies", nargs="*", default=list(COMPANIES.keys()))
     parser.add_argument("--output-dir", type=Path, default=Path("data"),
                         help="Directory for output files (one CSV per company)")
+    parser.add_argument("--test", action="store_true",
+                        help="Test mode: scrape and enrich first 20 jobs only")
     args = parser.parse_args()
-    asyncio.run(main(args.companies, args.output_dir))
+    asyncio.run(main(args.companies, args.output_dir, test=args.test))
