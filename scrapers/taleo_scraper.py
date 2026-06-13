@@ -274,7 +274,7 @@ async def scrape_company(config: dict, limiter: RateLimiter) -> list[Job]:
 # Runner
 # ---------------------------------------------------------------------------
 
-async def main(company_keys: list, output_dir: Path) -> None:
+async def main(company_keys: list, output: Path) -> None:
     limiter  = RateLimiter(calls_per_minute=25)
     all_jobs = []
 
@@ -305,7 +305,7 @@ async def main(company_keys: list, output_dir: Path) -> None:
         output_path = output_dir / f"taleo_{key}.csv"
         save_jobs(company_jobs, output_path)
         total += len(company_jobs)
-    print(f"\nTotal: {total} jobs")
+    print(f"\nTotal: {len(all_jobs)} jobs → {output}")
 
 
 if __name__ == "__main__":
