@@ -278,7 +278,9 @@ async def scrape_company(config: dict, limiter: RateLimiter, test: bool = False)
 # ---------------------------------------------------------------------------
 
 async def main(company_keys: list, output_dir: Path, test: bool = False) -> None:
+    from playwright.async_api import async_playwright
     limiter  = RateLimiter(calls_per_minute=25)
+    enrich_limiter = RateLimiter(calls_per_minute=20)
     all_jobs = []
 
     for key in company_keys:
@@ -293,7 +295,26 @@ async def main(company_keys: list, output_dir: Path, test: bool = False) -> None
         print(f"  Done: {len(jobs)} jobs")
         all_jobs.extend(jobs)
 
-    # Save per company - iterate jobs by company
+    # --- Enrichment pass ---
+    print(f"\n  Enriching descriptions for {len(all_jobs)} jobs...")
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=False, slow_mo=50)
+        page = await browser.new_page(
+            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
+        for i, job in enumerate(all_jobs):
+            desc = await fetch_taleo_description(page, job.apply_url, enrich_limiter)
+            if desc:
+                job.description_text        = desc
+                job.salary                  = extract_salary(desc)
+                job.us_citizenship_required = extract_citizenship(desc)
+                job.security_clearance      = extract_clearance(desc)
+                job.relocation_assistance   = extract_relocation(desc)
+            if (i + 1) % 20 == 0:
+                print(f"    Enriched {i+1}/{len(all_jobs)}")
+        await browser.close()
+
+    # Save per company
     from collections import defaultdict
     jobs_by_company = defaultdict(list)
     for job in all_jobs:
@@ -320,3 +341,21 @@ if __name__ == "__main__":
                         help="Test mode: scrape and enrich first 20 jobs only")
     args = parser.parse_args()
     asyncio.run(main(args.companies, args.output_dir, test=args.test))
+
+
+# ---------------------------------------------------------------------------
+# Description enrichment (Taleo job detail pages)
+# ---------------------------------------------------------------------------
+
+async def fetch_taleo_description(page, url: str, limiter: RateLimiter) -> str:
+    """Visit a Taleo job detail page and extract description from div[id*='desc']."""
+    await limiter.wait()
+    try:
+        await page.goto(url, wait_until="networkidle", timeout=60000)
+        await asyncio.sleep(2)
+        el = await page.query_selector("div[id*='desc']")
+        if el:
+            return (await el.inner_text()).strip()
+    except Exception as e:
+        print(f"    Desc fetch failed for {url}: {e}")
+    return ""
