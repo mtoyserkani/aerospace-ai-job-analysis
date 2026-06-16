@@ -5,30 +5,27 @@ KEY FINDINGS (earned through ~2 hours of debugging):
   1. headless=False REQUIRED — iCIMS detects headless Playwright and blocks job rendering
   2. Jobs render in Frame 1 (iframe with in_iframe=1 in URL), NOT the main page
   3. Pagination URL pattern: ?pr=N where N = page_number - 1
-     Page 1 = submit search form, Page 2 = ?pr=1, Page 3 = ?pr=2, etc.
-  4. Job title links have /jobs/{numeric_id}/ pattern inside the iframe
+  4. Description selector: div.iCIMS_JobContent in Frame 1
+  5. Title prefix bug: iCIMS injects "Title\n" before link text — must be stripped
 
 Companies confirmed using iCIMS:
-  - Joby Aviation → careers-jobyaviation.icims.com (241 jobs, 13 pages)
-
-To add a new iCIMS company:
-  1. Confirm their careers page uses iCIMS (URL will contain .icims.com)
-  2. Find the slug: careers-{slug}.icims.com
-  3. Add to COMPANIES dict below
-  4. Run and verify page count detection works
+  - Joby Aviation → careers-jobyaviation.icims.com
+  - General Dynamics → careers-gd-ots.icims.com
+  - Peraton → careers-peraton.icims.com
+  - Spirit AeroSystems → careers-spiritaero.icims.com
+  - Ducommun → careers-ducommun.icims.com
+  - Astronics → careers-astronics.icims.com
+  - Elbit Systems → careers-elbitsystemsofamerica.icims.com
 
 Usage:
-    pip install playwright && playwright install chromium
-    python scrapers/icims_scraper.py --companies jobyaviation --output data/icims_jobs.csv
-
-NOTE: A browser window will open and navigate automatically. Do not interact with it.
+    python scrapers/icims_scraper.py --companies jobyaviation --output-dir data
 """
 
 import argparse, asyncio, re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from base import (
-    Job, RateLimiter, infer_seniority, infer_remote, save_jobs, sample_check,
+    Job, RateLimiter, infer_seniority, save_jobs, sample_check,
     extract_salary, extract_citizenship, extract_clearance, extract_relocation,
     _infer_country,
 )
@@ -63,18 +60,42 @@ COMPANIES = {
         "name":       "Peraton",
         "domain":     "careers-peraton.icims.com",
         "search_url": "https://careers-peraton.icims.com/jobs/search?ss=1",
-        "note":       "Domain confirmed 2026-06-11 via web search.",
     },
     "generaldynamics": {
         "name":       "General Dynamics",
         "domain":     "careers-gd-ots.icims.com",
         "search_url": "https://careers-gd-ots.icims.com/jobs/search?ss=1",
-        "note":       "GD OTS division confirmed 2026-06-06 via apply URL inspection.",
     },
 }
 
 
-async def scrape_company(slug, config, limiter):  # config passed through for search_url
+def clean_title(text):
+    """Strip iCIMS 'Title\n' label prefix injected before link text."""
+    text = text.strip()
+    if text.lower().startswith("title\n"):
+        text = text[6:].strip()
+    return text
+
+
+async def fetch_description(page, url, limiter):
+    """Visit a job detail page and extract description from iCIMS Frame 1."""
+    await limiter.wait()
+    try:
+        await page.goto(url + "?in_iframe=1", wait_until="networkidle", timeout=60000)
+        await asyncio.sleep(2)
+        icims_frame = next(
+            (f for f in page.frames if "in_iframe=1" in f.url),
+            page.main_frame
+        )
+        el = await icims_frame.query_selector("div.iCIMS_JobContent")
+        if el:
+            return (await el.inner_text()).strip()
+    except Exception as e:
+        print(f"    Desc fetch failed: {e}")
+    return ""
+
+
+async def scrape_company(slug, config, limiter):
     from playwright.async_api import async_playwright
     company_name = config["name"]
     domain = config["domain"]
@@ -87,35 +108,30 @@ async def scrape_company(slug, config, limiter):  # config passed through for se
             user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         )
 
-        # Load page 1 and submit search form
-        print(f"  Loading page 1...")
+        # --- Phase 1: Collect all job titles + URLs ---
+        print(f"  Phase 1: collecting job list...")
         try:
             await page.goto(config["search_url"], wait_until="networkidle", timeout=90000)
         except Exception:
-            # Fallback: wait for domcontentloaded instead of networkidle
             await page.goto(config["search_url"], wait_until="domcontentloaded", timeout=90000)
             await page.wait_for_timeout(5000)
         await asyncio.sleep(3)
+
         submit = await page.query_selector("input[type='submit'], button[type='submit']")
         if submit:
-            # Use JS click to bypass sticky header interception on some iCIMS instances
             try:
                 await submit.click(timeout=5000)
             except Exception:
-                try:
-                    await page.evaluate("""
-                        var el = document.querySelector('#search-submit') ||
-                                 document.querySelector('input[type="submit"]') ||
-                                 document.querySelector('button[type="submit"]');
-                        if (el) el.click();
-                    """)
-                except Exception:
-                    pass
-            await asyncio.sleep(2)
+                await page.evaluate("""
+                    var el = document.querySelector('#search-submit') ||
+                             document.querySelector('input[type="submit"]') ||
+                             document.querySelector('button[type="submit"]');
+                    if (el) el.click();
+                """)
             await asyncio.sleep(5)
 
-        # Detect total pages from iframe content
-        total_pages = 13  # fallback
+        # Detect total pages
+        total_pages = 13
         icims_frame = next((f for f in page.frames if "in_iframe=1" in f.url), page.main_frame)
         try:
             txt = await icims_frame.evaluate("document.body.innerText")
@@ -126,14 +142,10 @@ async def scrape_company(slug, config, limiter):  # config passed through for se
             pass
         print(f"  Total pages: {total_pages}")
 
-        # Scrape all pages using direct URL navigation (?pr=N)
         for page_num in range(1, total_pages + 1):
             await limiter.wait()
-
             if page_num > 1:
-                # Use the company's search_url as base for pagination
                 search_base = config.get("search_url", f"https://{domain}/jobs/search?ss=1")
-                # Remove existing params, add pagination
                 base_no_params = search_base.split("?")[0]
                 pr_url = f"{base_no_params}?ss=1&pr={page_num - 1}&in_iframe=1"
                 try:
@@ -143,18 +155,16 @@ async def scrape_company(slug, config, limiter):  # config passed through for se
                     await page.wait_for_timeout(4000)
                 await asyncio.sleep(2)
 
-            # Find the iframe (jobs are in Frame 1, not main page)
             icims_frame = next((f for f in page.frames if "in_iframe=1" in f.url), page.main_frame)
-
             all_links = await icims_frame.query_selector_all("a[href]")
             page_jobs = 0
             for link in all_links:
                 try:
                     href = await link.get_attribute("href") or ""
-                    text = (await link.inner_text()).strip()
+                    text = clean_title((await link.inner_text()).strip())
                     if not re.search(r"/jobs/\d+", href) or len(text) < 4:
                         continue
-                    if text.lower() in ("search","home","back","next","previous","welcome page","title"):
+                    if text.lower() in ("search", "home", "back", "next", "previous", "welcome page", "title"):
                         continue
                     url = href if href.startswith("http") else base_url + href
                     clean_url = re.sub(r'[?&]in_iframe=1', '', url).rstrip('?&')
@@ -182,8 +192,22 @@ async def scrape_company(slug, config, limiter):  # config passed through for se
                     page_jobs += 1
                 except Exception:
                     continue
-
             print(f"  Page {page_num}/{total_pages}: {page_jobs} jobs (total: {len(jobs)})")
+
+        # --- Phase 2: Enrich descriptions ---
+        print(f"\n  Phase 2: fetching descriptions for {len(jobs)} jobs...")
+        enrich_limiter = RateLimiter(calls_per_minute=20)
+        for i, job in enumerate(jobs):
+            desc = await fetch_description(page, job.apply_url, enrich_limiter)
+            if desc:
+                job.description_text       = desc
+                job.salary                 = extract_salary(desc)
+                job.us_citizenship_required= extract_citizenship(desc)
+                job.security_clearance     = extract_clearance(desc)
+                job.relocation_assistance  = extract_relocation(desc)
+                job.country                = _infer_country(job.location) or job.country
+            if (i + 1) % 10 == 0:
+                print(f"    Enriched {i+1}/{len(jobs)}")
 
         await browser.close()
     return jobs

@@ -308,7 +308,7 @@ async def main(company_keys: list, output_dir: Path, test: bool = False) -> None
         output_path = output_dir / f"taleo_{key}.csv"
         save_jobs(company_jobs, output_path)
         total += len(company_jobs)
-    print(f"\nTotal: {len(all_jobs)} jobs → {output}")
+    print(f"\nTotal: {len(all_jobs)} jobs")
 
 
 if __name__ == "__main__":
