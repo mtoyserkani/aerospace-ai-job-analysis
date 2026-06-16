@@ -169,7 +169,7 @@ async def main(slugs: list[str], output: Path) -> None:
         if not sample_check(company_jobs[:20], company_jobs[0].company, "lever"):
             continue
         key = company_jobs[0].company.lower().replace(" ", "_").replace("(", "").replace(")", "")
-        output_path = output_dir / f"lever_{key}.csv"
+        output_path = output / f"lever_{key}.csv"
         save_jobs(company_jobs, output_path)
         total += len(company_jobs)
     print(f"\nTotal: {len(all_jobs)} jobs from {len(slugs)} companies")
@@ -187,4 +187,4 @@ if __name__ == "__main__":
         default=Path("data/lever_jobs.csv"),
     )
     args = parser.parse_args()
-    asyncio.run(main(args.companies, args.output_dir))
+    asyncio.run(main(args.companies, args.output))
