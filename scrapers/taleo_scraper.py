@@ -332,15 +332,6 @@ async def main(company_keys: list, output_dir: Path, test: bool = False) -> None
     print(f"\nTotal: {len(all_jobs)} jobs")
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Scrape Oracle Taleo ATS")
-    parser.add_argument("--companies", nargs="*", default=list(COMPANIES.keys()))
-    parser.add_argument("--output-dir", type=Path, default=Path("data"),
-                        help="Directory for output files (one CSV per company)")
-    parser.add_argument("--test", action="store_true",
-                        help="Test mode: scrape and enrich first 20 jobs only")
-    args = parser.parse_args()
-    asyncio.run(main(args.companies, args.output_dir, test=args.test))
 
 
 # ---------------------------------------------------------------------------
@@ -359,3 +350,14 @@ async def fetch_taleo_description(page, url: str, limiter: RateLimiter) -> str:
     except Exception as e:
         print(f"    Desc fetch failed for {url}: {e}")
     return ""
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Scrape Oracle Taleo ATS")
+    parser.add_argument("--companies", nargs="*", default=list(COMPANIES.keys()))
+    parser.add_argument("--output-dir", type=Path, default=Path("data"),
+                        help="Directory for output files (one CSV per company)")
+    parser.add_argument("--test", action="store_true",
+                        help="Test mode: scrape and enrich first 20 jobs only")
+    args = parser.parse_args()
+    asyncio.run(main(args.companies, args.output_dir, test=args.test))
+
