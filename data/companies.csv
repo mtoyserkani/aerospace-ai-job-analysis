@@ -1,5 +1,5 @@
 company_name,tier,ats_platform,scraper,output_file,scraper_status,notes
-The Boeing Company,Prime,TalentBrew,talentbrew_scraper.py,boeing_jobs.csv,active,1791 jobs captured. Also on Workday (1217 jobs with descriptions in workday_jobs_enriched.csv).
+The Boeing Company,Prime,TalentBrew+Workday,workday_scraper.py,workday_boeing.csv,active,Using Workday (1180 jobs 97.9% desc). TalentBrew parked — redundant.
 Lockheed Martin,Prime,Brassring,brassring_scraper.py,brassring_enriched.csv,active,6610 jobs with descriptions enriched overnight.
 Northrop Grumman,Prime,Eightfold,eightfold_scraper.py,,parked,/search API redirects to corporate SAML/ADFS SSO (ngc-fin.amer.myngc.com). Requires Northrop login. HTML scraping via Playwright is the only path forward.
 RTX,Prime,Phenom,phenom_scraper.py,,parked,careers.rtx.com. API blocked from automated access.
