@@ -33,7 +33,7 @@ West Star Aviation,MRO,WorkGr8,,,parked,Niche proprietary ATS. Not worth custom 
 HAECO Americas,MRO,Phenom,,,parked,Acquired by AAR Corp November 2025. Roles now under AAR Corp.
 Pemco Aviation Group,MRO,Phenom,phenom_scraper.py,,parked,careers.atsginc.com. API blocked.
 Lufthansa Technik Americas,MRO,Phenom,phenom_scraper.py,,parked,careers.lufthansa-technik.com. DNS not resolving.
-Delta TechOps,MRO,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,Full Delta catalog in Workday enriched output. Filter TechOps roles in analysis.
+Delta TechOps,MRO,Workday,workday_scraper.py,,parked,422 Unprocessable Entity from Workday API. Not a core aerospace manufacturer — skipped.
 American Airlines Tech Ops,MRO,Custom Taleo,,,parked,jobs.aa.com — client-side rendering. No interceptable API.
 Air Canada Technical Services,MRO,Phenom,phenom_scraper.py,,parked,careers.aircanada.com. API blocked.
 Chromalloy,MRO,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd1. Needs dom_inspector.
