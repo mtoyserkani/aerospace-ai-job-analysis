@@ -23,3 +23,4 @@ Thumbs.db
 # Sensitive
 .env
 *.key
+data/master_dataset.csv
