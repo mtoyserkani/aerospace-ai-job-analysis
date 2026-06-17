@@ -81,7 +81,7 @@ async def fetch_description(page, url, limiter):
     """Visit a job detail page and extract description from iCIMS Frame 1."""
     await limiter.wait()
     try:
-        await page.goto(url + "?in_iframe=1", wait_until="networkidle", timeout=60000)
+        await page.goto(url + "?in_iframe=1", wait_until="domcontentloaded", timeout=90000)
         await asyncio.sleep(2)
         icims_frame = next(
             (f for f in page.frames if "in_iframe=1" in f.url),

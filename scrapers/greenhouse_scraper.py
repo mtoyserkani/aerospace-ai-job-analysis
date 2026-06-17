@@ -49,6 +49,7 @@ COMPANIES = {
     "mercury":         "Mercury Systems",   # confirmed 2026-06-06
     "heartaerospace":  "Heart Aerospace",   # confirmed 2026-06-06
     "wing":            "Wing Aviation",     # confirmed 2026-06-12; 25 jobs
+    "andurilindustries": "Anduril Industries",  # confirmed 2026-06-16; 2089 jobs
 }
 
 BASE_URL = "https://boards-api.greenhouse.io/v1/boards/{slug}/jobs"

@@ -55,6 +55,12 @@ COMPANIES = {
         "wd":       "wd1",
         "instance": "BAH_Jobs",
     },
+    "aerovironment": {
+        "name":     "AeroVironment",
+        "tenant":   "avav",
+        "wd":       "wd1",
+        "instance": "AVAV",
+    },
     "wisk": {
         "name":     "Wisk Aero LLC",
         "tenant":   "wisk",

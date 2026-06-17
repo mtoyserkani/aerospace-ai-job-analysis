@@ -70,3 +70,8 @@ Kaman Aerospace,Tier1,ADP,,,parked,ADP ATS. Niche platform. Low AI signal.
 HEICO Corporation,Tier1,ADP,,,parked,ADP ATS. Niche platform. Low AI signal.
 TransDigm Group,Tier1,,,, parked,Holding company. 50+ subsidiaries post independently.
 Ducommun,Tier1,iCIMS,,,parked,careers-ducommun.icims.com shows iCIMS promo page. Domain may be wrong. Only 7 open jobs.
+AeroVironment,New Entrant,Workday,workday_scraper.py,workday_aerovironment.csv,pending,avav.wd1.myworkdayjobs.com/AVAV. Pure-play UAS/autonomy. ~269 jobs. High signal for governance thesis.
+Kratos Defense,New Entrant,Pereless,,,parked,Uses pereless.com ATS (recruiting@pereless.com). Niche platform — no scraper built.
+Anduril Industries,New Entrant,Greenhouse,greenhouse_scraper.py,greenhouse_anduril.csv,pending,Greenhouse + Lever confirmed. Defense AI/autonomy pure-play. High signal.
+Red Cat Holdings,New Entrant,Paycom,,,parked,"Paycom ATS. Niche platform, no scraper built. Small company (<100 employees)."
+Ondas Holdings,New Entrant,unknown,,,parked,DNS resolution failed. Cannot reach careers page.
