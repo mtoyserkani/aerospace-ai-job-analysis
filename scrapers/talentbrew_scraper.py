@@ -324,7 +324,7 @@ async def scrape(output_dir: Path, config: dict = None) -> None:
         output_path = output_dir / f"talentbrew_{key}.csv"
         save_jobs(company_jobs, output_path)
         total += len(company_jobs)
-    print(f"\nL3Harris: {len(all_jobs)} jobs saved → {output}")
+    print(f"\nL3Harris: {len(all_jobs)} jobs saved → {output_path}")
 
 
 # ---------------------------------------------------------------------------
