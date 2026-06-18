@@ -1,0 +1,68 @@
+# Cybersecurity Skills — aerospace/defense context
+# Built from skill discovery output + known defense cyber hiring signals
+
+# Clearance and access
+top secret
+ts/sci
+secret clearance
+public trust
+security clearance
+
+# Frameworks and compliance
+cmmc
+nist
+rmf
+risk management framework
+dod 8140
+dod 8570
+fedramp
+dfars
+hipaa
+sox
+zero trust
+
+# Domains
+ot security
+ics security
+industrial control
+scada
+operational technology
+cloud security
+network security
+endpoint security
+application security
+devsecops
+product security
+
+# Tools and platforms
+splunk
+crowdstrike
+siem
+soar
+edr
+vulnerability management
+penetration testing
+red team
+blue team
+purple team
+
+# Standards and processes
+incident response
+threat intelligence
+threat hunting
+security operations
+security architecture
+information assurance
+system security
+access control
+identity management
+pki
+encryption
+
+# Certifications
+cissp
+cism
+ceh
+security plus
+casp
+giac
