@@ -1,35 +1,53 @@
 """
-function_analysis.py - Job-function-level skill frequency analysis.
+function_analysis.py - Job-function-level skill DISCOVERY for job seekers.
 
-The problem: keyword_analysis.py reports frequency across the whole dataset.
-That's useful for an industry-level thesis, but useless for a job seeker
-who wants to know "what does the market want from a Cybersecurity Engineer"
-specifically - not diluted by 20,000 unrelated Mechanical Engineer postings.
+This script is discovery-only. It does NOT score jobs against pre-built
+keyword files (governance.txt, capability.txt, certification_adjacent.txt,
+cybersecurity_skills.txt) - that hypothesis-testing job belongs to
+keyword_analysis.py, scoped to the whole dataset, for the Article B thesis.
 
 This script:
-  1. Buckets jobs into job functions using user-defined title-matching files
-     in job_functions/*.txt (same format as keywords/*.txt - one term per line)
-  2. Matches titles to those terms using fuzzy matching: token-based
-     (word order / phrasing doesn't matter) plus typo tolerance
-  3. Within each matched bucket, reports:
-       - total jobs matched
-       - seniority breakdown
-       - frequency of every keywords/*.txt term, scoped to that bucket only,
-         counted per JOB (not per occurrence) with word-boundary matching
-         so short acronyms like "DER" don't match inside "order"
-       - SKILL DISCOVERY: most common multi-word technical phrases in that
-         bucket's descriptions, for job seekers who don't know what
-         keywords to search for. Company names, EEO/legal boilerplate,
-         and HTML artifacts are excluded - this surfaces actual skill
-         and tool signal, not posting structure.
+  1. Prompts you (interactively, no file editing required) for the job
+     titles that define your function - e.g. "program manager, project
+     manager" - matched with fuzzy, token-based matching (word order and
+     small typos don't matter). What you type is optionally saved to
+     job_functions/<name>.txt so next time you can skip the prompt by
+     passing --function <name>.
+  2. Optionally prompts for your own ad hoc keywords to check (skippable -
+     press enter for none). This is YOUR hypothesis, checked fresh each
+     run, separate from discovery and separate from Article B's governance
+     keyword files. Reported in its own "USER KEYWORD CHECK" section.
+  3. Within the matched bucket, reports:
+       - total jobs matched, seniority breakdown, salary by seniority
+       - top companies hiring for this function
+       - your ad hoc keyword hits, if you entered any
+       - SKILL DISCOVERY, split two ways:
+           TITLE SIGNAL    - phrases found in job TITLES. Smaller volume,
+                              higher confidence - this is what a company
+                              chose to lead with. Clean: company names,
+                              EEO/legal boilerplate, and ATS template
+                              artifacts are excluded.
+           BODY SIGNAL     - phrases found in description text. Larger
+                              volume, lower confidence per hit - this is
+                              what shows up once you read the fine print.
+                              Same exclusions applied, but every company
+                              phrases its own EEO/benefits/legal disclaimers
+                              differently, so some boilerplate fragments
+                              still slip through. Treat this list as a
+                              starting point for discovery, not a verified
+                              clean feed - read each phrase with judgment.
 
-A job can match more than one function bucket (e.g. "Cybersecurity AI/ML
-Engineer" matches both cybersecurity.txt and data_ai.txt). This is
+A job can match more than one function bucket (e.g. "Cybersecurity Program
+Manager" matches both cybersecurity and program_management terms). This is
 intentional - crossover roles are informative, not noise to be removed.
 
 Usage:
-    python3 analysis/function_analysis.py --input data/master_dataset.csv
-    python3 analysis/function_analysis.py --input data/master_dataset.csv --function cybersecurity
+    python3 analysis/function_analysis.py
+        (prompts you for everything - job function, optional keywords)
+    python3 analysis/function_analysis.py --function cybersecurity
+        (skips the job-function prompt, reuses job_functions/cybersecurity.txt;
+         still prompts for optional ad hoc keywords unless --no-prompt-keywords)
+    python3 analysis/function_analysis.py --function cybersecurity --no-prompt-keywords
     python3 analysis/function_analysis.py --input data/master_dataset.csv --export data/function_results.csv
 """
 
@@ -83,6 +101,22 @@ EEO_LEGAL_BENEFITS_STOPWORDS = {
     "collected", "collect", "share", "shared", "transfer", "transferred",
     "vendor", "vendors", "partner", "partners", "site", "sites", "website",
     "cross", "functional", "full", "part", "employees",
+    "dental", "vision", "posting", "date", "end", "education", "training",
+    "limited", "factors", "total", "package", "obtain", "maintain", "long",
+    "term", "considerations", "internal", "external", "unit", "leave",
+    "parental", "acquisition", "talent", "schedule", "cost", "potential",
+    "risks", "risk", "wage", "wages", "hourly", "annual", "annually",
+    "eligibility", "eligible", "enroll", "enrollment", "401", "k", "match",
+    "matching", "stock", "equity", "rsu", "rsus", "esop", "holiday", "holidays",
+    "sick", "disability", "fmla", "cobra", "hsa", "fsa", "dependent",
+    "dependents", "spouse", "domestic", "summary", "overview", "description",
+    "posted", "post", "expires", "expiration", "req", "requisition",
+    "scams", "scam", "protecting", "yourself", "recruitment", "range",
+    "estimate", "estimated", "disclosed", "adjusted", "geographic",
+    "differential", "century", "21st", "innovative", "flexible",
+    "arrangements", "stimulate", "foster", "fostering", "thinking",
+    "explore", "learn", "more", "information", "contact", "reach",
+    "wherever", "possible", "easily", "changing", "designed", "bringing",
 }
 
 ENGLISH_STOPWORDS = {
@@ -97,18 +131,6 @@ ALL_STOPWORDS = JOB_POSTING_STOPWORDS | EEO_LEGAL_BENEFITS_STOPWORDS | ENGLISH_S
 
 SENIORITY_ORDER = ["Junior", "Mid", "Senior", "Lead", "Principal", "Manager", "Director"]
 
-
-# ---------------------------------------------------------------------------
-# Salary parsing
-# ---------------------------------------------------------------------------
-# Salary strings in this dataset are inconsistent: ranges with hyphens or
-# en-dashes, hourly rates with or without an explicit "/hr" marker,
-# multiple ranges bundled into one posting (different locations or levels
-# separated by semicolons), and comma/decimal noise. This parses each
-# into a single annualized midpoint, averaging multiple ranges when present.
-# Only ~30% of jobs in this dataset have any salary data at all — averages
-# below are computed over that subset, not the full dataset, and that
-# caveat should always travel with any reported number.
 
 def parse_salary_to_annual(raw) -> float:
     if not raw or not isinstance(raw, str):
@@ -143,12 +165,8 @@ def parse_salary_to_annual(raw) -> float:
 
     avg_midpoint = sum(midpoints) / len(midpoints)
 
-    # Explicit /hr marker, OR magnitude heuristic: no real full-time
-    # annual salary in this dataset is under ~$100. If the midpoint
-    # lands below that with no marker, it's still hourly — the "/hr"
-    # suffix was likely lost somewhere upstream in scraping.
     if is_hourly or avg_midpoint < 100:
-        avg_midpoint = avg_midpoint * 2080  # standard full-time annual hours
+        avg_midpoint = avg_midpoint * 2080
 
     return avg_midpoint
 
@@ -226,24 +244,13 @@ def load_job_functions(job_functions_dir: Path) -> dict:
     return functions
 
 
-def load_keywords(keywords_dir: Path) -> dict:
-    categories = {}
-    if not keywords_dir.exists():
-        return categories
-    for f in sorted(keywords_dir.glob("*.txt")):
-        terms = load_term_file(f)
-        if terms:
-            categories[f.stem] = terms
-    return categories
-
-
 def count_keyword_per_job(corpus_lower: pd.Series, term: str) -> int:
     escaped = re.escape(term.lower())
     pattern = r"(?<![a-z0-9])" + escaped + r"(?![a-z0-9])"
     return int(corpus_lower.str.contains(pattern, regex=True, na=False).sum())
 
 
-def discover_phrases(descriptions: pd.Series, titles: pd.Series, companies: pd.Series,
+def discover_phrases(text_series: pd.Series, companies: pd.Series,
                       total_jobs: int, top_n: int = 25) -> list:
     company_tokens = set()
     for name in companies.dropna().unique():
@@ -254,8 +261,8 @@ def discover_phrases(descriptions: pd.Series, titles: pd.Series, companies: pd.S
 
     phrase_job_counts = Counter()
 
-    for desc in descriptions.fillna(""):
-        tokens = _tokenize(str(desc))
+    for text in text_series.fillna(""):
+        tokens = _tokenize(str(text))
         filtered = [t for t in tokens if t not in exclude and len(t) > 2 and not t.isdigit()]
 
         seen_in_this_job = set()
@@ -280,7 +287,7 @@ def discover_phrases(descriptions: pd.Series, titles: pd.Series, companies: pd.S
 
 
 def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
-                      keyword_categories: dict) -> dict:
+                      user_keywords: list) -> dict:
     mask = df["title"].fillna("").apply(
         lambda title: any(title_matches_term(title, term) for term in title_terms)
     )
@@ -290,8 +297,9 @@ def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
         "function": function_name,
         "total_jobs": len(matched),
         "seniority": Counter(),
-        "keyword_hits": {},
-        "discovered_phrases": [],
+        "user_keyword_hits": {},
+        "title_phrases": [],
+        "body_phrases": [],
         "companies": Counter(),
         "salary_by_seniority": {},
     }
@@ -303,10 +311,6 @@ def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
     result["seniority"] = Counter(seniority_norm)
     result["companies"] = Counter(matched["company"])
 
-    # Salary by seniority — only over jobs where salary parses to a number.
-    # Reported counts are jobs-with-salary-data, which is almost always
-    # smaller than the seniority bucket's total job count, and that gap
-    # is shown explicitly rather than silently averaged over.
     matched["_seniority_norm"] = seniority_norm
     matched["_parsed_salary"] = matched["salary"].apply(parse_salary_to_annual)
 
@@ -325,19 +329,21 @@ def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
 
     cleaned_desc = matched["description_text"].fillna("").apply(clean_text)
     cleaned_title = matched["title"].fillna("").apply(clean_text)
-    corpus_lower = (cleaned_desc + " " + cleaned_title).str.lower()
 
-    for category, terms in keyword_categories.items():
+    if user_keywords:
+        corpus_lower = (cleaned_desc + " " + cleaned_title).str.lower()
         hits = {}
-        for term in terms:
+        for term in user_keywords:
             count = count_keyword_per_job(corpus_lower, term)
             if count > 0:
                 hits[term] = count
-        if hits:
-            result["keyword_hits"][category] = dict(sorted(hits.items(), key=lambda x: -x[1]))
+        result["user_keyword_hits"] = dict(sorted(hits.items(), key=lambda x: -x[1]))
 
-    result["discovered_phrases"] = discover_phrases(
-        cleaned_desc, cleaned_title, matched["company"], len(matched)
+    result["title_phrases"] = discover_phrases(
+        cleaned_title, matched["company"], len(matched)
+    )
+    result["body_phrases"] = discover_phrases(
+        cleaned_desc, matched["company"], len(matched)
     )
 
     return result
@@ -364,9 +370,8 @@ def print_function_report(result: dict) -> None:
     if result["salary_by_seniority"]:
         print(f"\n{'-'*70}")
         print("AVG SALARY BY SENIORITY (annualized; hourly rates converted)")
-        print("Only jobs with parseable salary data — coverage shown per level.")
+        print("Only jobs with parseable salary data - coverage shown per level.")
         print(f"{'-'*70}")
-        # Order by typical career progression where possible, unknowns last
         ordered_levels = [l for l in SENIORITY_ORDER if l in result["salary_by_seniority"]]
         remaining = [l for l in result["salary_by_seniority"] if l not in ordered_levels]
         for level in ordered_levels + sorted(remaining):
@@ -381,32 +386,46 @@ def print_function_report(result: dict) -> None:
     for company, count in result["companies"].most_common(10):
         print(f"  {company:<40} {count:>5}")
 
-    if result["keyword_hits"]:
+    if result["user_keyword_hits"]:
         print(f"\n{'-'*70}")
-        print("KEYWORD FREQUENCY (from your keywords/ files, scoped to this function)")
+        print("USER KEYWORD CHECK (your own search terms, this run only)")
         print("Counted per job - a job mentioning a term 5x still counts once.")
         print(f"{'-'*70}")
-        for category, hits in result["keyword_hits"].items():
-            print(f"\n  [{category}]")
-            for term, count in list(hits.items())[:15]:
-                pct = count / result["total_jobs"] * 100
-                bar = "#" * int(pct / 3)
-                print(f"    {term:<35} {count:>5}  {bar} {pct:.1f}%")
+        for term, count in result["user_keyword_hits"].items():
+            pct = count / result["total_jobs"] * 100
+            bar = "#" * int(pct / 3)
+            print(f"    {term:<35} {count:>5}  {bar} {pct:.1f}%")
 
-    if result["discovered_phrases"]:
-        print(f"\n{'-'*70}")
-        print("SKILL DISCOVERY - most common technical phrases in this function")
-        print("(use this if you don't know what keywords to search for yet)")
-        print("Company names and EEO/legal/benefits boilerplate excluded.")
-        print(f"{'-'*70}")
-        for phrase, count in result["discovered_phrases"]:
+    print(f"\n{'-'*70}")
+    print("SKILL DISCOVERY - TITLE SIGNAL")
+    print("Phrases found in job titles. Lower volume, higher confidence -")
+    print("this is what companies chose to lead with.")
+    print(f"{'-'*70}")
+    if result["title_phrases"]:
+        for phrase, count in result["title_phrases"]:
             pct = count / result["total_jobs"] * 100
             bar = "#" * int(pct / 3)
             print(f"    {phrase:<40} {count:>5}  {bar} {pct:.1f}%")
     else:
-        print(f"\n{'-'*70}")
-        print("SKILL DISCOVERY - no phrases cleared the noise floor (3+ jobs)")
-        print(f"{'-'*70}")
+        print("    No phrases cleared the noise floor (3+ jobs) in titles alone.")
+
+    print(f"\n{'-'*70}")
+    print("SKILL DISCOVERY - BODY SIGNAL")
+    print("Phrases found in description text. Higher volume, lower confidence")
+    print("per hit - this is what shows up once you read the fine print.")
+    print("(use this if you don't know what keywords to search for yet)")
+    print("Known limitation: every company phrases EEO/benefits/legal disclaimers")
+    print("differently, so some boilerplate fragments may still slip through.")
+    print("Read each phrase below and use judgment - this list is a starting")
+    print("point for discovery, not a verified clean feed.")
+    print(f"{'-'*70}")
+    if result["body_phrases"]:
+        for phrase, count in result["body_phrases"]:
+            pct = count / result["total_jobs"] * 100
+            bar = "#" * int(pct / 3)
+            print(f"    {phrase:<40} {count:>5}  {bar} {pct:.1f}%")
+    else:
+        print("    No phrases cleared the noise floor (3+ jobs).")
 
 
 def export_results(results: list, export_path: Path) -> None:
@@ -414,42 +433,36 @@ def export_results(results: list, export_path: Path) -> None:
     for r in results:
         for level, stats in r["salary_by_seniority"].items():
             rows.append({
-                "function": r["function"],
-                "total_jobs_in_function": r["total_jobs"],
-                "source": "salary_by_seniority",
-                "category": level,
-                "term": "avg_annual_salary",
-                "count": round(stats["avg"]),
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "salary_by_seniority", "category": level,
+                "term": "avg_annual_salary", "count": round(stats["avg"]),
                 "pct_of_function": round(stats["n_with_salary"] / stats["n_total"] * 100, 1),
             })
             rows.append({
-                "function": r["function"],
-                "total_jobs_in_function": r["total_jobs"],
-                "source": "salary_by_seniority",
-                "category": level,
-                "term": "median_annual_salary",
-                "count": round(stats["median"]),
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "salary_by_seniority", "category": level,
+                "term": "median_annual_salary", "count": round(stats["median"]),
                 "pct_of_function": round(stats["n_with_salary"] / stats["n_total"] * 100, 1),
             })
-        for category, hits in r["keyword_hits"].items():
-            for term, count in hits.items():
-                rows.append({
-                    "function": r["function"],
-                    "total_jobs_in_function": r["total_jobs"],
-                    "source": "keyword_list",
-                    "category": category,
-                    "term": term,
-                    "count": count,
-                    "pct_of_function": round(count / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
-                })
-        for phrase, count in r["discovered_phrases"]:
+        for term, count in r["user_keyword_hits"].items():
             rows.append({
-                "function": r["function"],
-                "total_jobs_in_function": r["total_jobs"],
-                "source": "discovered_phrase",
-                "category": "",
-                "term": phrase,
-                "count": count,
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "user_keyword", "category": "",
+                "term": term, "count": count,
+                "pct_of_function": round(count / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+            })
+        for phrase, count in r["title_phrases"]:
+            rows.append({
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "discovered_phrase_title", "category": "",
+                "term": phrase, "count": count,
+                "pct_of_function": round(count / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+            })
+        for phrase, count in r["body_phrases"]:
+            rows.append({
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "discovered_phrase_body", "category": "",
+                "term": phrase, "count": count,
                 "pct_of_function": round(count / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
             })
     out_df = pd.DataFrame(rows)
@@ -457,15 +470,51 @@ def export_results(results: list, export_path: Path) -> None:
     print(f"\nResults exported -> {export_path}")
 
 
+def prompt_for_job_function(job_functions_dir: Path, existing: dict) -> tuple:
+    if existing:
+        print("\nSaved job functions you can reuse: " + ", ".join(existing.keys()))
+    print("\nEnter the job titles that define the role you're researching.")
+    print("Comma-separated, e.g.: program manager, project manager, technical program manager")
+    raw = input("Titles: ").strip()
+    if not raw:
+        return None, []
+
+    terms = [t.strip().lower() for t in raw.split(",") if t.strip()]
+
+    name = input("Save this as a job function for next time? Enter a short name, or leave blank to skip: ").strip()
+    if name:
+        name = re.sub(r"[^a-z0-9_]+", "_", name.lower()).strip("_")
+        job_functions_dir.mkdir(parents=True, exist_ok=True)
+        out_path = job_functions_dir / f"{name}.txt"
+        out_path.write_text("\n".join(terms) + "\n", encoding="utf-8")
+        print(f"Saved -> {out_path}. Next time: --function {name}")
+    else:
+        name = "custom_" + re.sub(r"[^a-z0-9_]+", "_", terms[0])
+
+    return name, terms
+
+
+def prompt_for_user_keywords() -> list:
+    print("\nWant to check for any specific keywords of your own? (your hypothesis,")
+    print("checked fresh this run - separate from the discovery lists above)")
+    raw = input("Keywords, comma-separated, or press enter to skip: ").strip()
+    if not raw:
+        return []
+    return [t.strip().lower() for t in raw.split(",") if t.strip()]
+
+
 def main():
     parser = argparse.ArgumentParser(
-        description="Job-function-scoped skill frequency analysis for job seekers"
+        description="Job-function-scoped skill DISCOVERY for job seekers (no pre-built keyword files required)"
     )
     parser.add_argument("--input", type=Path, default=Path("data/master_dataset.csv"))
     parser.add_argument("--job-functions-dir", type=Path, default=Path("job_functions"))
-    parser.add_argument("--keywords-dir", type=Path, default=Path("keywords"))
     parser.add_argument("--function", type=str, default=None,
-                        help="Run only one job function (filename stem, e.g. 'cybersecurity'). Default: all.")
+                        help="Reuse a saved job function (filename stem in job_functions/). Skips the title prompt.")
+    parser.add_argument("--keywords", type=str, default=None,
+                        help="Comma-separated ad hoc keywords to check, non-interactively.")
+    parser.add_argument("--no-prompt-keywords", action="store_true",
+                        help="Skip the ad hoc keyword prompt entirely (discovery only).")
     parser.add_argument("--export", type=Path, default=None,
                         help="Export full results to CSV")
     args = parser.parse_args()
@@ -478,34 +527,34 @@ def main():
     df = pd.read_csv(args.input, low_memory=False)
     print(f"  {len(df):,} jobs loaded")
 
-    job_functions = load_job_functions(args.job_functions_dir)
-    if not job_functions:
-        print(f"\nNo job function files found in {args.job_functions_dir}/")
-        print("Create one file per job function, e.g.:")
-        print(f"  {args.job_functions_dir}/cybersecurity.txt")
-        print(f"  {args.job_functions_dir}/program_management.txt")
-        print("One title-matching term per line. See keywords/ for the format.")
+    existing_functions = load_job_functions(args.job_functions_dir)
+
+    if args.function and args.function in existing_functions:
+        function_name = args.function
+        title_terms = existing_functions[args.function]
+        print(f"\nUsing saved job function '{function_name}': {', '.join(title_terms)}")
+    elif args.function:
+        print(f"\nNo saved job function named '{args.function}' found in {args.job_functions_dir}/.")
+        function_name, title_terms = prompt_for_job_function(args.job_functions_dir, existing_functions)
+    else:
+        function_name, title_terms = prompt_for_job_function(args.job_functions_dir, existing_functions)
+
+    if not title_terms:
+        print("No job titles entered. Nothing to analyze.")
         return
 
-    keyword_categories = load_keywords(args.keywords_dir)
+    if args.keywords is not None:
+        user_keywords = [t.strip().lower() for t in args.keywords.split(",") if t.strip()]
+    elif args.no_prompt_keywords:
+        user_keywords = []
+    else:
+        user_keywords = prompt_for_user_keywords()
 
-    print(f"\nLoaded {len(job_functions)} job function(s): {', '.join(job_functions.keys())}")
-    print(f"Loaded {len(keyword_categories)} keyword categor(y/ies) to scope: {', '.join(keyword_categories.keys())}")
-
-    targets = (
-        {args.function: job_functions[args.function]}
-        if args.function and args.function in job_functions
-        else job_functions
-    )
-
-    results = []
-    for function_name, title_terms in targets.items():
-        result = analyze_function(df, function_name, title_terms, keyword_categories)
-        results.append(result)
-        print_function_report(result)
+    result = analyze_function(df, function_name, title_terms, user_keywords)
+    print_function_report(result)
 
     if args.export:
-        export_results(results, args.export)
+        export_results([result], args.export)
 
 
 if __name__ == "__main__":
