@@ -40,7 +40,7 @@ Chromalloy,MRO,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on 
 Leidos,Defense,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,~2000 jobs in Workday enriched output.
 Booz Allen Hamilton,Defense,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,1850 jobs in Workday enriched output.
 SAIC,Defense,Jobvite,,,parked,Jobvite ATS. No scraper built. Lower AI signal.
-Peraton,Defense,iCIMS,icims_scraper.py,peraton_jobs.csv,active,1686 jobs.
+Peraton,Defense,iCIMS,icims_scraper.py,icims_peraton.csv,active,"1707 jobs, 100% descriptions, 100% titles, no prefix bugs. 86 rows (5%) have known gaps: 82 rows where richest-frame heuristic captured tracking-script JS instead of job content (frame-selection bug, not yet root-caused); 3 rows with non-US bare country codes (AU, UK, JP-47-...) not handled by location fallback regex (only handles bare ""US""); 1 row with ERR_CONNECTION_CLOSED during scrape (transient network failure). Confirmed 2026-06-20. Deprioritized — 95% clean, fixing the frame-selection bug requires more investigation than the 5% gap justifies right now."
 Sierra Nevada Corporation,Defense,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,269 jobs in Workday enriched output.
 Kratos Defense,Defense,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd5. Needs dom_inspector.
 Vectrus Technologies,Defense,,,, parked,Merged into Amentum 2022. No independent careers page.
