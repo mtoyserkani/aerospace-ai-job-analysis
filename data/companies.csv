@@ -56,7 +56,7 @@ Wisk Aero,NewEntrant,Workday,workday_scraper.py,workday_fixes_enriched.csv,activ
 Beta Technologies,NewEntrant,Greenhouse,,,parked,Private Greenhouse board. API locked. Playwright blocked on beta.team.
 Boom Supersonic,NewEntrant,Greenhouse,,,parked,Private Greenhouse board. API locked.
 Reliable Robotics,NewEntrant,Unknown,,,parked,Unknown ATS. Under 50 employees. Negligible job volume.
-Elroy Air,NewEntrant,Lever,lever_scraper.py,lever_jobs.csv,active,Included in Lever output.
+Elroy Air,NewEntrant,Lever,lever_scraper.py,lever_jobs.csv,confirmed_empty,Lever API confirmed working (slug verified 2026-06-06). Checked 2026-06-20: 0 open postings. Not a scraper bug — company has no current listings on Lever.
 Zipline,NewEntrant,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,220 jobs.
 Electra.aero,NewEntrant,Unknown,,,parked,Unknown ATS. Under 50 employees. Negligible job volume.
 Heart Aerospace,NewEntrant,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,23 jobs.
