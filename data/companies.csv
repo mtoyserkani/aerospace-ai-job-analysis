@@ -60,7 +60,7 @@ Elroy Air,NewEntrant,Lever,lever_scraper.py,lever_jobs.csv,confirmed_empty,Lever
 Zipline,NewEntrant,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,220 jobs.
 Electra.aero,NewEntrant,Unknown,,,parked,Unknown ATS. Under 50 employees. Negligible job volume.
 Heart Aerospace,NewEntrant,Greenhouse,greenhouse_scraper.py,greenhouse_jobs.csv,active,23 jobs.
-Relativity Space,NewEntrant,Greenhouse,greenhouse_scraper.py,,parked,Greenhouse slug returned 404 as of 2026-06-07. May have moved ATS.
+Relativity Space,NewEntrant,Greenhouse,greenhouse_scraper.py,greenhouse_relativity.csv,active,"Slug was ""relativityspace"" (404) — actual slug is ""relativity"". Confirmed 2026-06-20: 304 jobs, 100% titles/descriptions/locations."
 Hermeus,NewEntrant,Lever,lever_scraper.py,lever_jobs.csv,active,114 jobs.
 De Havilland Canada,Prime,WordPress,,,parked,WordPress landing page with no ATS API. Custom scraper too fragile.
 Wing Aviation,NewEntrant,Greenhouse,greenhouse_scraper.py,wing_jobs.csv,active,25 jobs. Confirmed 2026-06-12.

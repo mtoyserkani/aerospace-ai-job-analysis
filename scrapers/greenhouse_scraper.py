@@ -5,7 +5,7 @@ Greenhouse exposes a public jobs board API. No authentication required.
 This is the cleanest scraper in the set — no Playwright needed.
 
 Companies in this dataset using Greenhouse:
-  - Relativity Space   → boards.greenhouse.io/relativityspace
+  - Relativity Space   → boards.greenhouse.io/relativity
   - Rocket Lab         → boards.greenhouse.io/rocketlab
   - Planet Labs        → boards.greenhouse.io/planetlabs
   - SpaceX             → boards.greenhouse.io/spacex
@@ -40,7 +40,7 @@ from base import (
 # ---------------------------------------------------------------------------
 
 COMPANIES = {
-    "relativityspace": "Relativity Space",
+    "relativity":      "Relativity Space",  # corrected from "relativityspace" (404) — confirmed 2026-06-20, 304 jobs
     "rocketlab":       "Rocket Lab",
     "planetlabs":      "Planet Labs",
     "spacex":          "SpaceX",
