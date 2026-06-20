@@ -199,44 +199,45 @@ async def scrape_company(slug, config, limiter):  # config passed through for se
 
             print(f"  Page {page_num}/{total_pages}: {page_jobs} jobs (total: {len(jobs)})")
 
-        await browser.close()
-    # Enrich with descriptions + location by visiting each job page.
-    # Job content is in whichever frame has the most text (confirmed 2026-06-16):
-    # the iCIMS detail page has 2 frames with similar URLs — one is footer/nav
-    # boilerplate (~400 chars), the other has the real job content (~3000+ chars).
-    print(f"  Enriching {len(jobs)} jobs with descriptions...")
-    enriched = 0
-    for i, job in enumerate(jobs):
-        try:
+        # Enrich with descriptions + location by visiting each job page.
+        # Job content is in whichever frame has the most text (confirmed 2026-06-16):
+        # the iCIMS detail page has 2 frames with similar URLs — one is footer/nav
+        # boilerplate (~400 chars), the other has the real job content (~3000+ chars).
+        # NOTE: browser stays open through enrichment — closing it early breaks page.goto()
+        print(f"  Enriching {len(jobs)} jobs with descriptions...")
+        enriched = 0
+        for i, job in enumerate(jobs):
             try:
-                await page.goto(job.apply_url, wait_until="domcontentloaded", timeout=20000)
-            except Exception:
-                pass  # proceed even if goto times out — content may have loaded enough
-            await page.wait_for_timeout(2500)
-
-            best_text = ""
-            for frame in page.frames:
                 try:
-                    text = await frame.inner_text("body")
-                    if len(text) > len(best_text):
-                        best_text = text
+                    await page.goto(job.apply_url, wait_until="domcontentloaded", timeout=20000)
                 except Exception:
-                    continue
+                    pass  # proceed even if goto times out — content may have loaded enough
+                await page.wait_for_timeout(2500)
 
-            if len(best_text) > 100:
-                raw = re.sub(r"\s{2,}", " ", best_text).strip()
-                job.description_text = raw
-                # Extract location from "Job Locations\nUS-CA-Santa Cruz" pattern
-                loc_m = re.search(r"Job Locations?\s+([A-Z]{2}-[A-Za-z .]+(?:-[A-Za-z .]+)?)", raw)
-                if loc_m:
-                    job.location = loc_m.group(1).replace("-", ", ").replace("US, ", "")
-                    job.country = "United States of America"
-                enriched += 1
-        except Exception:
-            pass
-        if (i + 1) % 50 == 0:
-            print(f"    {i+1}/{len(jobs)} — {enriched} descriptions so far")
+                best_text = ""
+                for frame in page.frames:
+                    try:
+                        text = await frame.inner_text("body")
+                        if len(text) > len(best_text):
+                            best_text = text
+                    except Exception:
+                        continue
 
+                if len(best_text) > 100:
+                    raw = re.sub(r"\s{2,}", " ", best_text).strip()
+                    job.description_text = raw
+                    # Extract location from "Job Locations\nUS-CA-Santa Cruz" pattern
+                    loc_m = re.search(r"Job Locations?\s+([A-Z]{2}-[A-Za-z .]+(?:-[A-Za-z .]+)?)", raw)
+                    if loc_m:
+                        job.location = loc_m.group(1).replace("-", ", ").replace("US, ", "")
+                        job.country = "United States of America"
+                    enriched += 1
+            except Exception:
+                pass
+            if (i + 1) % 50 == 0:
+                print(f"    {i+1}/{len(jobs)} — {enriched} descriptions so far")
+
+        await browser.close()
     print(f"  Enrichment done: {enriched}/{len(jobs)} descriptions")
     return jobs
 
