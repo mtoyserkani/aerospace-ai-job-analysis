@@ -13,7 +13,7 @@ Bell (Textron),Prime,Taleo,taleo_scraper.py,bell_jobs.csv,active,52 jobs.
 Sikorsky (Lockheed),Tier1,Brassring,brassring_scraper.py,brassring_enriched.csv,active,Included in Lockheed Brassring output.
 Collins Aerospace (RTX),Tier1,Phenom,phenom_scraper.py,,parked,Shares RTX Phenom instance. API blocked.
 Pratt & Whitney (RTX),Tier1,Phenom,phenom_scraper.py,,parked,Shares RTX Phenom instance. API blocked.
-GE Aerospace,Tier1,Phenom,phenom_scraper.py,,parked,Phenom widget-based API. Tenant not identified via direct calls. Investigated 2026-06-12 — requires reverse-engineering minified widget JS.
+GE Aerospace,Tier1,Phenom,phenom_scraper.py,,parked,"Phenom site renders entire page (nav, content, job search) through generic /widgets POST endpoint with ddoKey field distinguishing content type (e.g. ""canvasGetWidgetContent"" for nav/CMS data). All requests named identically ""widgets"" in Network tab, no distinguishing URL. Job search ddoKey not yet found among dozens of near-identical calls. Confirmed 2026-06-20: not a simple tenant-ID issue, it is Phenom's widget-obfuscation architecture. Would need either (a) finding the specific job-search ddoKey, or (b) falling back to rendered-HTML scraping via Playwright."
 Parker Hannifin,Tier1,TTC Portals,,,parked,Uses parkercareers.ttcportals.com — not Workday. No scraper built.
 Moog Inc,Tier1,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,414 jobs in Workday enriched output.
 Spirit AeroSystems,Tier1,iCIMS,icims_scraper.py,,parked,"Acquired by Boeing Dec 2025. Migrated off careers-spiritaero.icims.com to careers.spiritaero.com (still iCIMS, new domain/branding). 221 jobs visible 2026-06-20. New pagination scheme needed — old ?ss=1/?pr=N pattern does not apply."
