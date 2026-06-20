@@ -35,6 +35,7 @@ SKIP_FILES = {
 PLATFORMS = {
     "workday", "greenhouse", "lever", "icims", "talentbrew",
     "brassring", "taleo", "successfactors", "eightfold", "phenom",
+    "dayforce",
 }
 
 
