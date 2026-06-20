@@ -16,7 +16,7 @@ Pratt & Whitney (RTX),Tier1,Phenom,phenom_scraper.py,,parked,Shares RTX Phenom i
 GE Aerospace,Tier1,Phenom,phenom_scraper.py,,parked,Phenom widget-based API. Tenant not identified via direct calls. Investigated 2026-06-12 — requires reverse-engineering minified widget JS.
 Parker Hannifin,Tier1,TTC Portals,,,parked,Uses parkercareers.ttcportals.com — not Workday. No scraper built.
 Moog Inc,Tier1,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,414 jobs in Workday enriched output.
-Spirit AeroSystems,Tier1,iCIMS,icims_scraper.py,,parked,Pagination broken — only 20 jobs captured. careers-spiritaero.icims.com.
+Spirit AeroSystems,Tier1,iCIMS,icims_scraper.py,,parked,"Acquired by Boeing Dec 2025. Migrated off careers-spiritaero.icims.com to careers.spiritaero.com (still iCIMS, new domain/branding). 221 jobs visible 2026-06-20. New pagination scheme needed — old ?ss=1/?pr=N pattern does not apply."
 Triumph Group,Tier1,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd1. Needs dom_inspector.
 Curtiss-Wright,Tier1,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,~286 jobs in Workday enriched output.
 Woodward,Tier1,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,~194 jobs in Workday enriched output.
@@ -25,7 +25,7 @@ Astronics Corporation,Tier1,iCIMS,icims_scraper.py,,parked,careers-astronics.ici
 Crane Aerospace,Tier1,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,~287 jobs in Workday enriched output.
 Safran (North America),Tier1,SuccessFactors,successfactors_scraper.py,,parked,Same SuccessFactors cookie wall issue as Bombardier. Not yet scraped.
 Leonardo DRS,Tier1,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd1. Needs dom_inspector.
-Elbit Systems of America,Tier1,iCIMS,icims_scraper.py,,parked,careers-elbitsystemsofamerica.icims.com shows iCIMS promo page.
+Elbit Systems of America,Tier1,Dayforce,dayforce_scraper.py,dayforce_elbitamerica.csv,active,"Migrated off iCIMS to Dayforce HCM. Confirmed 2026-06-20: 153 jobs, 100% titles/descriptions/locations."
 AAR Corp,MRO,Taleo,taleo_scraper.py,aar_jobs.csv,active,173 jobs.
 StandardAero,MRO,Workday,workday_scraper.py,,parked,ATS unconfirmed. 422 error on wd5. Needs dom_inspector.
 Duncan Aviation,MRO,WorkGr8,,,parked,Niche proprietary ATS. Not worth custom scraper.
