@@ -155,7 +155,10 @@ CERTIFICATIONS = [
     "PMP", "CAPM", "PgMP", "PMI-ACP", "CSM", "CSPO", "Six Sigma",
     "Lean Six Sigma", "CISSP", "CISM", "CISA", "Security+", "CompTIA Security+",
     "ITIL", "PE", "CCNA", "AWS Certified", "Scrum Master", "Agile Certified",
-    "A&P License", "FAA Certificate", "DAWIA",
+    "FAA Certificate", "DAWIA",
+    # Note: "A&P License" removed from here - it's the same credential as
+    # "A&P" in AEROSPACE_CERTIFICATIONS below, kept there only to avoid
+    # double-counting one credential under two different phrasings.
     # --- AI-specific certifications, added after confirming real via
     # direct source verification (see comment above) ---
     "Generative AI Leader", "Professional Machine Learning Engineer",
@@ -176,6 +179,35 @@ CERTIFICATIONS = [
     "Google Cloud Professional Data Engineer",
     "Google Cloud Professional Machine Learning Engineer",
     "Microsoft Certified: AI Business Professional",
+    # --- round 3: design thinking / product strategy certifications,
+    # folded in from a previously separate DESIGN_THINKING_CERTIFICATIONS
+    # list (removed per request - kept here instead of its own section).
+    # Each verified real via direct source check (IDEO U's own
+    # ideou.com/products pages, LUMA Institute's own luma-institute.com
+    # program pages). Note for accuracy: most of these are completion-
+    # based certificates (finish the required courses, receive the
+    # certificate) rather than pass/fail proctored exams like CISSP or
+    # PMP - worth knowing if writing about the distinction. ---
+    "IDEO U", "Design Thinking Certificate", "AI x Design Thinking",
+    "Stanford d.school", "MIT Sloan Design Thinking",
+    "IBM Enterprise Design Thinking", "LUMA Institute",
+    "Certified Human-Centered Design Practitioner",
+    "Harvard Business School Design Thinking", "Human-Centered Design",
+    "Double Diamond", "Design Sprint",
+    # --- round 4: PM/data-analyst/data-engineering/software-engineering/
+    # QA/MLOps certifications, each verified real and checked against the
+    # real dataset before inclusion. RHCE (42), CKA (40), CKAD (38), and
+    # Selenium (103) are substantial real signals - bigger than most
+    # entries already in this list. "AIPMM" and "Spring Certified"
+    # checked and returned 0 hits - included anyway per the standing
+    # zero-count-inclusion rule, not excluded. ---
+    "AIPMM", "Product School", "ISTQB", "ASQ Certified Software Quality Engineer",
+    "Selenium", "RHCE", "CKA", "CKAD", "Spring Certified Professional",
+    "Oracle Certified Professional", "Java SE", "PL-300",
+    "Tableau Desktop Certified", "CompTIA Data+", "Snowflake Core Certification",
+    "Databricks Certified Data Engineer", "Databricks Certified Machine Learning Professional",
+    "AWS Certified Solutions Architect", "AWS Certified DevOps Engineer",
+    "Google Cloud Professional Cloud Architect", "Azure Solutions Architect Expert",
 ]
 
 CLEARANCES = [
@@ -205,6 +237,41 @@ AEROSPACE_CERTIFICATIONS = [
     # AV crossover document, verified large and real in this dataset
     # (APQP=207, PPAP=141 - bigger than most existing entries above) ---
     "APQP", "PPAP",
+    # --- round 3: selected AI-governance regulatory-standards terms,
+    # moved here from keywords/governance.txt (Article B's whole-dataset
+    # hypothesis-testing list) because they are real, named, certifiable
+    # standards/documents - not abstract governance vocabulary like
+    # "responsible AI" or "model risk," which stay exclusively in
+    # governance.txt. "SOTIF" and "ODD" deliberately excluded from this
+    # addition - both already exist in AV_AEROSPACE_CROSSOVER below, and
+    # duplicating them here would risk two different numbers for the
+    # same term depending on which script/list ran. These 8 terms are
+    # near-universally zero in this dataset, which is itself the Article
+    # B finding (zero AI-governance language across aerospace postings) -
+    # kept here too, not just in governance.txt, since this section's
+    # job-function-scoping makes the absence visible per-role, not just
+    # dataset-wide. ---
+    "ARP6983", "EASA AI Roadmap", "FAA AI Safety", "DO-178C AI",
+    "ODD Definition", "Operational Design Domain", "Learning Assurance",
+    "DAL-AI", "Design Assurance Level AI",
+    # --- round 4: infrastructure/data-compliance frameworks, checked
+    # against the real dataset before inclusion. ITAR (3,353 hits, over
+    # 13% of the entire 25,474-job dataset) is the single largest finding
+    # in this whole project - bigger than every other entry across every
+    # list built so far. FedRAMP (119), GovCloud (106), and SCIF (80) are
+    # also substantial. These are compliance FRAMEWORKS an infrastructure
+    # or program meets, not credentials a person earns - placed here
+    # rather than in a tools list since they're fundamentally about
+    # regulatory/security posture, the same theme as AS9100/GD&T above. ---
+    "ITAR", "FedRAMP", "GovCloud", "DoD Impact Level", "SCIF",
+    # --- round 5: traditional aerospace deterministic-software/quality
+    # standards, checked against real data before inclusion. "AS9100"
+    # was already in this list (added round 1) - not duplicated here.
+    # DO-178C (108), DO-254 (160), and ISO 9001 (315) are substantial
+    # real signals, bigger than several entries already present. ---
+    "DO-178C", "DO-254", "ARP4754A", "ARP4761", "MIL-HDBK-516C",
+    "MIL-STD-882E", "ISO 9001", "Type Certificate",
+    "Supplemental Type Certificate",
 ]
 
 # Terms that must be matched CASE-SENSITIVELY because the lowercase form
@@ -216,29 +283,11 @@ AEROSPACE_CERTIFICATIONS = [
 # silently corrupted this number if not caught. Other short acronyms
 # checked at the same time (PSM, CQA, GROL, CWI, NDT, CSEP) did NOT show
 # this problem - it's specific to terms that happen to spell a real word.
-CASE_SENSITIVE_TERMS = {"SAFe"}
-
-# Design thinking / product-strategy certifications, common in tech and
-# AI product management roles. Each verified real via direct source
-# check (IDEO U's own ideou.com/products pages, LUMA Institute's own
-# luma-institute.com program pages) before inclusion - the company-
-# attribution claims from the document that prompted this list (e.g.
-# "incredibly strong keyword for enterprise SaaS roles") were NOT
-# independently verifiable and are not carried into this list or any
-# comment, per the same rule applied to AEROSPACE_CERTIFICATIONS above.
-# Note for accuracy: most of these are completion-based certificates
-# (finish the required courses, receive the certificate) rather than
-# pass/fail proctored exams like CISSP or PMP - worth knowing if writing
-# about the distinction, though job postings name them the same way
-# regardless of how rigorously they're earned.
-DESIGN_THINKING_CERTIFICATIONS = [
-    "IDEO U", "Design Thinking Certificate", "AI x Design Thinking",
-    "Stanford d.school", "MIT Sloan Design Thinking",
-    "IBM Enterprise Design Thinking", "LUMA Institute",
-    "Certified Human-Centered Design Practitioner",
-    "Harvard Business School Design Thinking", "Human-Centered Design",
-    "Double Diamond", "Design Sprint",
-]
+# "LeSS" (Large-Scale Scrum) is an even more extreme version of the same
+# problem: case-insensitive matching against "less" (one of the most
+# common words in English) returned 1,722 hits; case-sensitive "LeSS"
+# returns the real number - just 1.
+CASE_SENSITIVE_TERMS = {"SAFe", "LeSS"}
 
 # Prototyping/collaboration/PM tools missing from O*NET coverage - same
 # gap pattern as AI_DATA_TOOLS below, just for product/program management
@@ -260,6 +309,31 @@ PM_DESIGN_TOOLS = [
     "Mural", "Amplitude", "Productboard", "Aha!", "Pendo", "Mixpanel",
     # --- AI-PM-specific research/discovery tools, verified real ---
     "Jira Product Discovery", "NotebookLM", "Dovetail", "Maze",
+    # --- "MS Project" abbreviation, checked and confirmed NOT redundant
+    # with O*NET's "Microsoft Project" entry - 305 hits for the
+    # abbreviation vs 228 for the full name, largely non-overlapping
+    # postings, so this is real additive signal O*NET's exact-name entry
+    # would miss ---
+    "MS Project",
+    # --- round 2: PM frameworks/methodologies and program names, all
+    # checked against the real dataset first. Kanban (224) is a
+    # substantial real signal. "CSPO" deliberately NOT re-added here -
+    # already exists in CERTIFICATIONS, would duplicate. "RICE" alone
+    # NOT added (separately from "RICE Scoring") - too short/generic a
+    # word to safely match without a collision check, which hasn't been
+    # done; "RICE Scoring" is the safer, already-specific phrasing.
+    # "Reforge," "Pragmatic Institute," and "Product School" included
+    # here as program/company names (not certifications) - consistent
+    # with the earlier decision that Reforge specifically is a
+    # membership product, not a certification. "LeSS" is in
+    # CASE_SENSITIVE_TERMS above - matched against original case only,
+    # since lowercase "less" is one of the most common words in English
+    # (1,722 false-positive hits found vs 1 real hit case-sensitive). ---
+    "Jobs-to-be-Done", "JTBD", "Product-Led Growth", "PLG",
+    "RICE Scoring", "Kano Model", "Opportunity Solution Tree",
+    "North Star Metric", "Working Backwards", "Shape Up",
+    "Kanban", "Scrumban", "LeSS", "Reforge", "Pragmatic Institute",
+    "Product School", "PMC-I", "PSPO", "SAFe POPM", "Claude Cowork",
 ]
 
 # Hand-curated list of modern AI/data-engineering tools that O*NET's
@@ -296,6 +370,37 @@ AI_DATA_TOOLS = [
     "Dataflow", "Dagster", "Prefect", "Qdrant", "Chroma", "pgvector",
     "Weights & Biases", "Great Expectations", "Apache Polaris",
     "Unity Catalog",
+    # --- round 3: lakehouse file formats/platforms and AI orchestration
+    # tools, each checked against the real dataset before inclusion.
+    # "ORC" deliberately excluded - checked context, the one hit found
+    # was "Operator in Responsible Charge" (a regulatory term), not the
+    # Apache file format - same false-positive pattern as Linear/CPM.
+    # "Mage" deliberately deferred, not excluded - 0 hits found, and it's
+    # short/generic enough that it needs a collision check before being
+    # trusted with simple word-boundary matching, which hasn't been done
+    # yet. "AWS SageMaker" written as bare "SageMaker" below - checked
+    # both forms, the bare form returned 46 hits vs 11 for the prefixed
+    # form, meaning most real postings drop the "AWS" prefix.
+    "Microsoft Fabric", "Parquet", "Avro", "Milvus", "SQLMesh",
+    "LangGraph", "Hugging Face Transformers", "SageMaker",
+    # --- round 4: Elasticsearch sub-components, missed in the original
+    # Elasticsearch addition (round 2) when only the headline term was
+    # checked, not its actual stack components from the same source
+    # document. "ELK" checked for collision risk (3-letter term, same
+    # risk class as ISS/CPM/ORC) and confirmed clean - every sample found
+    # was a genuine "ELK Stack (Elasticsearch, Logstash, Kibana)"
+    # reference. ELK (128) and Kibana (86) are larger real signals than
+    # several entries already in this list. ---
+    "ELK", "Kibana", "Logstash", "Elastic Stack", "Filebeat", "Lucene",
+    "Hybrid Search", "BM25", "Dense Vector Fields", "ELSER", "Knn Search",
+    # --- round 5: agentic AI terms, checked against the real dataset
+    # first. "agentic ai" (121) and "multi-agent" (78) are substantial
+    # real signals. "MCP" and "Model Context Protocol" already existed
+    # in this list (round 1) - not duplicated here. "AWS AI Agents" and
+    # "Bedrock Agents" returned 0 hits - kept anyway per the standing
+    # zero-count-inclusion rule, both are real, named Amazon products. ---
+    "agentic ai", "multi-agent", "agent orchestration", "tool calling",
+    "function calling", "AWS AI Agents", "Bedrock Agents",
 ]
 
 # Terms checked and found to be FALSE POSITIVES - not added to any list,
@@ -351,6 +456,44 @@ AV_AEROSPACE_CROSSOVER = [
     "ROS", "ROS2", "CARLA", "Gazebo", "NVIDIA Omniverse", "CarMaker",
     "dSPACE", "NVIDIA DRIVE", "CAN bus", "TARA", "ODD",
     "Vector CANoe", "CANalyzer", "Foxglove",
+]
+
+# Aerospace-native MBSE/CFD/synthetic-reality engineering platforms - the
+# actual aerospace counterparts to consumer/automotive AI tooling (e.g.
+# Ansys SCADE is the DO-178C-certifiable equivalent of what NVIDIA DRIVE
+# does for automotive). Each checked against the real dataset before
+# inclusion. CATIA (474) and Teamcenter (418) are enormous, previously
+# unreported signals - bigger than nearly everything else in any
+# hand-curated list in this project. Both added here as a safety net
+# even though some O*NET coverage may exist for similar tools (e.g.
+# Siemens NX is a confirmed real O*NET row) - the two mechanisms use
+# different matching logic (exact vs fuzzy partial), so any overlap is
+# harmless duplication, not a double-count risk, the way two entries in
+# the SAME list would be. "Nucleus" deliberately excluded - checked
+# context, the one hit found was the ordinary English word ("the
+# nucleus for ADS Airframe Engineering"), not Aechelon's product.
+# AVxCELERATE, Aerospace Blockset, SIMULIA returned 0 hits - kept anyway
+# per the standing zero-count-inclusion rule.
+AEROSPACE_NATIVE_PLATFORMS = [
+    "SCADE", "AVxCELERATE", "Aerospace Blockset", "3DEXPERIENCE",
+    "SIMULIA", "Teamcenter", "Xcelerator", "CATIA",
+]
+
+# AI training/inference hardware and infrastructure - GPU compute and
+# secure-cloud terms, a genuinely different category from software
+# tools (this describes physical compute and where it's hosted, not a
+# framework or library). Checked against the real dataset before
+# inclusion. All specific GPU model numbers (H100, A100, MI300X, RTX
+# 6000 Ada, GH200, HGX) returned 0 hits - kept anyway per the standing
+# rule, and itself a finding worth knowing: aerospace job postings in
+# this dataset describe AI compute needs in generic terms ("GPU
+# cluster," "high-performance computing") rather than naming specific
+# chips, unlike the precise framework/tool naming seen elsewhere
+# (PyTorch, Kubernetes, etc). InfiniBand (11) is the only nonzero hit
+# found among the hardware-specific terms.
+AI_INFRASTRUCTURE_HARDWARE = [
+    "H100", "A100", "MI300X", "RTX 6000 Ada", "GH200", "NVLink",
+    "InfiniBand", "HGX",
 ]
 
 
@@ -783,11 +926,12 @@ def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
         "user_keyword_hits": {},
         "certifications": [],
         "aerospace_certifications": [],
-        "design_thinking_certifications": [],
         "clearances": [],
         "ai_data_tools": [],
         "pm_design_tools": [],
         "av_aerospace_crossover": [],
+        "aerospace_native_platforms": [],
+        "ai_infrastructure_hardware": [],
         "tools": [],
         "companies": Counter(),
         "salary_by_seniority": {},
@@ -843,7 +987,6 @@ def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
     # result is informative). ---
     result["certifications"] = named_list_lookup(matched, full_corpus, CERTIFICATIONS)
     result["aerospace_certifications"] = named_list_lookup(matched, full_corpus, AEROSPACE_CERTIFICATIONS)
-    result["design_thinking_certifications"] = named_list_lookup(matched, full_corpus, DESIGN_THINKING_CERTIFICATIONS)
     result["clearances"] = named_list_lookup(matched, full_corpus, CLEARANCES)
 
     # --- Modern AI/data-engineering tools, and PM/design tools: separate
@@ -855,6 +998,8 @@ def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
     result["ai_data_tools"] = named_list_lookup(matched, full_corpus, AI_DATA_TOOLS)
     result["pm_design_tools"] = named_list_lookup(matched, full_corpus, PM_DESIGN_TOOLS)
     result["av_aerospace_crossover"] = named_list_lookup(matched, full_corpus, AV_AEROSPACE_CROSSOVER)
+    result["aerospace_native_platforms"] = named_list_lookup(matched, full_corpus, AEROSPACE_NATIVE_PLATFORMS)
+    result["ai_infrastructure_hardware"] = named_list_lookup(matched, full_corpus, AI_INFRASTRUCTURE_HARDWARE)
 
     # --- Tools & software: O*NET reference list, fuzzy partial match. ---
     if onet_names:
@@ -987,18 +1132,11 @@ def print_function_report(result: dict) -> None:
     )
 
     print_named_list_section(
-        "AEROSPACE-SPECIFIC CERTIFICATIONS",
-        "INCOSE, AS9100, GD&T, NDT, etc - not covered by the general "
-        "certifications list above. Counted per job, zero-count kept.",
+        "AEROSPACE COMPLIANCE AND CERTIFICATIONS",
+        "INCOSE, AS9100, GD&T, ITAR, FedRAMP, selected AI-governance "
+        "standards (EASA AI Roadmap, ARP6983, etc) - not covered by the "
+        "general certifications list above. Counted per job, zero-count kept.",
         result["aerospace_certifications"],
-    )
-
-    print_named_list_section(
-        "DESIGN THINKING / PRODUCT STRATEGY CERTIFICATIONS",
-        "IDEO U, LUMA Institute, Stanford d.school, etc - common in tech/AI "
-        "product roles. Counted per job, zero-count kept (included "
-        "regardless of fit for this specific aerospace dataset).",
-        result["design_thinking_certifications"],
     )
 
     print_named_list_section(
@@ -1015,9 +1153,10 @@ def print_function_report(result: dict) -> None:
     )
 
     print_named_list_section(
-        "PM / DESIGN COLLABORATION TOOLS (hand-curated list, not from O*NET)",
-        "Prototyping/collaboration tools (Figma, Miro, Smartsheet, etc) "
-        "missing from O*NET coverage. Exact match, zero-count kept.",
+        "PM / DESIGN / COLLABORATION TOOLS, FRAMEWORKS AND CERTIFICATIONS",
+        "Tools (Figma, Smartsheet), frameworks (JTBD, RICE, Kanban), and "
+        "program names (Reforge, Pragmatic Institute) missing from O*NET "
+        "coverage. Exact match, zero-count kept.",
         result["pm_design_tools"],
     )
 
@@ -1029,6 +1168,25 @@ def print_function_report(result: dict) -> None:
         "company boilerplate (Anduril's company-description paragraph "
         "pasted into every posting), not genuine per-role skill signal.",
         result["av_aerospace_crossover"],
+    )
+
+    print_named_list_section(
+        "AEROSPACE-NATIVE ENGINEERING PLATFORMS (MBSE / CFD / synthetic reality)",
+        "CATIA, Teamcenter, SCADE, etc - aerospace's actual counterparts "
+        "to consumer/automotive AI tools (e.g. Ansys SCADE is the "
+        "DO-178C-certifiable equivalent of NVIDIA DRIVE). Exact match, "
+        "zero-count kept.",
+        result["aerospace_native_platforms"],
+    )
+
+    print_named_list_section(
+        "AI INFRASTRUCTURE HARDWARE (GPU compute, not software)",
+        "H100, A100, InfiniBand, etc - physical AI training/inference "
+        "hardware. All specific GPU model numbers returned 0 hits in "
+        "testing - kept anyway, itself a finding (postings describe "
+        "compute generically rather than naming chips). Exact match, "
+        "zero-count kept.",
+        result["ai_infrastructure_hardware"],
     )
 
     print(f"\n{'-'*70}")
@@ -1084,13 +1242,6 @@ def export_results(results: list, export_path: Path) -> None:
                 "term": item["name"], "count": item["count"],
                 "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
             })
-        for item in r["design_thinking_certifications"]:
-            rows.append({
-                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
-                "source": "design_thinking_certification", "category": "",
-                "term": item["name"], "count": item["count"],
-                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
-            })
         for item in r["clearances"]:
             rows.append({
                 "function": r["function"], "total_jobs_in_function": r["total_jobs"],
@@ -1116,6 +1267,20 @@ def export_results(results: list, export_path: Path) -> None:
             rows.append({
                 "function": r["function"], "total_jobs_in_function": r["total_jobs"],
                 "source": "av_aerospace_crossover_hand_curated", "category": "",
+                "term": item["name"], "count": item["count"],
+                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+            })
+        for item in r["aerospace_native_platforms"]:
+            rows.append({
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "aerospace_native_platform_hand_curated", "category": "",
+                "term": item["name"], "count": item["count"],
+                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+            })
+        for item in r["ai_infrastructure_hardware"]:
+            rows.append({
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "ai_infrastructure_hardware_hand_curated", "category": "",
                 "term": item["name"], "count": item["count"],
                 "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
             })
