@@ -37,13 +37,20 @@ This script:
          tiers (Top Secret, TS/SCI, Secret, Public Trust, etc - see
          CLEARANCES list below). Count, %, top companies per tier.
        - TOOLS & SOFTWARE - matched against the O*NET Software Skills
-         database (31,821 real workplace examples across all 923 O*NET
-         occupations, CC BY 4.0, U.S. Dept. of Labor / O*NET - see
-         https://www.onetcenter.org/database.html). The full list is
-         used regardless of which occupation O*NET ties a tool to -
-         function-bucket scoping (you've already filtered to your job
-         titles) does the real filtering, not the O*NET occupation code.
-         Matching reuses the same fuzzy token logic as job-function
+         database (31,821 total rows across all 923 O*NET occupations,
+         filtered down to Hot Technology=Y only - see load_onet_tools.
+         Unfiltered, the list includes thousands of generic category
+         descriptions like "Database reporting software" or "Security
+         testing software" that aren't real product names and were
+         dominating results with 95%+ false match rates in testing.
+         Filtering to Hot=Y trades some completeness (a real but obscure
+         or older tool may lack the Hot flag) for much higher precision.
+         CC BY 4.0, U.S. Dept. of Labor / O*NET - see
+         https://www.onetcenter.org/database.html). The full filtered
+         list is used regardless of which occupation O*NET ties a tool
+         to - function-bucket scoping (you've already filtered to your
+         job titles) does the real filtering, not the O*NET occupation
+         code. Matching reuses the same fuzzy token logic as job-function
          title matching (_tokens_match), but with a looser rule: ANY
          core token match counts (not ALL, unlike job-function matching),
          so a posting saying just "Adobe" still matches "Adobe Acrobat" -
@@ -120,21 +127,6 @@ GENERIC_TOOL_WORDS = {
     "the",
 }
 
-# Ordinary English/business words that may appear inside a tool name but
-# should NEVER count as a standalone partial-match signal on their own -
-# e.g. "project" is a core token of "Microsoft Project", but "project"
-# appears constantly in Project Manager job postings for reasons that
-# have nothing to do with the software tool. Without this exclusion,
-# partial matching produces massive false positives on any tool name
-# that happens to contain a common word.
-COMMON_WORDS_NOT_SIGNAL = {
-    "project", "manager", "management", "office", "team", "process",
-    "data", "service", "services", "design", "development", "tracking",
-    "report", "reporting", "planning", "scheduling", "access", "server",
-    "web", "page", "mail", "email", "drive", "docs", "document",
-    "documents", "word", "excel", "works", "work", "tools", "tool",
-}
-
 SENIORITY_ORDER = ["Junior", "Mid", "Senior", "Lead", "Principal", "Manager", "Director"]
 
 # US country labels are inconsistent in this dataset - both full name and
@@ -192,13 +184,20 @@ def _levenshtein(a: str, b: str) -> int:
 def _tokens_match(title_token: str, term_token: str) -> bool:
     if title_token == term_token:
         return True
-    if len(term_token) < 4:
+    if len(term_token) < 4 or len(title_token) < 4:
         return False
     # Distance capped at 1 regardless of word length. Distance 2 was
     # matching genuinely different words as typos of each other - e.g.
     # "project" vs "product" sits at distance 2, which caused every
     # Project Manager posting to match a "product manager" search. Real
     # typos (enginer/engineer, manger/manager) sit at distance 1.
+    #
+    # Both sides must clear the length-4 minimum, not just term_token -
+    # a 3-letter title token like "ISS" (International Space Station)
+    # was fuzzy-matching 4-letter terms like "isso"/"issm"/"isse" at
+    # distance 1, causing an unrelated RF Communications title to match
+    # three different cybersecurity acronym searches. Short tokens on
+    # either side now require an exact match, no fuzzy tolerance.
     return _levenshtein(title_token, term_token) <= 1
 
 
@@ -217,6 +216,80 @@ def title_matches_term(title: str, term: str) -> bool:
     return True
 
 
+def _distinctive_tokens_from_original(name: str) -> list:
+    """Identifies which tokens in a tool name are actually distinctive
+    (acronym or brand-like), using the ORIGINAL case of the name rather
+    than the lowercased version. This replaces an earlier stopword-list
+    approach (COMMON_WORDS_NOT_SIGNAL) that tried to blacklist ordinary
+    English words one at a time - that approach is fundamentally
+    unwinnable against O*NET's verbose descriptive naming convention,
+    where obscure tools have names like "Reactor excursion and release
+    analysis program RELAP". No finite exclusion list covers every
+    possible descriptive word O*NET might use, and testing confirmed
+    these names were matching 95%+ of jobs because common words like
+    "analysis" and "program" were never explicitly excluded.
+
+    The actual reliable signal: a token is distinctive if, in the
+    ORIGINAL (non-lowercased) name, it is either (a) short and entirely
+    uppercase - an acronym like RELAP, SAP, JIRA, SPICE - or (b) a
+    capitalized word that is NOT a common English/business word (e.g.
+    "Adobe", "Atlassian", "MathWorks" pass; "Analysis", "Program",
+    "System" fail even though they're capitalized, because they're
+    ordinary words that happen to start a sentence/title-case phrase).
+    """
+    raw_words = re.findall(r"[A-Za-z0-9]+", name)
+    distinctive = []
+    for w in raw_words:
+        lw = w.lower()
+        if lw in GENERIC_TOOL_WORDS or lw in ENGLISH_STOPWORDS or lw in JOB_POSTING_STOPWORDS:
+            continue
+        # All-caps acronym (2-6 letters) - RELAP, SAP, JIRA, SPICE, NX
+        if w.isupper() and 2 <= len(w) <= 8:
+            distinctive.append(lw)
+            continue
+        # Capitalized word that isn't a generic English business word -
+        # treat as a likely brand name (Adobe, Atlassian, MathWorks,
+        # Autodesk). Reject ordinary capitalized words from title-case
+        # descriptive phrases (Analysis, Program, Reactor, Release).
+        if w[0].isupper() and lw not in ORDINARY_CAPITALIZED_WORDS:
+            distinctive.append(lw)
+    return distinctive
+
+
+# Ordinary words that frequently appear capitalized in O*NET's
+# descriptive/title-case tool names but are NOT brand-distinctive on
+# their own - without this, "Analysis", "Program", "System", "Reactor"
+# etc. would be wrongly treated as brand names just for being capitalized
+# at the start of a title-case phrase.
+ORDINARY_CAPITALIZED_WORDS = {
+    "analysis", "program", "system", "systems", "software", "application",
+    "applications", "management", "reporting", "report", "tracking",
+    "tracker", "design", "development", "planning", "scheduling",
+    "database", "network", "security", "service", "services", "data",
+    "process", "processing", "control", "controls", "model", "modeling",
+    "simulation", "simulator", "reactor", "release", "excursion",
+    "emergency", "response", "operations", "operation", "record",
+    "records", "information", "communication", "communications",
+    "education", "training", "consortium", "research", "institute",
+    "national", "international", "center", "centers", "agency",
+    "organization", "department", "division", "bureau", "office",
+    "administration", "standard", "standards", "assessment", "display",
+    "monitoring", "evaluation", "documentation", "library", "resource",
+    "resources", "toolbox", "tool", "tools", "framework", "suite",
+    "package", "platform", "solution", "solutions", "technology",
+    "technologies", "engineering", "manufacturing", "construction",
+    "accounting", "financial", "medical", "health", "environment",
+    "environmental", "quality", "safety", "compliance", "regulatory",
+    "consortium", "interuniversity", "occupational", "conservation",
+    "atlas", "wind", "circuit", "integrated", "hierarchical",
+    "emphasis", "mapping", "disease", "with", "and", "for", "of", "the",
+    "project", "manager", "manage", "managing", "team", "office",
+    "access", "exchange", "word", "excel", "outlook", "publisher",
+    "laboratory", "laboratories", "university", "college", "academy",
+    "foundation", "society", "association", "federation", "union",
+}
+
+
 def _build_phrase_pattern(name_tokens: list):
     """Compiles the adjacent-phrase regex once per tool name, not once
     per job. Returns a compiled pattern object."""
@@ -225,28 +298,24 @@ def _build_phrase_pattern(name_tokens: list):
 
 
 def match_strength_precomputed(text_lower: str, text_tokens: set,
-                                name_tokens: list, compiled_phrase) -> float:
+                                name_tokens: list, compiled_phrase,
+                                distinctive_tokens: list) -> float:
     """Same two-tier logic as before, but takes pre-tokenized/pre-lowered
-    job text and a pre-compiled phrase pattern, so the expensive work
-    (tokenizing the job, compiling the tool's regex) happens once
-    upstream in onet_tool_lookup rather than being redone for every
-    (job, tool) pair.
+    job text, a pre-compiled phrase pattern, and pre-computed distinctive
+    tokens (see _distinctive_tokens_from_original), so all expensive/
+    one-time work happens upstream in onet_tool_lookup.
 
-    Tier 2 uses EXACT set membership, not fuzzy matching. An earlier
-    version used _tokens_match (Levenshtein distance) here, which means
-    scanning every token in the job (avg ~790 tokens/job in this dataset)
-    for every distinctive tool token - 44x slower than tier 1 in
-    profiling, and the actual cause of multi-hour runtimes at O*NET's
-    8,753-tool scale. Fuzzy matching was solving a non-problem: ATS tool
-    names are rarely misspelled by employers (unlike job titles, which
-    are typed by many different people with real variance) - exact
-    lookup is both correct enough and O(1) instead of O(n)."""
+    Tier 1 (1.0): full phrase found, word order respected.
+    Tier 2 (0.5): at least one genuinely distinctive token (acronym or
+    real brand word, NOT just any non-stopword) is present. distinctive_
+    tokens is now computed from the tool's ORIGINAL capitalization, not
+    from a stopword blacklist - see _distinctive_tokens_from_original
+    for why the blacklist approach failed on O*NET's verbose names."""
     if compiled_phrase.search(text_lower):
         return 1.0
-    distinctive = [t for t in name_tokens if t not in COMMON_WORDS_NOT_SIGNAL]
-    if not distinctive:
+    if not distinctive_tokens:
         return 0.0
-    for t in distinctive:
+    for t in distinctive_tokens:
         if t in text_tokens:
             return 0.5
     return 0.0
@@ -256,8 +325,8 @@ def partial_match_strength(full_text: str, name: str) -> tuple:
     """Single-pair convenience wrapper (used by tests / one-off checks).
     For bulk lookups across many jobs x many tools, use
     match_strength_precomputed via onet_tool_lookup instead - this
-    version recomputes tokenization and regex compilation every call,
-    fine for one pair but wasteful at scale."""
+    version recomputes tokenization, regex compilation, and distinctive-
+    token detection every call, fine for one pair but wasteful at scale."""
     name_tokens = [t for t in _tokenize(name) if t not in GENERIC_TOOL_WORDS]
     if not name_tokens:
         return 0.0, []
@@ -265,7 +334,7 @@ def partial_match_strength(full_text: str, name: str) -> tuple:
     compiled = _build_phrase_pattern(name_tokens)
     if compiled.search(text_lower):
         return 1.0, name_tokens
-    distinctive = [t for t in name_tokens if t not in COMMON_WORDS_NOT_SIGNAL]
+    distinctive = _distinctive_tokens_from_original(name)
     if not distinctive:
         return 0.0, []
     text_tokens = set(_tokenize(full_text))
@@ -309,12 +378,22 @@ def load_onet_tools(path: Path) -> list:
     if not path.exists():
         return []
     names = set()
+    skipped_not_hot = 0
     with path.open(encoding="utf-8") as f:
         header = f.readline()
         for line in f:
             parts = line.rstrip("\n").split("\t")
-            if len(parts) >= 2 and parts[1].strip():
-                names.add(parts[1].strip())
+            if len(parts) < 5 or not parts[1].strip():
+                continue
+            workplace_example = parts[1].strip()
+            hot_technology = parts[4].strip()
+            if hot_technology == "Y":
+                names.add(workplace_example)
+            else:
+                skipped_not_hot += 1
+    if skipped_not_hot:
+        print(f"  (filtered to Hot Technology=Y only - excluded {skipped_not_hot:,} non-hot rows, "
+              f"including most generic category names like 'Database reporting software')")
     return sorted(names)
 
 
@@ -343,32 +422,44 @@ def named_list_lookup(matched: pd.DataFrame, cleaned_corpus: pd.Series,
 
 
 def _build_tool_index(onet_names: list) -> dict:
-    """Inverted index: token -> list of (name, name_tokens). Lets us find
-    which tools are even POSSIBLE candidates for a job by looking up the
-    job's own tokens against this index (cheap dict lookups), instead of
-    testing every one of 8,753 tool patterns against every job's raw text.
+    """Inverted index: distinctive_token -> set of tool names. Lets us
+    find which tools are even POSSIBLE candidates for a job by looking
+    up the job's own tokens against this index (cheap dict lookups),
+    instead of testing every one of 8,753 tool patterns against every
+    job's raw text.
 
-    This is the actual fix for the multi-minute runtime. Profiling showed
-    that even with regex compiled once per tool (not per job-tool pair,
-    already fixed once), running all 6,191+ compiled patterns against one
-    job's ~15,000-character text took ~2 seconds - that's O(tools x
-    text_length) and no amount of loop reordering fixes it, because the
-    regex engine still has to scan the full text for every pattern. The
-    index inverts the problem: for each job, look up only the tools whose
-    tokens are actually present (typically dozens to low hundreds, not
-    thousands), and only run the phrase-adjacency check on that filtered
-    candidate set. Tested at 900 jobs x 6,191 tools: ~1 second, down from
-    an estimated ~24 minutes with the brute-force approach."""
+    Indexed by DISTINCTIVE tokens only (see
+    _distinctive_tokens_from_original) - not every non-generic token.
+    Earlier versions indexed by all non-generic tokens, which meant
+    ordinary descriptive words inside long O*NET names (e.g. "analysis",
+    "program", "reactor" in "Reactor excursion and release analysis
+    program RELAP") were treated as index keys and, combined with a
+    flawed distinctiveness check downstream, caused those obscure tools
+    to match 95%+ of jobs. Indexing by distinctive tokens only means a
+    tool like RELAP has exactly one index entry ("relap"), so it only
+    becomes a candidate for jobs that actually mention "relap" - which
+    in an aerospace PM dataset is correctly almost never.
+
+    This is also the fix for the multi-minute runtime: testing showed
+    that running thousands of compiled regex patterns against every
+    job's raw text was O(tools x text_length); the index inverts this so
+    only realistic candidates (tools whose distinctive token appears in
+    that job) are ever checked."""
     index = defaultdict(set)
     name_token_map = {}
+    name_distinctive_map = {}
     for name in onet_names:
         name_tokens = tuple(t for t in _tokenize(name) if t not in GENERIC_TOOL_WORDS)
         if not name_tokens:
             continue
+        distinctive = _distinctive_tokens_from_original(name)
+        if not distinctive:
+            continue  # no real signal in this name at all - skip entirely
         name_token_map[name] = name_tokens
-        for tok in set(name_tokens):
+        name_distinctive_map[name] = distinctive
+        for tok in set(distinctive):
             index[tok].add(name)
-    return index, name_token_map
+    return index, name_token_map, name_distinctive_map
 
 
 def onet_tool_lookup(matched: pd.DataFrame, cleaned_corpus: pd.Series,
@@ -393,7 +484,7 @@ def onet_tool_lookup(matched: pd.DataFrame, cleaned_corpus: pd.Series,
             continue
         job_data.append((text.lower(), set(_tokenize(text))))
 
-    tool_index, name_token_map = _build_tool_index(onet_names)
+    tool_index, name_token_map, name_distinctive_map = _build_tool_index(onet_names)
     phrase_cache = {}  # compiled regex per name, built lazily, reused across jobs
 
     name_hits = defaultdict(list)  # name -> list of (job_idx, strength)
@@ -410,10 +501,12 @@ def onet_tool_lookup(matched: pd.DataFrame, cleaned_corpus: pd.Series,
 
         for name in candidates:
             name_tokens = name_token_map[name]
+            distinctive = name_distinctive_map[name]
             if name not in phrase_cache:
                 phrase_cache[name] = _build_phrase_pattern(list(name_tokens))
             compiled_phrase = phrase_cache[name]
-            strength = match_strength_precomputed(text_lower, text_tokens, list(name_tokens), compiled_phrase)
+            strength = match_strength_precomputed(text_lower, text_tokens, list(name_tokens),
+                                                   compiled_phrase, distinctive)
             if strength >= min_strength:
                 name_hits[name].append((idx, strength))
 
