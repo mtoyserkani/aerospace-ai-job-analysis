@@ -10,32 +10,53 @@ This script:
   1. Prompts you (interactively, no file editing required) for the job
      titles that define your function - e.g. "program manager, project
      manager" - matched with fuzzy, token-based matching (word order and
-     small typos don't matter). What you type is optionally saved to
-     job_functions/<name>.txt so next time you can skip the prompt by
-     passing --function <name>.
+     small typos don't matter, but distinct words like "project" vs
+     "product" are NOT treated as typos of each other - see _tokens_match).
+     What you type is optionally saved to job_functions/<name>.txt so next
+     time you can skip the prompt by passing --function <name>. Pass
+     --label "Display Name" for a clean section header.
   2. Optionally prompts for your own ad hoc keywords to check (skippable -
      press enter for none). This is YOUR hypothesis, checked fresh each
      run, separate from discovery and separate from Article B's governance
      keyword files. Reported in its own "USER KEYWORD CHECK" section.
   3. Within the matched bucket, reports:
-       - total jobs matched, seniority breakdown, salary by seniority
+       - total jobs matched / total jobs in dataset (with %)
+       - seniority breakdown (% of jobs matched in this function)
+       - salary by seniority, US POSTINGS ONLY, in USD. Non-US postings
+         (Canada, UK, Europe, India, Australia, Germany, etc. - this
+         dataset mixes country labels, e.g. both "United States of
+         America" and "US" appear, both are treated as US) are excluded
+         from salary math rather than silently averaged in. Excluded
+         count is shown so nothing is hidden.
        - top companies hiring for this function
-       - your ad hoc keyword hits, if you entered any
-       - SKILL DISCOVERY, split two ways:
-           TITLE SIGNAL    - phrases found in job TITLES. Smaller volume,
-                              higher confidence - this is what a company
-                              chose to lead with. Clean: company names,
-                              EEO/legal boilerplate, and ATS template
-                              artifacts are excluded.
-           BODY SIGNAL     - phrases found in description text. Larger
-                              volume, lower confidence per hit - this is
-                              what shows up once you read the fine print.
-                              Same exclusions applied, but every company
-                              phrases its own EEO/benefits/legal disclaimers
-                              differently, so some boilerplate fragments
-                              still slip through. Treat this list as a
-                              starting point for discovery, not a verified
-                              clean feed - read each phrase with judgment.
+       - your ad hoc keyword hits, if any
+       - CERTIFICATIONS - small maintained list of real, nameable certs
+         (PMP, CISSP, Six Sigma, etc - see CERTIFICATIONS list below).
+         Count, %, top companies per cert.
+       - SECURITY CLEARANCES - small maintained list of real US clearance
+         tiers (Top Secret, TS/SCI, Secret, Public Trust, etc - see
+         CLEARANCES list below). Count, %, top companies per tier.
+       - TOOLS & SOFTWARE - matched against the O*NET Software Skills
+         database (31,821 real workplace examples across all 923 O*NET
+         occupations, CC BY 4.0, U.S. Dept. of Labor / O*NET - see
+         https://www.onetcenter.org/database.html). The full list is
+         used regardless of which occupation O*NET ties a tool to -
+         function-bucket scoping (you've already filtered to your job
+         titles) does the real filtering, not the O*NET occupation code.
+         Matching reuses the same fuzzy token logic as job-function
+         title matching (_tokens_match), but with a looser rule: ANY
+         core token match counts (not ALL, unlike job-function matching),
+         so a posting saying just "Adobe" still matches "Adobe Acrobat" -
+         at a lower reported match strength. Match strength (1.0 = every
+         core token found, <1.0 = partial/brand-only) is shown so you can
+         judge confidence yourself. Generic words ("software", "Inc",
+         "Corp", "Corporation", "Systems") are stripped from tool names
+         before matching so they don't inflate scores.
+
+Requires data/reference/onet_software_skills.txt to exist (tab-delimited,
+as downloaded from O*NET - see SKILL.md or project handoff for the exact
+curl command). If missing, the Tools & Software section is skipped with
+a message telling you how to get it, rather than failing.
 
 A job can match more than one function bucket (e.g. "Cybersecurity Program
 Manager" matches both cybersecurity and program_management terms). This is
@@ -47,6 +68,8 @@ Usage:
     python3 analysis/function_analysis.py --function cybersecurity
         (skips the job-function prompt, reuses job_functions/cybersecurity.txt;
          still prompts for optional ad hoc keywords unless --no-prompt-keywords)
+    python3 analysis/function_analysis.py --function program_management --label "Product Management"
+        (clean display name in the report header instead of the saved filename)
     python3 analysis/function_analysis.py --function cybersecurity --no-prompt-keywords
     python3 analysis/function_analysis.py --input data/master_dataset.csv --export data/function_results.csv
 """
@@ -80,45 +103,6 @@ JOB_POSTING_STOPWORDS = {
     "duties", "tasks", "etc",
 }
 
-EEO_LEGAL_BENEFITS_STOPWORDS = {
-    "equal", "opportunity", "employer", "employee", "employment", "veteran",
-    "disability", "disabilities", "race", "color", "religion", "sex", "gender",
-    "identity", "expression", "national", "origin", "ancestry", "age", "status",
-    "protected", "without", "regard", "regardless", "diversity", "inclusion",
-    "inclusive", "background", "check", "drug", "screen", "physical", "lift",
-    "pounds", "sit", "stand", "walk", "benefits", "salary", "compensation",
-    "bonus", "insurance", "401k", "pto", "vacation", "time", "off", "paid",
-    "remote", "hybrid", "onsite", "office", "travel", "relocation",
-    "clearance", "citizen", "citizenship", "sexual", "orientation", "marital",
-    "pregnancy", "genetic", "information", "personal", "privacy", "policy",
-    "third", "party", "service", "provider", "cookies", "cookie", "consent",
-    "browser", "window", "opens", "click", "here", "link", "nbsp", "amp",
-    "lt", "gt", "quot", "rsquo", "lsquo", "ldquo", "rdquo", "mdash", "ndash",
-    "accommodation", "accommodations", "harassment", "retaliation", "applies",
-    "law", "laws", "local", "state", "federal", "eeo", "affirmative", "action",
-    "complies", "compliance", "form", "forms", "notice", "request", "requesting",
-    "data", "subject", "rights", "process", "processing", "purposes", "purpose",
-    "collected", "collect", "share", "shared", "transfer", "transferred",
-    "vendor", "vendors", "partner", "partners", "site", "sites", "website",
-    "cross", "functional", "full", "part", "employees",
-    "dental", "vision", "posting", "date", "end", "education", "training",
-    "limited", "factors", "total", "package", "obtain", "maintain", "long",
-    "term", "considerations", "internal", "external", "unit", "leave",
-    "parental", "acquisition", "talent", "schedule", "cost", "potential",
-    "risks", "risk", "wage", "wages", "hourly", "annual", "annually",
-    "eligibility", "eligible", "enroll", "enrollment", "401", "k", "match",
-    "matching", "stock", "equity", "rsu", "rsus", "esop", "holiday", "holidays",
-    "sick", "disability", "fmla", "cobra", "hsa", "fsa", "dependent",
-    "dependents", "spouse", "domestic", "summary", "overview", "description",
-    "posted", "post", "expires", "expiration", "req", "requisition",
-    "scams", "scam", "protecting", "yourself", "recruitment", "range",
-    "estimate", "estimated", "disclosed", "adjusted", "geographic",
-    "differential", "century", "21st", "innovative", "flexible",
-    "arrangements", "stimulate", "foster", "fostering", "thinking",
-    "explore", "learn", "more", "information", "contact", "reach",
-    "wherever", "possible", "easily", "changing", "designed", "bringing",
-}
-
 ENGLISH_STOPWORDS = {
     "the", "a", "an", "and", "or", "of", "to", "in", "on", "for", "with",
     "is", "are", "be", "as", "at", "by", "this", "that", "from", "will",
@@ -127,10 +111,346 @@ ENGLISH_STOPWORDS = {
     "what", "when", "where", "how", "which", "while", "during", "between",
 }
 
-ALL_STOPWORDS = JOB_POSTING_STOPWORDS | EEO_LEGAL_BENEFITS_STOPWORDS | ENGLISH_STOPWORDS
+# Generic words stripped from O*NET tool names before matching, so
+# "SAP software" reduces to just {sap} and doesn't require literally
+# matching the word "software" too.
+GENERIC_TOOL_WORDS = {
+    "software", "inc", "corp", "corporation", "systems", "system",
+    "technologies", "technology", "solutions", "solution", "company",
+    "the",
+}
+
+# Ordinary English/business words that may appear inside a tool name but
+# should NEVER count as a standalone partial-match signal on their own -
+# e.g. "project" is a core token of "Microsoft Project", but "project"
+# appears constantly in Project Manager job postings for reasons that
+# have nothing to do with the software tool. Without this exclusion,
+# partial matching produces massive false positives on any tool name
+# that happens to contain a common word.
+COMMON_WORDS_NOT_SIGNAL = {
+    "project", "manager", "management", "office", "team", "process",
+    "data", "service", "services", "design", "development", "tracking",
+    "report", "reporting", "planning", "scheduling", "access", "server",
+    "web", "page", "mail", "email", "drive", "docs", "document",
+    "documents", "word", "excel", "works", "work", "tools", "tool",
+}
 
 SENIORITY_ORDER = ["Junior", "Mid", "Senior", "Lead", "Principal", "Manager", "Director"]
 
+# US country labels are inconsistent in this dataset - both full name and
+# abbreviation appear. Both are treated as US for salary scoping.
+US_COUNTRY_LABELS = {"United States of America", "US"}
+
+# Small, maintained, real-world lists - not discovered, because both
+# certifications and clearances are closed/nameable vocabularies where a
+# maintained list is more reliable than open-ended phrase discovery
+# (see project notes on why bigram discovery fragments proper nouns).
+CERTIFICATIONS = [
+    "PMP", "CAPM", "PgMP", "PMI-ACP", "CSM", "CSPO", "Six Sigma",
+    "Lean Six Sigma", "CISSP", "CISM", "CISA", "Security+", "CompTIA Security+",
+    "ITIL", "PE", "CCNA", "AWS Certified", "Scrum Master", "Agile Certified",
+    "A&P License", "FAA Certificate", "DAWIA",
+]
+
+CLEARANCES = [
+    "Top Secret", "TS/SCI", "TS SCI", "Secret Clearance", "Secret",
+    "Public Trust", "Confidential Clearance", "Interim Clearance",
+    "Security Clearance", "SSBI", "Polygraph",
+]
+
+
+def clean_text(text: str) -> str:
+    if not text:
+        return ""
+    text = html.unescape(text)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"&\w+;", " ", text)
+    return text
+
+
+def _tokenize(text: str) -> list:
+    return re.findall(r"[a-z0-9]+", clean_text(text).lower())
+
+
+def _levenshtein(a: str, b: str) -> int:
+    if a == b:
+        return 0
+    if len(a) == 0:
+        return len(b)
+    if len(b) == 0:
+        return len(a)
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        curr = [i] + [0] * len(b)
+        for j, cb in enumerate(b, 1):
+            cost = 0 if ca == cb else 1
+            curr[j] = min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost)
+        prev = curr
+    return prev[-1]
+
+
+def _tokens_match(title_token: str, term_token: str) -> bool:
+    if title_token == term_token:
+        return True
+    if len(term_token) < 4:
+        return False
+    # Distance capped at 1 regardless of word length. Distance 2 was
+    # matching genuinely different words as typos of each other - e.g.
+    # "project" vs "product" sits at distance 2, which caused every
+    # Project Manager posting to match a "product manager" search. Real
+    # typos (enginer/engineer, manger/manager) sit at distance 1.
+    return _levenshtein(title_token, term_token) <= 1
+
+
+def title_matches_term(title: str, term: str) -> bool:
+    """ALL core tokens of `term` must fuzzy-match somewhere in `title`.
+    Used for job-function matching, where precision matters more than
+    recall - we want "program manager" to match titles, not just any
+    title containing the word "manager"."""
+    title_tokens = _tokenize(title)
+    term_tokens = _tokenize(term)
+    if not term_tokens:
+        return False
+    for term_tok in term_tokens:
+        if not any(_tokens_match(tt, term_tok) for tt in title_tokens):
+            return False
+    return True
+
+
+def partial_match_strength(full_text: str, name: str) -> tuple:
+    """Returns (strength, matched_tokens) for a tool/software name against
+    the full text of one job (not just a token set - word ADJACENCY
+    matters here, unlike title matching).
+
+    Two-tier check, not a token-presence check:
+      1.0  = the full multi-word name appears as an adjacent phrase
+             (word order respected, small gaps for "by", "for" allowed).
+      0.5  = at least one DISTINCTIVE token (not in COMMON_WORDS_NOT_SIGNAL)
+             from the name appears in the text. A token that's just an
+             ordinary English/business word ("project", "system", "the")
+             does NOT count toward partial credit on its own, because its
+             presence elsewhere in a job posting has nothing to do with
+             the tool - e.g. "Microsoft Project" should not match a
+             posting that merely mentions "Microsoft" once and "project"
+             a dozen times for unrelated reasons (the job IS a project
+             manager role). Brand-distinctive tokens ("acrobat", "sap",
+             "jira", "matlab") still count, since they're not generic
+             words - this preserves the actual goal (catch "Adobe" alone
+             matching "Adobe Acrobat") without the false-positive blowup
+             on names that happen to contain common words.
+      0.0  = neither condition met.
+    """
+    name_tokens = [t for t in _tokenize(name) if t not in GENERIC_TOOL_WORDS]
+    if not name_tokens:
+        return 0.0, []
+
+    text_lower = full_text.lower()
+
+    # Tier 1: exact adjacent phrase (allowing 1-2 filler words between
+    # tokens, e.g. "Acrobat by Adobe" or "Project by Microsoft").
+    phrase_pattern = r"\b" + r"(?:\W+\w+){0,2}\W+".join(re.escape(t) for t in name_tokens) + r"\b"
+    if re.search(phrase_pattern, text_lower):
+        return 1.0, name_tokens
+
+    # Tier 2: at least one DISTINCTIVE (non-generic-English) token present.
+    distinctive = [t for t in name_tokens if t not in COMMON_WORDS_NOT_SIGNAL]
+    if not distinctive:
+        return 0.0, []
+    text_tokens = set(_tokenize(full_text))
+    matched = [t for t in distinctive if any(_tokens_match(tt, t) for tt in text_tokens)]
+    if matched:
+        return 0.5, matched
+    return 0.0, []
+
+
+def load_term_file(path: Path) -> list:
+    terms = []
+    if not path.exists():
+        return terms
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        terms.append(line.lower())
+    return terms
+
+
+def load_job_functions(job_functions_dir: Path) -> dict:
+    functions = {}
+    if not job_functions_dir.exists():
+        return functions
+    for f in sorted(job_functions_dir.glob("*.txt")):
+        terms = load_term_file(f)
+        if terms:
+            functions[f.stem] = terms
+    return functions
+
+
+def load_onet_tools(path: Path) -> list:
+    """Loads the O*NET Software Skills file (tab-delimited). Returns a
+    deduplicated list of distinct "Workplace Example" tool/software names
+    (the proper-noun column), regardless of which O*NET occupation they're
+    tied to - function-bucket scoping already filters the job postings,
+    so filtering the tool list by occupation code would be redundant and
+    risks excluding a tool just because O*NET happened to tag it under an
+    occupation outside your function bucket's exact title match."""
+    if not path.exists():
+        return []
+    names = set()
+    with path.open(encoding="utf-8") as f:
+        header = f.readline()
+        for line in f:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) >= 2 and parts[1].strip():
+                names.add(parts[1].strip())
+    return sorted(names)
+
+
+def count_keyword_per_job(corpus_lower: pd.Series, term: str) -> int:
+    escaped = re.escape(term.lower())
+    pattern = r"(?<![a-z0-9])" + escaped + r"(?![a-z0-9])"
+    return int(corpus_lower.str.contains(pattern, regex=True, na=False).sum())
+
+
+def named_list_lookup(matched: pd.DataFrame, cleaned_corpus: pd.Series,
+                       names: list, top_n_companies: int = 3) -> list:
+    """For a small maintained list (certifications, clearances): exact
+    word-boundary phrase match per job, with top companies per hit.
+    Returns list of dicts sorted by count descending, including zero-count
+    entries (a real "not found" result is informative)."""
+    results = []
+    corpus_lower = cleaned_corpus.str.lower()
+    for name in names:
+        pattern = r"(?<![a-z0-9])" + re.escape(name.lower()) + r"(?![a-z0-9])"
+        mask = corpus_lower.str.contains(pattern, regex=True, na=False)
+        count = int(mask.sum())
+        companies = Counter(matched.loc[mask, "company"]).most_common(top_n_companies) if count else []
+        results.append({"name": name, "count": count, "companies": companies})
+    results.sort(key=lambda r: -r["count"])
+    return results
+
+
+def onet_tool_lookup(matched: pd.DataFrame, cleaned_corpus: pd.Series,
+                      onet_names: list, top_n_companies: int = 3,
+                      min_strength: float = 0.5) -> list:
+    """For each O*NET tool name, computes per-job match strength via
+    partial_match_strength (1.0 = exact adjacent phrase, 0.5 = a
+    distinctive non-generic token present, 0.0 = no match), keeps jobs
+    at or above min_strength, reports count/percent/avg strength/top
+    companies."""
+    results = []
+    texts = cleaned_corpus.fillna("").tolist()
+
+    for name in onet_names:
+        name_core = [t for t in _tokenize(name) if t not in GENERIC_TOOL_WORDS]
+        if not name_core:
+            continue
+        hit_indices = []
+        strengths = []
+        for idx, text in enumerate(texts):
+            if not text:
+                continue
+            strength, _ = partial_match_strength(text, name)
+            if strength >= min_strength:
+                hit_indices.append(idx)
+                strengths.append(strength)
+        if not hit_indices:
+            continue
+        companies = Counter(matched.iloc[hit_indices]["company"]).most_common(top_n_companies)
+        results.append({
+            "name": name,
+            "count": len(hit_indices),
+            "avg_strength": sum(strengths) / len(strengths),
+            "companies": companies,
+        })
+
+    results.sort(key=lambda r: -r["count"])
+    return results
+
+
+def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
+                      user_keywords: list, onet_names: list) -> dict:
+    total_dataset_jobs = len(df)
+
+    mask = df["title"].fillna("").apply(
+        lambda title: any(title_matches_term(title, term) for term in title_terms)
+    )
+    matched = df[mask].copy()
+
+    result = {
+        "function": function_name,
+        "total_jobs": len(matched),
+        "total_dataset_jobs": total_dataset_jobs,
+        "seniority": Counter(),
+        "user_keyword_hits": {},
+        "certifications": [],
+        "clearances": [],
+        "tools": [],
+        "companies": Counter(),
+        "salary_by_seniority": {},
+        "non_us_excluded_from_salary": 0,
+    }
+
+    if len(matched) == 0:
+        return result
+
+    seniority_norm = matched["seniority"].fillna("Unknown").str.strip().str.title()
+    result["seniority"] = Counter(seniority_norm)
+    result["companies"] = Counter(matched["company"])
+
+    # --- Salary: US-only, USD. Two US labels exist in this dataset
+    # ("United States of America" and "US") - both included. Non-US
+    # postings are excluded from the math, not silently averaged in,
+    # and the excluded count is reported. ---
+    matched["_seniority_norm"] = seniority_norm
+    matched["_parsed_salary"] = matched["salary"].apply(parse_salary_to_annual)
+    is_us = matched["country"].isin(US_COUNTRY_LABELS)
+    result["non_us_excluded_from_salary"] = int((~is_us & matched["_parsed_salary"].notna()).sum())
+    us_matched = matched[is_us]
+
+    salary_by_seniority = {}
+    for level in us_matched["_seniority_norm"].unique():
+        level_jobs = us_matched[us_matched["_seniority_norm"] == level]
+        with_salary = level_jobs["_parsed_salary"].dropna()
+        if len(with_salary) > 0:
+            salary_by_seniority[level] = {
+                "avg": float(with_salary.mean()),
+                "median": float(with_salary.median()),
+                "n_with_salary": int(len(with_salary)),
+                "n_total": int(len(level_jobs)),
+            }
+    result["salary_by_seniority"] = salary_by_seniority
+
+    cleaned_desc = matched["description_text"].fillna("").apply(clean_text)
+    cleaned_title = matched["title"].fillna("").apply(clean_text)
+    full_corpus = cleaned_desc + " " + cleaned_title
+
+    # --- User ad hoc keyword check ---
+    if user_keywords:
+        corpus_lower = full_corpus.str.lower()
+        hits = {}
+        for term in user_keywords:
+            count = count_keyword_per_job(corpus_lower, term)
+            if count > 0:
+                hits[term] = count
+        result["user_keyword_hits"] = dict(sorted(hits.items(), key=lambda x: -x[1]))
+
+    # --- Certifications & clearances: small maintained lists, exact
+    # word-boundary match, zero-count entries kept (a real "not found"
+    # result is informative). ---
+    result["certifications"] = named_list_lookup(matched, full_corpus, CERTIFICATIONS)
+    result["clearances"] = named_list_lookup(matched, full_corpus, CLEARANCES)
+
+    # --- Tools & software: O*NET reference list, fuzzy partial match. ---
+    if onet_names:
+        result["tools"] = onet_tool_lookup(matched, full_corpus, onet_names)
+
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Salary parsing (unchanged from prior version)
+# ---------------------------------------------------------------------------
 
 def parse_salary_to_annual(raw) -> float:
     if not raw or not isinstance(raw, str):
@@ -171,206 +491,37 @@ def parse_salary_to_annual(raw) -> float:
     return avg_midpoint
 
 
-def clean_text(text: str) -> str:
-    if not text:
-        return ""
-    text = html.unescape(text)
-    text = re.sub(r"<[^>]+>", " ", text)
-    text = re.sub(r"&\w+;", " ", text)
-    return text
-
-
-def _tokenize(text: str) -> list:
-    return re.findall(r"[a-z0-9]+", clean_text(text).lower())
-
-
-def _levenshtein(a: str, b: str) -> int:
-    if a == b:
-        return 0
-    if len(a) == 0:
-        return len(b)
-    if len(b) == 0:
-        return len(a)
-    prev = list(range(len(b) + 1))
-    for i, ca in enumerate(a, 1):
-        curr = [i] + [0] * len(b)
-        for j, cb in enumerate(b, 1):
-            cost = 0 if ca == cb else 1
-            curr[j] = min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost)
-        prev = curr
-    return prev[-1]
-
-
-def _tokens_match(title_token: str, term_token: str) -> bool:
-    if title_token == term_token:
-        return True
-    if len(term_token) < 4:
-        return False
-    max_dist = 1 if len(term_token) <= 6 else 2
-    return _levenshtein(title_token, term_token) <= max_dist
-
-
-def title_matches_term(title: str, term: str) -> bool:
-    title_tokens = _tokenize(title)
-    term_tokens = _tokenize(term)
-    if not term_tokens:
-        return False
-    for term_tok in term_tokens:
-        if not any(_tokens_match(tt, term_tok) for tt in title_tokens):
-            return False
-    return True
-
-
-def load_term_file(path: Path) -> list:
-    terms = []
-    if not path.exists():
-        return terms
-    for line in path.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line or line.startswith("#"):
-            continue
-        terms.append(line.lower())
-    return terms
-
-
-def load_job_functions(job_functions_dir: Path) -> dict:
-    functions = {}
-    if not job_functions_dir.exists():
-        return functions
-    for f in sorted(job_functions_dir.glob("*.txt")):
-        terms = load_term_file(f)
-        if terms:
-            functions[f.stem] = terms
-    return functions
-
-
-def count_keyword_per_job(corpus_lower: pd.Series, term: str) -> int:
-    escaped = re.escape(term.lower())
-    pattern = r"(?<![a-z0-9])" + escaped + r"(?![a-z0-9])"
-    return int(corpus_lower.str.contains(pattern, regex=True, na=False).sum())
-
-
-def discover_phrases(text_series: pd.Series, companies: pd.Series,
-                      total_jobs: int, top_n: int = 25) -> list:
-    company_tokens = set()
-    for name in companies.dropna().unique():
-        company_tokens.update(_tokenize(str(name)))
-        company_tokens.add(re.sub(r"[^a-z0-9]", "", str(name).lower()))
-
-    exclude = ALL_STOPWORDS | company_tokens | {"com", "www", "http", "https"}
-
-    phrase_job_counts = Counter()
-
-    for text in text_series.fillna(""):
-        tokens = _tokenize(str(text))
-        filtered = [t for t in tokens if t not in exclude and len(t) > 2 and not t.isdigit()]
-
-        seen_in_this_job = set()
-        for i in range(len(filtered) - 1):
-            seen_in_this_job.add((filtered[i], filtered[i + 1]))
-        for i in range(len(filtered) - 2):
-            seen_in_this_job.add((filtered[i], filtered[i + 1], filtered[i + 2]))
-
-        for phrase in seen_in_this_job:
-            phrase_job_counts[" ".join(phrase)] += 1
-
-    noise_floor = 3
-    ceiling = int(total_jobs * 0.95)
-
-    filtered_counts = {
-        phrase: count
-        for phrase, count in phrase_job_counts.items()
-        if noise_floor <= count <= max(ceiling, noise_floor)
-    }
-
-    return Counter(filtered_counts).most_common(top_n)
-
-
-def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
-                      user_keywords: list) -> dict:
-    mask = df["title"].fillna("").apply(
-        lambda title: any(title_matches_term(title, term) for term in title_terms)
-    )
-    matched = df[mask].copy()
-
-    result = {
-        "function": function_name,
-        "total_jobs": len(matched),
-        "seniority": Counter(),
-        "user_keyword_hits": {},
-        "title_phrases": [],
-        "body_phrases": [],
-        "companies": Counter(),
-        "salary_by_seniority": {},
-    }
-
-    if len(matched) == 0:
-        return result
-
-    seniority_norm = matched["seniority"].fillna("Unknown").str.strip().str.title()
-    result["seniority"] = Counter(seniority_norm)
-    result["companies"] = Counter(matched["company"])
-
-    matched["_seniority_norm"] = seniority_norm
-    matched["_parsed_salary"] = matched["salary"].apply(parse_salary_to_annual)
-
-    salary_by_seniority = {}
-    for level in matched["_seniority_norm"].unique():
-        level_jobs = matched[matched["_seniority_norm"] == level]
-        with_salary = level_jobs["_parsed_salary"].dropna()
-        if len(with_salary) > 0:
-            salary_by_seniority[level] = {
-                "avg": float(with_salary.mean()),
-                "median": float(with_salary.median()),
-                "n_with_salary": int(len(with_salary)),
-                "n_total": int(len(level_jobs)),
-            }
-    result["salary_by_seniority"] = salary_by_seniority
-
-    cleaned_desc = matched["description_text"].fillna("").apply(clean_text)
-    cleaned_title = matched["title"].fillna("").apply(clean_text)
-
-    if user_keywords:
-        corpus_lower = (cleaned_desc + " " + cleaned_title).str.lower()
-        hits = {}
-        for term in user_keywords:
-            count = count_keyword_per_job(corpus_lower, term)
-            if count > 0:
-                hits[term] = count
-        result["user_keyword_hits"] = dict(sorted(hits.items(), key=lambda x: -x[1]))
-
-    result["title_phrases"] = discover_phrases(
-        cleaned_title, matched["company"], len(matched)
-    )
-    result["body_phrases"] = discover_phrases(
-        cleaned_desc, matched["company"], len(matched)
-    )
-
-    return result
-
-
 def print_function_report(result: dict) -> None:
+    total = result["total_jobs"]
+    total_dataset = result["total_dataset_jobs"]
+    pct_of_dataset = (total / total_dataset * 100) if total_dataset else 0
+
     print(f"\n{'='*70}")
     print(f"JOB FUNCTION: {result['function']}")
     print(f"{'='*70}")
-    print(f"Jobs matched: {result['total_jobs']}")
+    print(f"Jobs matched: {total:,} / {total_dataset:,} total in dataset ({pct_of_dataset:.1f}%)")
 
-    if result["total_jobs"] == 0:
+    if total == 0:
         print("  No jobs matched this function's title terms.")
         return
 
     print(f"\n{'-'*70}")
-    print("SENIORITY BREAKDOWN")
+    print(f"SENIORITY BREAKDOWN (% of the {total:,} jobs matched in this function)")
+    print("Bar scale: each # = 3 percentage points")
     print(f"{'-'*70}")
     for level, count in result["seniority"].most_common():
-        pct = count / result["total_jobs"] * 100
-        bar = "#" * int(pct / 3)
+        pct = count / total * 100
+        bar = "#" * min(int(pct / 3), 33)
         print(f"  {level:<15} {count:>5}  {bar} {pct:.1f}%")
 
     if result["salary_by_seniority"]:
+        excluded = result["non_us_excluded_from_salary"]
         print(f"\n{'-'*70}")
-        print("AVG SALARY BY SENIORITY (annualized; hourly rates converted)")
+        print("AVG SALARY BY SENIORITY - US POSTINGS ONLY, IN USD")
+        print("Annualized; hourly rates converted at 2,080 hrs/year.")
         print("Only jobs with parseable salary data - coverage shown per level.")
+        if excluded:
+            print(f"({excluded} non-US postings with salary data excluded from this section)")
         print(f"{'-'*70}")
         ordered_levels = [l for l in SENIORITY_ORDER if l in result["salary_by_seniority"]]
         remaining = [l for l in result["salary_by_seniority"] if l not in ordered_levels]
@@ -379,6 +530,10 @@ def print_function_report(result: dict) -> None:
             coverage_pct = stats["n_with_salary"] / stats["n_total"] * 100
             print(f"  {level:<15} avg ${stats['avg']:>10,.0f}   median ${stats['median']:>10,.0f}   "
                   f"({stats['n_with_salary']}/{stats['n_total']} jobs, {coverage_pct:.0f}% had salary data)")
+    else:
+        print(f"\n{'-'*70}")
+        print("AVG SALARY BY SENIORITY - no US postings with parseable salary data in this function.")
+        print(f"{'-'*70}")
 
     print(f"\n{'-'*70}")
     print("TOP COMPANIES HIRING FOR THIS FUNCTION")
@@ -392,40 +547,50 @@ def print_function_report(result: dict) -> None:
         print("Counted per job - a job mentioning a term 5x still counts once.")
         print(f"{'-'*70}")
         for term, count in result["user_keyword_hits"].items():
-            pct = count / result["total_jobs"] * 100
-            bar = "#" * int(pct / 3)
+            pct = count / total * 100
+            bar = "#" * min(int(pct / 3), 33)
             print(f"    {term:<35} {count:>5}  {bar} {pct:.1f}%")
 
-    print(f"\n{'-'*70}")
-    print("SKILL DISCOVERY - TITLE SIGNAL")
-    print("Phrases found in job titles. Lower volume, higher confidence -")
-    print("this is what companies chose to lead with.")
-    print(f"{'-'*70}")
-    if result["title_phrases"]:
-        for phrase, count in result["title_phrases"]:
-            pct = count / result["total_jobs"] * 100
-            bar = "#" * int(pct / 3)
-            print(f"    {phrase:<40} {count:>5}  {bar} {pct:.1f}%")
-    else:
-        print("    No phrases cleared the noise floor (3+ jobs) in titles alone.")
+    def print_named_list_section(title, subtitle, items):
+        print(f"\n{'-'*70}")
+        print(title)
+        print(subtitle)
+        print(f"{'-'*70}")
+        if not items:
+            print("    (no reference list loaded)")
+            return
+        for item in items:
+            pct = item["count"] / total * 100 if total else 0
+            bar = "#" * min(int(pct / 3), 33)
+            companies_str = ", ".join(f"{c}: {n}" for c, n in item["companies"]) if item["companies"] else "not found"
+            print(f"    {item['name']:<28} {item['count']:>5}  {bar} {pct:.1f}%   [{companies_str}]")
+
+    print_named_list_section(
+        "CERTIFICATIONS",
+        "Counted per job. Zero-count entries kept - absence is also a finding.",
+        result["certifications"],
+    )
+
+    print_named_list_section(
+        "SECURITY CLEARANCES",
+        "Counted per job. Zero-count entries kept - absence is also a finding.",
+        result["clearances"],
+    )
 
     print(f"\n{'-'*70}")
-    print("SKILL DISCOVERY - BODY SIGNAL")
-    print("Phrases found in description text. Higher volume, lower confidence")
-    print("per hit - this is what shows up once you read the fine print.")
-    print("(use this if you don't know what keywords to search for yet)")
-    print("Known limitation: every company phrases EEO/benefits/legal disclaimers")
-    print("differently, so some boilerplate fragments may still slip through.")
-    print("Read each phrase below and use judgment - this list is a starting")
-    print("point for discovery, not a verified clean feed.")
+    print("TOOLS & SOFTWARE (source: O*NET Software Skills database, CC BY 4.0)")
+    print("Match strength: 1.00 = full tool name found, <1.00 = partial/brand-only.")
+    print("Minimum strength shown: 0.50. Top 3 companies per tool.")
     print(f"{'-'*70}")
-    if result["body_phrases"]:
-        for phrase, count in result["body_phrases"]:
-            pct = count / result["total_jobs"] * 100
-            bar = "#" * int(pct / 3)
-            print(f"    {phrase:<40} {count:>5}  {bar} {pct:.1f}%")
+    if not result["tools"]:
+        print("    (no O*NET reference file loaded - see data/reference/onet_software_skills.txt)")
     else:
-        print("    No phrases cleared the noise floor (3+ jobs).")
+        for item in result["tools"][:30]:
+            pct = item["count"] / total * 100 if total else 0
+            bar = "#" * min(int(pct / 3), 33)
+            companies_str = ", ".join(f"{c}: {n}" for c, n in item["companies"])
+            print(f"    {item['name']:<35} {item['count']:>5}  {bar} {pct:.1f}%  "
+                  f"(avg strength {item['avg_strength']:.2f})   [{companies_str}]")
 
 
 def export_results(results: list, export_path: Path) -> None:
@@ -434,13 +599,13 @@ def export_results(results: list, export_path: Path) -> None:
         for level, stats in r["salary_by_seniority"].items():
             rows.append({
                 "function": r["function"], "total_jobs_in_function": r["total_jobs"],
-                "source": "salary_by_seniority", "category": level,
+                "source": "salary_by_seniority_us_usd", "category": level,
                 "term": "avg_annual_salary", "count": round(stats["avg"]),
                 "pct_of_function": round(stats["n_with_salary"] / stats["n_total"] * 100, 1),
             })
             rows.append({
                 "function": r["function"], "total_jobs_in_function": r["total_jobs"],
-                "source": "salary_by_seniority", "category": level,
+                "source": "salary_by_seniority_us_usd", "category": level,
                 "term": "median_annual_salary", "count": round(stats["median"]),
                 "pct_of_function": round(stats["n_with_salary"] / stats["n_total"] * 100, 1),
             })
@@ -451,19 +616,26 @@ def export_results(results: list, export_path: Path) -> None:
                 "term": term, "count": count,
                 "pct_of_function": round(count / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
             })
-        for phrase, count in r["title_phrases"]:
+        for item in r["certifications"]:
             rows.append({
                 "function": r["function"], "total_jobs_in_function": r["total_jobs"],
-                "source": "discovered_phrase_title", "category": "",
-                "term": phrase, "count": count,
-                "pct_of_function": round(count / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+                "source": "certification", "category": "",
+                "term": item["name"], "count": item["count"],
+                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
             })
-        for phrase, count in r["body_phrases"]:
+        for item in r["clearances"]:
             rows.append({
                 "function": r["function"], "total_jobs_in_function": r["total_jobs"],
-                "source": "discovered_phrase_body", "category": "",
-                "term": phrase, "count": count,
-                "pct_of_function": round(count / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+                "source": "clearance", "category": "",
+                "term": item["name"], "count": item["count"],
+                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+            })
+        for item in r["tools"]:
+            rows.append({
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "tool_software_onet", "category": f"strength_{item['avg_strength']:.2f}",
+                "term": item["name"], "count": item["count"],
+                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
             })
     out_df = pd.DataFrame(rows)
     out_df.to_csv(export_path, index=False)
@@ -496,7 +668,7 @@ def prompt_for_job_function(job_functions_dir: Path, existing: dict) -> tuple:
 
 def prompt_for_user_keywords() -> list:
     print("\nWant to check for any specific keywords of your own? (your hypothesis,")
-    print("checked fresh this run - separate from the discovery lists above)")
+    print("checked fresh this run - separate from certifications/clearances/tools below)")
     raw = input("Keywords, comma-separated, or press enter to skip: ").strip()
     if not raw:
         return []
@@ -509,12 +681,16 @@ def main():
     )
     parser.add_argument("--input", type=Path, default=Path("data/master_dataset.csv"))
     parser.add_argument("--job-functions-dir", type=Path, default=Path("job_functions"))
+    parser.add_argument("--onet-file", type=Path, default=Path("data/reference/onet_software_skills.txt"))
     parser.add_argument("--function", type=str, default=None,
                         help="Reuse a saved job function (filename stem in job_functions/). Skips the title prompt.")
+    parser.add_argument("--label", type=str, default=None,
+                        help="Clean display name for the report header (e.g. 'Product Management'). "
+                             "Defaults to the --function name if not set.")
     parser.add_argument("--keywords", type=str, default=None,
                         help="Comma-separated ad hoc keywords to check, non-interactively.")
     parser.add_argument("--no-prompt-keywords", action="store_true",
-                        help="Skip the ad hoc keyword prompt entirely (discovery only).")
+                        help="Skip the ad hoc keyword prompt entirely.")
     parser.add_argument("--export", type=Path, default=None,
                         help="Export full results to CSV")
     args = parser.parse_args()
@@ -527,21 +703,30 @@ def main():
     df = pd.read_csv(args.input, low_memory=False)
     print(f"  {len(df):,} jobs loaded")
 
+    onet_names = load_onet_tools(args.onet_file)
+    if onet_names:
+        print(f"  {len(onet_names):,} distinct tool/software names loaded from {args.onet_file}")
+    else:
+        print(f"  No O*NET reference file found at {args.onet_file} - Tools & Software section will be skipped.")
+        print(f"  To enable it: curl -sL \"https://www.onetcenter.org/dl_files/database/db_30_3_text/Software%20Skills.txt\" -o {args.onet_file}")
+
     existing_functions = load_job_functions(args.job_functions_dir)
 
     if args.function and args.function in existing_functions:
-        function_name = args.function
+        function_key = args.function
         title_terms = existing_functions[args.function]
-        print(f"\nUsing saved job function '{function_name}': {', '.join(title_terms)}")
+        print(f"\nUsing saved job function '{function_key}': {', '.join(title_terms)}")
     elif args.function:
         print(f"\nNo saved job function named '{args.function}' found in {args.job_functions_dir}/.")
-        function_name, title_terms = prompt_for_job_function(args.job_functions_dir, existing_functions)
+        function_key, title_terms = prompt_for_job_function(args.job_functions_dir, existing_functions)
     else:
-        function_name, title_terms = prompt_for_job_function(args.job_functions_dir, existing_functions)
+        function_key, title_terms = prompt_for_job_function(args.job_functions_dir, existing_functions)
 
     if not title_terms:
         print("No job titles entered. Nothing to analyze.")
         return
+
+    display_name = args.label if args.label else function_key
 
     if args.keywords is not None:
         user_keywords = [t.strip().lower() for t in args.keywords.split(",") if t.strip()]
@@ -550,7 +735,7 @@ def main():
     else:
         user_keywords = prompt_for_user_keywords()
 
-    result = analyze_function(df, function_name, title_terms, user_keywords)
+    result = analyze_function(df, display_name, title_terms, user_keywords, onet_names)
     print_function_report(result)
 
     if args.export:
