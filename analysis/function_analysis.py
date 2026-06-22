@@ -168,6 +168,78 @@ CLEARANCES = [
     "Security Clearance", "SSBI", "Polygraph",
 ]
 
+# Aerospace/defense-specific certifications, separate from the general
+# PM/IT list above. Each verified real via a direct source check (e.g.
+# INCOSE's own incose.org/certification page) before inclusion - not
+# trusted wholesale from the document that prompted this list, which
+# also contained unverifiable company-attribution claims ("heavily
+# required at Lockheed Martin", "extremely common at Blue Origin", etc).
+# Those claims are NOT carried into this list or any code comment below,
+# since they could not be independently verified and read as plausible-
+# sounding fabrication rather than sourced fact - this project's own
+# rule is "numbers and primary sources, or it didn't happen." Checked
+# against the real dataset before being added: AS9100 (849 hits) and
+# GD&T (1,073 hits) are large, previously-unreported signals - bigger
+# than most things already in the original CERTIFICATIONS list above.
+AEROSPACE_CERTIFICATIONS = [
+    "INCOSE", "ASEP", "CSEP", "ESEP", "AS9100", "AS9110", "NDT", "ASNT",
+    "GD&T", "CWI", "CQE", "CQA", "A&P", "GROL", "SAFe", "PSM",
+    "Earned Value Management", "IPC-A-610", "IPC-J-STD-001",
+]
+
+# Terms that must be matched CASE-SENSITIVELY because the lowercase form
+# collides with a common English word. Found via direct verification:
+# "SAFe" (Scaled Agile Framework methodology, capitalized this way by
+# convention) returned 471 real hits case-sensitive vs 9,191 if matched
+# case-insensitively against "safe" (the ordinary word, as in "safe
+# operations," "safety-critical") - a 20x inflation that would have
+# silently corrupted this number if not caught. Other short acronyms
+# checked at the same time (PSM, CQA, GROL, CWI, NDT, CSEP) did NOT show
+# this problem - it's specific to terms that happen to spell a real word.
+CASE_SENSITIVE_TERMS = {"SAFe"}
+
+# Design thinking / product-strategy certifications, common in tech and
+# AI product management roles. Each verified real via direct source
+# check (IDEO U's own ideou.com/products pages, LUMA Institute's own
+# luma-institute.com program pages) before inclusion - the company-
+# attribution claims from the document that prompted this list (e.g.
+# "incredibly strong keyword for enterprise SaaS roles") were NOT
+# independently verifiable and are not carried into this list or any
+# comment, per the same rule applied to AEROSPACE_CERTIFICATIONS above.
+# Note for accuracy: most of these are completion-based certificates
+# (finish the required courses, receive the certificate) rather than
+# pass/fail proctored exams like CISSP or PMP - worth knowing if writing
+# about the distinction, though job postings name them the same way
+# regardless of how rigorously they're earned.
+DESIGN_THINKING_CERTIFICATIONS = [
+    "IDEO U", "Design Thinking Certificate", "AI x Design Thinking",
+    "Stanford d.school", "MIT Sloan Design Thinking",
+    "IBM Enterprise Design Thinking", "LUMA Institute",
+    "Certified Human-Centered Design Practitioner",
+    "Harvard Business School Design Thinking", "Human-Centered Design",
+    "Double Diamond", "Design Sprint",
+]
+
+# Prototyping/collaboration/PM tools missing from O*NET coverage - same
+# gap pattern as AI_DATA_TOOLS below, just for product/program management
+# and design workflows instead of AI/data engineering.
+#
+# IMPORTANT: every term below is included regardless of how many hits it
+# returns in THIS aerospace dataset specifically. An earlier version of
+# this list excluded Productboard, Aha!, Pendo, and Mixpanel because they
+# returned 0 hits here - that was the wrong call, flagged correctly: this
+# article's readers work across many industries, and a tool that's dead
+# in aerospace may be standard in SaaS or consumer product management.
+# Zero-count in one dataset is itself a reportable data point ("not used
+# in aerospace"), not a reason to remove the term from the lookup list
+# entirely. The verification bar stays the same (every term must be a
+# real, named product, confirmed before inclusion) - only the "must also
+# return a nonzero count in this one dataset" bar has been dropped.
+PM_DESIGN_TOOLS = [
+    "Smartsheet", "Figma", "Miro", "Canva", "Notion", "Lucidchart",
+    "Mural", "Amplitude", "Productboard", "Aha!", "Pendo", "Mixpanel",
+]
+
 # Hand-curated list of modern AI/data-engineering tools that O*NET's
 # Software Skills database does NOT yet cover - confirmed by direct
 # inspection of real O*NET rows (none of PyTorch, TensorFlow, LangChain,
@@ -182,18 +254,56 @@ CLEARANCES = [
 # notes; most candidate Kaggle tech-skills datasets were either synthetic
 # (built with Python Faker), scraped from LinkedIn/Indeed with the same
 # ToS exposure as Credly, or generic non-aerospace tech roles with no
-# real provenance). Every term below was checked against the real
-# dataset before being added - e.g. Kubernetes alone returned 1,262 real
-# job matches out of 25,474, the single largest unreported signal found
-# in this entire project. Reported in its own labeled section, separate
-# from the O*NET-sourced Tools & Software section, so the two sourcing
-# methods are never conflated.
+# real provenance). Reported in its own labeled section, separate from
+# the O*NET-sourced Tools & Software section, so the two sourcing
+# methods are never conflated. Every term is included regardless of hit
+# count in this specific aerospace dataset - see PM_DESIGN_TOOLS comment
+# above for why exclusion-by-zero-count was the wrong call.
 AI_DATA_TOOLS = [
     "PyTorch", "TensorFlow", "LangChain", "Hugging Face", "Airflow",
     "dbt", "Snowflake", "Databricks", "Kubernetes", "Docker",
     "Pinecone", "Weaviate", "vector database", "RAG", "fine-tuning",
     "LLM", "Anthropic", "Claude", "OpenAI", "GPT", "Vertex AI",
     "Amazon Bedrock", "Model Context Protocol", "MCP",
+]
+
+# Terms known to be contaminated by single-company boilerplate in THIS
+# dataset, kept here as documentation rather than silently dropped, so
+# the finding isn't lost and isn't accidentally re-introduced by a
+# future list addition. "sensor fusion" returned 2,157 hits dataset-wide
+# - but 2,089 of those (97%) are Anduril Industries' identical "About the
+# company" paragraph ("Anduril is committed to bringing cutting-edge
+# autonomy, AI, computer vision, sensor fusion, and networking technology
+# to the military...") pasted verbatim into every posting regardless of
+# role - confirmed by checking that 100% of Anduril's 2,089 postings
+# contain the exact same surrounding sentence. With Anduril excluded, the
+# real signal is 68 jobs - small, genuine, concentrated in actual
+# engineering titles (Lockheed Martin, Joby Aviation, etc). This is the
+# real number; the 2,157 headline figure is not usable.
+BOILERPLATE_CONTAMINATED_TERMS = {
+    "sensor fusion": "97% of hits are Anduril Industries boilerplate company description, not per-role skill signal. Real cross-company count (Anduril excluded): 68 jobs.",
+}
+
+# Autonomous Vehicle / ADAS crossover terms - checking whether aerospace
+# companies are hiring for automotive-autonomy-adjacent skillsets (e.g.
+# eVTOL/drone autonomy programs borrowing automotive safety standards or
+# robotics middleware). Each term verified real via direct source check
+# (ROS Answers, dSPACE/PatSnap/arxiv technical sources on ISO 26262/ASIL/
+# SOTIF) and confirmed present in this dataset before inclusion - though
+# per the project's standing rule (see PM_DESIGN_TOOLS), absence in this
+# dataset would not be a reason to exclude a verified-real term either.
+# "sensor fusion" deliberately excluded - see BOILERPLATE_CONTAMINATED_
+# TERMS above. ISO 26262/ASIL are road-vehicle standards; their presence
+# in aerospace postings is itself notable since they aren't written for
+# aircraft (DO-178C is the aerospace-native equivalent) - a posting using
+# both signals a company explicitly borrowing automotive safety practice
+# for an autonomy program, which is the actual crossover signal this list
+# exists to detect.
+AV_AEROSPACE_CROSSOVER = [
+    "ISO 26262", "ASIL", "ISO 21448", "SOTIF", "ISO 21434", "ASPICE",
+    "ROS", "ROS2", "CARLA", "Gazebo", "NVIDIA Omniverse", "CarMaker",
+    "dSPACE", "NVIDIA DRIVE", "CAN bus", "TARA", "ODD",
+    "Vector CANoe", "CANalyzer", "Foxglove",
 ]
 
 
@@ -464,12 +574,24 @@ def named_list_lookup(matched: pd.DataFrame, cleaned_corpus: pd.Series,
     """For a small maintained list (certifications, clearances): exact
     word-boundary phrase match per job, with top companies per hit.
     Returns list of dicts sorted by count descending, including zero-count
-    entries (a real "not found" result is informative)."""
+    entries (a real "not found" result is informative).
+
+    Terms in CASE_SENSITIVE_TERMS (e.g. "SAFe") are matched against the
+    ORIGINAL-CASE corpus instead of the lowercased one - found necessary
+    because "SAFe" (Scaled Agile Framework) collides with the ordinary
+    word "safe" under case-insensitive matching, inflating the real count
+    (471) by 20x (9,191) by also catching "safe operations," "safety-
+    critical," etc. Verified this is specific to SAFe - other short
+    acronyms checked at the same time did not show the same collision."""
     results = []
     corpus_lower = cleaned_corpus.str.lower()
     for name in names:
-        pattern = r"(?<![a-z0-9])" + re.escape(name.lower()) + r"(?![a-z0-9])"
-        mask = corpus_lower.str.contains(pattern, regex=True, na=False)
+        if name in CASE_SENSITIVE_TERMS:
+            pattern = r"(?<![A-Za-z0-9])" + re.escape(name) + r"(?![A-Za-z0-9])"
+            mask = cleaned_corpus.str.contains(pattern, regex=True, na=False)
+        else:
+            pattern = r"(?<![a-z0-9])" + re.escape(name.lower()) + r"(?![a-z0-9])"
+            mask = corpus_lower.str.contains(pattern, regex=True, na=False)
         count = int(mask.sum())
         companies = Counter(matched.loc[mask, "company"]).most_common(top_n_companies) if count else []
         results.append({"name": name, "count": count, "companies": companies})
@@ -598,8 +720,12 @@ def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
         "seniority": Counter(),
         "user_keyword_hits": {},
         "certifications": [],
+        "aerospace_certifications": [],
+        "design_thinking_certifications": [],
         "clearances": [],
         "ai_data_tools": [],
+        "pm_design_tools": [],
+        "av_aerospace_crossover": [],
         "tools": [],
         "companies": Counter(),
         "salary_by_seniority": {},
@@ -654,14 +780,19 @@ def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
     # word-boundary match, zero-count entries kept (a real "not found"
     # result is informative). ---
     result["certifications"] = named_list_lookup(matched, full_corpus, CERTIFICATIONS)
+    result["aerospace_certifications"] = named_list_lookup(matched, full_corpus, AEROSPACE_CERTIFICATIONS)
+    result["design_thinking_certifications"] = named_list_lookup(matched, full_corpus, DESIGN_THINKING_CERTIFICATIONS)
     result["clearances"] = named_list_lookup(matched, full_corpus, CLEARANCES)
 
-    # --- Modern AI/data-engineering tools: separate hand-curated list,
-    # exact match (same mechanism as certifications/clearances, not the
-    # fuzzy O*NET partial-match logic - this list is small and already
-    # verified, so exact matching is sufficient and keeps this section's
-    # sourcing distinct from the O*NET-derived Tools & Software below). ---
+    # --- Modern AI/data-engineering tools, and PM/design tools: separate
+    # hand-curated lists, exact match (same mechanism as certifications/
+    # clearances, not the fuzzy O*NET partial-match logic - these lists
+    # are small and already verified, so exact matching is sufficient and
+    # keeps their sourcing distinct from the O*NET-derived Tools &
+    # Software section below). ---
     result["ai_data_tools"] = named_list_lookup(matched, full_corpus, AI_DATA_TOOLS)
+    result["pm_design_tools"] = named_list_lookup(matched, full_corpus, PM_DESIGN_TOOLS)
+    result["av_aerospace_crossover"] = named_list_lookup(matched, full_corpus, AV_AEROSPACE_CROSSOVER)
 
     # --- Tools & software: O*NET reference list, fuzzy partial match. ---
     if onet_names:
@@ -794,6 +925,21 @@ def print_function_report(result: dict) -> None:
     )
 
     print_named_list_section(
+        "AEROSPACE-SPECIFIC CERTIFICATIONS",
+        "INCOSE, AS9100, GD&T, NDT, etc - not covered by the general "
+        "certifications list above. Counted per job, zero-count kept.",
+        result["aerospace_certifications"],
+    )
+
+    print_named_list_section(
+        "DESIGN THINKING / PRODUCT STRATEGY CERTIFICATIONS",
+        "IDEO U, LUMA Institute, Stanford d.school, etc - common in tech/AI "
+        "product roles. Counted per job, zero-count kept (included "
+        "regardless of fit for this specific aerospace dataset).",
+        result["design_thinking_certifications"],
+    )
+
+    print_named_list_section(
         "SECURITY CLEARANCES",
         "Counted per job. Zero-count entries kept - absence is also a finding.",
         result["clearances"],
@@ -804,6 +950,23 @@ def print_function_report(result: dict) -> None:
         "Modern AI/data tools O*NET's slower update cycle doesn't yet cover "
         "(PyTorch, Kubernetes, LangChain, etc). Exact match, zero-count kept.",
         result["ai_data_tools"],
+    )
+
+    print_named_list_section(
+        "PM / DESIGN COLLABORATION TOOLS (hand-curated list, not from O*NET)",
+        "Prototyping/collaboration tools (Figma, Miro, Smartsheet, etc) "
+        "missing from O*NET coverage. Exact match, zero-count kept.",
+        result["pm_design_tools"],
+    )
+
+    print_named_list_section(
+        "AV / AUTONOMOUS VEHICLE CROSSOVER (automotive standards/tools in aerospace postings)",
+        "ISO 26262, ASIL, ROS2, CARLA, etc - signals an aerospace company "
+        "borrowing automotive autonomy practice. NOTE: 'sensor fusion' is "
+        "deliberately excluded from this list - found to be 97% single-"
+        "company boilerplate (Anduril's company-description paragraph "
+        "pasted into every posting), not genuine per-role skill signal.",
+        result["av_aerospace_crossover"],
     )
 
     print(f"\n{'-'*70}")
@@ -852,6 +1015,20 @@ def export_results(results: list, export_path: Path) -> None:
                 "term": item["name"], "count": item["count"],
                 "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
             })
+        for item in r["aerospace_certifications"]:
+            rows.append({
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "aerospace_certification", "category": "",
+                "term": item["name"], "count": item["count"],
+                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+            })
+        for item in r["design_thinking_certifications"]:
+            rows.append({
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "design_thinking_certification", "category": "",
+                "term": item["name"], "count": item["count"],
+                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+            })
         for item in r["clearances"]:
             rows.append({
                 "function": r["function"], "total_jobs_in_function": r["total_jobs"],
@@ -863,6 +1040,20 @@ def export_results(results: list, export_path: Path) -> None:
             rows.append({
                 "function": r["function"], "total_jobs_in_function": r["total_jobs"],
                 "source": "ai_data_tool_hand_curated", "category": "",
+                "term": item["name"], "count": item["count"],
+                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+            })
+        for item in r["pm_design_tools"]:
+            rows.append({
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "pm_design_tool_hand_curated", "category": "",
+                "term": item["name"], "count": item["count"],
+                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+            })
+        for item in r["av_aerospace_crossover"]:
+            rows.append({
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "av_aerospace_crossover_hand_curated", "category": "",
                 "term": item["name"], "count": item["count"],
                 "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
             })
