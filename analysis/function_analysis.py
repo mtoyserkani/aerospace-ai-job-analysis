@@ -137,17 +137,63 @@ US_COUNTRY_LABELS = {"United States of America", "US"}
 # certifications and clearances are closed/nameable vocabularies where a
 # maintained list is more reliable than open-ended phrase discovery
 # (see project notes on why bigram discovery fragments proper nouns).
+#
+# AI-specific certifications added below are confirmed real via direct
+# verification (web search against primary sources - Google Cloud's own
+# certification page, Anthropic's own announcement), not from a scraped
+# badge aggregator (Credly) or community dataset - see project notes on
+# why those sources were rejected (ToS/scraping risk, synthetic/unverified
+# data). "Generative AI Leader" and "Professional Machine Learning
+# Engineer" are Google Cloud's current two AI certification pillars as of
+# 2026. "Claude Certified Architect" launched March 12, 2026 - Anthropic's
+# first official technical certification, confirmed via Anthropic's own
+# anthropic.com/news announcement. Checked against this dataset: all
+# three return 0-4 hits currently, which is itself a finding (these
+# postdate most of the scrape, or aerospace hasn't adopted them yet) -
+# zero-count entries are kept rather than silently dropped.
 CERTIFICATIONS = [
     "PMP", "CAPM", "PgMP", "PMI-ACP", "CSM", "CSPO", "Six Sigma",
     "Lean Six Sigma", "CISSP", "CISM", "CISA", "Security+", "CompTIA Security+",
     "ITIL", "PE", "CCNA", "AWS Certified", "Scrum Master", "Agile Certified",
     "A&P License", "FAA Certificate", "DAWIA",
+    # --- AI-specific certifications, added after confirming real via
+    # direct source verification (see comment above) ---
+    "Generative AI Leader", "Professional Machine Learning Engineer",
+    "Claude Certified Architect", "TensorFlow Developer Certificate",
 ]
 
 CLEARANCES = [
     "Top Secret", "TS/SCI", "TS SCI", "Secret Clearance", "Secret",
     "Public Trust", "Confidential Clearance", "Interim Clearance",
     "Security Clearance", "SSBI", "Polygraph",
+]
+
+# Hand-curated list of modern AI/data-engineering tools that O*NET's
+# Software Skills database does NOT yet cover - confirmed by direct
+# inspection of real O*NET rows (none of PyTorch, TensorFlow, LangChain,
+# Kubernetes, Airflow, dbt, Snowflake, Databricks, vector databases, or
+# any LLM-specific terminology appeared anywhere in several hundred real
+# rows checked). O*NET updates on a slower government review cycle and
+# simply hasn't incorporated the 2023-2026 AI/data-engineering wave yet.
+# This list exists to fill exactly that gap, the same trust model as
+# CERTIFICATIONS/CLEARANCES above: a small, maintained, real list beats
+# either (a) pretending O*NET is complete, or (b) pulling from an
+# unverified Kaggle/scraped dataset (checked and rejected - see project
+# notes; most candidate Kaggle tech-skills datasets were either synthetic
+# (built with Python Faker), scraped from LinkedIn/Indeed with the same
+# ToS exposure as Credly, or generic non-aerospace tech roles with no
+# real provenance). Every term below was checked against the real
+# dataset before being added - e.g. Kubernetes alone returned 1,262 real
+# job matches out of 25,474, the single largest unreported signal found
+# in this entire project. Reported in its own labeled section, separate
+# from the O*NET-sourced Tools & Software section, so the two sourcing
+# methods are never conflated.
+AI_DATA_TOOLS = [
+    "PyTorch", "TensorFlow", "LangChain", "Hugging Face", "Airflow",
+    "dbt", "Snowflake", "Databricks", "Kubernetes", "Docker",
+    "Pinecone", "Weaviate", "vector database", "RAG", "fine-tuning",
+    "LLM", "Anthropic", "Claude", "OpenAI", "GPT", "Vertex AI",
+    "Amazon Bedrock", "Model Context Protocol", "MCP",
 ]
 
 
@@ -287,6 +333,16 @@ ORDINARY_CAPITALIZED_WORDS = {
     "access", "exchange", "word", "excel", "outlook", "publisher",
     "laboratory", "laboratories", "university", "college", "academy",
     "foundation", "society", "association", "federation", "union",
+    # --- round 3: generic business/marketing words found responsible for
+    # Red Hat Enterprise Linux, Marketo Marketing Automation, and
+    # Microsoft Active Directory matching far too broadly (these words
+    # are common in unrelated job-posting contexts: "enterprise systems,"
+    # "active management," "cloud computing experience," "marketing
+    # principles" all appear constantly without meaning the specific tool) ---
+    "enterprise", "marketing", "automation", "active", "directory",
+    "cloud", "edition", "creative", "rights", "advanced", "professional",
+    "premium", "standard", "basic", "essential", "essentials", "complete",
+    "ultimate", "pro", "plus", "global", "digital", "next", "generation",
 }
 
 
@@ -543,6 +599,7 @@ def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
         "user_keyword_hits": {},
         "certifications": [],
         "clearances": [],
+        "ai_data_tools": [],
         "tools": [],
         "companies": Counter(),
         "salary_by_seniority": {},
@@ -598,6 +655,13 @@ def analyze_function(df: pd.DataFrame, function_name: str, title_terms: list,
     # result is informative). ---
     result["certifications"] = named_list_lookup(matched, full_corpus, CERTIFICATIONS)
     result["clearances"] = named_list_lookup(matched, full_corpus, CLEARANCES)
+
+    # --- Modern AI/data-engineering tools: separate hand-curated list,
+    # exact match (same mechanism as certifications/clearances, not the
+    # fuzzy O*NET partial-match logic - this list is small and already
+    # verified, so exact matching is sufficient and keeps this section's
+    # sourcing distinct from the O*NET-derived Tools & Software below). ---
+    result["ai_data_tools"] = named_list_lookup(matched, full_corpus, AI_DATA_TOOLS)
 
     # --- Tools & software: O*NET reference list, fuzzy partial match. ---
     if onet_names:
@@ -735,6 +799,13 @@ def print_function_report(result: dict) -> None:
         result["clearances"],
     )
 
+    print_named_list_section(
+        "AI / DATA ENGINEERING TOOLS (hand-curated list, not from O*NET)",
+        "Modern AI/data tools O*NET's slower update cycle doesn't yet cover "
+        "(PyTorch, Kubernetes, LangChain, etc). Exact match, zero-count kept.",
+        result["ai_data_tools"],
+    )
+
     print(f"\n{'-'*70}")
     print("TOOLS & SOFTWARE (source: O*NET Software Skills database, CC BY 4.0)")
     print("Match strength: 1.00 = full tool name found, <1.00 = partial/brand-only.")
@@ -785,6 +856,13 @@ def export_results(results: list, export_path: Path) -> None:
             rows.append({
                 "function": r["function"], "total_jobs_in_function": r["total_jobs"],
                 "source": "clearance", "category": "",
+                "term": item["name"], "count": item["count"],
+                "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
+            })
+        for item in r["ai_data_tools"]:
+            rows.append({
+                "function": r["function"], "total_jobs_in_function": r["total_jobs"],
+                "source": "ai_data_tool_hand_curated", "category": "",
                 "term": item["name"], "count": item["count"],
                 "pct_of_function": round(item["count"] / r["total_jobs"] * 100, 1) if r["total_jobs"] else 0,
             })
