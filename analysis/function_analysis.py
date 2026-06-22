@@ -160,6 +160,22 @@ CERTIFICATIONS = [
     # direct source verification (see comment above) ---
     "Generative AI Leader", "Professional Machine Learning Engineer",
     "Claude Certified Architect", "TensorFlow Developer Certificate",
+    # --- round 2: AI/data-engineering platform certifications and
+    # Pragmatic Institute's real AI PM certification, all verified real
+    # via direct source check. "Reforge" deliberately NOT added here -
+    # confirmed via source check that Reforge explicitly describes itself
+    # as not a traditional certification, but a membership/community
+    # product - listing it as a certification would be inaccurate, even
+    # though it's a real and relevant credential-adjacent program.
+    # "CPM" (Certified Product Manager) deliberately NOT added - checked
+    # real context, found exclusively used as "Critical Path Method," an
+    # unrelated scheduling term, in every sample found in this dataset.
+    "AI Product Management Expert Certification",
+    "Databricks Certified Generative AI Engineer",
+    "AWS Certified Data Engineer", "Azure AI Engineer Associate",
+    "Google Cloud Professional Data Engineer",
+    "Google Cloud Professional Machine Learning Engineer",
+    "Microsoft Certified: AI Business Professional",
 ]
 
 CLEARANCES = [
@@ -185,6 +201,10 @@ AEROSPACE_CERTIFICATIONS = [
     "INCOSE", "ASEP", "CSEP", "ESEP", "AS9100", "AS9110", "NDT", "ASNT",
     "GD&T", "CWI", "CQE", "CQA", "A&P", "GROL", "SAFe", "PSM",
     "Earned Value Management", "IPC-A-610", "IPC-J-STD-001",
+    # --- round 2: automotive/aerospace quality standards found via the
+    # AV crossover document, verified large and real in this dataset
+    # (APQP=207, PPAP=141 - bigger than most existing entries above) ---
+    "APQP", "PPAP",
 ]
 
 # Terms that must be matched CASE-SENSITIVELY because the lowercase form
@@ -238,6 +258,8 @@ DESIGN_THINKING_CERTIFICATIONS = [
 PM_DESIGN_TOOLS = [
     "Smartsheet", "Figma", "Miro", "Canva", "Notion", "Lucidchart",
     "Mural", "Amplitude", "Productboard", "Aha!", "Pendo", "Mixpanel",
+    # --- AI-PM-specific research/discovery tools, verified real ---
+    "Jira Product Discovery", "NotebookLM", "Dovetail", "Maze",
 ]
 
 # Hand-curated list of modern AI/data-engineering tools that O*NET's
@@ -265,7 +287,32 @@ AI_DATA_TOOLS = [
     "Pinecone", "Weaviate", "vector database", "RAG", "fine-tuning",
     "LLM", "Anthropic", "Claude", "OpenAI", "GPT", "Vertex AI",
     "Amazon Bedrock", "Model Context Protocol", "MCP",
+    # --- round 2 additions: data-engineering/lakehouse/vector-search
+    # stack, each checked against the real dataset before inclusion
+    # (Elasticsearch=171, Apache Spark=41, Apache Kafka=41 are the
+    # largest real signals found in this round) ---
+    "Elasticsearch", "Apache Spark", "Apache Iceberg", "Delta Lake",
+    "Apache Hudi", "LlamaIndex", "MLflow", "Apache Kafka", "BigQuery",
+    "Dataflow", "Dagster", "Prefect", "Qdrant", "Chroma", "pgvector",
+    "Weights & Biases", "Great Expectations", "Apache Polaris",
+    "Unity Catalog",
 ]
+
+# Terms checked and found to be FALSE POSITIVES - not added to any list,
+# documented here so they aren't accidentally re-introduced later.
+# "Linear" (the PM/issue-tracking tool) returned 340 hits dataset-wide,
+# but checking the actual context of every sample found 100% were the
+# common mathematical/engineering adjective ("linear regression,"
+# "linear and nonlinear FEA," "linear optimization problems") - zero
+# relation to the tool. Same failure mode as the SAFe/safe and sensor
+# fusion findings above: a real product name that collides with an
+# extremely common English/technical word cannot be safely matched with
+# simple word-boundary search the way distinctive brand names can.
+FALSE_POSITIVE_TERMS_EXCLUDED = {
+    "Linear": "the PM tool name collides with the common math/engineering "
+              "adjective 'linear' - checked real samples, 340/340 hits were "
+              "'linear regression,' 'linear FEA,' etc, none were the tool.",
+}
 
 # Terms known to be contaminated by single-company boilerplate in THIS
 # dataset, kept here as documentation rather than silently dropped, so
@@ -453,6 +500,21 @@ ORDINARY_CAPITALIZED_WORDS = {
     "cloud", "edition", "creative", "rights", "advanced", "professional",
     "premium", "standard", "basic", "essential", "essentials", "complete",
     "ultimate", "pro", "plus", "global", "digital", "next", "generation",
+    # --- round 4: "integration" (missed word-form variant of the
+    # already-excluded "integrated" - found responsible for "Microsoft
+    # SQL Server Integration Services SSIS" matching 800/1283 systems
+    # engineering postings via "systems integration," "integration
+    # testing," etc, with the actual SSIS product having zero real
+    # mentions). "after" and other common prepositions/conjunctions
+    # (found responsible for "Adobe After Effects" matching 92/92 - 100%
+    # - of one company's systems-engineering postings via ordinary
+    # phrases like "after completion of training," with zero Adobe
+    # relation - "after" being missed suggests this whole word category
+    # was never systematically covered, so the related prepositions
+    # below were added proactively rather than waiting to find each one
+    # broken individually) ---
+    "integration", "after", "before", "during", "while", "since", "until",
+    "within", "without", "between", "among", "through", "throughout",
 }
 
 
