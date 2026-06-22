@@ -1,7 +1,6 @@
 # Cybersecurity job function — title matching terms
 security engineer
 soc analyst
-penetration test
 information security
 cyber security
 cybersecurity
