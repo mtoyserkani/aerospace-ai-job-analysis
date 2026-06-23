@@ -1,5 +1,5 @@
-company,title,job_id,location,country,salary,remote,seniority,us_citizenship_required,security_clearance,relocation_assistance,source_platform,date_posted,scraped_at,apply_url,description_text
-Heart Aerospace,Battery Mechanical Design Engineer,4031454009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-04-28,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4031454009,"<div class=""title"">
+company,title,job_id,location,country,salary,remote,seniority,us_citizenship_required,security_clearance,relocation_assistance,source_platform,date_posted,scraped_at,apply_url,description_text,salary_currency
+Heart Aerospace,Battery Mechanical Design Engineer,4031454009,"Los Angeles, CA",United States of America,164500.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-04-28,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4031454009,"<div class=""title"">
 <p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
 <p>Heart Aerospace is seeking a highly motivated and experienced Battery Design Engineer to join our growing and dynamic team. In this role, you will be a key contributor to the design, development, testing, and optimization of advanced battery systems specifically designed for the demanding requirements of electric aerospace applications. You will leverage your deep understanding of design methodologies and approaches to drive innovation and ensure the highest levels of performance, safety and reliability. You will translate system-level requirements into robust, certifiable mechanical designs, playing a critical role in electrifying the future of flight.&nbsp;</p>
@@ -39,8 +39,8 @@ Heart Aerospace,Battery Mechanical Design Engineer,4031454009,"Los Angeles, CA",
 </ul>
 </div>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
-<div class=""pay-range""><strong>$113,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
-Heart Aerospace,Battery Test & Validation Engineer (High Voltage Packs & Modules),4013408009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013408009,"<div class=""title"">
+<div class=""pay-range""><strong>$113,000<span class=""divider"">—</span>$216,000 USD</strong></div>",USD
+Heart Aerospace,Battery Test & Validation Engineer (High Voltage Packs & Modules),4013408009,"Los Angeles, CA",United States of America,178000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013408009,"<div class=""title"">
 <p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
 <p>Heart Aerospace is seeking a highly motivated and experienced Battery Test &amp; Validation Engineer to join our growing and dynamic team. In this role, you will be a key contributor to the development, testing, and optimization of advanced battery cells specifically designed for the demanding requirements of electric aerospace applications. You will leverage your deep understanding of Test &amp; Validation methodologies and approach to drive innovation and ensure the highest levels of performance, safety and reliability.</p>
@@ -87,8 +87,8 @@ Heart Aerospace,Battery Test & Validation Engineer (High Voltage Packs & Modules
 </ul>
 </div>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
-<div class=""pay-range""><strong>$140,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
-Heart Aerospace,Business Development Lead,4238003009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-05-01,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4238003009,"<div class=""pay-range"">
+<div class=""pay-range""><strong>$140,000<span class=""divider"">—</span>$216,000 USD</strong></div>",USD
+Heart Aerospace,Business Development Lead,4238003009,"Los Angeles, CA",United States of America,195000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-05-01,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4238003009,"<div class=""pay-range"">
 <p>At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric airplane capable of carrying 30 passengers, boasting an electric zero-emission range of 125 mi and a hybrid range of 500 mi. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p>As we scale our aircraft program, we are also building a component business around core aircraft systems we develop in-house, including flight control actuation and energy systems. These products reflect the same philosophy as our aircraft: software-defined, and designed for performance, reliability, and cost.</p>
 <p><strong><u>Your mission</u></strong><u>:</u></p>
@@ -126,7 +126,7 @@ Heart Aerospace,Business Development Lead,4238003009,"Los Angeles, CA",United St
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
 <div class=""pay-range""><strong>$170,000<span class=""divider"">—</span>$220,000 USD</strong></div>
 </div>
-<p>&nbsp;</p>"
+<p>&nbsp;</p>",USD
 Heart Aerospace,Buyer II,4211913009,"Los Angeles, CA",United States of America,"$75,000 - $95,000",hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-04-09,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4211913009,"<div class=""pay-range"">
 <p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.&nbsp;</p>
 <p><strong><u>Your mission</u></strong><u>:</u></p>
@@ -176,8 +176,8 @@ Heart Aerospace,Buyer II,4211913009,"Los Angeles, CA",United States of America,"
 <p><strong><u>Base Pay Range:</u></strong></p>
 <p><strong>$75,000 - $95,000 USD.</strong></p>
 </div>
-<p>&nbsp;</p>"
-Heart Aerospace,Electrical Engineer,4030265009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4030265009,"<p>At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric airplane capable of carrying 30 passengers, boasting an electric zero-emission range of 200 km and an extended hybrid range of 800 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p>&nbsp;</p>",
+Heart Aerospace,Electrical Engineer,4030265009,"Los Angeles, CA",United States of America,164500.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4030265009,"<p>At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric airplane capable of carrying 30 passengers, boasting an electric zero-emission range of 200 km and an extended hybrid range of 800 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p>As we transition from prototype to production, we are expanding our in-house electronics capability to deliver flight-worthy actuators, controls, and monitoring systems that match the ambition of our aircraft.</p>
 <p><strong>Your mission</strong></p>
 <p><span data-contrast=""auto"">We are seeking a Electrical Engineer who excels in owning the full printed-circuit-board assembly (PCBA) lifecycle—from concept and schematic capture through layout, verification, and manufacturing release. In this role, you will design multiple boards in parallel, coordinate build schedules, and work closely with software and mechanical teams to deliver tightly integrated subsystems for flight-critical applications.&nbsp;</span></p>
@@ -209,8 +209,8 @@ Heart Aerospace,Electrical Engineer,4030265009,"Los Angeles, CA",United States o
 <li>Bachelor’s or master's in electrical engineering (or equivalent).</li>
 </ul>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
-<div class=""pay-range""><strong>$113,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
-Heart Aerospace,Electric Motor Design Engineer,4013301009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013301009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<div class=""pay-range""><strong>$113,000<span class=""divider"">—</span>$216,000 USD</strong></div>",USD
+Heart Aerospace,Electric Motor Design Engineer,4013301009,"Los Angeles, CA",United States of America,170000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013301009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
 <p>We are seeking a highly motivated Electric Motor Design Engineer to join our Propulsion team. You will lead the design and development of the HV electric motors for our aircraft’s hybrid propulsion. You will interface across mechanical, thermal, power electronics, airframe, and battery teams to deliver a fully integrated and certifiable hybrid Electric Propulsion Unit (EPU).</p>
 <p><strong>Key responsibilities include but are not limited to:</strong></p>
@@ -243,8 +243,8 @@ Heart Aerospace,Electric Motor Design Engineer,4013301009,"Los Angeles, CA",Unit
 </ul>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
 <div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$216,000 USD</strong></div>
-<p>&nbsp;</p>"
-Heart Aerospace,"Executive Operations Partner, Office of the CEO (OCEO)",4228123009,"Torrance, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-05-08,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4228123009,"<p><strong>Executive Operations Partner, Office of the CEO (OCEO)</strong></p>
+<p>&nbsp;</p>",USD
+Heart Aerospace,"Executive Operations Partner, Office of the CEO (OCEO)",4228123009,"Torrance, CA",United States of America,109000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-05-08,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4228123009,"<p><strong>Executive Operations Partner, Office of the CEO (OCEO)</strong></p>
 <p class=""p1"">At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric commercial aircraft<br>capable of carrying 30 passengers, boasting an all-electric, zero-emission range of 125 mi and a<br>hybrid-electric range of 500 mi. Heart is targeting type certification of the ES-30 by the end of the<br>decade.</p>
 <p class=""p1"">Heart’s Executive Leadership Team (ELT) is focused on delivering the company’s next critical phase:<br>achieving first flight of our X1 full-scale demonstrator aircraft, advancing the X2 prototype program,<br>progressing strategic planning and fundraising efforts, and preparing the company for<br>industrialization and production. This is a period of high intensity, rapid decision-making, and strident<br>execution requiring tight coordination across engineering, operations, commercial, and corporate<br>functions.</p>
 <p class=""p1""><strong>Your Mission:</strong></p>
@@ -300,8 +300,8 @@ Heart Aerospace,"Executive Operations Partner, Office of the CEO (OCEO)",4228123
 <li class=""p1"">Ability to maintain a high level of responsiveness outside standard business hours as needed</li>
 </ul>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
-<div class=""pay-range""><strong>$98,000<span class=""divider"">—</span>$120,000 USD</strong></div>"
-Heart Aerospace,Flight Systems Engineer,4007362009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4007362009,"<p data-rx-type=""text"" data-rx-first-level=""true"">At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric airplane capable of carrying 30 passengers, boasting an electric zero-emission range of 200 km and an extended hybrid range of 800 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<div class=""pay-range""><strong>$98,000<span class=""divider"">—</span>$120,000 USD</strong></div>",USD
+Heart Aerospace,Flight Systems Engineer,4007362009,"Los Angeles, CA",United States of America,178000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4007362009,"<p data-rx-type=""text"" data-rx-first-level=""true"">At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric airplane capable of carrying 30 passengers, boasting an electric zero-emission range of 200 km and an extended hybrid range of 800 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p data-rx-type=""text"" data-rx-first-level=""true""><strong>Your mission</strong></p>
 <p data-rx-type=""text"" data-rx-first-level=""true"">We are seeking a highly motivated Flight Systems Engineer to join our Mechanisms team. You will play a crucial role in the system-level design, bring up, debugging, and certification of distributed systems across the ES-30 aircraft. You'll collaborate with cross-functional teams to design and certify the first commercial electric-hybrid aircraft.</p>
 <p data-rx-type=""text"" data-rx-first-level=""true""><strong>Key responsibilities include but are not limited to:</strong></p>
@@ -330,8 +330,8 @@ Heart Aerospace,Flight Systems Engineer,4007362009,"Los Angeles, CA",United Stat
 <li data-rx-type=""listitem"">Bachelor's or master's degree in electrical engineering, Mechanical Engineering, Computer Science, Aerospace Engineering, or related field.</li>
 </ul>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
-<div class=""pay-range""><strong>$118,000<span class=""divider"">—</span>$238,000 USD</strong></div>"
-Heart Aerospace,Integration Engineer,4034474009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4034474009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<div class=""pay-range""><strong>$118,000<span class=""divider"">—</span>$238,000 USD</strong></div>",USD
+Heart Aerospace,Integration Engineer,4034474009,"Los Angeles, CA",United States of America,150000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4034474009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
 <p><span data-contrast=""auto"">We are looking for a highly motivated, hands-on Integration Engineer to lead the mechanical and electrical integration of critical subsystems across our hybrid-electric aircraft platform. You will be responsible for bridging design, manufacturing, final assembly, and testing to ensure that complex systems come together seamlessly from prototype through rate production.</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
 <p><span data-contrast=""auto"">This is a cross-disciplinary role at the heart of aircraft development, where attention to detail, fast-paced execution, and strong problem-solving instincts are key. You’ll work side-by-side with design engineers, manufacturing, and technicians on the production floor to turn ambitious designs into high-performance, certifiable products.</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
@@ -378,8 +378,8 @@ Heart Aerospace,Integration Engineer,4034474009,"Los Angeles, CA",United States 
 </ul>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
 <div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$176,000 USD</strong></div>
-<p>&nbsp;</p>"
-Heart Aerospace,Manufacturing Engineer,4034433009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4034433009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p>&nbsp;</p>",USD
+Heart Aerospace,Manufacturing Engineer,4034433009,"Los Angeles, CA",United States of America,150000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4034433009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
 <p><span data-contrast=""auto"">We are seeking a hands-on, driven Manufacturing Engineer to lead key builds for the ES-30 hybrid-electric aircraft. As we continue to expand our vertical integration, this role offers a unique opportunity to take full ownership of manufacturing process development, from design to achieving production rate.</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
 <p><span data-contrast=""auto"">You will play a critical role in Heart’s success, working closely with technicians, design engineers, and supply chain partners to bring complex components and assemblies from prototype to scalable production. This is a highly collaborative, fast-paced role at the core of our mission to revolutionize regional air travel.</span><span data-ccp-props=""{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"">&nbsp;</span></p>
@@ -430,7 +430,7 @@ Heart Aerospace,Manufacturing Engineer,4034433009,"Los Angeles, CA",United State
 </ul>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
 <div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$176,000 USD</strong></div>
-<p>&nbsp;</p>"
+<p>&nbsp;</p>",USD
 Heart Aerospace,"Mechanical Design, Structures & Airframe – Engineer II/Senior",4234167009,"Los Angeles, CA",United States of America,"$124,000 - $155,000; $140,000 - $176,000",hybrid,Senior,unknown,unknown,unknown,greenhouse,2026-04-28,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4234167009,"<p>At&nbsp;Heart Aerospace, we’re shaping the future of sustainable aviation with the ES-30, a regional hybrid-electric aircraft designed to carry 30 passengers with a 200 km all-electric, zero-emission range and an extended 400 km hybrid range. Heart is targeting type certification by the end of the decade.</p>
 <p><strong>Your Mission</strong></p>
 <p>As a Mechanical Design Engineer, Structures &amp; Airframe, you will design, analyze, and develop aircraft structural components. You will collaborate cross functionally to the design of the fuselage, wing, and empennage, working with both composite and metallic materials, while gaining hands-on exposure to certified aerospace hardware development in a fast-paced, collaborative environment.</p>
@@ -488,7 +488,7 @@ Heart Aerospace,"Mechanical Design, Structures & Airframe – Engineer II/Senior
 <ul>
 <li style=""font-weight: bold;""><strong>Mechanical Design Engineer II - $124,000 - $155,000.</strong></li>
 <li style=""font-weight: bold;""><strong>Senior Mechanical Design Engineer - $140,000 - $176,000.</strong></li>
-</ul>"
+</ul>",
 Heart Aerospace,Open Application,4013769009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2025-10-15,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013769009,"<p>We are building a team at our Headquarters here in Los Angeles and are looking for passionate individuals to join our team!</p>
 <p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.&nbsp;</p>
 <p>If you are interested in joining our dynamic team in Los Angeles but don't see a current job opening that fits your profile, we encourage you to submit an Open Application. Share with us why you’re interested in being part of our team and how you can contribute to our mission of making electric air travel a reality.</p>
@@ -506,8 +506,8 @@ Heart Aerospace,Open Application,4013769009,"Los Angeles, CA",United States of A
 <li><span data-contrast=""none"">Flight Software</span>&nbsp;</li>
 </ul>
 <p>&nbsp;</p>
-</div>"
-Heart Aerospace,Power Electronics Engineer,4013303009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-01-26,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013303009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+</div>",
+Heart Aerospace,Power Electronics Engineer,4013303009,"Los Angeles, CA",United States of America,170000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-01-26,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013303009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
 <p>We are seeking a highly motivated Power Electronics Engineer to join our Propulsion team. You will lead the design and integration of the hybrid propulsion, including but not limited to the inverters, motors, HV cables, with batteries, and in parallel with Turbomachinery. You will interface across mechanical, thermal, electrical, and flight control systems to deliver a fully integrated and certifiable hybrid Electric Propulsion Unit (EPU).</p>
 <p><strong>Key responsibilities include but are not limited to:</strong></p>
@@ -543,8 +543,8 @@ Heart Aerospace,Power Electronics Engineer,4013303009,"Los Angeles, CA",United S
 <li>Master’s or PhD degree in Electrical Engineering with focus on Power Electronics, or Power Systems.</li>
 </ul>
 <div class=""title""><strong>Base Pay Range:</strong></div>
-<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
-Heart Aerospace,Production Supervisor,4013344009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2025-10-15,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013344009,"<div class=""title"">
+<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$216,000 USD</strong></div>",USD
+Heart Aerospace,Production Supervisor,4013344009,"Los Angeles, CA",United States of America,130000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2025-10-15,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013344009,"<div class=""title"">
 <p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission </strong></p>
 <p>As an innovative aerospace company entering production, we are seeking a highly motivated, hands-on Production Supervisor to lead and shape the foundation of our manufacturing operations. You’ll be the first in this critical role, with the opportunity to influence everything from layout design to process systems, ensuring a world-class operation from day one.</p>
@@ -592,8 +592,8 @@ Heart Aerospace,Production Supervisor,4013344009,"Los Angeles, CA",United States
 <p>Your place of work will be at our office located in El Segundo, CA. Some domestic travel may be required.</p>
 </div>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
-<div class=""pay-range""><strong>$105,000<span class=""divider"">—</span>$155,000 USD</strong></div>"
-Heart Aerospace,Propulsion Test Engineer,4013335009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013335009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<div class=""pay-range""><strong>$105,000<span class=""divider"">—</span>$155,000 USD</strong></div>",USD
+Heart Aerospace,Propulsion Test Engineer,4013335009,"Los Angeles, CA",United States of America,170000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013335009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your Mission</strong></p>
 <p>We are seeking a Propulsion Engineer to join our Dynamic Propulsion team in Torrance, CA. You will lead the testing, validation and certification of the aircraft’s hybrid-electric powertrain system. You will also interface across mechanical, thermal, propulsion, actuation, avionics, and battery teams to develop, execute, and analyze integrated system-level tests of the Electric Propulsion Unit (EPU) and its subsystems.</p>
 <p><strong>Key responsibilities include but are not limited to:</strong></p>
@@ -629,8 +629,8 @@ Heart Aerospace,Propulsion Test Engineer,4013335009,"Los Angeles, CA",United Sta
 </ul>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
 <div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$216,000 USD</strong></div>
-<p>&nbsp;</p>"
-Heart Aerospace,Propulsion Transmission Engineer,4007164009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4007164009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<p>&nbsp;</p>",USD
+Heart Aerospace,Propulsion Transmission Engineer,4007164009,"Los Angeles, CA",United States of America,139500.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4007164009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
 <p>As a Propulsion Engineer focused on Transmission, you will be essential in designing, developing, and integrating the mechanical power transmission system within our hybrid-electric propulsion framework. Transmission system includes but is not limited to shaft, drive shafts, couplings, gearbox, and disconnect systems. You will collaborate closely with teams from various disciplines, including electric propulsion, turbomachinery, software, and structural engineering, to create robust, lightweight, and high-efficiency transmission solutions. This role demands a high level of technical expertise in mechanical design and a strong understanding of propulsion systems.</p>
 <p><strong>Key responsibilities include but are not limited to:</strong></p>
@@ -664,7 +664,7 @@ Heart Aerospace,Propulsion Transmission Engineer,4007164009,"Los Angeles, CA",Un
 <li>Master’s or PhD degree in in Aerospace Engineering, Mechanical Engineering, or a relevant discipline.</li>
 </ul>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
-<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$155,000 USD</strong></div>"
+<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$155,000 USD</strong></div>",USD
 Heart Aerospace,Prototype Workshop Technician,4013390009,"Los Angeles, CA",United States of America,$30/HR; $45/HR,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013390009,"<div class=""title"">
 <p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
@@ -704,8 +704,8 @@ Heart Aerospace,Prototype Workshop Technician,4013390009,"Los Angeles, CA",Unite
 </ul>
 </div>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
-<div class=""pay-range""><strong>$30/HR<span class=""divider"">—</span>$45/HR USD</strong></div>"
-Heart Aerospace,"Senior/Staff Mechanical Design Engineer, Flight Mechanisms",4164073009,"Los Angeles, CA",United States of America,,hybrid,Principal,unknown,unknown,unknown,greenhouse,2026-06-08,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4164073009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+<div class=""pay-range""><strong>$30/HR<span class=""divider"">—</span>$45/HR USD</strong></div>",
+Heart Aerospace,"Senior/Staff Mechanical Design Engineer, Flight Mechanisms",4164073009,"Los Angeles, CA",United States of America,178000.0,hybrid,Principal,unknown,unknown,unknown,greenhouse,2026-06-08,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4164073009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
 <p><span data-contrast=""auto"">As part of the Flight Mechanisms team, you will be responsible for design, development, validation, and eventually certification of components including primary and secondary flight control actuators, propulsion and landing gear components, and environmental control (ECS) components. You will work with electrical, software, and mechanical engineers across teams to build and fly complex systems.</span></p>
 <p><strong>Key responsibilities include but are not limited </strong></p>
@@ -742,7 +742,7 @@ Heart Aerospace,"Senior/Staff Mechanical Design Engineer, Flight Mechanisms",416
 <li data-rx-type=""listitem"">Bachelor's in mechanical engineering, computer science, electrical engineering, or similar engineering discipline.</li>
 </ul>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
-<div class=""pay-range""><strong>$140,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
+<div class=""pay-range""><strong>$140,000<span class=""divider"">—</span>$216,000 USD</strong></div>",USD
 Heart Aerospace,"Senior/Staff Software Engineer, Flight Software",4137072009,"Los Angeles, CA",United States of America,"$155,000 —$193,000; $190,000 —$238,000",hybrid,Principal,unknown,unknown,unknown,greenhouse,2026-03-13,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4137072009,"<p>Los Angeles, CA</p>
 <p><strong>Role Overview:</strong></p>
 <p>At Heart Aerospace we are developing the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
@@ -816,7 +816,7 @@ Heart Aerospace,"Senior/Staff Software Engineer, Flight Software",4137072009,"Lo
 <ul>
 <li>Senior Software Engineer: $155,000 —$193,000 USD.</li>
 <li>Staff Software Engineer: $190,000 —$238,000 USD.</li>
-</ul>"
+</ul>",
 Heart Aerospace,"Software Engineer I/II, Flight Software",4013531009,"Los Angeles, CA",United States of America,"$119,000—$149,000; $137,000—$171,000",hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-03-04,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4013531009,"<p>Los Angeles, CA</p>
 <p>At Heart Aerospace we are developing the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
@@ -868,7 +868,7 @@ Heart Aerospace,"Software Engineer I/II, Flight Software",4013531009,"Los Angele
 <ul>
 <li>Software Engineer I: $119,000—$149,000 USD.</li>
 <li>Software Engineer II: $137,000—$171,000 USD.</li>
-</ul>"
+</ul>",
 Heart Aerospace,Structures Analyst – Engineer I/Engineer II,4008982009,"Los Angeles, CA",United States of America,"$108,000 - $135,000; $124,000 - $155,000",hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4008982009,"<p><strong>About Heart Aerospace</strong></p>
 <p>At Heart Aerospace, we are developing the ES-30, a regional hybrid-electric aircraft designed to decarbonize and democratize aviation. The ES-30 seats 30 passengers, with a zero-emission electric range of 200 km and an extended hybrid range of 400 km. Heart is targeting type certification by the end of the decade.</p>
 <p><strong>Your Mission</strong></p>
@@ -925,8 +925,8 @@ Heart Aerospace,Structures Analyst – Engineer I/Engineer II,4008982009,"Los An
 <ul>
 <li style=""font-weight: bold;""><strong>Structures Analyst I - $108,000 - $135,000.</strong></li>
 <li style=""font-weight: bold;""><strong>Structures Analyst II - $124,000 - $155,000.</strong></li>
-</ul>"
-Heart Aerospace,Turbomachinery Engineer,4008983009,"Los Angeles, CA",United States of America,,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4008983009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 800 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
+</ul>",
+Heart Aerospace,Turbomachinery Engineer,4008983009,"Los Angeles, CA",United States of America,170000.0,hybrid,Mid,unknown,unknown,unknown,greenhouse,2026-02-06,2026-06-12T20:14:13Z,https://job-boards.greenhouse.io/heartaerospace/jobs/4008983009,"<p>At Heart Aerospace we develop the ES-30, a regional hybrid-electric airplane with a capacity of 30 passengers, an electric zero-emission range of 200 km and an extended hybrid range of 800 km. Heart is targeting type certification of the ES-30 by the end of the decade.</p>
 <p><strong>Your mission</strong></p>
 <p>We are seeking a highly motivated Turbomachinery Engineer to join our Propulsion team. You will lead the design and integration of the turbomachinery components, including the fuel system and pitch control system. You will interface across mechanical, thermal, electrical, and control systems to deliver a fully integrated and certifiable propulsion unit.</p>
 <p><strong>Key responsibilities include but are not limited to:</strong></p>
@@ -957,4 +957,4 @@ Heart Aerospace,Turbomachinery Engineer,4008983009,"Los Angeles, CA",United Stat
 <li>Bachelor’s or Master’s degree in Mechanical, Aerospace, or Mechatronics Engineering (or similar).</li>
 </ul>
 <div class=""title""><strong>Base Pay Range:&nbsp;</strong></div>
-<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$216,000 USD</strong></div>"
+<div class=""pay-range""><strong>$124,000<span class=""divider"">—</span>$216,000 USD</strong></div>",USD
