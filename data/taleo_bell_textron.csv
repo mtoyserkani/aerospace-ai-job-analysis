@@ -1,4 +1,4 @@
-company,title,job_id,location,country,salary,remote,seniority,us_citizenship_required,security_clearance,relocation_assistance,source_platform,date_posted,scraped_at,apply_url,description_text
+company,title,job_id,location,country,salary,remote,seniority,us_citizenship_required,security_clearance,relocation_assistance,source_platform,date_posted,scraped_at,apply_url,description_text,salary_currency
 Bell (Textron),Trade Compliance Senior Analyst,1540133,"Texas, Fort Worth",United States of America,,onsite,Senior,us_person,Secret,yes,taleo,2026-06-16,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1540133,"Job Description - Trade Compliance Senior Analyst (342895)
  
 Trade Compliance Senior Analyst
@@ -94,7 +94,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Relocation Unavailable
-Job Posting 06/16/2026, 3:51:02 PM"
+Job Posting 06/16/2026, 3:51:02 PM",
 Bell (Textron),"Part-Time Communications & Events Specialist - Amarillo, TX",1537295,"Texas, Amarillo",United States of America,,onsite,Mid,us_person,unknown,yes,taleo,2026-06-16,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537295,"Job Description - Part-Time Communications & Events Specialist - Amarillo, TX (341408)
  
 Part-Time Communications & Events Specialist - Amarillo, TX
@@ -181,7 +181,7 @@ Job Level Individual Contributor
 Shift First Shift
 Relocation Unavailable
 Worksite Onsite
-Job Posting 06/16/2026, 3:22:51 PM"
+Job Posting 06/16/2026, 3:22:51 PM",
 Bell (Textron),Military Supply Support Admin (Fort Worth Logistics Center),1537715,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-16,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537715,"Job Description - Military Supply Support Admin (Fort Worth Logistics Center) (341682)
  
 Military Supply Support Admin (Fort Worth Logistics Center)
@@ -270,7 +270,7 @@ Job Field Product Support
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/16/2026, 1:45:40 PM"
+Job Posting 06/16/2026, 1:45:40 PM",
 Bell (Textron),Government Furnished Property Specialist - 1st Shift (Fort Worth Logistics Center),1537435,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-16,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537435,"Job Description - Government Furnished Property Specialist - 1st Shift (Fort Worth Logistics Center) (341524)
  
 Government Furnished Property Specialist - 1st Shift (Fort Worth Logistics Center)
@@ -336,7 +336,7 @@ Job Field Product Support
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/16/2026, 1:40:40 PM"
+Job Posting 06/16/2026, 1:40:40 PM",
 Bell (Textron),Government Furnished Property Specialist - 1st Shift (Fort Worth Logistics Center),1537753,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-16,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537753,"Job Description - Government Furnished Property Specialist - 1st Shift (Fort Worth Logistics Center) (341684)
  
 Government Furnished Property Specialist - 1st Shift (Fort Worth Logistics Center)
@@ -402,7 +402,7 @@ Job Field Product Support
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/16/2026, 1:37:22 PM"
+Job Posting 06/16/2026, 1:37:22 PM",
 Bell (Textron),"Superviseur.eure, d'organisme technique acceptable (OTA) (Gatineau, Qc)/ Acceptable Technical Organization (ATO) Supervisor (Gatineau, Qc).",1534976,"CA, Quebec, Gatineau",United States of America,,onsite,Mid,us_person,Secret,unknown,taleo,2026-06-15,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1534976,"Job Description - Superviseur.eure, d'organisme technique acceptable (OTA) (Gatineau, Qc)/ Acceptable Technical Organization (ATO) Supervisor (Gatineau, Qc). (340041)
  
 Superviseur.eure, d'organisme technique acceptable (OTA) (Gatineau, Qc)/ Acceptable Technical Organization (ATO) Supervisor (Gatineau, Qc).
@@ -578,7 +578,7 @@ Job Field Engineering
 Schedule Full-time
 Job Level Manager with Direct Reports
 Shift First Shift
-Job Posting 06/15/2026, 3:32:30 PM"
+Job Posting 06/15/2026, 3:32:30 PM",
 Bell (Textron),Structures Mechanic (Experienced),1539766,"Tennessee, Piney Flats",United States of America,,onsite,Mid,us_person,unknown,yes,taleo,2026-06-15,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1539766,"Job Description - Structures Mechanic (Experienced) (342627)
  
 Structures Mechanic (Experienced)
@@ -665,7 +665,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Relocation Unavailable
-Job Posting 06/15/2026, 1:31:41 PM"
+Job Posting 06/15/2026, 1:31:41 PM",
 Bell (Textron),Milling Mach Opr A - 2nd shift MTC,1537007,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-11,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537007,"Job Description - Milling Mach Opr A - 2nd shift MTC (341269)
  
 Milling Mach Opr A - 2nd shift MTC
@@ -719,7 +719,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift Second Shift
-Job Posting 06/11/2026, 10:04:17 AM"
+Job Posting 06/11/2026, 10:04:17 AM",
 Bell (Textron),Mfg Eng Resource Planner III,1535864,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-11,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1535864,"Job Description - Mfg Eng Resource Planner III (340573)
  
 Mfg Eng Resource Planner III
@@ -810,7 +810,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/11/2026, 9:38:50 AM"
+Job Posting 06/11/2026, 9:38:50 AM",
 Bell (Textron),Gear Cut & Grind (Machinist Intern) - DSC 1st Shift,1535593,"Texas, Fort Worth",United States of America,,onsite,Junior,us_person,unknown,unknown,taleo,2026-06-11,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1535593,"Job Description - Gear Cut & Grind (Machinist Intern) - DSC 1st Shift (340384)
  
 Gear Cut & Grind (Machinist Intern) - DSC 1st Shift
@@ -859,7 +859,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/11/2026, 9:33:59 AM"
+Job Posting 06/11/2026, 9:33:59 AM",
 Bell (Textron),CRM Sales Enablement Specialist - Onsite,1539666,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,yes,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1539666,"Job Description - CRM Sales Enablement Specialist - Onsite (342535)
  
 CRM Sales Enablement Specialist - Onsite
@@ -981,7 +981,7 @@ Shift First Shift
 Travel Yes, 10 % of the Time
 Relocation Unavailable
 Worksite Onsite
-Job Posting 06/10/2026, 4:43:22 PM"
+Job Posting 06/10/2026, 4:43:22 PM",
 Bell (Textron),Hone Operator - 2nd shift - RSC,1534924,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1534924,"Job Description - Hone Operator - 2nd shift - RSC (339968)
  
 Hone Operator - 2nd shift - RSC
@@ -1033,7 +1033,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift Second Shift
 Worksite Onsite
-Job Posting 06/10/2026, 4:08:39 PM"
+Job Posting 06/10/2026, 4:08:39 PM",
 Bell (Textron),Grinder Production A - 1st Shift (DSC),1537592,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537592,"Job Description - Grinder Production A - 1st Shift (DSC) (341605)
  
 Grinder Production A - 1st Shift (DSC)
@@ -1082,7 +1082,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/10/2026, 4:06:57 PM"
+Job Posting 06/10/2026, 4:06:57 PM",
 Bell (Textron),Sand Blaster - 2nd shift - Rotors,1538076,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1538076,"Job Description - Sand Blaster - 2nd shift - Rotors (341834)
  
 Sand Blaster - 2nd shift - Rotors
@@ -1126,7 +1126,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift Second Shift
 Worksite Onsite
-Job Posting 06/10/2026, 2:18:44 PM"
+Job Posting 06/10/2026, 2:18:44 PM",
 Bell (Textron),Gear Cutter & Grinder A DSC - 2nd Shift,1532434,"Texas, Grand Prairie",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1532434,"Job Description - Gear Cutter & Grinder A DSC - 2nd Shift (338609)
  
 Gear Cutter & Grinder A DSC - 2nd Shift
@@ -1193,7 +1193,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift Second Shift
 Worksite Onsite
-Job Posting 06/10/2026, 12:49:00 PM"
+Job Posting 06/10/2026, 12:49:00 PM",
 Bell (Textron),"Ultrasonic Inspector (Level II UT, ET) 2nd Shift",1537869,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537869,"Job Description - Ultrasonic Inspector (Level II UT, ET) 2nd Shift (341749)
  
 Ultrasonic Inspector (Level II UT, ET) 2nd Shift
@@ -1269,7 +1269,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift Second Shift
 Worksite Onsite
-Job Posting 06/10/2026, 10:34:56 AM"
+Job Posting 06/10/2026, 10:34:56 AM",
 Bell (Textron),Material Bonder A - 1st Shift (ROC),1538149,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1538149,"Job Description - Material Bonder A - 1st Shift (ROC) (341835)
  
 Material Bonder A - 1st Shift (ROC)
@@ -1316,7 +1316,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/10/2026, 9:16:02 AM"
+Job Posting 06/10/2026, 9:16:02 AM",
 Bell (Textron),Material Bonder A - 1st Shift (ROC),1538130,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1538130,"Job Description - Material Bonder A - 1st Shift (ROC) (341833)
  
 Material Bonder A - 1st Shift (ROC)
@@ -1363,7 +1363,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/10/2026, 9:12:02 AM"
+Job Posting 06/10/2026, 9:12:02 AM",
 Bell (Textron),Material Bonder A - 1st Shift (ROC),1538128,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1538128,"Job Description - Material Bonder A - 1st Shift (ROC) (341830)
  
 Material Bonder A - 1st Shift (ROC)
@@ -1410,7 +1410,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/10/2026, 8:33:53 AM"
+Job Posting 06/10/2026, 8:33:53 AM",
 Bell (Textron),Painter A/C&Maint A - 1st Shift (ROC),1538260,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1538260,"Job Description - Painter A/C&Maint A - 1st Shift (ROC) (341894)
  
 Painter A/C&Maint A - 1st Shift (ROC)
@@ -1459,7 +1459,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/10/2026, 8:28:50 AM"
+Job Posting 06/10/2026, 8:28:50 AM",
 Bell (Textron),Customer Service Engineer,1538067,India,United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-10,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1538067,"Job Description - Customer Service Engineer (341810)
  
 Customer Service Engineer
@@ -1590,7 +1590,7 @@ Job Field Product Support
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/10/2026, 12:42:41 AM"
+Job Posting 06/10/2026, 12:42:41 AM",
 Bell (Textron),Mfg Eng Resource Planner III,1537449,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-09,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537449,"Job Description - Mfg Eng Resource Planner III (341467)
  
 Mfg Eng Resource Planner III
@@ -1679,7 +1679,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/09/2026, 1:32:11 PM"
+Job Posting 06/09/2026, 1:32:11 PM",
 Bell (Textron),Mfg Eng Resource Planner III,1537466,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-09,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537466,"Job Description - Mfg Eng Resource Planner III (341468)
  
 Mfg Eng Resource Planner III
@@ -1768,7 +1768,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/09/2026, 1:29:56 PM"
+Job Posting 06/09/2026, 1:29:56 PM",
 Bell (Textron),Mfg Eng Resource Planner III,1536266,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-09,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536266,"Job Description - Mfg Eng Resource Planner III (340856)
  
 Mfg Eng Resource Planner III
@@ -1859,7 +1859,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/09/2026, 1:27:11 PM"
+Job Posting 06/09/2026, 1:27:11 PM",
 Bell (Textron),Mfg Eng Resource Planner III,1535866,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-09,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1535866,"Job Description - Mfg Eng Resource Planner III (340575)
  
 Mfg Eng Resource Planner III
@@ -1950,7 +1950,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/09/2026, 1:26:42 PM"
+Job Posting 06/09/2026, 1:26:42 PM",
 Bell (Textron),"Ingénieur(e), Avionique Senior 412 / SeniorAvionics Engineer 412",1536317,"CA, Quebec, Mirabel",United States of America,,onsite,Senior,us_person,unknown,unknown,taleo,2026-06-09,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536317,"Job Description - Ingénieur(e), Avionique Senior 412 / SeniorAvionics Engineer 412 (340892)
  
 Ingénieur(e), Avionique Senior 412 / SeniorAvionics Engineer 412
@@ -2128,7 +2128,7 @@ Job Field Engineering
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/09/2026, 7:49:21 AM"
+Job Posting 06/09/2026, 7:49:21 AM",
 Bell (Textron),Turning Mach Opr - 1st Shift MTC,1536952,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-08,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536952,"Job Description - Turning Mach Opr - 1st Shift MTC (341267)
  
 Turning Mach Opr - 1st Shift MTC
@@ -2175,7 +2175,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/08/2026, 4:53:56 PM"
+Job Posting 06/08/2026, 4:53:56 PM",
 Bell (Textron),Gear Cut & Grind A - 1st Shift MTC,1537026,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-08,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537026,"Job Description - Gear Cut & Grind A - 1st Shift MTC (341268)
  
 Gear Cut & Grind A - 1st Shift MTC
@@ -2219,7 +2219,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/08/2026, 4:00:41 PM"
+Job Posting 06/08/2026, 4:00:41 PM",
 Bell (Textron),Mfg Eng Resource Prgm III,1536868,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-08,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536868,"Job Description - Mfg Eng Resource Prgm III (341217)
  
 Mfg Eng Resource Prgm III
@@ -2294,7 +2294,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/08/2026, 3:48:41 PM"
+Job Posting 06/08/2026, 3:48:41 PM",
 Bell (Textron),Mfg Eng Resource Prgm III,1537310,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-08,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537310,"Job Description - Mfg Eng Resource Prgm III (341417)
  
 Mfg Eng Resource Prgm III
@@ -2369,7 +2369,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/08/2026, 3:43:53 PM"
+Job Posting 06/08/2026, 3:43:53 PM",
 Bell (Textron),Mfg Eng Resource Prgm III,1536474,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-08,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536474,"Job Description - Mfg Eng Resource Prgm III (340991)
  
 Mfg Eng Resource Prgm III
@@ -2444,7 +2444,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/08/2026, 3:33:06 PM"
+Job Posting 06/08/2026, 3:33:06 PM",
 Bell (Textron),Technicien en conception Design / Design Technician,1539228,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,unknown,unknown,unknown,taleo,2026-06-08,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1539228,"Job Description - Technicien en conception Design / Design Technician (342420)
  
 Technicien en conception Design / Design Technician
@@ -2620,7 +2620,7 @@ Job Field Engineering
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/08/2026, 10:23:47 AM"
+Job Posting 06/08/2026, 10:23:47 AM",
 Bell (Textron),Ingénieur en assurance de la conception d'équipements électroniques /Electronic Equipment Design Assurance engineer,1530522,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,unknown,unknown,unknown,taleo,2026-06-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1530522,"Job Description - Ingénieur en assurance de la conception d'équipements électroniques /Electronic Equipment Design Assurance engineer (337778)
  
 Ingénieur en assurance de la conception d'équipements électroniques /Electronic Equipment Design Assurance engineer
@@ -2789,7 +2789,7 @@ Job Field Engineering
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/04/2026, 2:42:34 PM"
+Job Posting 06/04/2026, 2:42:34 PM",
 Bell (Textron),Heat Treater Specialist - 2nd Shift (DSC),1524367,"Texas, Grand Prairie",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1524367,"Job Description - Heat Treater Specialist - 2nd Shift (DSC) (336264)
  
 Heat Treater Specialist - 2nd Shift (DSC)
@@ -2824,7 +2824,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift Second Shift
-Job Posting 06/04/2026, 11:40:50 AM"
+Job Posting 06/04/2026, 11:40:50 AM",
 Bell (Textron),Grinder Production A - 3rd Shift (DSC),1532429,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1532429,"Job Description - Grinder Production A - 3rd Shift (DSC) (338603)
  
 Grinder Production A - 3rd Shift (DSC)
@@ -2873,7 +2873,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift Third Shift
-Job Posting 06/04/2026, 11:39:31 AM"
+Job Posting 06/04/2026, 11:39:31 AM",
 Bell (Textron),Gear Cutter & Grinder A DSC - 1st Shift,1533843,"Texas, Grand Prairie",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1533843,"Job Description - Gear Cutter & Grinder A DSC - 1st Shift (339439)
  
 Gear Cutter & Grinder A DSC - 1st Shift
@@ -2940,7 +2940,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Worksite Onsite
-Job Posting 06/04/2026, 11:37:22 AM"
+Job Posting 06/04/2026, 11:37:22 AM",
 Bell (Textron),Material Bonder A - 1st Shift (DSC),1532373,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,yes,taleo,2026-06-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1532373,"Job Description - Material Bonder A - 1st Shift (DSC) (338571)
  
 Material Bonder A - 1st Shift (DSC)
@@ -2994,7 +2994,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Relocation Unavailable
-Job Posting 06/04/2026, 10:07:35 AM"
+Job Posting 06/04/2026, 10:07:35 AM",
 Bell (Textron),Insp Mach Parts A,1536410,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,yes,taleo,2026-06-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536410,"Job Description - Insp Mach Parts A (340964)
  
 Insp Mach Parts A
@@ -3044,7 +3044,7 @@ Shift Second Shift
 Travel No
 Relocation Unavailable
 Worksite Onsite
-Job Posting 06/04/2026, 10:06:51 AM"
+Job Posting 06/04/2026, 10:06:51 AM",
 Bell (Textron),Material Bonder A - 1st Shift (ROC),1537292,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,yes,taleo,2026-06-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537292,"Job Description - Material Bonder A - 1st Shift (ROC) (341399)
  
 Material Bonder A - 1st Shift (ROC)
@@ -3088,7 +3088,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Relocation Unavailable
-Job Posting 06/04/2026, 10:06:26 AM"
+Job Posting 06/04/2026, 10:06:26 AM",
 Bell (Textron),Material Bonder A - 1st Shift (ROC),1537276,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,yes,taleo,2026-06-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537276,"Job Description - Material Bonder A - 1st Shift (ROC) (341398)
  
 Material Bonder A - 1st Shift (ROC)
@@ -3132,7 +3132,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Relocation Unavailable
-Job Posting 06/04/2026, 10:06:12 AM"
+Job Posting 06/04/2026, 10:06:12 AM",
 Bell (Textron),Heat Treater Specialist - 2nd Shift (DSC),1536546,"Texas, Grand Prairie",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536546,"Job Description - Heat Treater Specialist - 2nd Shift (DSC) (341001)
  
 Heat Treater Specialist - 2nd Shift (DSC)
@@ -3189,7 +3189,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift Second Shift
-Job Posting 06/04/2026, 10:05:55 AM"
+Job Posting 06/04/2026, 10:05:55 AM",
 Bell (Textron),Grinder Production A - 2nd Shift (DSC),1532723,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1532723,"Job Description - Grinder Production A - 2nd Shift (DSC) (338801)
  
 Grinder Production A - 2nd Shift (DSC)
@@ -3238,7 +3238,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift Second Shift
-Job Posting 06/04/2026, 9:15:19 AM"
+Job Posting 06/04/2026, 9:15:19 AM",
 Bell (Textron),Tool & Die Maker A,1537313,"Texas, Fort Worth",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-06-03,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537313,"Job Description - Tool & Die Maker A (341430)
  
 Tool & Die Maker A
@@ -3287,7 +3287,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 06/03/2026, 11:52:55 AM"
+Job Posting 06/03/2026, 11:52:55 AM",
 Bell (Textron),Senior SAP FICO Configuration Analyst - Fort Worth TX: On-site,1537646,"Texas, Fort Worth",United States of America,,onsite,Senior,us_person,unknown,yes,taleo,2026-06-01,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537646,"Job Description - Senior SAP FICO Configuration Analyst - Fort Worth TX: On-site (341621)
  
 Senior SAP FICO Configuration Analyst - Fort Worth TX: On-site
@@ -3378,7 +3378,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Relocation Unavailable
-Job Posting 06/01/2026, 4:36:11 PM"
+Job Posting 06/01/2026, 4:36:11 PM",
 Bell (Textron),Assembleur mécanique / Mechanical Assembler,1536593,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,unknown,unknown,unknown,taleo,2026-05-28,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536593,"Job Description - Assembleur mécanique / Mechanical Assembler (341043)
  
 Assembleur mécanique / Mechanical Assembler
@@ -3572,7 +3572,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 05/28/2026, 10:01:14 AM"
+Job Posting 05/28/2026, 10:01:14 AM",
 Bell (Textron),"Stage été 2026 - Technologie de l'information des systèmes de qualité / 2026 summer Internship - Quality Systems Information Technology (Mirabel, QC)",1538986,"CA, Quebec, Mirabel",United States of America,,onsite,Junior,unknown,unknown,unknown,taleo,2026-05-25,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1538986,"Job Description - Stage été 2026 - Technologie de l'information des systèmes de qualité / 2026 summer Internship - Quality Systems Information Technology (Mirabel, QC) (342324)
  
 Stage été 2026 - Technologie de l'information des systèmes de qualité / 2026 summer Internship - Quality Systems Information Technology (Mirabel, QC)
@@ -3632,7 +3632,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Travel No
-Job Posting 05/25/2026, 9:13:04 AM"
+Job Posting 05/25/2026, 9:13:04 AM",
 Bell (Textron),"Ingénieur(e), Avionique / Avionics Engineer",1530886,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-05-21,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1530886,"Job Description - Ingénieur(e), Avionique / Avionics Engineer (337941)
  
 Ingénieur(e), Avionique / Avionics Engineer
@@ -3818,7 +3818,7 @@ Job Field Engineering
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 05/21/2026, 11:43:43 AM"
+Job Posting 05/21/2026, 11:43:43 AM",
 Bell (Textron),"Ingénieur(e), Avionique / Avionics Engineer",1535505,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-05-21,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1535505,"Job Description - Ingénieur(e), Avionique / Avionics Engineer (340317)
  
 Ingénieur(e), Avionique / Avionics Engineer
@@ -4004,7 +4004,7 @@ Job Field Engineering
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 05/21/2026, 11:43:06 AM"
+Job Posting 05/21/2026, 11:43:06 AM",
 Bell (Textron),"Ingénieur(e), Avionique / Avionics Engineer",1533746,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-05-21,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1533746,"Job Description - Ingénieur(e), Avionique / Avionics Engineer (339381)
  
 Ingénieur(e), Avionique / Avionics Engineer
@@ -4190,7 +4190,7 @@ Job Field Engineering
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 05/21/2026, 11:42:20 AM"
+Job Posting 05/21/2026, 11:42:20 AM",
 Bell (Textron),"Stage automne 2026 - Chargé de projet en stratégie et gouvernance / 2026 été Internship - Project Manager in Strategy and Governance (Mirabel, QC)",1538522,"CA, Quebec, Mirabel",United States of America,,onsite,Manager,unknown,unknown,unknown,taleo,2026-05-20,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1538522,"Job Description - Stage automne 2026 - Chargé de projet en stratégie et gouvernance / 2026 été Internship - Project Manager in Strategy and Governance (Mirabel, QC) (342016)
  
 Stage automne 2026 - Chargé de projet en stratégie et gouvernance / 2026 été Internship - Project Manager in Strategy and Governance (Mirabel, QC)
@@ -4249,7 +4249,7 @@ Job Field Engineering
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 05/20/2026, 10:41:03 AM"
+Job Posting 05/20/2026, 10:41:03 AM",
 Bell (Textron),Assembleur structure / Structural Assembler (Mirabel),1536595,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,unknown,unknown,unknown,taleo,2026-05-20,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536595,"Job Description - Assembleur structure / Structural Assembler (Mirabel) (341046)
  
 Assembleur structure / Structural Assembler (Mirabel)
@@ -4425,8 +4425,8 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 05/20/2026, 9:34:30 AM"
-Bell (Textron),V-22 Flight Test Engineer (Multiple Levels Considered),1537830,"Maryland, Patuxent River",United States of America,"$107,000 - $145,000",onsite,Mid,us_person,Secret,yes,taleo,2026-05-05,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537830,"Job Description - V-22 Flight Test Engineer (Multiple Levels Considered) (341730)
+Job Posting 05/20/2026, 9:34:30 AM",
+Bell (Textron),V-22 Flight Test Engineer (Multiple Levels Considered),1537830,"Maryland, Patuxent River",United States of America,126000.0,onsite,Mid,us_person,Secret,yes,taleo,2026-05-05,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537830,"Job Description - V-22 Flight Test Engineer (Multiple Levels Considered) (341730)
  
 V-22 Flight Test Engineer (Multiple Levels Considered)
 (Job Number: 341730)
@@ -4510,7 +4510,7 @@ Shift First Shift
 Travel Yes, 20 % of the Time
 Relocation Available
 Worksite Onsite
-Job Posting 05/05/2026, 5:22:33 PM"
+Job Posting 05/05/2026, 5:22:33 PM",USD
 Bell (Textron),Gestionnaire Experience Client / Customer Experience Manager,1537493,"CA, Quebec, Mirabel",United States of America,,onsite,Manager,unknown,unknown,unknown,taleo,2026-05-04,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537493,"Job Description - Gestionnaire Experience Client / Customer Experience Manager (341536)
  
 Gestionnaire Experience Client / Customer Experience Manager
@@ -4668,7 +4668,7 @@ Job Field Sales
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 05/04/2026, 1:35:11 PM"
+Job Posting 05/04/2026, 1:35:11 PM",
 Bell (Textron),CDN Mil Analyste Support Technique/CDN Mil Technical Support Analyst,1537562,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,us_person,Secret,unknown,taleo,2026-05-01,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537562,"Job Description - CDN Mil Analyste Support Technique/CDN Mil Technical Support Analyst (341604)
  
 CDN Mil Analyste Support Technique/CDN Mil Technical Support Analyst
@@ -4840,7 +4840,7 @@ Job Field Manufacturing
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 05/01/2026, 8:47:16 AM"
+Job Posting 05/01/2026, 8:47:16 AM",
 Bell (Textron),"Pilote d'essai, vol experimental, Hélicoptère / Experimental flight test pilot, Helicopter",1537288,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-04-27,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537288,"Job Description - Pilote d'essai, vol experimental, Hélicoptère / Experimental flight test pilot, Helicopter (341379)
  
 Pilote d'essai, vol experimental, Hélicoptère / Experimental flight test pilot, Helicopter
@@ -4956,7 +4956,7 @@ Job Field Flight Operations
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 04/27/2026, 11:23:05 AM"
+Job Posting 04/27/2026, 11:23:05 AM",
 Bell (Textron),"Emploi étudiant - Planification Opérationnelle Intégrée / 2026 part-time Internship - Integrated Business Planning (Mirabel, QC)",1537228,"CA, Quebec, Mirabel",United States of America,,onsite,Junior,unknown,unknown,unknown,taleo,2026-04-21,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1537228,"Job Description - Emploi étudiant - Planification Opérationnelle Intégrée / 2026 part-time Internship - Integrated Business Planning (Mirabel, QC) (341350)
  
 Emploi étudiant - Planification Opérationnelle Intégrée / 2026 part-time Internship - Integrated Business Planning (Mirabel, QC)
@@ -5048,7 +5048,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Travel No
-Job Posting 04/21/2026, 2:48:16 PM"
+Job Posting 04/21/2026, 2:48:16 PM",
 Bell (Textron),"Stage Été 2026 - Technicien Hygiène Industrielle (Mirabel, QC)",1536812,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,unknown,unknown,unknown,taleo,2026-04-15,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536812,"Job Description - Stage Été 2026 - Technicien Hygiène Industrielle (Mirabel, QC) (341207)
  
 Stage Été 2026 - Technicien Hygiène Industrielle (Mirabel, QC)
@@ -5113,7 +5113,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Travel No
-Job Posting 04/15/2026, 7:28:10 AM"
+Job Posting 04/15/2026, 7:28:10 AM",
 Bell (Textron),Représentant.e Assurance Qualité et Sécurité aérienne (Calgary) / Quality Assurance and Flight Safety Representative (Calgary),1536562,"CA, Alberta, Calgary",United States of America,,onsite,Mid,us_person,unknown,unknown,taleo,2026-04-14,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536562,"Job Description - Représentant.e Assurance Qualité et Sécurité aérienne (Calgary) / Quality Assurance and Flight Safety Representative (Calgary) (341062)
  
 Représentant.e Assurance Qualité et Sécurité aérienne (Calgary) / Quality Assurance and Flight Safety Representative (Calgary)
@@ -5349,7 +5349,7 @@ Job Field Quality
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 04/14/2026, 6:49:18 PM"
+Job Posting 04/14/2026, 6:49:18 PM",
 Bell (Textron),Assistant(e) Contrôleur(e) Finance / Assistant Financial Controller,1534965,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,unknown,unknown,unknown,taleo,2026-04-14,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1534965,"Job Description - Assistant(e) Contrôleur(e) Finance / Assistant Financial Controller (340023)
  
 Assistant(e) Contrôleur(e) Finance / Assistant Financial Controller
@@ -5536,7 +5536,7 @@ Job Field Finance/Accounting
 Schedule Full-time
 Job Level Manager with Direct Reports
 Shift First Shift
-Job Posting 04/14/2026, 5:11:21 PM"
+Job Posting 04/14/2026, 5:11:21 PM",
 Bell (Textron),Technicien(enne) d’entretien d’aéronefs – Soutien technique/ Aircraft Maintenance Engineer – Product Support,1536657,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,unknown,unknown,unknown,taleo,2026-04-13,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536657,"Job Description - Technicien(enne) d’entretien d’aéronefs – Soutien technique/ Aircraft Maintenance Engineer – Product Support (341095)
  
 Technicien(enne) d’entretien d’aéronefs – Soutien technique/ Aircraft Maintenance Engineer – Product Support
@@ -5689,7 +5689,7 @@ Job Field Product Support
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 04/13/2026, 12:40:51 PM"
+Job Posting 04/13/2026, 12:40:51 PM",
 Bell (Textron),Aftermarket Sales Manager,1536477,"Singapore, Singapore",United States of America,,onsite,Manager,unknown,unknown,yes,taleo,2026-04-12,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1536477,"Job Description - Aftermarket Sales Manager (340998)
  
 Aftermarket Sales Manager
@@ -5817,7 +5817,7 @@ Job Field Sales
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 04/12/2026, 8:41:42 PM"
+Job Posting 04/12/2026, 8:41:42 PM",
 Bell (Textron),"Professionnel.elle négociation Termes et Conditions de sous-contrat/ Professional Negotiation, Subcontract Terms and Conditions",1533211,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,unknown,Secret,unknown,taleo,2026-04-08,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1533211,"Job Description - Professionnel.elle négociation Termes et Conditions de sous-contrat/ Professional Negotiation, Subcontract Terms and Conditions (339070)
  
 Professionnel.elle négociation Termes et Conditions de sous-contrat/ Professional Negotiation, Subcontract Terms and Conditions
@@ -6020,7 +6020,7 @@ Job Field Supply Chain
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 04/08/2026, 1:00:58 PM"
+Job Posting 04/08/2026, 1:00:58 PM",
 Bell (Textron),Technicien(enne) d’entretien d’aéronefs – Soutien technique/ Aircraft Maintenance Engineer – Product Support,1532611,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,unknown,unknown,unknown,taleo,2026-03-30,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1532611,"Job Description - Technicien(enne) d’entretien d’aéronefs – Soutien technique/ Aircraft Maintenance Engineer – Product Support (338740)
  
 Technicien(enne) d’entretien d’aéronefs – Soutien technique/ Aircraft Maintenance Engineer – Product Support
@@ -6173,7 +6173,7 @@ Job Field Product Support
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 03/30/2026, 10:35:59 AM"
+Job Posting 03/30/2026, 10:35:59 AM",
 Bell (Textron),Spécialiste des logiciels/ Software Specialist,1534967,"CA, Quebec, Mirabel",United States of America,,onsite,Mid,unknown,Secret,unknown,taleo,2026-03-09,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1534967,"Job Description - Spécialiste des logiciels/ Software Specialist (340024)
  
 Spécialiste des logiciels/ Software Specialist
@@ -6341,7 +6341,7 @@ Job Field Information Technology
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 03/09/2026, 8:25:17 AM"
+Job Posting 03/09/2026, 8:25:17 AM",
 Bell (Textron),"Stage Été 2026 - Inspection Essais Non-Destructifs (END) / 2026 Summer Internship Non-Destructive Testing Inspector (NDT) (Mirabel, QC)",1534167,"CA, Quebec, Mirabel",United States of America,,onsite,Junior,unknown,unknown,unknown,taleo,2026-02-16,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1534167,"Job Description - Stage Été 2026 - Inspection Essais Non-Destructifs (END) / 2026 Summer Internship Non-Destructive Testing Inspector (NDT) (Mirabel, QC) (339627)
  
 Stage Été 2026 - Inspection Essais Non-Destructifs (END) / 2026 Summer Internship Non-Destructive Testing Inspector (NDT) (Mirabel, QC)
@@ -6453,7 +6453,7 @@ Job Field Continuous Improvement
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 02/16/2026, 10:34:14 AM"
+Job Posting 02/16/2026, 10:34:14 AM",
 Bell (Textron),"Stage Été 2026 - Santé, Sécurité et Environnement / 2026 Summer Internship - Health, safety and Environment (Mirabel, QC)",1533886,"CA, Quebec, Mirabel",United States of America,,onsite,Junior,unknown,unknown,unknown,taleo,2026-02-09,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1533886,"Job Description - Stage Été 2026 - Santé, Sécurité et Environnement / 2026 Summer Internship - Health, safety and Environment (Mirabel, QC) (339458)
  
 Stage Été 2026 - Santé, Sécurité et Environnement / 2026 Summer Internship - Health, safety and Environment (Mirabel, QC)
@@ -6510,7 +6510,7 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Travel No
-Job Posting 02/09/2026, 8:51:02 AM"
+Job Posting 02/09/2026, 8:51:02 AM",
 Bell (Textron),"Senior Technical Expert & Certification Specialist, Avionics & Electrical Systems",1513407,"CA, Quebec, Mirabel",United States of America,,onsite,Senior,unknown,unknown,unknown,taleo,2026-02-06,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1513407,"Job Description - Senior Technical Expert & Certification Specialist, Avionics & Electrical Systems (334830)
  
 Senior Technical Expert & Certification Specialist, Avionics & Electrical Systems
@@ -6732,7 +6732,7 @@ Job Field Engineering
 Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
-Job Posting 02/06/2026, 10:10:17 AM"
+Job Posting 02/06/2026, 10:10:17 AM",
 Bell (Textron),"Lead, Customer Support & Services",1531516,"Japan, Tokyo",United States of America,,onsite,Lead,unknown,unknown,unknown,taleo,2025-12-08,2026-06-16T21:35:52Z,https://textron.taleo.net/careersection/bell/jobdetail.ftl?job=1531516,"Job Description - Lead, Customer Support & Services (338195)
  
 Lead, Customer Support & Services
@@ -6773,4 +6773,4 @@ Schedule Full-time
 Job Level Individual Contributor
 Shift First Shift
 Worksite Onsite
-Job Posting 12/08/2025, 8:53:45 PM"
+Job Posting 12/08/2025, 8:53:45 PM",
