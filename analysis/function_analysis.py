@@ -417,6 +417,21 @@ FALSE_POSITIVE_TERMS_EXCLUDED = {
     "Linear": "the PM tool name collides with the common math/engineering "
               "adjective 'linear' - checked real samples, 340/340 hits were "
               "'linear regression,' 'linear FEA,' etc, none were the tool.",
+    "DER": "Designated Engineering Representative (a real, well-known "
+           "aerospace credential) is unverifiable via simple word-boundary "
+           "matching in this dataset - 358 raw hits checked, found to be "
+           "dominated by the German word 'der' ('the'), since this dataset "
+           "includes German-language Airbus postings (Donauwörth, Germany "
+           "site). A genuinely different contamination class than prior "
+           "findings (not an English-word collision, a foreign-language "
+           "one) - simple matching cannot separate the real signal from "
+           "the noise without language-detection logic that doesn't exist "
+           "yet. Do not re-add without building that first.",
+    "DAR": "Design Approval Representative / Designated Airworthiness "
+           "Representative - same German-language contamination as DER "
+           "above, plus collision with unrelated acronyms (DTAES, military "
+           "unit designators). 49 raw hits checked, real signal "
+           "unverifiable with current matching logic.",
 }
 
 # Terms known to be contaminated by single-company boilerplate in THIS
