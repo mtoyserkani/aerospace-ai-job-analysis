@@ -25,6 +25,26 @@ HOURS_PER_YEAR = 2080
 
 CDN_MARKERS = re.compile(r'\bCDN\b|\bCanadian\b|\bCAD\b', re.IGNORECASE)
 
+# Some platforms (confirmed: all Greenhouse-based scrapes) store description_text
+# as raw HTML, not stripped plain text. A salary range like "$100,000 - $110,000"
+# can be split across markup -- e.g. $100,000</span><span class="divider">&mdash;
+# </span><span>$110,000 -- so RANGE_PATTERN never sees them as adjacent. Strip tags
+# before range detection only; this does not touch the original description_text
+# column or any other part of the pipeline (function_analysis.py's own matching
+# is unaffected and untouched by this change).
+HTML_TAG = re.compile(r'<[^>]+>')
+HTML_ENTITY_DASH = re.compile(r'&mdash;|&ndash;|&#8212;|&#8211;')
+
+
+def strip_html_for_salary(text):
+    """Remove HTML tags and normalize common dash entities to a literal '-'
+    so RANGE_PATTERN can see ranges that were split across markup."""
+    if not isinstance(text, str):
+        return text
+    text = HTML_ENTITY_DASH.sub('-', text)
+    text = HTML_TAG.sub(' ', text)
+    return text
+
 
 def parse_number(s):
     """Convert '139,500' or '139,500.00' to float. Returns None if malformed."""
@@ -58,17 +78,21 @@ def extract_ranges(text):
     Find all valid (non-malformed) salary ranges in text.
     Returns list of (low, high, currency) tuples. Currency inferred from
     nearby context (CDN markers within 50 chars after the match).
+    HTML tags are stripped before matching (see strip_html_for_salary) so
+    ranges split across markup, e.g. on Greenhouse-platform descriptions,
+    are still detected.
     """
     if not isinstance(text, str):
         return []
+    clean_text = strip_html_for_salary(text)
     results = []
-    for m in RANGE_PATTERN.finditer(text):
+    for m in RANGE_PATTERN.finditer(clean_text):
         low_str, high_str = m.group(1), m.group(2)
         if is_malformed_pair(low_str, high_str):
             continue
         low, high = parse_number(low_str), parse_number(high_str)
         # check for currency marker in a window after the match
-        window = text[m.end():m.end() + 60]
+        window = clean_text[m.end():m.end() + 60]
         currency = 'CAD' if CDN_MARKERS.search(window) else 'USD'
         results.append((low, high, currency))
     return results
@@ -108,6 +132,14 @@ def process_file(path, dry_run=True):
 
     if 'salary_currency' not in df.columns:
         df['salary_currency'] = None
+
+    # Some files (confirmed: greenhouse_andurilindustries.csv) have a small number
+    # of pre-existing non-numeric salary values (e.g. "$22 - $28.84/hour; ...").
+    # These rows are excluded by the isna() filter below and left completely
+    # untouched. Casting the column to object dtype here only allows the new
+    # float values we write to coexist with those pre-existing strings --
+    # it does not modify, parse, or clear any existing value.
+    df['salary'] = df['salary'].astype(object)
 
     candidates = df['salary'].isna() & df['description_text'].notna()
     n_candidates = candidates.sum()
