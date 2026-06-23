@@ -18,8 +18,13 @@ import sys
 # narrowly: the separator (-/to/and/MIN-) must still be present and the second
 # number must still be a full comma-grouped figure of the same shape as the first,
 # so this does not loosen the pattern enough to catch unrelated nearby numbers.
+#
+# An optional "Max" label is allowed between the separator and the second $ --
+# confirmed real format on General Dynamics postings: "$35,700 Annu. - Max $48,300
+# Annu." A stray space after a comma in the second number ("$103, 270") is also
+# tolerated -- confirmed scraping artifact, also from General Dynamics.
 RANGE_PATTERN = re.compile(
-    r'\$(\d{2,3}(?:,\d{3})+(?:\.\d{1,2})?)\s*(?:-|to|and|MIN\s*-)\s*\$?(\d{2,3}(?:,\d{3})+(?:\.\d{1,2})?)',
+    r'\$(\d{2,3}(?:,\d{3})+(?:\.\d{1,2})?)\s*(?:Annu\.?\s*)?(?:-|to|and|MIN\s*-)\s*(?:Max\s*)?\$?(\d{2,3}(?:,\s?\d{3})+(?:\.\d{1,2})?)',
     re.IGNORECASE
 )
 SINGLE_PATTERN = re.compile(r'\$(\d{2,3}(?:,\d{3})+(?:\.\d{1,2})?)')
@@ -61,8 +66,10 @@ def strip_html_for_salary(text):
 
 
 def parse_number(s):
-    """Convert '139,500' or '139,500.00' to float. Returns None if malformed."""
-    cleaned = s.replace(',', '')
+    """Convert '139,500' or '139,500.00' to float. Returns None if malformed.
+    Also tolerates a stray space after the comma (e.g. '103, 270', a confirmed
+    scraping artifact on General Dynamics postings)."""
+    cleaned = s.replace(',', '').replace(' ', '')
     try:
         val = float(cleaned)
     except ValueError:
