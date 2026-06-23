@@ -218,6 +218,16 @@ async def scrape_company(slug, config, limiter):  # config passed through for se
                 for frame in page.frames:
                     try:
                         text = await frame.inner_text("body")
+                        # Reject frame text that's clearly not job content --
+                        # ad-tracking JS that happened to render more characters
+                        # than the real content frame. Confirmed bug: 83 Peraton
+                        # postings got a minified consent-script frame instead of
+                        # the real job description, because this loop previously
+                        # picked the frame with the most text with no check that
+                        # it was actually prose. Disqualifying JS-shaped text lets
+                        # the real content frame win by default instead.
+                        if re.search(r"function\s*[a-zA-Z0-9_]*\s*\(|googletagmanager|dataLayer\.push", text):
+                            continue
                         if len(text) > len(best_text):
                             best_text = text
                     except Exception:
