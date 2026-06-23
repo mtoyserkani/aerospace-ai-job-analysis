@@ -4,12 +4,12 @@ enrich_descriptions.py — Fetch descriptions for jobs missing them.
 Takes any CSV with apply_url column, visits each job page via Playwright,
 extracts description text, and saves an enriched CSV.
 
-Works for: TalentBrew (L3Harris, Boeing), Brassring (Lockheed Martin)
+Works for: TalentBrew (L3Harris), BrassRing (Lockheed Martin). Boeing is on
+Workday, not TalentBrew -- see workday_scraper.py for that platform instead.
 
 Usage:
-    python3 analysis/enrich_descriptions.py --input data/l3harris_jobs.csv --output data/l3harris_enriched.csv
+    python3 analysis/enrich_descriptions.py --input data/talentbrew_l3harris.csv --output data/talentbrew_l3harris_enriched.csv
     python3 analysis/enrich_descriptions.py --input data/brassring_jobs.csv --output data/brassring_enriched.csv --batch-size 500
-    python3 analysis/enrich_descriptions.py --input data/boeing_jobs.csv --output data/boeing_enriched.csv
 
 Options:
     --batch-size N    Process N jobs then save checkpoint (default: 200)

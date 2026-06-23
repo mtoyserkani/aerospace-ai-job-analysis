@@ -60,10 +60,12 @@ This script:
          "Corp", "Corporation", "Systems") are stripped from tool names
          before matching so they don't inflate scores.
 
-Requires data/reference/onet_software_skills.txt to exist (tab-delimited,
-as downloaded from O*NET - see SKILL.md or project handoff for the exact
-curl command). If missing, the Tools & Software section is skipped with
-a message telling you how to get it, rather than failing.
+Requires data/reference/onet_software_skills.txt (tab-delimited, downloaded
+from O*NET). This file is committed to the repo, so it's present on a fresh
+clone -- the "if missing" fallback below only applies to an old clone from
+before that commit, not the normal case. If missing, the Tools & Software
+section is skipped with a message telling you how to get it, rather than
+failing.
 
 A job can match more than one function bucket (e.g. "Cybersecurity Program
 Manager" matches both cybersecurity and program_management terms). This is
@@ -78,7 +80,7 @@ Usage:
     python3 analysis/function_analysis.py --function program_management --label "Product Management"
         (clean display name in the report header instead of the saved filename)
     python3 analysis/function_analysis.py --function cybersecurity --no-prompt-keywords
-    python3 analysis/function_analysis.py --input data/master_dataset.csv --export data/function_results.csv
+    python3 analysis/function_analysis.py --input data/master_dataset.csv --export results/cybersecurity_results.csv
 """
 
 import argparse

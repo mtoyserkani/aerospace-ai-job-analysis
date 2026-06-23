@@ -4,22 +4,24 @@ false_positive_detector.py — Context-aware keyword categorizer.
 The most important methodological tool in this repo.
 
 The problem: generic keyword search on "certification", "assurance", and
-"governance" returns hundreds of hits that look like AI governance signals
-but are actually mechanics getting A&P licenses, QA inspectors on the
+"governance" returns hundreds or thousands of hits that look like AI governance
+signals but are actually mechanics getting A&P licenses, QA inspectors on the
 manufacturing floor, and IT security teams doing NIST audits.
 
 This script categorizes each hit by context so you know what you actually found.
 
-This was built after comparing results with another AI model that found
-"302 certification hits" and called it a governance signal. When categorized
-correctly, only 5 of those 302 hits were AI/ML certification. The rest were
-noise. This kind of false positive is what makes AI-assisted market research
+Validated results on this dataset (data/master_dataset.csv, 25,046 jobs):
+"certification" returned 6,845 raw hits, 0 AI-relevant. "assurance" returned
+2,372 raw hits, 3 AI-relevant. "compliance" returned 11,395 raw hits, 33
+AI-relevant. "governance" returned 1,281 raw hits, 40 AI-relevant. Combined:
+21,893 raw hits across all four terms, 76 AI-relevant -- a 99.65% false-positive
+rate. This kind of false positive is what makes AI-assisted market research
 dangerous if you don't validate the methodology.
 
 Usage:
-    python false_positive_detector.py --input data/aerospace_all_jobs.csv --keyword certification
-    python false_positive_detector.py --input data/aerospace_all_jobs.csv --keyword assurance
-    python false_positive_detector.py --input data/aerospace_all_jobs.csv --keyword governance --verbose
+    python false_positive_detector.py --input data/master_dataset.csv --keyword certification
+    python false_positive_detector.py --input data/master_dataset.csv --keyword assurance
+    python false_positive_detector.py --input data/master_dataset.csv --keyword governance --verbose
 """
 
 import argparse

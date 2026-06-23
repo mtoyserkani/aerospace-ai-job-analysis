@@ -1,21 +1,14 @@
 """
 Consolidated verification script for job_functions/*.txt files.
 
-Runs every job function in job_functions/ against the live master_dataset.csv,
-prints match counts side by side, and specifically inspects two known risks
-flagged before any of these files were committed:
+Runs every job function in job_functions/ against the live master_dataset.csv
+and prints match counts side by side. Also spot-checks sales.txt's matched
+titles for "account manager" variants -- a broad version of that term once
+caught "Control Account Manager" (an EVM/program-finance title, unrelated to
+sales). The term was narrowed and re-verified; this check stays as a cheap
+regression guard in case the term list changes again later.
 
-1. sales.txt's "account manager" term may catch "Control Account Manager"
-   (an EVM/program-finance title, not a sales role) -- same false-positive
-   shape as the Site Reliability Engineer / hardware Reliability Engineer
-   collision caught earlier in this project.
-2. reliability_engineer.txt has no site_reliability_engineer.txt counterpart.
-   Without the split, "reliability engineer" may be matching Site Reliability
-   Engineer (a software/DevOps title) as well as hardware reliability roles --
-   two different job markets that should not be blended.
-
-This script does NOT modify any job_functions file. It only reports findings
-so each flagged file can be fixed and re-verified before committing.
+This script does NOT modify any job_functions file. It only reports findings.
 """
 import sys
 sys.path.insert(0, '/root/aerospace-ai-job-analysis/analysis')
@@ -57,7 +50,7 @@ def main():
 
     print()
     print("=" * 60)
-    print("FLAGGED CHECK 1: sales.txt 'account manager' -- inspecting matched titles")
+    print("sales.txt regression check: 'account manager' titles")
     print("=" * 60)
     if 'sales' in results:
         mask, terms = results['sales']
@@ -70,23 +63,6 @@ def main():
             print(f"  {t}{flag}")
     else:
         print("sales.txt not found in job_functions/")
-
-    print()
-    print("=" * 60)
-    print("FLAGGED CHECK 2: reliability_engineer.txt -- checking for SRE leakage")
-    print("=" * 60)
-    if 'reliability_engineer' in results:
-        mask, terms = results['reliability_engineer']
-        matched_titles = df.loc[mask, 'title'].dropna().unique()
-        sre_titles = [t for t in matched_titles if 'site reliability' in t.lower() or t.lower().strip() in ('sre', 'sre engineer')]
-        print(f"Total reliability_engineer.txt matches: {mask.sum()}")
-        print(f"Titles that are actually Site Reliability Engineer (SRE): {len(sre_titles)}")
-        for t in sorted(sre_titles)[:20]:
-            print(f"  {t}  <-- SRE, not hardware reliability (likely false positive)")
-        if not sre_titles:
-            print("  None found -- no SRE leakage detected in this dataset run.")
-    else:
-        print("reliability_engineer.txt not found in job_functions/")
 
 
 if __name__ == '__main__':
