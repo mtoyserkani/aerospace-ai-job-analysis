@@ -182,15 +182,19 @@ CERTIFICATIONS = [
     # --- round 3: design thinking / product strategy certifications,
     # folded in from a previously separate DESIGN_THINKING_CERTIFICATIONS
     # list (removed per request - kept here instead of its own section).
-    # Each verified real via direct source check (IDEO U's own
-    # ideou.com/products pages, LUMA Institute's own luma-institute.com
-    # program pages). Note for accuracy: most of these are completion-
-    # based certificates (finish the required courses, receive the
-    # certificate) rather than pass/fail proctored exams like CISSP or
-    # PMP - worth knowing if writing about the distinction. ---
-    "IDEO U", "Design Thinking Certificate", "AI x Design Thinking",
-    "Stanford d.school", "MIT Sloan Design Thinking",
-    "IBM Enterprise Design Thinking", "LUMA Institute",
+    # Each verified real via direct source check. Institute/program NAMES
+    # (IDEO U, Stanford d.school, LUMA Institute, Product School) removed
+    # per request - these are organizations, not certifications.
+    # "Certified Human-Centered Design Practitioner" kept - confirmed via
+    # direct source check this is LUMA's actual, accurately-named
+    # credential (not just the institute name), so it stays as a real
+    # certification entry even though the institute itself was removed.
+    # Note for accuracy: most of these are completion-based certificates
+    # (finish the required courses, receive the certificate) rather than
+    # pass/fail proctored exams like CISSP or PMP - worth knowing if
+    # writing about the distinction.
+    "Design Thinking Certificate", "AI x Design Thinking",
+    "MIT Sloan Design Thinking", "IBM Enterprise Design Thinking",
     "Certified Human-Centered Design Practitioner",
     "Harvard Business School Design Thinking", "Human-Centered Design",
     "Double Diamond", "Design Sprint",
@@ -200,8 +204,9 @@ CERTIFICATIONS = [
     # Selenium (103) are substantial real signals - bigger than most
     # entries already in this list. "AIPMM" and "Spring Certified"
     # checked and returned 0 hits - included anyway per the standing
-    # zero-count-inclusion rule, not excluded. ---
-    "AIPMM", "Product School", "ISTQB", "ASQ Certified Software Quality Engineer",
+    # zero-count-inclusion rule, not excluded. "Product School" removed
+    # (see note above - it's a program name, not a certification).
+    "AIPMM", "ISTQB", "ASQ Certified Software Quality Engineer",
     "Selenium", "RHCE", "CKA", "CKAD", "Spring Certified Professional",
     "Oracle Certified Professional", "Java SE", "PL-300",
     "Tableau Desktop Certified", "CompTIA Data+", "Snowflake Core Certification",
@@ -315,25 +320,25 @@ PM_DESIGN_TOOLS = [
     # postings, so this is real additive signal O*NET's exact-name entry
     # would miss ---
     "MS Project",
-    # --- round 2: PM frameworks/methodologies and program names, all
-    # checked against the real dataset first. Kanban (224) is a
-    # substantial real signal. "CSPO" deliberately NOT re-added here -
-    # already exists in CERTIFICATIONS, would duplicate. "RICE" alone
-    # NOT added (separately from "RICE Scoring") - too short/generic a
-    # word to safely match without a collision check, which hasn't been
-    # done; "RICE Scoring" is the safer, already-specific phrasing.
-    # "Reforge," "Pragmatic Institute," and "Product School" included
-    # here as program/company names (not certifications) - consistent
-    # with the earlier decision that Reforge specifically is a
-    # membership product, not a certification. "LeSS" is in
+    # --- round 2: PM frameworks/methodologies, all checked against the
+    # real dataset first. Kanban (224) is a substantial real signal.
+    # "CSPO" deliberately NOT re-added here - already exists in
+    # CERTIFICATIONS, would duplicate. "RICE" alone NOT added (separately
+    # from "RICE Scoring") - too short/generic a word to safely match
+    # without a collision check, which hasn't been done; "RICE Scoring"
+    # is the safer, already-specific phrasing. "Reforge," "Pragmatic
+    # Institute," "Product School," and "PMC-I" removed per request -
+    # "PMC" is genuinely ambiguous between two different real
+    # organizations (Pragmatic Institute's certification and Product
+    # School's certification both use this acronym), and the bare
+    # program/institute names were flagged for removal. "LeSS" is in
     # CASE_SENSITIVE_TERMS above - matched against original case only,
     # since lowercase "less" is one of the most common words in English
     # (1,722 false-positive hits found vs 1 real hit case-sensitive). ---
     "Jobs-to-be-Done", "JTBD", "Product-Led Growth", "PLG",
     "RICE Scoring", "Kano Model", "Opportunity Solution Tree",
     "North Star Metric", "Working Backwards", "Shape Up",
-    "Kanban", "Scrumban", "LeSS", "Reforge", "Pragmatic Institute",
-    "Product School", "PMC-I", "PSPO", "SAFe POPM", "Claude Cowork",
+    "Kanban", "Scrumban", "LeSS", "PSPO", "SAFe POPM", "Claude Cowork",
 ]
 
 # Hand-curated list of modern AI/data-engineering tools that O*NET's
@@ -1161,7 +1166,7 @@ def print_function_report(result: dict) -> None:
     )
 
     print_named_list_section(
-        "AI / DATA ENGINEERING TOOLS (hand-curated list, not from O*NET)",
+        "AI / DATA ENGINEERING TOOLS AND TECHNOLOGIES (hand-curated list, not from O*NET)",
         "Modern AI/data tools O*NET's slower update cycle doesn't yet cover "
         "(PyTorch, Kubernetes, LangChain, etc). Exact match, zero-count kept.",
         result["ai_data_tools"],
@@ -1169,9 +1174,8 @@ def print_function_report(result: dict) -> None:
 
     print_named_list_section(
         "PM / DESIGN / COLLABORATION TOOLS, FRAMEWORKS AND CERTIFICATIONS",
-        "Tools (Figma, Smartsheet), frameworks (JTBD, RICE, Kanban), and "
-        "program names (Reforge, Pragmatic Institute) missing from O*NET "
-        "coverage. Exact match, zero-count kept.",
+        "Tools (Figma, Smartsheet), frameworks (JTBD, RICE, Kanban) "
+        "missing from O*NET coverage. Exact match, zero-count kept.",
         result["pm_design_tools"],
     )
 
@@ -1205,7 +1209,7 @@ def print_function_report(result: dict) -> None:
     )
 
     print(f"\n{'-'*70}")
-    print("TOOLS & SOFTWARE (source: O*NET Software Skills database, CC BY 4.0)")
+    print("OTHER TOOLS & SOFTWARE (source: O*NET Software Skills database, CC BY 4.0)")
     print("Match strength: 1.00 = full tool name found, <1.00 = partial/brand-only.")
     print("Minimum strength shown: 0.50. Top 3 companies per tool.")
     print(f"{'-'*70}")
