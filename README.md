@@ -50,6 +50,7 @@ scrapers/
 analysis/
   merge_dataset.py                Merges the 34 source CSVs into master_dataset.csv, deduplicates
   function_analysis.py            Job-function skill discovery — the tool this article walks through
+  report_to_pdf.py                 Turns function_analysis.py's text report into a clean PDF
   verify_job_functions.py         Runs every job_functions/*.txt file against live data, reports match counts
   extract_salary.py                Extracts salary from description_text when the salary column is empty
   parse_workday_salary.py          Parses pre-existing raw salary strings in Workday source files
@@ -210,6 +211,29 @@ Export the full results to CSV:
 ```bash
 python3 analysis/function_analysis.py --function program_management --export results/program_management.csv
 ```
+
+### Generate a clean PDF report
+
+The terminal output above (ASCII bar charts, fixed-width columns) is
+readable in a terminal but doesn't paste or print well anywhere else.
+`report_to_pdf.py` parses that exact text output and rebuilds it as
+proper bordered tables — zero-count rows kept and grayed out, not
+hidden, same "absence is a finding" rule as everywhere else in this
+toolkit.
+
+```bash
+python3 analysis/function_analysis.py --function program_management \
+    --no-prompt-keywords > results/program_management_report.txt
+
+python3 analysis/report_to_pdf.py \
+    results/program_management_report.txt \
+    results/program_management_report.pdf \
+    "Program Management — Job Function Breakdown"
+```
+
+Requires `reportlab` (already in `requirements.txt`). This produces a
+file, not a CSV — for the structured data itself, use `--export` above
+instead.
 
 ### Verify before you commit a new function
 
@@ -432,6 +456,25 @@ Two ways:
 Either way, see "Matching logic — three different strategies, used in
 different places" above — in particular the spot-check guidance and the
 `sales.txt` example — before you trust a new function's match count.
+
+---
+
+## Help shape what this becomes
+
+This is an MVP. Three signals would help me turn it into something more
+reliable:
+
+1. **Companies or industries worth adding** — which ones would actually
+   matter for your question, if you pointed this at a different industry.
+2. **What's missing from the toolkit** — a field, a matching edge case, a
+   report section.
+3. **What's worth collecting that isn't yet** — a field type, a data
+   source, a cross-reference.
+
+And if you built your own dataset with this: share what you ran into.
+What broke, what surprised you, what you'd do differently.
+
+Open an issue, comment on GitHub, or reply to the article.
 
 ---
 
