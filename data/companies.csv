@@ -4,7 +4,7 @@ Lockheed Martin,Prime,Brassring,brassring_scraper.py,brassring_enriched.csv,acti
 Northrop Grumman,Prime,Eightfold,eightfold_scraper.py,,parked,/search API redirects to corporate SAML/ADFS SSO (ngc-fin.amer.myngc.com). Requires Northrop login. HTML scraping via Playwright is the only path forward.
 RTX,Prime,Phenom,phenom_scraper.py,,parked,careers.rtx.com. API blocked from automated access.
 General Dynamics,Prime,iCIMS,icims_scraper.py,gd_jobs.csv,active,239 jobs (GD OTS division only). Full GD catalog split across multiple iCIMS instances.
-L3Harris,Prime,TalentBrew,talentbrew_scraper.py,l3harris_enriched.csv,active,1673 jobs with descriptions enriched.
+L3Harris,Prime,TalentBrew,talentbrew_scraper.py,talentbrew_l3harris_enriched.csv,active,1726 jobs with descriptions enriched (98.8% description coverage).
 Textron,Prime,Taleo,taleo_scraper.py,textron_jobs.csv,active,420 jobs.
 Airbus,Prime,Workday,workday_scraper.py,workday_jobs_enriched.csv,active,~2000 jobs in enriched Workday output.
 Bombardier,Tier1,SuccessFactors,successfactors_scraper.py,successfactors_bombardier.csv,parked,Cookie wall blocks job description rendering. Titles and URLs captured (763 jobs) but descriptions inaccessible. Canadian manufacturer — lower priority for US governance thesis.
