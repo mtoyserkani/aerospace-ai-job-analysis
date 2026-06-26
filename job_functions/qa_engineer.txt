@@ -2,3 +2,6 @@ qa engineer
 quality assurance engineer
 software qa engineer
 software quality assurance engineer
+verification and validation engineer
+verification & validation engineer
+v&v engineer
