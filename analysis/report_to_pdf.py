@@ -65,6 +65,9 @@ def parse_report(text):
     m = re.search(r"JOB FUNCTION:\s*(\S+)", text)
     data["function_name"] = m.group(1) if m else "unknown"
 
+    m = re.search(r"Using saved job function '[\w_]+':\s*(.+)", text)
+    data["keywords"] = m.group(1).strip() if m else None
+
     # Split into named sections delimited by the 70-dash separator lines.
     # Real structure: block[0] = loader preamble (discarded), then alternating
     # header+subtitle blocks (odd indices) and data blocks (even indices),
@@ -78,7 +81,7 @@ def parse_report(text):
         body = blocks[i + 1]
         header_lines = header_block.split("\n")
         header = header_lines[0].strip() if header_lines else ""
-        subtitle = "\n".join(h.strip() for h in header_lines[1:]).strip()
+        subtitle = "\n".join(h.strip() for h in header_lines[1:] if not h.strip().startswith("Bar scale")).strip()
         sections.append((header, subtitle, body))
         i += 2
     data["sections"] = sections
@@ -224,6 +227,10 @@ def build_pdf(report_path, out_path, display_title):
         f"{data['matched']} of {data['total']} postings matched ({data['pct']}% of the dataset) "
         f"&middot; Aerospace AI Job Analysis &middot; github.com/mtoyserkani/aerospace-ai-job-analysis",
         subtitle_style))
+
+    if data.get("keywords"):
+        story.append(Paragraph(f"<b>Matched against:</b> {data['keywords']}", note_style))
+        story.append(Spacer(1, 6))
 
     for header, subtitle, body in data["sections"]:
         if not header or header.startswith("="):
