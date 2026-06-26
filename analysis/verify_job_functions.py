@@ -16,8 +16,8 @@ from function_analysis import title_matches_term
 import pandas as pd
 from pathlib import Path
 
-DATASET = '/root/aerospace-ai-job-analysis/data/master_dataset.csv'
-JOB_FUNCTIONS_DIR = '/root/aerospace-ai-job-analysis/job_functions'
+DATASET = 'data/master_dataset.csv'
+JOB_FUNCTIONS_DIR = 'job_functions'
 
 
 def load_terms(path):
