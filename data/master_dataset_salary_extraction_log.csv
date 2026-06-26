@@ -1,0 +1,336 @@
+row_index,job_id,title,extracted_salary,currency,n_ranges_found,source,status
+45,JR101143,HR Manager,120000.0,USD,1,range,filled
+177,JR110230,"Manager, Engineering IT Systems",,,0,,malformed_skipped
+642,JR101476,Sr. Group Supply Chain Analyst,120000.0,USD,1,range,filled
+1048,JR111625,Sourcing  Compliance Specialist (Senior and Level II),,,0,,malformed_skipped
+1075,JR101449,Customer Service Admin II,88050.0,USD,1,range,filled
+1234,JR111736,WBS Coach (Continuous Improvement Department),,,0,,malformed_skipped
+1237,JR110324,Staff/Senior Staff Manufacturing Engineer,,,0,,malformed_skipped
+1365,95336249168,Sr. Manager Quality Management,,,0,,malformed_skipped
+1613,93722631392,Systems Engineer (Sr. Member Engineering Staff),,,0,,malformed_skipped
+1756,96173836064,"Senior Specialist, Category Management",114500.0,USD,1,range,filled
+1757,JR2026509326,"Electrical Engineering Manager - Electromagnetic Effects (EME) & Reliability, Maintainability & System Health (RM&SH)",178000.0,USD,1,range,filled
+1827,JR110743,Staff / Senior Staff Mechanical Engineer - Flight Control Actuation,,,0,,malformed_skipped
+1969,JR111644,"Engineering Manager, Test & Integration Lab",,,0,,malformed_skipped
+1994,16295,Program Manager (Level II or III - DOE),154750.0,USD,2,range,filled
+2081,JR2026503526,F-15 Mission Systems Integration Architect,167000.0,USD,2,range,filled
+2499,95980327536,Operations Program Manager,126000.0,USD,1,range,filled
+2540,95091824864,"Senior Specialist, Supply Chain Program Manager",131000.0,USD,1,range,filled
+2636,95980327552,Operations Program Manager,137000.0,USD,1,range,filled
+2707,JR111209,Supplier Relationship Manager II or III,,,0,,malformed_skipped
+2747,96278023120,Senior Program Quality Engineer,,,0,,malformed_skipped
+2755,JR2026511002,Manager of Manufacturing Product Owners - Millennium Space Systems,186900.0,USD,1,range,filled
+2910,JR111630,Project Coordinator,,,0,,malformed_skipped
+2933,JR100729,Software Engineer III/IV,161200.0,USD,2,range,filled
+2963,JR101169,Systems Engineer II,110745.3,USD,1,range,filled
+2969,JR2026511147,Systems Engineering & Integration Lead,184687.5,USD,2,range,filled
+3005,95263602592,"Specialist, Material Planner",99500.0,USD,1,range,filled
+3156,96602830416,Production Program Manager,132000.0,USD,1,range,filled
+3465,JR2026512265,System Administrator (Experienced or Senior),156500.0,USD,2,range,filled
+3469,JR2026511153,IT Systems Specialist (Mid-Level),132000.0,USD,1,range,filled
+3509,95263602368,Material Planning Specialist,99000.0,USD,1,range,filled
+3533,JR111735,HRIS Analyst,,,0,,malformed_skipped
+3604,96035632880,"Lead, Systems Engineering - GPS",,,0,,malformed_skipped
+3707,JR2026510210,Systems Engineering Manager,154000.0,USD,1,range,filled
+3712,JR111650,PLC Buyer I or II,,,0,,malformed_skipped
+3741,JR111188,Aerospace Product Technology Manager II / III,,,0,,malformed_skipped
+3785,JR2026505266,Decorative Interior Repairperson - 1604,50585.6,USD,1,hourly_annualized,filled
+3840,96278022992,Quality Assurance Engineer,,,0,,malformed_skipped
+3861,JR101056,Field Services Engineer III,128050.0,USD,1,range,filled
+3903,JR2026514415,Industrial Engineer,108000.0,USD,2,range,filled
+4061,JR110796,SAP Basis and Security Administrator,,,0,,malformed_skipped
+4250,94353236096,"Senior Manager, Quality Assurance",,,0,,malformed_skipped
+4318,JR2026506539,Digital CCA Design (Experienced or Senior),162333.33,USD,3,range,filled
+4388,JR2026510620,Systems Engineer (Mid-Level and Senior),152250.0,USD,2,range,filled
+4423,96304034336,"Electrical Engineer, Lead",,,0,,malformed_skipped
+4522,94728088544,"Lead, Electrical Engineer - Firmware (Field-Programmable Gate Array)",178500.0,USD,1,range,filled
+4587,8403223002,Fall 2026 Graduate Engineer Internship/Co-op,,,0,,malformed_skipped
+4642,95045911856,Lead Program Management,178500.0,USD,1,range,filled
+4670,96304034464,"Senior Specialist, Environmental Health &amp; Safety",131000.0,USD,1,range,filled
+4719,JR2026511618,"Manufacturing Engineering Manager, Harnessing - Millennium Space Systems",186900.0,USD,1,range,filled
+4744,JR2026503741,Wire Design and Installation Engineer (Experienced or Senior),156500.0,USD,2,range,filled
+4750,JR110859,Staff/Senior Staff Embedded Software Engineer,,,0,,malformed_skipped
+5146,JR2026504367,Leader of Manufacturing - Millennium Space Systems,224700.0,USD,1,range,filled
+5148,JR101622,Customer Account Manager - Landing Systems,165450.0,USD,1,range,filled
+5291,JR2025475067,Fighter/Attack Aircrew Training Subject Matter Expert or Senior Consultant,,,0,,malformed_skipped
+5297,JR2026511919,"Liaison Engineer, Mid-Career and Senior Level",,,0,,malformed_skipped
+5299,5140974007,Software Engineer,,,0,,malformed_skipped
+5388,1538531,Project Engineer II/III,,,0,,malformed_skipped
+5396,JR101361,Analog Engineer III,149292.17,USD,1,range,filled
+5397,JR11241,Senior Principal Systems & Controls Engineer,170000.0,USD,1,range,filled
+5498,1539312,Sr IT App Analyst,,,0,,malformed_skipped
+5839,95298993088,"Principal, Supply Chain Management",,,0,,malformed_skipped
+5870,JR101460,Engineering Manager,179900.0,USD,1,range,filled
+6185,JR2026503754,FPGA Design Engineer,133666.67,USD,3,range,filled
+6221,JR2026512029,"Associate, Experienced, or Lead Level Aircraft Environmental Control Systems (ECS) Analysis Engineer",132333.33,USD,3,range,filled
+6258,JR111834,SAP Source‑to‑Pay IT Analyst,,,0,,malformed_skipped
+6260,JR2026514252,Associate Facilities Plant Civil Engineer,,,0,,malformed_skipped
+6290,JR111694,Engineer 2 or 3 Applications - Military Marine,,,0,,malformed_skipped
+6300,121802,Systems Engineer,161400.0,USD,1,range,filled
+6302,JR100466,Production Supervisor II (Electronic Assembly ),119950.0,USD,1,range,filled
+6323,JR2026509257,Radar Systems Senior Engineer - Patriot Advanced Capability-3 (PAC-3),,,0,,malformed_skipped
+6459,96493661536,Manager Quality Management,166500.0,USD,1,range,filled
+6527,94717097968,"Specialist, HR Business Partner",95500.0,USD,1,range,filled
+6604,JR2026512277,Business Integrator Manager,,,0,,malformed_skipped
+6688,JR101536,Production Supervisor II,118497.0,USD,1,range,filled
+6725,JR10586,Lead Software Engineer-Embedded Computing Software-Onsite,,,0,,malformed_skipped
+6747,JR2026510027,Design and Analysis Engineer (Electronic Sys Design & Analy),108000.0,USD,1,range,filled
+6797,JR2026500328,Experienced Structural Analysis Engineer,113000.0,USD,1,range,filled
+6827,91876209376,"Lead, Project Engineer - Energy Systems",182000.0,USD,1,range,filled
+6837,93731657856,Lead Subcontracts,150250.0,USD,1,range,filled
+6869,JR109291,Staff/Senior Staff Systems Engineer - Flight Controls,,,0,,malformed_skipped
+6970,JR110952,"Director, Intellectual Property",,,0,,malformed_skipped
+7118,94454495808,Lead Business Development,174500.0,USD,1,range,filled
+7295,5158608007,Senior Electro-Mechanical Test Engineer,,,0,,malformed_skipped
+7397,95087265440,Principal Subcontracts,181250.0,USD,1,range,filled
+7400,96179150112,Specialist Procurement,104000.0,USD,1,range,filled
+7450,JR2026506540,Analog Design Engineer (Experienced or Senior),146500.0,USD,2,range,filled
+7586,93458626688,"Principal, Project Manager",,,0,,malformed_skipped
+7618,JR110399,Senior Manufacturing Special Process Engineer,,,0,,malformed_skipped
+7691,JR2026514487,Systems Engineering (Associate or Experienced),113987.5,USD,2,range,filled
+7765,96544398304,"Lead, IT Architecture (SAP Solution Architect) 1",,,0,,malformed_skipped
+7766,93467613104,"Specialist (Level 3), Program Finance",109000.0,USD,1,range,filled
+7802,JR111181,"Sr Specialist, Trade Compliance",,,0,,malformed_skipped
+7854,JR2026513382,Entry-Level Manufacturing Engineer - Harness - 2nd Shift - Millennium Space Systems,103425.0,USD,2,range,filled
+8010,JR2026510399,Entry Level Manufacturing Engineer - Harness - 1st Shift - Millennium Space Systems,94500.0,USD,1,range,filled
+8017,95336249072,Hardware Leaning Project Engineer,218500.0,USD,1,range,filled
+8133,JR110754,Senior Mechanical Engineer (Aerospace Actuation),,,0,,malformed_skipped
+8151,95336248816,"Lead, Electrical Engineering - Hardware - Tactical Data Links",182000.0,USD,1,range,filled
+8160,95681848640,"Lead, Contracts",157750.0,USD,1,range,filled
+8240,JR11236,"Software Development Engineer, Sr",105200.0,USD,1,range,filled
+8284,95087265408,"Senior Specialist, Trade Compliance",104000.0,USD,1,range,filled
+8384,36077,Mechanical Engineering Director,,,0,,malformed_skipped
+8415,JR101153,Manufacturing Engineer II,109287.15,USD,1,range,filled
+8654,94834111264,"Manager, Information Security Systems Engineering",,,0,,malformed_skipped
+8689,JR109290,Senior Staff Systems Engineer,,,0,,malformed_skipped
+8869,96290054608,"Senior Specialist, Aerospace Engineer (Thermal Analysis)",,,0,,malformed_skipped
+9242,JR2026511812,Senior Program Manager,,,0,,malformed_skipped
+9329,95091824800,"Lead, Software Engineer - Tactical Data Link",192750.0,USD,1,range,filled
+9342,95949010208,"Sr. Specialist, Process Manufacturing Engineer",,,0,,malformed_skipped
+9407,JR111313,Mechanical Engineer II/Senior,,,0,,malformed_skipped
+9501,7774,Senior Systems Engineer,210000.0,USD,1,range,filled
+9528,7772,Systems Engineer,146000.0,USD,1,range,filled
+9562,JR109645,"Senior Commercial Counsel, Aerospace",,,0,,malformed_skipped
+9599,JR110199,"Sr. Manager, Strategy & Corporate Development",,,0,,malformed_skipped
+9646,JR2026494681,Senior Weight and Mass Properties Engineer,156325.0,USD,1,range,filled
+9648,JR101451,Export Compliance Manager,,,0,,malformed_skipped
+9713,7374,Financial Analyst,165000.0,USD,1,range,filled
+9716,JR111253,Sr. Payroll Analyst,,,0,,malformed_skipped
+9737,JR8622,"Product Engineer, Sr Lead",132850.0,USD,1,range,filled
+9787,7655,Mid-Level Software Engineer,146000.0,USD,1,range,filled
+9829,7654,Junior Software Engineer,121750.0,USD,1,range,filled
+9880,93458599760,"Specialist, Project Engineering",110500.0,USD,1,range,filled
+9886,JR2026503661,Design and Analysis Engineer,132000.0,USD,1,range,filled
+9910,JR110236,"Manager, Engineering - Electromechanical Actuation",,,0,,malformed_skipped
+9959,121846,Sovereign Instructor Pilot,,,0,,malformed_skipped
+9960,JR2026513271,Quality Manager - Software Quality Engineering,198450.0,USD,1,range,filled
+9980,94530013120,"Specialist, Trade Compliance",99000.0,USD,1,range,filled
+9989,96481332112,"Lead, Crypto-Communications Security Systems Engineer",178500.0,USD,1,range,filled
+10047,121932,Falcon 7X Instructor Pilot,,,0,,malformed_skipped
+10050,121929,2000 EASy/900EASy Instructor Pilot,,,0,,malformed_skipped
+10121,JR110070,Sr. Internal Control and Process Improvement Analyst,,,0,,malformed_skipped
+10143,96255791120,"Lead, Project Engineer",,,0,,malformed_skipped
+10282,93933949168,Lead Member Engineering Staff - CAM - LMES Level,,,0,,malformed_skipped
+10290,119492,Software Engineer,128150.0,USD,1,range,filled
+10584,JR101495,Sr. Manufacturing Engineering Manager,202750.0,USD,1,range,filled
+10605,JR9892,Electro-Mechanical Design Engineer,121000.0,USD,1,range,filled
+10633,96190932112,"Senior Specialist, Software Engineering",150000.0,USD,1,range,filled
+10660,36041,Sr Manufacturing Engineer,,,0,,malformed_skipped
+10742,7972,Mid-Level Radar Exploitation Engineer,100500.0,USD,1,range,filled
+10998,JR110300,Advanced Sourcing Engineer I,,,0,,malformed_skipped
+11043,JR11814,Electrical Engineering Manager,160100.0,USD,1,range,filled
+11080,95294387376,"Lead, Project Engineer",,,0,,malformed_skipped
+11157,JR11411,Project Manager,120000.0,USD,1,range,filled
+11164,96234192064,"Lead, Mechanical Engineering(Sign-on bonus-$15k-$25k)",,,0,,malformed_skipped
+11178,JR12528,"Sr. Manager, Business Development",183800.0,USD,1,range,filled
+11231,JR2026514395,Facilities Project Administrator,100500.0,USD,2,range,filled
+11242,JR12126,Weld Engineer (Sign on Bonus Available for Select Candidates!),105000.0,USD,1,range,filled
+11394,JR110856,Client/Server Administrator,,,0,,malformed_skipped
+11443,96255790864,"Senior Specialist, Mechanical Engineering(Sign-on bonus-$15k-$25k)",,,0,,malformed_skipped
+11657,96505721936,"Supervisor, Operations Management",95500.0,USD,1,range,filled
+11827,96234191952,"Specialist, Mechanical Engineering",,,0,,malformed_skipped
+11835,8533743002,Sr. Antenna Engineer (Starship),,,0,,malformed_skipped
+11847,JR12059,Production Planner,73500.0,USD,1,range,filled
+11853,121161,Rotary & UAS Business Development Manager,,,0,,malformed_skipped
+11936,JR2026513348,Experienced Avionics Technician - B-52 (2400),78000.0,USD,1,hourly_annualized,filled
+11944,96179150480,"Senior Manager, Systems Engineering",,,0,,malformed_skipped
+11962,JR11624,"Electrical Engineer, Lead (Sign on Bonus available for select candidates!)",142500.0,USD,1,range,filled
+12058,JR11885,Lead Proposal Analyst,119000.0,USD,1,range,filled
+12064,JR12228,Senior Demo Gear Coordinator,82050.0,USD,1,range,filled
+12093,JR111287,Mechanical Drafter/Designer III/Senior,,,0,,malformed_skipped
+12126,92315569728,Space Propulsion Test Mechanic C- 1st Shift,72675.2,USD,1,hourly_annualized,filled
+12167,96234191968,"Associate Manager, Mechanical Engineering(Sign-on bonus-$15k-25k)",,,0,,malformed_skipped
+12189,96304034432,"Senior Specialist, Project Management",126000.0,USD,1,range,filled
+12233,1533701,Quality Engineer II,112700.0,USD,1,range,filled
+12355,JR2026514382,Linux System Administrator (Associate),104500.0,USD,2,range,filled
+12401,JR2026513084,Entry Level Systems Engineering Engineer,87000.0,USD,1,range,filled
+12452,93274096176,"Sr Specialist, CAD Design (Aerospace Design) : Sign-on bonus ($20K max)",131000.0,USD,1,range,filled
+12457,96519773872,"Supervisor, Operations Management",93000.0,USD,1,range,filled
+12475,95666305360,Systems Engineer,,,0,,malformed_skipped
+12579,JR11606,Project Engineer,90000.0,USD,1,range,filled
+12612,JR111373,Project Manager (Licensee Onboarding),,,0,,malformed_skipped
+12739,JR11628,Manufacturing Engineering Specialist,78500.0,USD,1,range,filled
+12757,JR101430,Import Compliance Analyst,92751.9,USD,1,range,filled
+12763,95045857488,Senior Supervisor Operations Manager,109000.0,USD,1,range,filled
+12803,93801107024,"Inventory Management, Support D 1",73000.0,USD,1,range,filled
+12877,JR11682,Sr. Electrical Engineer,122500.0,USD,1,range,filled
+12893,JR10890,Assistant Unit Controller,137500.0,USD,1,range,filled
+12904,96322459504,"Specialist, Material Management",,,0,,malformed_skipped
+13061,JR2026513085,Experienced Structures Mechanic - B-52 (2400),78000.0,USD,1,hourly_annualized,filled
+13077,95892345648,Systems Engineer,,,0,,malformed_skipped
+13079,JR111107,Sr Tax Specialist,,,0,,malformed_skipped
+13101,JR111734,IT Compliance & Product Security Analyst,,,0,,malformed_skipped
+13217,JR100821,Project Manager - Technical Publications,119800.0,USD,1,range,filled
+13288,JR9369,Program Manager,139200.0,USD,1,range,filled
+13355,94840491744,"Lead, Project Engineer",181750.0,USD,1,range,filled
+13380,95904350848,UI/UX Associate Engineer - Early Career,,,0,,malformed_skipped
+13425,JR111098,Operations Supervisor- 1st Shift,,,0,,malformed_skipped
+13458,7751691003,"Vice President, Program Management (SJ2026TN)",,,0,,malformed_skipped
+13487,JR11105,"Reliability and Safety Engineer, Sr",121000.0,USD,1,range,filled
+13694,121582,Training Standards Lead,141000.0,USD,1,range,filled
+13857,JR12370,Metrology Lab Techinician,49920.0,USD,1,hourly_annualized,filled
+13889,JR110400,Staff Manufacturing Special Process Engineer,,,0,,malformed_skipped
+13898,JR11108,Senior Program Manager-Defense Solutions- Onsite Position,165350.0,USD,1,range,filled
+13928,95350299088,Staff DevSecOps Engineer - Top Secret Clearance Required,,,0,,malformed_skipped
+13975,7012,Data Scientist,159500.0,USD,1,range,filled
+13989,JR101833,Regional Sales Manager,,,0,,malformed_skipped
+14026,JR101908,Project Engineer,95550.0,USD,1,range,filled
+14087,322646,Website & SharePoint Administrator,,,0,,malformed_skipped
+14565,93200629280,Aircraft Maintenance Engineer - Avionics,121888.0,USD,1,hourly_annualized,filled
+14636,JR11418,Quality Control Manager,118950.0,USD,1,range,filled
+14638,JR2026504524,Supply Chain Management Analyst,99630.0,USD,2,range,filled
+14657,95336248624,"Senior Associate, Electrical Engineering",115000.0,USD,1,range,filled
+14713,JR111206,Marketing Analysis Manager II,,,0,,malformed_skipped
+14810,JR101629,Contracts Manager,141500.0,USD,1,range,filled
+14819,121355,Capture Manager,,,0,,malformed_skipped
+14898,JR11534,Additive Manufacturing Engineer,97600.0,USD,1,range,filled
+15042,JR2026514279,Associate Level Product Review Engineer (Liaison Engineering),100000.0,USD,1,range,filled
+15152,JR11598,Software Developer-Embedded-Onsite Position,87300.0,USD,1,range,filled
+15192,94567506800,"Lead, Electrical Engineer (Printed Circuit Board Design) 1",182000.0,USD,1,range,filled
+15198,JR2026508389,Numerical Control Programmer - Machining/Tooling (Mid-level or Senior),130000.0,USD,2,range,filled
+15267,JR110834,Data Governance Lead,,,0,,malformed_skipped
+15315,JR111621,IT Client Services Manager,,,0,,malformed_skipped
+15344,JR12014,Senior Product Manager - Valves,,,0,,malformed_skipped
+15364,JR11317,"Systems Engineer, Lead",121000.0,USD,1,range,filled
+15445,JR2026510583,Associate Manufacturing Engineer,93000.0,USD,1,range,filled
+15463,94967636832,"Sr Specialist, Systems Engineer (Space Systems) - MBSE : Sign-on bonus ($20K max)",152000.0,USD,1,range,filled
+15483,95967620224,"Manager, Mechanical Engineering(Sign-on bonus-$15k-$25k)",,,0,,malformed_skipped
+15627,JR11818,Principal Software Test Engineer-Embedded-Defense Solutions,,,0,,malformed_skipped
+15663,JR2026513886,Structures Technical Analyst (Associate and Mid-Level),74000.0,USD,2,range,filled
+15765,322566,F-16 Aircraft Mechanic III,,,0,,malformed_skipped
+15771,JR2026514226,Procurement Multi-fam Mgr (Sup Mgt&Prcrmnt Multi Fam),185250.0,USD,1,range,filled
+15777,121159,Naval Business Development Manager,,,0,,malformed_skipped
+15791,96310304160,"Supervisor, Manufacturing",,,0,,malformed_skipped
+15819,JR2026506074,Mechanical & Structural Engineering Manager (K Level),173000.0,USD,1,range,filled
+15823,96299162304,Inventory Management Support C,,,0,,malformed_skipped
+15925,95304361264,"Senior Specialist, Systems Engineering - Requirements SME",,,0,,malformed_skipped
+15970,JR10816,Quality Assurance Engineer,84600.0,USD,1,range,filled
+15971,93269697952,Machinist,80000.0,CAD,1,range,filled
+16136,JR10628,Program Manager,160000.0,USD,1,range,filled
+16137,JR2026514013,Supply Chain Management Analyst,83000.0,USD,1,range,filled
+16139,JR12053,Systems and Controls Engineer,71350.0,USD,1,range,filled
+16231,319647,F-16 Quality Assurance Inspector,,,0,,malformed_skipped
+16253,94047654160,"Senior Specialist, SATCOM Systems Engineer",,,0,,malformed_skipped
+16313,322546,F-16 Quality Assurance Inspector,,,0,,malformed_skipped
+16437,JR110257,Sr. Buyer,,,0,,malformed_skipped
+16457,96580010336,Contracts Sr. Specialist,110000.0,USD,1,range,filled
+16546,JR11318,Structural Integrity Engineer Principal,160100.0,USD,1,range,filled
+16670,JR2026510555,Manufacturing Engineer - General (Associate or Mid Level),111000.0,USD,2,range,filled
+16685,1534003,"Experienced A&P Mechanic MST - Birmingham, AL",,,0,,malformed_skipped
+16794,JR11835,"Manufacturing Engineer, Sr",102500.0,USD,1,range,filled
+16837,R-00179322,"TRICARE Beneficiary Services Representative FLOATER - Kunsan, S. Korea",,,0,,malformed_skipped
+16870,R-00181559,"TRICARE Beneficiary Services Representative FLOATER - Camp Humphreys, S. Korea",,,0,,malformed_skipped
+16945,JR12410,Dynamics Analyst,93100.0,USD,1,range,filled
+17000,JR11385,Lead Mechanical Design Engineer,137500.0,USD,1,range,filled
+17071,JR10132,"Supervisor, Operations - 2nd Shift",102500.0,USD,1,range,filled
+17205,1534571,"Experienced A&P Mechanic MST - Tallahassee, FL",,,0,,malformed_skipped
+17228,JR110848,"Manager, IT Security",,,0,,malformed_skipped
+17313,319646,F-16 Maintenance Supervisor,,,0,,malformed_skipped
+17400,1539391,"A&P Mechanic MST (Cincinnati, OH)",,,0,,malformed_skipped
+17419,36148,Production Assembler I,,,0,,malformed_skipped
+17556,95671840512,Sr. Associate Environmental Test Maintenance,,,0,,malformed_skipped
+17577,120560,Training Solutions Execution Lead,,,0,,malformed_skipped
+17671,JR108881,WBS Manager,,,0,,malformed_skipped
+17673,JR11934,"Project Manager, Deputy",93500.0,USD,1,range,filled
+17844,JR12445,Manufacturing Engineer,96900.0,USD,1,range,filled
+17845,JR12447,Manufacturing Engineer,96900.0,USD,1,range,filled
+18072,JR7609,"Supervisor, Mechanical Design Engineer",,,0,,malformed_skipped
+18155,95994967040,"Specialist, Electrical Engineer",,,0,,malformed_skipped
+18229,JR11413,"Section 1 Steam, Senior Mechanical Design Engineer",,,0,,malformed_skipped
+18279,7597,Exploitation Analyst (EA),82500.0,USD,1,range,filled
+18361,JR110697,Pricing Analyst I,,,0,,malformed_skipped
+18399,121024,CC-295 Sensor Operator Instructor,113700.0,USD,1,range,filled
+18404,319668,F-16 Sheetmetal Mechanic,,,0,,malformed_skipped
+18411,8332787002,Staff Avionics Manufacturing Engineer,,,0,,malformed_skipped
+18416,JR11713,Mechanical Design Engineer,97500.0,USD,1,range,filled
+18417,35150,Automation Eng Sr Technician 2nd Shift,,,0,,malformed_skipped
+18426,35151,Automation Eng Sr Technician - 3rd Shift,,,0,,malformed_skipped
+18437,93809863824,Coating Specialist,100000.0,USD,1,range,filled
+18582,JR12007,"Supervisor, R&D Engineering",135000.0,USD,1,range,filled
+18625,8511132002,Government Affairs Manager (National Security),,,0,,malformed_skipped
+18685,JR2026512965,Aircraft Avionic Technician (C-17),,,0,,malformed_skipped
+18868,93251136240,Aircraft Maintenance Engineer (AME) - M2 (Casual),109720.0,USD,1,hourly_annualized,filled
+18886,94298067872,Aircraft Certif. Authority (M2),109720.0,USD,1,hourly_annualized,filled
+18999,JR2026510922,Support Engineering Data Specialist  (Mid-Level and Senior),123500.0,USD,2,range,filled
+19018,95990114016,Specialist Production Planning,99500.0,USD,1,range,filled
+19023,JR109305,Engineering Manager - Test Equipment,,,0,,malformed_skipped
+19057,JR10079,Project Manager,100450.0,USD,1,range,filled
+19092,JR111623,Supplier Quality Engineer,,,0,,malformed_skipped
+19140,121374,C130J Pilot SME,,,0,,malformed_skipped
+19156,JR2026512460,Aircraft Structures Technician (C-17),,,0,,malformed_skipped
+19189,94853080256,"Test Engineering, Mechanical Tooling Designer/Engineer",104500.0,USD,1,range,filled
+19252,JR111338,WBS Director of Continuous Improvement,,,0,,malformed_skipped
+19335,JR2026509586,Spray Painter - Multiple Opportunities,,,0,,malformed_skipped
+19360,JR10111,Sr. Project Engineer,115800.0,USD,1,range,filled
+19530,JR9845,Program Manager,130350.0,USD,1,range,filled
+19595,JR111317,Quality Engineer II - 1st Shift,,,0,,malformed_skipped
+19613,JR12409,Thermal Analyst,93100.0,USD,1,range,filled
+19652,JR101461,Regional Sales Manager - The Rocky Mountain Region,156950.0,USD,1,range,filled
+19749,JR10247,Project Pursuit Manager,160000.0,USD,1,range,filled
+19834,JR2026511972,Senior Manufacturing Engineer,149000.0,USD,1,range,filled
+19958,JR101212,Customer Service Manager,105000.0,USD,1,range,filled
+20163,JR12216,Software Development Engineer,,,0,,malformed_skipped
+20168,117689,CH147F Training Specialist,,,0,,malformed_skipped
+20214,1309266,Non-Licensed A&P Mechanic - Prior Military Experience  -  Various Locations,,,0,,malformed_skipped
+20244,JR101712,Regional Sales Manager - EPCs & Houston,153750.0,USD,1,range,filled
+20278,JR11855,Supply Chain Manager,135000.0,USD,1,range,filled
+20341,JR101664,Executive Assistant,80000.0,USD,1,range,filled
+20398,JR109861,Test Technician,49920.0,USD,1,hourly_annualized,filled
+20421,16432,Midwest - Regional Sales Manager - Remote,137500.0,USD,1,range,filled
+20429,1534663,Experienced A&P Mechanic-Tampa - 1st Shift,,,0,,malformed_skipped
+20502,R-00184055,Bilingual Mortgage Origination Customer Service Representative,47840.0,USD,1,hourly_annualized,filled
+20513,R-00184053,Bilingual Mortgage Origination Customer Service Representative,47840.0,USD,1,hourly_annualized,filled
+20605,95055643264,"Lead, Systems Engineer",,,0,,malformed_skipped
+20611,JR2026510508,Configuration Management (Senior),160000.0,USD,1,range,filled
+20657,JR101365,IT Systems Administrator,75000.0,USD,1,range,filled
+20659,121343,Contract Manager - Commercial Lead,,,0,,malformed_skipped
+20670,JR12221,"Sr. Machinist, Valves",74880.0,USD,1,hourly_annualized,filled
+20680,JR2026511062,Tankline and Aircraft Painter Specialist – SAMC (4992),65291.2,USD,1,hourly_annualized,filled
+20688,1537275,"Experienced A&P Mechanic - (Evening Shift) - Milwaukee, WI",,,0,,malformed_skipped
+20712,R-00184049,Bilingual Mortgage Servicing Customer Service Representative,47840.0,USD,1,hourly_annualized,filled
+20750,94834111392,"Senior Associate, Bus Intel Analyst",,,0,,malformed_skipped
+20780,1537423,"Experienced A&P Mechanic - (Various Shifts) - Houston, TX",,,0,,malformed_skipped
+20846,1539410,"A&P Mechanic (Weekend Shift) - Milwaukee, WI",,,0,,malformed_skipped
+20941,JR12379,Field Service Engineer (Mechanical/Marine Engineer),105000.0,USD,1,range,filled
+21080,JR12297,Electrical Engineer,87500.0,USD,1,range,filled
+21120,JR11670,Quality Assurance Engineer,73000.0,USD,1,range,filled
+21190,JR12040,Solderer (Senior Assembler),58198.4,USD,1,hourly_annualized,filled
+21238,JR11807,Senior Administrative Assistant,70408.0,USD,1,hourly_annualized,filled
+21241,JR108719,Tax Specialist II,,,0,,malformed_skipped
+21276,JR11453,"Buyer, Staff",61550.0,USD,1,range,filled
+21338,JR101525,HR Manager,117500.0,USD,1,range,filled
+21362,JR108891,Aerospace Software Embedded Engineering Director,,,0,,malformed_skipped
+21505,JR11102,Senior Electro- Mechanical Assembler,58198.4,USD,1,hourly_annualized,filled
+21579,JR108876,Senior/Staff Mechanical Engineer - Technology Development (Fuel Systems),,,0,,malformed_skipped
+21649,JR12013,Nuclear Sales Manager - Valves,,,0,,malformed_skipped
+21865,1536032,"Experienced A&P Mechanic -2nd Shift - Tampa, FL",,,0,,malformed_skipped
+22026,JR101278,Inside Sales Manager,128000.0,USD,1,range,filled
+22089,1538391,"Experienced A&P Mechanic (Various Shifts) - Orlando, FL",,,0,,malformed_skipped
+22463,JR101679,Senior Design Engineer – Piezoelectric Transducer Systems (Industrial),131300.0,USD,1,range,filled
+22501,JR11810,Admin Assistant,47590.4,USD,1,hourly_annualized,filled
+22672,JR101417,Applications Engineer,80000.0,USD,1,range,filled
+22766,JR11520,Assembler,50648.0,USD,1,hourly_annualized,filled
+22768,JR11518,Assembler,50648.0,USD,1,hourly_annualized,filled
+23297,5162,"Software Engineer, Integrated Vehicle Simulator",,,0,,malformed_skipped
+23554,JR101172,Regional Sales Manager (East Coast),100000.0,USD,1,range,filled
+23724,JR101366,Electrical Engineer,90000.0,USD,1,range,filled
