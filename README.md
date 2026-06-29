@@ -487,7 +487,3 @@ scraped through mid-June 2026 — re-scrape before citing anything
 time-sensitive.
 
 ---
-
-## License
-
-[ADD LICENSE]
